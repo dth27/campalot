@@ -17,7 +17,10 @@
 </head>
 <body>
     <h1>All Campsites </h1>
-        ${camps}
+    <c:forEach items="${camps}" var="camp">
+
+        ${camp.campName}
+    </c:forEach>
 
 </body>
 </html>

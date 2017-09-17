@@ -12,7 +12,9 @@
 <h1>Welcome! Here you can see your TravelPlan and make a TravelPlan! </h1>
 ${Camps}
 <h2>List of camps</h2>
+<table>
 
+</table>
 
 
 </body>

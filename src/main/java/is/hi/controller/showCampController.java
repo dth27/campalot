@@ -27,7 +27,7 @@ public class showCampController {
     }
 
     @RequestMapping(value = "/listofcamps", method = RequestMethod.GET)
-    public String listCamps(Model model){
+    public String listCamps(Model model) {
         ArrayList<Camp> cList;
         cList = (ArrayList<Camp>) campRep.getAll();
         model.addAttribute("camps", cList);
