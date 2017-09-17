@@ -34,7 +34,10 @@ public class showCampController {
         return "campsites/allCampsites";
     }
     @RequestMapping(value="/login", method = RequestMethod.POST)
-    public String synaNotanda(){
+    public String synaNotanda(Model model){
+        ArrayList<Camp> cList;
+        cList = (ArrayList<Camp>) campRep.getAll();
+        model.addAttribute("camps", cList);
         return "campsites/notendasida";
     }
 

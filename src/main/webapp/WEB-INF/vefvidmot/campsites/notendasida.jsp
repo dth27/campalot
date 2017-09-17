@@ -10,12 +10,21 @@
 </head>
 <body>
 <h1>Welcome! Here you can see your TravelPlan and make a TravelPlan! </h1>
-${Camps}
+
 <h2>List of camps</h2>
-<table>
-
+<table border="1">
+    <thead>
+    <tr>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <c:forEach items="${camps}" var="camp">
+        <tr>
+            <td> ${camp.campName} </td>
+            <td> </td>
+        </tr>
+    </c:forEach>
 </table>
-
 
 </body>
 </html>

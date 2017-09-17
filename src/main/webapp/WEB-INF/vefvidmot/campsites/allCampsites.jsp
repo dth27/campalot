@@ -17,10 +17,18 @@
 </head>
 <body>
     <h1>All Campsites </h1>
-    <c:forEach items="${camps}" var="camp">
-
-        ${camp.campName}
-    </c:forEach>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <c:forEach items="${camps}" var="camp">
+            <tr>
+                <td> ${camp.campName} </td>
+            </tr>
+        </c:forEach>
+    </table>
 
 </body>
 </html>
