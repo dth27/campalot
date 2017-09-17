@@ -18,7 +18,7 @@
 </form>
 
 <h2>Log in!</h2>
-<form action="/action_page.php" method="post">
+<form action="/campsites/login" method="post">
 
     <div class="container">
         <label><b>Username</b></label>
