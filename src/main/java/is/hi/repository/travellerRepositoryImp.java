@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public class travellerRepositoryImp implements travellerRepository {
     private final List<Traveller> travellers;
-   // private Traveller mockCamp;
+   // private Traveller mockTraveller;
     public travellerRepositoryImp(){
         this.travellers = new ArrayList<Traveller>();
     }
