@@ -12,6 +12,7 @@
 <h1>Welcome! Here you can see your TravelPlan and make a TravelPlan! </h1>
 
 <h2>List of camps</h2>
+
 <table border="1">
     <thead>
     <tr>
@@ -21,7 +22,7 @@
     <c:forEach items="${camps}" var="camp">
         <tr>
             <td> ${camp.campName} </td>
-            <td> </td>
+            <td> <button type="button" id="travelPlan">Add to TravelPlan</button> </td>
         </tr>
     </c:forEach>
 </table>

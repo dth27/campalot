@@ -1,5 +1,6 @@
 package is.hi.controller;
 
+import com.sun.org.apache.regexp.internal.RE;
 import is.hi.model.*;
 import is.hi.repository.*;
 import is.hi.service.*;
@@ -39,6 +40,16 @@ public class showCampController {
         cList = (ArrayList<Camp>) campRep.getAll();
         model.addAttribute("camps", cList);
         return "campsites/notendasida";
+    }
+    @RequestMapping(value="/addToPlan", method = RequestMethod.GET)
+    public String addToPlan(Model model){
+        //ArrayList<travelPlan> tList;
+
+        //model.addAttribute("camps", tList);
+        return "campsites/notendasida";
+    }
+    public buttonPress(){
+         butt = document.getElementById('travelPlan');
     }
 
 }
