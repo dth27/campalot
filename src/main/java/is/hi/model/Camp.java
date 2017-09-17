@@ -11,6 +11,16 @@ public class Camp {
     double campLong;
     double campLat;
 
+    public Camp(String campName, int price, String service, String openingHours, String shops, String entertainment, String campArea, double campLong, double campLat) {
+        this.campName = campName;
+        this.price = price;
+        this.openingHours = openingHours;
+        this.shops = shops;
+        this.entertainment = entertainment;
+        this.campArea = campArea;
+        this.campLong = campLong;
+        this.campLat = campLat;
+    }
     public String getCampName() {
         return campName;
     }

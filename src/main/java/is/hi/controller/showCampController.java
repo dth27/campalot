@@ -26,11 +26,11 @@ public class showCampController {
         return "campsites/forsida";
     }
 
-    @RequestMapping(value = "/listCamps", method = RequestMethod.GET)
+    @RequestMapping(value = "/listofcamps", method = RequestMethod.GET)
     public String listCamps(Model model){
-        ArrayList<Camp> List;
-        List = (ArrayList<Camp>) campRep.getAll();
-        model.addAttribute("Camps", List);
+        ArrayList<Camp> cList;
+        cList = (ArrayList<Camp>) campRep.getAll();
+        model.addAttribute("camps", cList);
         return "campsites/allCampsites";
     }
 
