@@ -13,11 +13,13 @@ public class travellerRepositoryImp implements travellerRepository {
    // private Traveller mockTraveller;
     public travellerRepositoryImp(){
         this.travellers = new ArrayList<Traveller>();
+        Traveller traveller = new Traveller("ofm1", "ofm1@hi.is", "password");
+        travellers.add(traveller);
     }
 
     @Override
     public List<Traveller> getAll(){
-        Traveller traveller = new Traveller("ofm1", "ofm1@hi.is", "password");
+        
 
         return travellers;
     }
