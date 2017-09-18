@@ -22,10 +22,13 @@
     <c:forEach items="${camps}" var="camp">
         <tr>
             <td> ${camp.campName} </td>
-            <td> <button type="button" id="travelPlan" value="">Add to TravelPlan</button> </td>
+            <td> <button onclick="showPopupWindow()" type="button" id="myPopup" value="/add" >Add to TravelPlan</button> </td>
         </tr>
     </c:forEach>
 </table>
-
+<script>
+    function showPopupWindow() {
+        var myWindow = window.open(action="/campsites/forsida", "", "width=200,height=100");}
+</script>
 </body>
 </html>

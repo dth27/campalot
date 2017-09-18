@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 
@@ -49,10 +50,10 @@ public class showCampController {
         //model.addAttribute("camps", tList);
         return "campsites/notendasida";
     }
-    /*@RequestMapping(value="/save", method = RequestMethod.POST)
+   /* @RequestMapping(value="/add", method = RequestMethod.GET)
     public String handlePost(@RequestParam String action){
-        return "save";
+        return "campsites/forsida";
     }*/
 
-    //@RequestParam(value = "/travelPlan", meth)
+
 }
