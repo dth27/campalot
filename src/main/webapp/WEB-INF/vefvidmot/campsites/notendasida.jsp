@@ -22,7 +22,7 @@
     <c:forEach items="${camps}" var="camp">
         <tr>
             <td> ${camp.campName} </td>
-            <td> <button type="button" id="travelPlan">Add to TravelPlan</button> </td>
+            <td> <button type="button" id="travelPlan" value="">Add to TravelPlan</button> </td>
         </tr>
     </c:forEach>
 </table>

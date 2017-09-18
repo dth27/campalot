@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 
@@ -48,8 +49,10 @@ public class showCampController {
         //model.addAttribute("camps", tList);
         return "campsites/notendasida";
     }
-    public buttonPress(){
-         butt = document.getElementById('travelPlan');
-    }
+    /*@RequestMapping(value="/save", method = RequestMethod.POST)
+    public String handlePost(@RequestParam String action){
+        return "save";
+    }*/
 
+    //@RequestParam(value = "/travelPlan", meth)
 }
