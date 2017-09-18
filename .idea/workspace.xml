@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="488aa445-8c6a-4107-95fb-f0def1f7911b" name="Default" comment="firsta">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepositoryImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/is/hi/controller/showCampController.java" afterPath="$PROJECT_DIR$/src/main/java/is/hi/controller/showCampController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/is/hi/model/TravelPlan.java" afterPath="$PROJECT_DIR$/src/main/java/is/hi/model/TravelPlan.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/is/hi/model/Traveller.java" afterPath="$PROJECT_DIR$/src/main/java/is/hi/model/Traveller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/is/hi/repository/campsiteRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/is/hi/repository/campsiteRepositoryImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/is/hi/repository/travellerRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/is/hi/repository/travellerRepositoryImp.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,14 +17,24 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.53042686">
+    <splitter split-orientation="horizontal" split-proportion="0.71005917">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="allCampsites.jsp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/allCampsites.jsp">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="435">
-                  <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+                  <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Traveller.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/model/Traveller.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -44,19 +54,23 @@
             <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.jsp">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="360">
-                  <caret line="24" column="62" lean-forward="true" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+                  <caret line="24" column="62" lean-forward="false" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="campsiteRepositoryImp.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="campsiteRepositoryImp.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/repository/campsiteRepositoryImp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+                <state relative-caret-position="465">
+                  <caret line="31" column="1" lean-forward="false" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#872#873#0" expanded="true" />
+                    <element signature="e#900#901#0" expanded="true" />
+                    <element signature="e#947#948#0" expanded="true" />
+                    <element signature="e#978#979#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -66,18 +80,33 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepository.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="90">
-                  <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+                  <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="travelPlanRepositoryImp.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="travelPlanRepositoryImp.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepositoryImp.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="30">
                   <caret line="2" column="36" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="travellerRepositoryImp.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/repository/travellerRepositoryImp.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="330">
+                  <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+                  <folding>
+                    <element signature="e#554#555#0" expanded="true" />
+                    <element signature="e#587#588#0" expanded="true" />
+                    <element signature="e#644#645#0" expanded="true" />
+                    <element signature="e#685#686#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -104,16 +133,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="campSiteServiceImp.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/service/campSiteServiceImp.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -122,7 +141,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/repository/campsiteRepository.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="330">
-                  <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+                  <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -176,13 +195,15 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.js" />
         <option value="$PROJECT_DIR$/src/main/java/is/hi/model/Camp.java" />
         <option value="$PROJECT_DIR$/src/main/java/is/hi/model/TravelPlan.java" />
-        <option value="$PROJECT_DIR$/src/main/java/is/hi/repository/campsiteRepositoryImp.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/forsida.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/allCampsites.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/is/hi/model/Traveller.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/is/hi/controller/showCampController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepositoryImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/is/hi/repository/travellerRepositoryImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/is/hi/model/Traveller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/is/hi/repository/campsiteRepositoryImp.java" />
       </list>
     </option>
   </component>
@@ -471,7 +492,7 @@
       <workItem from="1505489683107" duration="1872000" />
       <workItem from="1505491640724" duration="2032000" />
       <workItem from="1505651558311" duration="15159000" />
-      <workItem from="1505753017347" duration="936000" />
+      <workItem from="1505753017347" duration="1336000" />
     </task>
     <task id="LOCAL-00001" summary="bæta fleiri við">
       <created>1505491587357</created>
@@ -485,10 +506,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20049000" />
+    <option name="totallyTimeSpent" value="20449000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -503,7 +525,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2746781" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2746781" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -614,6 +636,10 @@
           <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
+            <element signature="e#900#901#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
+            <element signature="e#978#979#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -907,26 +933,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/model/Traveller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/allCampsites.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
-          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="62" lean-forward="true" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -939,20 +949,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/repository/campsiteRepositoryImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/repository/campsiteRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -972,7 +972,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -982,6 +982,49 @@
         <state relative-caret-position="30">
           <caret line="2" column="36" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="62" lean-forward="false" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/model/Traveller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/repository/travellerRepositoryImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding>
+            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#587#588#0" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/repository/campsiteRepositoryImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="1" lean-forward="false" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
+            <element signature="e#900#901#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
+            <element signature="e#978#979#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

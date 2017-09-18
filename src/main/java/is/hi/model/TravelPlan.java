@@ -9,13 +9,15 @@ public class TravelPlan {
     int totalPrice;
     int totalSum;
     int totalNights;
-    public TravelPlan(String travelPlanName,  Date dateArrive, Date dateDepart, int totalPrice, int totalSum, int totalNights){
+    String username;
+    public TravelPlan(String travelPlanName,  Date dateArrive, Date dateDepart, int totalPrice, int totalSum, int totalNights, String username){
         this.travelPlanName = travelPlanName;
         this.dateArrive = dateArrive;
         this.dateDepart = dateDepart;
         this.totalPrice = totalPrice;
         this.totalSum = totalSum;
         this.totalNights = totalNights;
+        this.username = username;
     }
 
     public String getTravelPlanName() {
