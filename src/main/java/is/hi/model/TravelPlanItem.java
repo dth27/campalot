@@ -8,6 +8,13 @@ public class TravelPlanItem {
     int totalPrice;
     int totalNights;
 
+    public TravelPlanItem(Date dateArrive, Date dateDepart, int totalPrice, int totalNights) {
+        this.dateArrive = dateArrive;
+        this.dateDepart = dateDepart;
+        this.totalPrice = totalPrice;
+        this.totalNights = totalNights;
+    }
+
     public Date getDateArrive() {
         return dateArrive;
     }

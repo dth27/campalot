@@ -23,7 +23,7 @@
     </thead>
     <c:forEach items="${camps}" var="camp">
         <tr>
-            <form action="addTravel" method="get" >
+            <form action="addTravelitem" method="get" >
                 <td name="campS"> ${camp.campName} </td>
                 <td name="date"> <input type="date" /> </td>
                 <td> <select name="nights">

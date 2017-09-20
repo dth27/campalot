@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import sun.misc.Request;
 
 import java.util.ArrayList;
-
+import java.util.Date;
 @Controller
 @RequestMapping("/campsites")
 public class showCampController {
@@ -27,7 +27,10 @@ public class showCampController {
     travelPlanRepository travelPlanRep;
     @Autowired
     travellerRepository travellerRep;
+    @Autowired
+    travelPlanItemRepository travelPlanItemRep;
 
+    ArrayList<TravelPlanItem> tpiList;
     ArrayList<TravelPlan> tpList;
     ArrayList<Traveller> tList;
 
@@ -46,11 +49,8 @@ public class showCampController {
 
     @RequestMapping("/addTravel")
     public String addTravel(Model model){
-
-
         tpList = (ArrayList<TravelPlan>) travelPlanRep.getAll();
         model.addAttribute("travelplans", tpList);
-
         return "campsites/addTravel";
     }
     @RequestMapping("/newAccountSite")
@@ -127,4 +127,16 @@ public class showCampController {
             return "campsites/forsida";
 
     }
-}
+
+    @RequestMapping(value = "/addTravelitem", method = RequestMethod.POST)
+    public String newTravel(@RequestParam(value="campS")
+                                    String campname, @RequestParam(value="date") Date date,
+                                    @RequestParam(value="nights") int nights, Model model)
+    {
+        TravelPlanItem travelplanItem = new TravelPlanItem( date, null, 1000, nights);
+
+        tpiList.add(travelplanItem);
+        model.addAttribute("travelplanItems", tpiList);
+        return "campsites/addTravel";
+
+}}
