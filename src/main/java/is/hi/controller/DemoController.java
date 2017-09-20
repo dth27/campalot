@@ -46,6 +46,6 @@ public class DemoController {
                                    String nafn, ModelMap model) {
         model.addAttribute("nafn" ,nafn);
         return "demo/synaNotandi";
-    }
 
+    }
 }

@@ -17,18 +17,45 @@
     <thead>
     <tr>
         <th>Name</th>
+        <th>Date of Arrival</th>
+        <th>How many Nights</th>
     </tr>
     </thead>
     <c:forEach items="${camps}" var="camp">
         <tr>
-            <td> ${camp.campName} </td>
-            <td> <button onclick="showPopupWindow()" type="button" id="myPopup" value="/add" >Add to TravelPlan</button> </td>
+            <form action="addTravel" method="get" >
+                <td name="campS"> ${camp.campName} </td>
+                <td name="date"> <input type="date" /> </td>
+                <td> <select name="nights">
+                    <option value="1night">1</option>
+                    <option value="2night">2</option>
+                    <option value="3night">3</option>
+                    <option value="4night">4</option>
+                </select> </td>
+                <td>
+                    <button type="button"  name="buttonid">Add to TravelPlan</button>
+                </td>
+            </form>
         </tr>
     </c:forEach>
 </table>
+<h2>List of TravelPlans</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <c:forEach items="${travelplans}" var="travelplan">
+        <tr>
+            <td> ${travelplan.travelPlanName} </td>
+        </tr>
+    </c:forEach>
+</table>
+<button onclick="showPopupWindow()" type="button" id="myPopup">New TravelPlan</button>
 <script>
     function showPopupWindow() {
-        var myWindow = window.open(action="/campsites/forsida", "", "width=200,height=100");}
+        var myWindow = window.open(action = "/campsites/newTravelPlan", "", "width=600,height=300");}
 </script>
 </body>
 </html>

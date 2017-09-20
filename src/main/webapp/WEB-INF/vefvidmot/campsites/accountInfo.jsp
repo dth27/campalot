@@ -13,22 +13,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
-    <title>All CampSites</title>
+    <title>Account</title>
 </head>
 <body>
-    <h1>All Campsites </h1>
-    <table border="1">
-        <thead>
-        <tr>
-            <th>Name</th>
-        </tr>
-        </thead>
-        <c:forEach items="${camps}" var="camp">
-            <tr>
-                <td> ${camp.campName} </td>
-            </tr>
-        </c:forEach>
-    </table>
+    <h1>Your account is ready </h1>
+    <button onclick=window.close(); type="button" id="myPopup">Close</button>
 
 </body>
 </html>

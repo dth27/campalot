@@ -10,7 +10,7 @@ import java.util.List;
 public class campsiteRepositoryImp implements campsiteRepository {
     private final List<Camp> camps;
 
-    // private Camp mockCamp;
+   // private Camp mockCamp;
     public campsiteRepositoryImp(){
         this.camps = new ArrayList<Camp>();
         Camp camp = new Camp("Tjaldsvæði",1000,"no service","05:00-22:00","no shops", "no entertainment","South",8,2);

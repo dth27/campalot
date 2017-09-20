@@ -10,10 +10,11 @@ import java.util.List;
 @Repository
 public class travellerRepositoryImp implements travellerRepository {
     private final List<Traveller> travellers;
-    // private Traveller mockTraveller;
+   // private Traveller mockTraveller;
     public travellerRepositoryImp(){
-        Traveller traveller = new Traveller("ofm1", "ofm1@hi.is", "password");
         this.travellers = new ArrayList<Traveller>();
+        Traveller traveller = new Traveller("ofm1", "ofm1@hi.is", "password");
+        travellers.add(traveller);
     }
 
     @Override

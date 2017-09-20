@@ -11,7 +11,6 @@ public class Traveller {
         this.password = password;
     }
 
-
     public String getUsername() {
         return username;
     }
