@@ -21,9 +21,10 @@
         <th>How many Nights</th>
     </tr>
     </thead>
+    <form action="/addTravelitem" method="POST" >
     <c:forEach items="${camps}" var="camp">
         <tr>
-            <form action="addTravelitem" method="get" >
+
                 <td name="campS"> ${camp.campName} </td>
                 <td name="date"> <input type="date" /> </td>
                 <td> <select name="nights">
@@ -35,9 +36,10 @@
                 <td>
                     <button type="button"  name="buttonid">Add to TravelPlan</button>
                 </td>
-            </form>
+
         </tr>
     </c:forEach>
+    </form>
 </table>
 <h2>List of TravelPlans</h2>
 <table border="1">
@@ -51,11 +53,19 @@
             <td> ${travelplan.travelPlanName} </td>
         </tr>
     </c:forEach>
+    <c:forEach items="${travelplanItems}" var="travelplanItems">
+        <td> ${travelplanItem.dateArrive} </td>
+        <td> ${travelplanItem.dateDepart} </td>
+        <td> ${travelplanItem.totalPrice} </td>
+        <td> ${travelplanItem.totalNights} </td>
+
+    </c:forEach>
 </table>
 <button onclick="showPopupWindow()" type="button" id="myPopup">New TravelPlan</button>
+
 <script>
     function showPopupWindow() {
-        var myWindow = window.open(action = "/campsites/newTravelPlan", "", "width=600,height=300");}
+        window.open(action = "/campsites/newTravelPlan", "", "width=600,height=300");}
 </script>
 </body>
 </html>
