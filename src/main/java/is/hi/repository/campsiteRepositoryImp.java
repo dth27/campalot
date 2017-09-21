@@ -2,9 +2,17 @@ package is.hi.repository;
 
 import is.hi.model.Camp;
 import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ * A collection of camps
+ */
 
 @Repository
 public class campsiteRepositoryImp implements campsiteRepository {
@@ -21,10 +29,19 @@ public class campsiteRepositoryImp implements campsiteRepository {
         camps.add(camp);
     }
 
+    /**
+     *
+     * @return list of camps
+     */
     @Override
     public List<Camp> getAll(){
         return camps;
     }
+
+    /**
+     * Adds camp to list
+     * @param camp
+     */
     @Override
     public void add (Camp camp){
         camps.add(camp);

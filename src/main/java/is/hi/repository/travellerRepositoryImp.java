@@ -7,6 +7,15 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ * Collection of travellers
+ */
+
 @Repository
 public class travellerRepositoryImp implements travellerRepository {
     private final List<Traveller> travellers;

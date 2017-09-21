@@ -2,6 +2,15 @@ package is.hi.model;
 
 import java.util.Date;
 
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ * TravelPlan klasi sem inniheldur upplýsingar um travelplan
+ */
+
 public class TravelPlan {
     String travelPlanName;
     Date dateArrive;

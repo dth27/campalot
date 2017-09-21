@@ -1,12 +1,18 @@
 package is.hi.repository;
 
-
 import is.hi.model.TravelPlan;
-        import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Repository;
+import java.util.ArrayList;
+import java.util.List;
 
-        import java.util.ArrayList;
-        import java.util.List;
-
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ * Collection of travelplans
+ */
 @Repository
 public class travelPlanRepositoryImp implements travelPlanRepository {
     private final List<TravelPlan> travelplans;

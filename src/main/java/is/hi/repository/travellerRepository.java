@@ -8,7 +8,7 @@ import java.util.List;
  * @date september 2017
  * HBV501G Hugbúnaðarverkefni 1
  * Háskóli Íslands
- * @author Diljá Þorkelsdóttir, Ólöf, Sandra, Kristín
+ * @author Diljá, Ólöf, Sandra, Kristín
  *
  * repository for all travellers
  */

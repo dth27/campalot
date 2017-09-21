@@ -1,5 +1,14 @@
 package is.hi.model;
 
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ * Traveller klasi sem inniheldur notendaupplýsingar
+ */
+
 public class Traveller {
     String username;
     String email;
