@@ -2,10 +2,12 @@ package is.hi.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
-public interface campSiteService {
 
-    public boolean isPwCorr(String nafn, String lykilorð);
+public interface campSiteService {
+    ArrayList getCampsites();
+
 }

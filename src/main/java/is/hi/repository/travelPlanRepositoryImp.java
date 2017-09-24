@@ -1,7 +1,12 @@
 package is.hi.repository;
 
 import is.hi.model.TravelPlan;
+import is.hi.model.TravelPlanItem;
+import is.hi.service.AlternativeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +20,16 @@ import java.util.List;
  */
 @Repository
 public class travelPlanRepositoryImp implements travelPlanRepository {
+
+
     private final List<TravelPlan> travelplans;
+
     // private TravelPlan mockTravelPlan;
     public travelPlanRepositoryImp(){
         this.travelplans = new ArrayList<TravelPlan>();
         TravelPlan travelplan = new TravelPlan("Ferðalag 1" , null, null, 0, 0, 0, "ofm1");
         travelplans.add(travelplan);
+
 
     }
 
@@ -32,4 +41,6 @@ public class travelPlanRepositoryImp implements travelPlanRepository {
     public void add (TravelPlan travelplan){
         travelplans.add(travelplan);
     }
+
+
 }

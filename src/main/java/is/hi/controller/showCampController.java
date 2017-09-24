@@ -29,19 +29,24 @@ import java.util.Date;
 public class showCampController {
 
     @Autowired
-    campSiteService tjaldService;
+    campSiteService CampsiteService;
     @Autowired
-    campsiteRepository campRep;
+    UserService userService;
     @Autowired
-    travelPlanRepository travelPlanRep;
-    @Autowired
-    travellerRepository travellerRep;
-    @Autowired
-    travelPlanItemRepository travelPlanItemRep;
+    TravelPlanService travelplanService;
+
+   // @Autowired
+    //campsiteRepository campRep;
+   // @Autowired
+   // travelPlanRepository travelPlanRep;
+   // @Autowired
+   // travellerRepository travellerRep;
+   // @Autowired
+   // travelPlanItemRepository travelPlanItemRep;
 
     ArrayList<TravelPlanItem> tpiList;
     ArrayList<TravelPlan> tpList;
-    ArrayList<Traveller> tList;
+    //ArrayList<Traveller> tList;
 
     /**
      * @return skilar forsíðu
@@ -59,7 +64,7 @@ public class showCampController {
     @RequestMapping(value = "/listofcamps", method = RequestMethod.GET)
     public String listCamps(Model model) {
         ArrayList<Camp> cList;
-        cList = (ArrayList<Camp>) campRep.getAll();
+        cList = CampsiteService.getCampsites();
         model.addAttribute("camps", cList);
         return "campsites/allCampsites";
     }
@@ -85,7 +90,7 @@ public class showCampController {
     }
 
     /**
-     * TODO setja lógík í service
+     *
      * vefsíða þar sem notandi getur stofnað nýjan aðgang
      * @param username
      * @param email
@@ -98,54 +103,36 @@ public class showCampController {
                                     String username, @RequestParam(value="email") String email,
                                     @RequestParam(value="pw1") String pw1,
                                     @RequestParam(value="pw2") String pw2)
-    {
-        tList = (ArrayList<Traveller>) travellerRep.getAll();
-        for(Traveller t: tList){
-            if (username.equals(t.getUsername())||email.equals(t.getEmail()))
+    {   boolean doesExist = userService.doesTravellerExist(username, email);
+        boolean PWidentical = userService.arePWidentical(pw1, pw2);
+        if (doesExist)
                 return "campsites/newAccountSite";
-        }
-
-        if(pw1.equals(pw2)){
-            Traveller traveller = new Traveller(username, email, pw1);
-            tList.add(traveller);
+        if (PWidentical){
+            userService.newTraveller(username, email, pw1);
             return "campsites/accountInfo";
         }
         return "campsites/newAccount";
     }
 /*
     /**
-     * TODO setja lógík í service
+     *
      * Vefsíða sem byður notanda að logga sig inn og tjékkar hvort notandi sé til
      * @param uname
      * @param psw
      * @param model
      * @return annaðhvort forsíðu eða notendasíðu eftir því hvort aðgangurinn er til
      */
-    /*@RequestMapping(value="/login", method = RequestMethod.POST)
-    public String synaNotanda(@RequestParam(value="uname") String uname , @RequestParam(value="psw") String psw,
-                                Model model){
-        tList = (ArrayList<Traveller>) travellerRep.getAll();
-        Boolean login = false;
-
-        for (Traveller t: tList){
-            if(psw.equals(t.getPassword())&&uname.equals(t.getUsername()))
-                login = true;
-        }
-        if(login==true)
-        {  ArrayList<Camp> cList;
-        cList = (ArrayList<Camp>) campRep.getAll();
-        model.addAttribute("camps", cList);
-
-        ArrayList<TravelPlan> tpList;
-        tpList = (ArrayList<TravelPlan>) travelPlanRep.getAll();
-        model.addAttribute("travelplans", tpList);
-            return "campsites/notendasida";}
-        else
-            return "campsites/forsida";
-    }*/
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String synaNotanda(@RequestParam(value = "uname") String nafn, @RequestParam(value = "psw") String lykilorð, Model model ) {
-        if (tjaldService.isPwCorr(nafn, lykilorð)) {
+        if (userService.isPwCorr(nafn, lykilorð)) {
+            //TODO tengja við service til að birta Camp og TravelPlan
+            ArrayList<Camp> cList;
+            cList = CampsiteService.getCampsites();
+            model.addAttribute("camps", cList);
+
+            ArrayList<TravelPlan> tpList;
+            tpList = travelplanService.getTravelplans();
+            model.addAttribute("travelplans", tpList);
             return "campsites/notendasida";
         } else {
             return "campsites/forsida";
@@ -156,7 +143,7 @@ public class showCampController {
      *
      * @return
      */
-    @RequestMapping(value="newTravelPlan")
+    @RequestMapping(value="newTravelPlan", method = RequestMethod.GET)
     public String newTravelPlan(){
         return "campsites/newTravelPlan";
     }
@@ -168,13 +155,15 @@ public class showCampController {
      */
     @RequestMapping(value = "/addTravel", method = RequestMethod.POST)
     public String addTravel(Model model){
-        tpList = (ArrayList<TravelPlan>) travelPlanRep.getAll();
+
+        tpList = travelplanService.getTravelplans();
+
         model.addAttribute("travelplans", tpList);
-        return "campsites/addTravel";
+        return "campsites/notendasida";
     }
 
     /**
-     * TODO setja lógík í service
+     *
      * vefsíða sem gerir notenda kleift að búa til nýtt travelplan
      * @param username
      * @param planName
@@ -185,9 +174,8 @@ public class showCampController {
     public String newTravel(@RequestParam(value="username")
                                     String username, @RequestParam(value="planName") String planName, Model model)
     {
-        tpList = (ArrayList<TravelPlan>) travelPlanRep.getAll();
-        TravelPlan travelplan = new TravelPlan(planName , null, null, 0, 0, 0, username);
-        tpList.add(travelplan);
+        travelplanService.createTravelplan(planName , username);
+        tpList = travelplanService.getTravelplans();
         model.addAttribute("travelplans", tpList);
 
         return "campsites/notendasida";
@@ -203,11 +191,12 @@ public class showCampController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/addTravelitem", method = RequestMethod.POST)
+    @RequestMapping(value = "/addTravelitem", method = RequestMethod.GET)
     public String newTravel(@RequestParam(value="campS")
                                     String campname, @RequestParam(value="date") Date date,
                             @RequestParam(value="nights") int nights, Model model)
     {
+
         TravelPlanItem travelplanItem = new TravelPlanItem( date, null, 1000, nights);
 
         tpiList.add(travelplanItem);

@@ -1,6 +1,7 @@
 package is.hi.repository;
 
 import is.hi.model.TravelPlan;
+import is.hi.model.TravelPlanItem;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public interface travelPlanRepository {
      * @return list of travellers
      */
     List <TravelPlan> getAll();
+
 
     /**
      * adds travelplan

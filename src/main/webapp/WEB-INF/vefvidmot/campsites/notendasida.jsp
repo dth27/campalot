@@ -21,7 +21,7 @@
         <th>How many Nights</th>
     </tr>
     </thead>
-    <form action="/addTravelitem" method="POST" >
+    <form action="/addTravelitem" method="get" >
     <c:forEach items="${camps}" var="camp">
         <tr>
 
@@ -34,14 +34,16 @@
                     <option value="4night">4</option>
                 </select> </td>
                 <td>
-                    <button type="button"  name="buttonid">Add to TravelPlan</button>
+                    <button type="submit"  name="buttonid">Add to TravelPlan</button>
                 </td>
 
         </tr>
     </c:forEach>
     </form>
+
 </table>
 <h2>List of TravelPlans</h2>
+<form action="/newTravelPlan" method = "get">
 <table border="1">
     <thead>
     <tr>
@@ -61,8 +63,9 @@
 
     </c:forEach>
 </table>
-<button onclick="showPopupWindow()" type="button" id="myPopup">New TravelPlan</button>
 
+<button type="button" onclick="showPopupWindow()">New TravelPlan</button>
+</form>
 <script>
     function showPopupWindow() {
         window.open(action = "/campsites/newTravelPlan", "", "width=600,height=300");}

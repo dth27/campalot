@@ -18,7 +18,7 @@ public class TravelPlan {
     int totalPrice;
     int totalSum;
     int totalNights;
-    String username;
+    String username; //TODO skoða
     public TravelPlan(String travelPlanName,  Date dateArrive, Date dateDepart, int totalPrice, int totalSum, int totalNights, String username){
         this.travelPlanName = travelPlanName;
         this.dateArrive = dateArrive;
