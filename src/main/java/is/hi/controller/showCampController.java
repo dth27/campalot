@@ -34,6 +34,8 @@ public class showCampController {
     UserService userService;
     @Autowired
     TravelPlanService travelplanService;
+    @Autowired
+    AlternativeService alternativeService;
 
    // @Autowired
     //campsiteRepository campRep;
@@ -133,6 +135,7 @@ public class showCampController {
             ArrayList<TravelPlan> tpList;
             tpList = travelplanService.getTravelplans();
             model.addAttribute("travelplans", tpList);
+
             return "campsites/notendasida";
         } else {
             return "campsites/forsida";
@@ -173,10 +176,13 @@ public class showCampController {
     @RequestMapping(value = "/newTravel", method = RequestMethod.POST)
     public String newTravel(@RequestParam(value="username")
                                     String username, @RequestParam(value="planName") String planName, Model model)
-    {
-        travelplanService.createTravelplan(planName , username);
+    {   try {
+        travelplanService.createTravelplan(planName, username);
         tpList = travelplanService.getTravelplans();
         model.addAttribute("travelplans", tpList);
+        } catch (Exception e){
+        System.out.println("newTravel error");
+    }
 
         return "campsites/notendasida";
     }
@@ -185,23 +191,41 @@ public class showCampController {
      * TODO setja lógík í service
      * TODO laga svo virki
      * Vefsíða þar sem notandi getur bætt travelitem við travel planið sitt
-     * @param campname
-     * @param date
+     * //@param campname
+     *
+     * //@param date
      * @param nights
      * @param model
      * @return
      */
-    @RequestMapping(value = "/addTravelitem", method = RequestMethod.GET)
-    public String newTravel(@RequestParam(value="campS")
-                                    String campname, @RequestParam(value="date") Date date,
-                            @RequestParam(value="nights") int nights, Model model)
+    @RequestMapping(value = "/addTravelitem", method = RequestMethod.POST)
+    public String newTravel(@RequestParam(value="date") String date,
+                            @RequestParam(value="nights") int nights,
+                            @RequestParam(value="travel") String travel, Model model
+                            )
     {
-
-        TravelPlanItem travelplanItem = new TravelPlanItem( date, null, 1000, nights);
+        //TODO vantar planname til að tengja við
+        Date realDate = new java.util.Date();
+        realDate = alternativeService.dateMaker(date);
+        TravelPlanItem travelplanItem = new TravelPlanItem( realDate, null, 1000, nights);
+        travelplanService.addItemtoPlan(travel, travelplanItem);
+        try{
 
         tpiList.add(travelplanItem);
-        model.addAttribute("travelplanItems", tpiList);
-        return "campsites/addTravel";
+
+        }catch (Exception e){
+            System.out.println("addTravelItem error");
+        }
+        ArrayList<Camp> cList;
+        cList = CampsiteService.getCampsites();
+        model.addAttribute("camps", cList);
+
+        //model.addAttribute("travelplanItems", tpiList);
+        tpList = travelplanService.getTravelplans();
+
+        model.addAttribute("travelplans", tpList);
+
+        return "campsites/notendasida";
     }
 
     /** Eftirliggjandi Notkunartilvik
@@ -213,5 +237,9 @@ public class showCampController {
      * TODO-Sandra admin tjekkari í login, if true birta sér síðu
      *
      */
+    @RequestMapping(value="/UserReviews", method = RequestMethod.GET)
+    public String checkNavi(){
+        return "campsites/UserReviews";
+    }
 
 }

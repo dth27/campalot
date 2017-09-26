@@ -10,9 +10,11 @@ import java.util.Date;
 
 public interface TravelPlanService {
 
-    public ArrayList getTravelplans();
-    public void createTravelplan(String planName, String username);
-    public void add(TravelPlan travelplan);
-    public void addTravelplanItem(TravelPlanItem travelplanitem);
+    ArrayList getTravelplans();
+    ArrayList getTravelplanItems();
+    void createTravelplan(String planName, String username);
+    void add(TravelPlan travelplan);
+    void addTravelplanItem(TravelPlanItem travelplanitem);
+    void addItemtoPlan(String travelplan, TravelPlanItem travelplanitem);
 
 }

@@ -10,7 +10,7 @@ public class AlternativeServiceImp implements AlternativeService {
 
     @Override
     public Date dateMaker(String strdate){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         java.util.Date date = new java.util.Date();
         try{
             date = sdf.parse(strdate);

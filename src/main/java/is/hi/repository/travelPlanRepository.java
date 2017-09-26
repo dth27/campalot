@@ -19,12 +19,15 @@ public interface travelPlanRepository {
      * @return list of travellers
      */
     List <TravelPlan> getAll();
-
+    List <TravelPlanItem> getAllItems();
 
     /**
      * adds travelplan
      * @param travelplan
      */
     void add(TravelPlan travelplan);
+    void addItem(String travelplanname, TravelPlanItem travelplanitem);
+    void addtoList(TravelPlanItem travelplanitem);
+    TravelPlan find(String name);
 
 }

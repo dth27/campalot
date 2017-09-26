@@ -14,30 +14,62 @@ public class TravelPlanServiceImp implements TravelPlanService{
     travelPlanRepository planRep;
 
     private ArrayList<TravelPlan> listofTravelPlans;
+    private ArrayList<TravelPlanItem> listofTravelPlanitems;
 
     @Override
     public ArrayList getTravelplans(){
-        try{
-        listofTravelPlans = (ArrayList<TravelPlan>) planRep.getAll();
-        return listofTravelPlans;} catch (Exception e){
-            System.out.print("j");
-        }
-        return null;
 
+        listofTravelPlans = (ArrayList<TravelPlan>) planRep.getAll();
+        return listofTravelPlans;
     }
+
+    /**
+     *
+     * @return a list of all travelplan items
+     */
+    @Override
+    public ArrayList getTravelplanItems(){
+        listofTravelPlanitems = (ArrayList<TravelPlanItem>) planRep.getAllItems();
+        return listofTravelPlanitems;
+    }
+
+    /**
+     * Creates a new Travel plan
+     * @param planName
+     * @param username
+     */
     @Override
     public void createTravelplan(String planName, String username){
         TravelPlan travelplan = new TravelPlan(planName, null,null,0,0,0, username);
         planRep.add(travelplan);
     }
+
+    /**
+     * adds Travelplanitem to the list
+     * @param travelplanitem
+     */
     @Override
     public void addTravelplanItem(TravelPlanItem travelplanitem){
-       // travelplanitem.setDateArrive(null);
-
+        listofTravelPlanitems.add(travelplanitem);
     }
+
+    /**
+     * adds travelplan to a list
+     * @param travelplan
+     */
     @Override
     public void add(TravelPlan travelplan){
         listofTravelPlans.add(travelplan);
+    }
+
+    /**
+     * Adds an item to a travelplan
+     * @param travelplan
+     * @param travelplanitem
+     */
+    @Override
+    public void addItemtoPlan(String travelplan, TravelPlanItem travelplanitem){
+        //planRep.addItem(travelplan, travelplanitem);
     }
 
 }
