@@ -36,7 +36,7 @@
         <tr>
 
                 <td name="campS"> ${camp.campName} </td>
-                <td name="date"> <input type="Date" name="date"/> </td>
+                <td name="date"> <input type="date" name="date"/> </td>
                 <td>
                     <select name="nights">
                         <option value="1">1</option>

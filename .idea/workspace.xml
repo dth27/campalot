@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="488aa445-8c6a-4107-95fb-f0def1f7911b" name="Default" comment="firsta">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/UserReviews.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/is/hi/controller/showCampController.class" afterPath="$PROJECT_DIR$/target/classes/is/hi/controller/showCampController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/is/hi/repository/travelPlanRepository.class" afterPath="$PROJECT_DIR$/target/classes/is/hi/repository/travelPlanRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/is/hi/repository/travelPlanRepositoryImp.class" afterPath="$PROJECT_DIR$/target/classes/is/hi/repository/travelPlanRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/is/hi/service/AlternativeServiceImp.class" afterPath="$PROJECT_DIR$/target/classes/is/hi/service/AlternativeServiceImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/is/hi/service/TravelPlanService.class" afterPath="$PROJECT_DIR$/target/classes/is/hi/service/TravelPlanService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/is/hi/service/TravelPlanServiceImp.class" afterPath="$PROJECT_DIR$/target/classes/is/hi/service/TravelPlanServiceImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/is/hi/controller/showCampController.java" afterPath="$PROJECT_DIR$/src/main/java/is/hi/controller/showCampController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepository.java" afterPath="$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepositoryImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/is/hi/service/AlternativeServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/is/hi/service/AlternativeServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/is/hi/service/TravelPlanService.java" afterPath="$PROJECT_DIR$/src/main/java/is/hi/service/TravelPlanService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/is/hi/service/TravelPlanServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/is/hi/service/TravelPlanServiceImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.43327704">
+    <splitter split-orientation="horizontal" split-proportion="0.65467626">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="travelPlanItemRepository.java" pinned="false" current-in-tab="false">
@@ -76,11 +62,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="notendasida.jsp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="notendasida.jsp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="212">
-                  <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+                <state relative-caret-position="349">
+                  <caret line="38" column="50" lean-forward="false" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
                   <folding>
                     <element signature="n#thead#0;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                   </folding>
@@ -130,11 +116,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="AlternativeServiceImp.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="AlternativeServiceImp.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/service/AlternativeServiceImp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="55" lean-forward="false" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
+                <state relative-caret-position="450">
+                  <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -158,11 +144,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="TravelPlanServiceImp.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="TravelPlanServiceImp.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/service/TravelPlanServiceImp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="71" column="10" lean-forward="false" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
+                <state relative-caret-position="371">
+                  <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -183,7 +169,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="showCampController.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="showCampController.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/controller/showCampController.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="489">
@@ -312,7 +298,6 @@
         <option value="$PROJECT_DIR$/src/main/java/is/hi/service/UserServiceImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/is/hi/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/is/hi/service/AlternativeService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/is/hi/service/AlternativeServiceImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/is/hi/service/TravelPlanService.java" />
         <option value="$PROJECT_DIR$/src/main/java/is/hi/service/TravelPlanServiceImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepository.java" />
@@ -320,8 +305,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/style.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/UserReviews.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/UserReviews.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/is/hi/controller/showCampController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/is/hi/service/AlternativeServiceImp.java" />
       </list>
     </option>
   </component>
@@ -572,7 +558,7 @@
       <workItem from="1506269647558" duration="11370000" />
       <workItem from="1506337520115" duration="359000" />
       <workItem from="1506351982279" duration="854000" />
-      <workItem from="1506455770113" duration="6942000" />
+      <workItem from="1506455770113" duration="7966000" />
     </task>
     <task id="LOCAL-00001" summary="bæta fleiri við">
       <created>1505491587357</created>
@@ -593,7 +579,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60938000" />
+    <option name="totallyTimeSpent" value="61962000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -606,7 +592,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25870648" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -616,7 +601,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38557214" sideWeight="0.105150215" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2375622" sideWeight="0.8948498" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2375622" sideWeight="0.8948498" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.023631841" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -943,16 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/service/AlternativeServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="55" lean-forward="false" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/service/TravelPlanService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -990,26 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/service/TravelPlanServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="71" column="10" lean-forward="false" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepositoryImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="66" column="89" lean-forward="false" selection-start-line="66" selection-start-column="89" selection-end-line="66" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/model/TravelPlan.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1029,11 +984,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/style.css">
+    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/controller/showCampController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="489">
+          <caret line="239" column="68" lean-forward="false" selection-start-line="239" selection-start-column="68" selection-end-line="239" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7591#7592#0" expanded="true" />
+            <element signature="e#7637#7638#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/service/TravelPlanServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/repository/travelPlanRepositoryImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="66" column="89" lean-forward="false" selection-start-line="66" selection-start-column="89" selection-end-line="66" selection-end-column="89" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1045,24 +1024,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/campsites/notendasida.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="349">
+          <caret line="38" column="50" lean-forward="false" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
           <folding>
             <element signature="n#thead#0;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/controller/showCampController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/service/AlternativeServiceImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="239" column="68" lean-forward="false" selection-start-line="239" selection-start-column="68" selection-end-line="239" selection-end-column="68" />
+        <state relative-caret-position="450">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7591#7592#0" expanded="true" />
-            <element signature="e#7637#7638#0" expanded="true" />
           </folding>
         </state>
       </provider>

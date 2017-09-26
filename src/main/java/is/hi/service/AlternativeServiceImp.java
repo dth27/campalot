@@ -2,6 +2,7 @@ package is.hi.service;
 
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,13 +11,15 @@ public class AlternativeServiceImp implements AlternativeService {
 
     @Override
     public Date dateMaker(String strdate){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        java.util.Date date = new java.util.Date();
+
+        DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
+        //String dateAsString = "25/12/2010";
+        Date date = new Date();
         try{
-            date = sdf.parse(strdate);
+            date = sourceFormat.parse(strdate);
             return date;}
         catch(Exception e) {
-            System.out.println("whoops");
+            System.out.println("date went wrong" + " " + date + " " + strdate);
         }
         finally {
             return date;
