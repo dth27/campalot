@@ -24,4 +24,5 @@ public interface travellerRepository {
      * @param traveller
      */
     void add(Traveller traveller);
+    String getReviews(String username);
 }

@@ -50,5 +50,10 @@ public class UserServiceImp implements UserService {
         }
         return false;
     }
+    //TODO fall til að ná í reviews
+    @Override
+    public String getReviews(String username){
+        return username;
+    }
 
 }

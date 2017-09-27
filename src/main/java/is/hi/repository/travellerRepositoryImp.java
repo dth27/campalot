@@ -34,4 +34,14 @@ public class travellerRepositoryImp implements travellerRepository {
     public void add (Traveller traveller){
         travellers.add(traveller);
     }
+    //TODO búa til mock obj og lista fyrir Review
+    @Override
+    public String getReviews(String username){
+        for (int i=0; i<travellers.size(); i++){
+            if (travellers.get(i).equals(username)){
+                //TODO travellers ætti frekar vera listi af reviews
+            }
+        }
+        return username;
+    }
 }

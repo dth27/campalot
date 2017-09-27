@@ -188,7 +188,7 @@ public class showCampController {
     }
 
     /**
-     * TODO setja lógík í service
+     *
      * TODO laga svo virki
      * Vefsíða þar sem notandi getur bætt travelitem við travel planið sitt
      * //@param campname
@@ -207,14 +207,15 @@ public class showCampController {
         //TODO vantar planname til að tengja við
         Date realDate = new java.util.Date();
         realDate = alternativeService.dateMaker(date);
-        TravelPlanItem travelplanItem = new TravelPlanItem( realDate, null, 1000, nights);
+        TravelPlanItem travelplanItem = new TravelPlanItem( realDate, realDate, 1000, nights);
         travelplanService.addItemtoPlan(travel, travelplanItem);
+        tpiList = new ArrayList<TravelPlanItem>();
         try{
 
         tpiList.add(travelplanItem);
 
         }catch (Exception e){
-            System.out.println("addTravelItem error");
+            System.out.println("addTravelItem error" +" "+e);
         }
         ArrayList<Camp> cList;
         cList = CampsiteService.getCampsites();
@@ -239,6 +240,7 @@ public class showCampController {
      */
     @RequestMapping(value="/UserReviews", method = RequestMethod.GET)
     public String checkNavi(){
+
         return "campsites/UserReviews";
     }
 
