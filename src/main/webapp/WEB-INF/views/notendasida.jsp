@@ -87,7 +87,7 @@
 
 <script>
     function showPopupWindow() {
-        window.open(action = "/campsites/newTravelPlan", "", "width=600,height=300");}
+        window.open(action = "/newTravelPlan", "", "width=600,height=300");}
 </script>
 </body>
 </html>

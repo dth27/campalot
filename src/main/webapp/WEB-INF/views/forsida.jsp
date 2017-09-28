@@ -13,12 +13,12 @@
 <h1>Welcome to Camp'a'Lot!</h1>
 
 <h2>Check out the Campsites</h2>
-<form method = "get" action="/campsites/listofcamps">
+<form method = "get" action="listofcamps">
     <input type="submit" value="Allir"/>
 </form>
 
 <h2>Log in!</h2>
-<form action="/campsites/login" method="post">
+<form action="login" method="post">
 
     <div class="container">
         <label><b>Username</b></label>
@@ -27,7 +27,7 @@
         <label><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required>
 
-        <button type="submit" method="POST" action="/campsites/login">Login</button>
+        <button type="submit" method="POST" action="login">Login</button>
 
         <input type="checkbox" checked="checked"> Remember me
     </div>
@@ -41,7 +41,7 @@
 
 <script>
     function showPopupWindow() {
-        var myWindow = window.open(action = "/campsites/newAccountSite", "", "width=600,height=300");}
+        var myWindow = window.open(action = "newAccountSite", "", "width=600,height=300");}
 </script>
 
 </body>

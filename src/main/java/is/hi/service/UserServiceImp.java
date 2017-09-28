@@ -1,7 +1,7 @@
 package is.hi.service;
 
-import is.hi.model.Traveller;
-import is.hi.repository.travellerRepository;
+import is.hi.model.loginUser;
+import is.hi.repository.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,14 +11,14 @@ import java.util.ArrayList;
 public class UserServiceImp implements UserService {
 
     @Autowired
-    travellerRepository travRep;
+    userRepository travRep;
 
-    private ArrayList<Traveller> tList;
+    private ArrayList<loginUser> tList;
 
     @Override
     public boolean isPwCorr(String uname, String psw) {
-        tList = (ArrayList<Traveller>) travRep.getAll();
-        for (Traveller t : tList) {
+        tList = (ArrayList<loginUser>) travRep.getAll();
+        for (loginUser t : tList) {
             if (uname.equals(t.getUsername()) && psw.equals(t.getPassword())) {
                 return true;
             }
@@ -27,16 +27,34 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public void newTraveller(String username, String email, String pw1) {
+    //Checks if user has admin authority
+    public boolean hasAdminAuthority(String uname, String psw) {
+        tList = (ArrayList<loginUser>) travRep.getAll();
+        for (loginUser t : tList) {
+            if (uname.equals(t.getUsername()) && psw.equals(t.getPassword())) {
+                if(t.getadminAuth()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
-            Traveller traveller = new Traveller(username, email, pw1);
-            tList.add(traveller);
+
+    @Override
+    //Creates a new login user
+    public void newLoginUser(String username, String email, String pw1) {
+            //Every new user automatically has a non-admin access
+            Boolean adminAuthority = true;
+            loginUser loginUser = new loginUser(username, email, pw1, adminAuthority);
+            tList.add(loginUser);
     }
 
     @Override
-    public boolean doesTravellerExist(String username, String email) {
-        tList = (ArrayList<Traveller>) travRep.getAll();
-        for (Traveller t : tList) {
+    //Checks if certain username has a login access
+    public boolean doesUserExist(String username, String email) {
+        tList = (ArrayList<loginUser>) travRep.getAll();
+        for (loginUser t : tList) {
             if (username.equals(t.getUsername()) || email.equals(t.getEmail())) {
                 return true;
             }

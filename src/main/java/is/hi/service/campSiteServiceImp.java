@@ -1,10 +1,8 @@
 package is.hi.service;
 import is.hi.model.Camp;
-//import is.hi.model.Traveller;
+//import is.hi.model.loginUser;
 import is.hi.repository.campsiteRepository;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import is.hi.repository.travellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;

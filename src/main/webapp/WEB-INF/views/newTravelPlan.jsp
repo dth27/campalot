@@ -20,7 +20,7 @@
 <h1>Create a new travel plan</h1>
 
 
-<form action="/campsites/newTravel" method="post">
+<form action="/newTravel" method="post">
     <div class="container">
         <label><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="username" required>

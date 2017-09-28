@@ -18,10 +18,10 @@
 <body>
     <h1>Hello ${Traveller.getUsername()}</h1>
     <h1>All information ${Traveller}</h1>
-    <form method = "get" action="/campsites/listofcamps">
+    <form method = "get" action="/listofcamps">
         <input type="submit" value="Allir"/>
     </form>
-    <form method="get" action="/campsites/askTraveller">
+    <form method="get" action="/askTraveller">
         <input type="submit" value="New campsite"/>
     </form>
 </body>

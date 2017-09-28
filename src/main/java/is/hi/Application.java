@@ -7,10 +7,11 @@ package is.hi;
  *
  */
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 /**
  * The main class of the project.
@@ -20,12 +21,15 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 public class Application extends SpringBootServletInitializer{
 
     @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder applicationBuilder){
-        return applicationBuilder.sources(Application.class);
+    protected SpringApplicationBuilder configure (SpringApplicationBuilder builder) {
+        return builder.sources(Application.class);
     }
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+    public static void main (String[] args) {
+
+        SpringApplication app =
+                new SpringApplication(Application.class);
+        app.run(args);
     }
 
 }

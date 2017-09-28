@@ -1,16 +1,15 @@
 package is.hi.controller;
 
 import is.hi.model.*;
-import is.hi.repository.*;
 import is.hi.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import sun.misc.Request;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -25,7 +24,6 @@ import java.util.Date;
  * búið til nýtt travel plan og bætt í travel planið
  */
 @Controller
-@RequestMapping("/campsites")
 public class showCampController {
 
     @Autowired
@@ -42,20 +40,20 @@ public class showCampController {
    // @Autowired
    // travelPlanRepository travelPlanRep;
    // @Autowired
-   // travellerRepository travellerRep;
+   // userRepository travellerRep;
    // @Autowired
    // travelPlanItemRepository travelPlanItemRep;
 
     ArrayList<TravelPlanItem> tpiList;
     ArrayList<TravelPlan> tpList;
-    //ArrayList<Traveller> tList;
+    //ArrayList<loginUser> tList;
 
     /**
      * @return skilar forsíðu
      */
     @RequestMapping("/forsida")
     public String forsida(){
-        return "campsites/forsida";
+        return "forsida";
     }
 
     /**
@@ -68,7 +66,7 @@ public class showCampController {
         ArrayList<Camp> cList;
         cList = CampsiteService.getCampsites();
         model.addAttribute("camps", cList);
-        return "campsites/allCampsites";
+        return "allCampsites";
     }
 
 
@@ -78,7 +76,7 @@ public class showCampController {
      */
     @RequestMapping("/newAccountSite")
     public String newAccountSite(){
-        return "campsites/newAccountSite";
+        return "newAccountSite";
     }
 
     /**
@@ -88,7 +86,7 @@ public class showCampController {
 
     @RequestMapping("/accountInfo")
     public String accountInfo(){
-        return "campsites/accountInfo";
+        return "accountInfo";
     }
 
     /**
@@ -105,15 +103,15 @@ public class showCampController {
                                     String username, @RequestParam(value="email") String email,
                                     @RequestParam(value="pw1") String pw1,
                                     @RequestParam(value="pw2") String pw2)
-    {   boolean doesExist = userService.doesTravellerExist(username, email);
+    {   boolean doesExist = userService.doesUserExist(username, email);
         boolean PWidentical = userService.arePWidentical(pw1, pw2);
         if (doesExist)
-                return "campsites/newAccountSite";
+                return "newAccountSite";
         if (PWidentical){
-            userService.newTraveller(username, email, pw1);
-            return "campsites/accountInfo";
+            userService.newLoginUser(username, email, pw1);
+            return "accountInfo";
         }
-        return "campsites/newAccount";
+        return "newAccount";
     }
 /*
     /**
@@ -135,10 +133,13 @@ public class showCampController {
             ArrayList<TravelPlan> tpList;
             tpList = travelplanService.getTravelplans();
             model.addAttribute("travelplans", tpList);
+            if(userService.hasAdminAuthority(nafn, lykilorð)){
+                return "adminLoginSite";
+            }
 
-            return "campsites/notendasida";
+            return "notendasida";
         } else {
-            return "campsites/forsida";
+            return "forsida";
         }
     }
 
@@ -148,7 +149,7 @@ public class showCampController {
      */
     @RequestMapping(value="newTravelPlan", method = RequestMethod.GET)
     public String newTravelPlan(){
-        return "campsites/newTravelPlan";
+        return "newTravelPlan";
     }
 
     /**
@@ -162,7 +163,7 @@ public class showCampController {
         tpList = travelplanService.getTravelplans();
 
         model.addAttribute("travelplans", tpList);
-        return "campsites/notendasida";
+        return "notendasida";
     }
 
     /**
@@ -184,7 +185,7 @@ public class showCampController {
         System.out.println("newTravel error");
     }
 
-        return "campsites/notendasida";
+        return "notendasida";
     }
 
     /**
@@ -226,7 +227,7 @@ public class showCampController {
 
         model.addAttribute("travelplans", tpList);
 
-        return "campsites/notendasida";
+        return "notendasida";
     }
 
     /** Eftirliggjandi Notkunartilvik
@@ -241,7 +242,7 @@ public class showCampController {
     @RequestMapping(value="/UserReviews", method = RequestMethod.GET)
     public String checkNavi(){
 
-        return "campsites/UserReviews";
+        return "UserReviews";
     }
 
 }

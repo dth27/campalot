@@ -6,18 +6,20 @@ package is.hi.model;
  * HBV501G Hugbúnaðarverkefni 1
  * Háskóli Íslands
  *
- * Traveller klasi sem inniheldur notendaupplýsingar
+ * loginUser klasi sem inniheldur notendaupplýsingar
  */
 
-public class Traveller {
+public class loginUser {
     String username;
     String email;
     String password;
+    Boolean adminAuth;
     
-    public Traveller(String username, String email, String password) {
+    public loginUser(String username, String email, String password, Boolean adminAuth) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.adminAuth = adminAuth;
     }
 
     public String getUsername() {
@@ -43,4 +45,9 @@ public class Traveller {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean getadminAuth() { return adminAuth; }
+
+    public void setAdminAuth(Boolean adminAuth) { this.adminAuth = adminAuth; }
 }
+

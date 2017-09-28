@@ -19,7 +19,7 @@
 
 <h1>New Account</h1>
 
-<form action="/campsites/newAccount" method="post">
+<form action="/newAccount" method="post">
 
     <div class="container">
         <label><b>Email</b></label>
