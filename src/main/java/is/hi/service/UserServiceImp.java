@@ -85,10 +85,10 @@ public class UserServiceImp implements UserService {
             System.out.println(e);
         }
         ArrayList<Review> selectedReviews = new ArrayList<Review>();
-        for (int i = 0; i < reviews.size(); i++){
+        /*for (int i = 0; i < reviews.size(); i++){
             if (reviews.get(i).getUsername().equals(name)|| reviews.get(i).getCampname().equals(name))
                 selectedReviews.add(reviews.get(i));
-        }
+        }*/
         return selectedReviews;
     }
     @Override
@@ -97,10 +97,10 @@ public class UserServiceImp implements UserService {
         int count = 1;
         ArrayList<Review> reviews = revRep.getAll();
         for (int i = 0; i<reviews.size(); i++){
-            if(reviews.get(i).getCampname().equals(name) ||reviews.get(i).getUsername().equals(name)) {
-                rate += reviews.get(i).getRating();
+           // if(reviews.get(i).getCampname().equals(name) ||reviews.get(i).getUsername().equals(name)) {
+             //   rate += reviews.get(i).getRating();
                 count++;
-            }
+          //  }
 
         }
         if (count > 2){

@@ -1,9 +1,13 @@
 package is.hi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Table;
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author Diljá, Ólöf, Sandra og Kristín
@@ -15,7 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table (name="useraccess")
-public class userAccess {
+public class userAccess implements Serializable {
     @Id
     String username;
     String email;
@@ -33,6 +37,10 @@ public class userAccess {
 
     public userAccess() {
     }
+
+    @OneToMany(orphanRemoval = false, cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "username", nullable = true)
+    private Set<Review> review;
 
     public String getUsername() {
         return username;

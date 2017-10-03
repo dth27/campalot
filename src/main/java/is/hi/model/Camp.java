@@ -1,8 +1,9 @@
 package is.hi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,9 @@ public class Camp {
     int totalpeoplevoted;
     double totalscoregiven;
 
+
+
+
     public Camp(String campname, int price, String service, String openinghours, String shops, String entertainment, String camparea, double camplong, double camplat, int totalpeoplevoted, double totalscoregiven) {
         this.campname = campname;
         this.price = price;
@@ -46,6 +50,9 @@ public class Camp {
 
     public Camp() {
     }
+    @OneToMany(orphanRemoval = true, cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    private List<Review> review = new ArrayList<Review>();
+
 
     public String getCampname() {
         return campname;

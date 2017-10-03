@@ -3,7 +3,8 @@ package is.hi.model;
 
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author Diljá, Ólöf, Sandra og Kristín
@@ -18,34 +19,28 @@ import java.io.Serializable;
 public class Review {
     @Id
     int id;
-    @JoinColumn(referencedColumnName = "userAccess_username")
-    String username;
+
+    @OneToMany
+    @JoinColumn(name= "userAccess_username")
+    Set<userAccess> userAccess;
     String review;
-    @ManyToMany
-    @JoinColumn(name = "campname", referencedColumnName = "campname")
-    private Camp camp;
-    @Column(name = "rating")
-    int rating;
+    @OneToMany
+    @JoinColumn(name = "Camp_campname")
+    private Set<Camp> camp;
+    //@Column(name = "rating")
+    private
+    String rating;
 
 
-    public Review(int id, String review, String username, String campname, int rating) {
+    public Review(int id, String review,userAccess useraccess, Camp camp, int rating) {
         this.id = id;
         this.review = review;
-        this.username = username;
-        this.campname = campname;
-        this.rating = rating;
+       // this.username = username;
+        //this.camp = (List<Camp>) camp;
+        //this.campname = campname;
+        //this.rating = rating;
     }
 
-    public Review() {
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getReview() {
         return review;
@@ -55,19 +50,12 @@ public class Review {
         this.review = review;
     }
 
-    public String getCampname() {
-        return campname;
-    }
 
-    public void setCampname(String campname) {
-        this.campname = campname;
-    }
-
-    public double getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
