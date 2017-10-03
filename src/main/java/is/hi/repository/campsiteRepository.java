@@ -1,6 +1,10 @@
 package is.hi.repository;
 
 import is.hi.model.Camp;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -11,16 +15,21 @@ import java.util.List;
  *
  * repository for all campsites
  */
-public interface campsiteRepository {
+@Repository
+public interface campsiteRepository extends JpaRepository<Camp, Long> {
     /**
      * retrieves all campsites
      * @return list of campsites
      */
-    List <Camp> getAll();
+    @Query(value = "SELECT m FROM Camp m")
+    //@Query(nativeQuery = true, value =  "SELECT * FROM campsite")
+    List<Camp> getAll();
+
+
 
     /**
      * adds a camp
      * @param camp
      */
-    void add(Camp camp);
+   // void add(Camp camp);
 }

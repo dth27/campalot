@@ -1,5 +1,6 @@
 package is.hi.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -10,70 +11,77 @@ import java.util.Date;
  *
  * TravelPlan klasi sem inniheldur upplýsingar um travelplan
  */
-
+@Entity
+@Table (name = "travelplan")
 public class TravelPlan {
-    String travelPlanName;
-    Date dateArrive;
-    Date dateDepart;
-    int totalPrice;
-    int totalSum;
-    int totalNights;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    String travelplanname;
+    Date datearrive;
+    Date datedepart;
+    int totalprice;
+    int totalsum;
+    int totalnights;
+
     String username; //TODO skoða
-    public TravelPlan(String travelPlanName,  Date dateArrive, Date dateDepart, int totalPrice, int totalSum, int totalNights, String username){
-        this.travelPlanName = travelPlanName;
-        this.dateArrive = dateArrive;
-        this.dateDepart = dateDepart;
-        this.totalPrice = totalPrice;
-        this.totalSum = totalSum;
-        this.totalNights = totalNights;
+    public TravelPlan(String travelplanname, Date datearrive, Date datedepart, int totalprice, int totalsum, int totalnights, String username){
+        this.travelplanname = travelplanname;
+        this.datearrive = datearrive;
+        this.datedepart = datedepart;
+        this.totalprice = totalprice;
+        this.totalsum = totalsum;
+        this.totalnights = totalnights;
         this.username = username;
     }
 
-    public String getTravelPlanName() {
-        return travelPlanName;
+    public TravelPlan() {
     }
 
-    public void setTravelPlanName(String travelPlanName) {
-        this.travelPlanName = travelPlanName;
+    public String getTravelplanname() {
+        return travelplanname;
     }
 
-    public Date getDateArrive() {
-        return dateArrive;
+    public void setTravelplanname(String travelPlanName) {
+        this.travelplanname = travelPlanName;
     }
 
-    public void setDateArrive(Date dateArrive) {
-        this.dateArrive = dateArrive;
+    public Date getDatearrive() {
+        return datearrive;
     }
 
-    public Date getDateDepart() {
-        return dateDepart;
+    public void setDatearrive(Date dateArrive) {
+        this.datearrive = dateArrive;
     }
 
-    public void setDateDepart(Date dateDepart) {
-        this.dateDepart = dateDepart;
+    public Date getDatedepart() {
+        return datedepart;
     }
 
-    public int getTotalPrice() {
-        return totalPrice;
+    public void setDatedepart(Date dateDepart) {
+        this.datedepart = dateDepart;
     }
 
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
+    public int getTotalprice() {
+        return totalprice;
     }
 
-    public int getTotalSum() {
-        return totalSum;
+    public void setTotalprice(int totalPrice) {
+        this.totalprice = totalPrice;
     }
 
-    public void setTotalSum(int totalSum) {
-        this.totalSum = totalSum;
+    public int getTotalsum() {
+        return totalsum;
     }
 
-    public int getTotalNights() {
-        return totalNights;
+    public void setTotalsum(int totalSum) {
+        this.totalsum = totalSum;
     }
 
-    public void setTotalNights(int totalNights) {
-        this.totalNights = totalNights;
+    public int getTotalnights() {
+        return totalnights;
+    }
+
+    public void setTotalnights(int totalNights) {
+        this.totalnights = totalNights;
     }
 }

@@ -12,12 +12,12 @@
 <body>
 <h1>Welcome! Here you can see your TravelPlan and make a TravelPlan! </h1>
 
-    <ul>
-        <li><a href="UserReviews">Reviews</a></li>
-        <li><a href="">Travelplans</a></li>
-        <li><a href="accountInfo">Account</a></li>
-    </ul>
-
+<ul>
+    <li><a href="UserReviews">Reviews</a></li>
+    <li><a href="">Travelplans</a></li>
+    <li><a href="accountInfo">Account</a></li>
+    <li><a href="listofcamps">All campsites</a></li>
+</ul>
 
 <h2>List of camps</h2>
 <form action="addTravelitem" method="POST" >
@@ -35,7 +35,7 @@
     <c:forEach items="${camps}" var="camp">
         <tr>
 
-                <td name="campS"> ${camp.campName} </td>
+                <td name="campS"> ${camp.campname} </td>
                 <td name="date"> <input type="date" name="date"/> </td>
                 <td>
                     <select name="nights">
@@ -48,7 +48,7 @@
                 <td>
                     <select name = "travel">
                         <c:forEach items="${travelplans}" var="travel">
-                        <option value="travel">${travel.travelPlanName}</option>
+                        <option value="travel">${travel.travelplanname}</option>
                         </c:forEach>
                     </select>
                 </td>
@@ -73,11 +73,11 @@
     </thead>
     <c:forEach items="${travelplans}" var="travelplan">
         <tr>
-            <td> ${travelplan.travelPlanName} </td>
-            <td> ${travelplan.dateArrive}</td>
-            <td> ${travelplan.dateDepart}</td>
-            <td> ${travelplan.totalPrice}</td>
-            <td> ${travelplan.totalNights}</td>
+            <td> ${travelplan.travelplanname} </td>
+            <td> ${travelplan.datearrive}</td>
+            <td> ${travelplan.datedepart}</td>
+            <td> ${travelplan.totalprice}</td>
+            <td> ${travelplan.totalnights}</td>
         </tr>
     </c:forEach>
 </table>

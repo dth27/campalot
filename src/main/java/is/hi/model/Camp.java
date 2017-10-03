@@ -1,5 +1,11 @@
 package is.hi.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Diljá, Ólöf, Sandra og Kristín
  * @date september 2017
@@ -8,34 +14,45 @@ package is.hi.model;
  *
  * Camp klasi sem inniheldur upplýsingar um tjaldsvæðin
  */
-
+@Entity
+@Table (name="campsite")
 public class Camp {
-    String campName;
+    @Id
+    String campname;
     int price;
     String service;
-    String openingHours;
+    String openinghours;
     String shops;
     String entertainment;
-    String campArea;
-    double campLong;
-    double campLat;
+    String camparea;
+    double camplong;
+    double camplat;
+    int totalpeoplevoted;
+    double totalscoregiven;
 
-    public Camp(String campName, int price, String service, String openingHours, String shops, String entertainment, String campArea, double campLong, double campLat) {
-        this.campName = campName;
+    public Camp(String campname, int price, String service, String openinghours, String shops, String entertainment, String camparea, double camplong, double camplat, int totalpeoplevoted, double totalscoregiven) {
+        this.campname = campname;
         this.price = price;
-        this.openingHours = openingHours;
+        this.service = service;
+        this.openinghours = openinghours;
         this.shops = shops;
         this.entertainment = entertainment;
-        this.campArea = campArea;
-        this.campLong = campLong;
-        this.campLat = campLat;
-    }
-    public String getCampName() {
-        return campName;
+        this.camparea = camparea;
+        this.camplong = camplong;
+        this.camplat = camplat;
+        this.totalpeoplevoted = totalpeoplevoted;
+        this.totalscoregiven = totalscoregiven;
     }
 
-    public void setCampName(String campName) {
-        this.campName = campName;
+    public Camp() {
+    }
+
+    public String getCampname() {
+        return campname;
+    }
+
+    public void setCampname(String campName) {
+        this.campname = campName;
     }
 
     public int getPrice() {
@@ -54,12 +71,12 @@ public class Camp {
         this.service = service;
     }
 
-    public String getOpeningHours() {
-        return openingHours;
+    public String getOpeninghours() {
+        return openinghours;
     }
 
-    public void setOpeningHours(String openingHours) {
-        this.openingHours = openingHours;
+    public void setOpeninghours(String openingHours) {
+        this.openinghours = openingHours;
     }
 
     public String getShops() {
@@ -78,27 +95,43 @@ public class Camp {
         this.entertainment = entertainment;
     }
 
-    public String getCampArea() {
-        return campArea;
+    public String getCamparea() {
+        return camparea;
     }
 
-    public void setCampArea(String campArea) {
-        this.campArea = campArea;
+    public void setCamparea(String campArea) {
+        this.camparea = campArea;
     }
 
-    public double getCampLong() {
-        return campLong;
+    public double getCamplong() {
+        return camplong;
     }
 
-    public void setCampLong(double campLong) {
-        this.campLong = campLong;
+    public void setCamplong(double campLong) {
+        this.camplong = campLong;
     }
 
-    public double getCampLat() {
-        return campLat;
+    public double getCamplat() {
+        return camplat;
     }
 
-    public void setCampLat(double campLat) {
-        this.campLat = campLat;
+    public void setCamplat(double campLat) {
+        this.camplat = campLat;
+    }
+
+    public int getTotalpeoplevoted() {
+        return totalpeoplevoted;
+    }
+
+    public void setTotalpeoplevoted(int totalpeoplevoted) {
+        this.totalpeoplevoted = totalpeoplevoted;
+    }
+
+    public double getTotalscoregiven() {
+        return totalscoregiven;
+    }
+
+    public void setTotalscoregiven(double totalscoregiven) {
+        this.totalscoregiven = totalscoregiven;
     }
 }

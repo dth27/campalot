@@ -1,5 +1,6 @@
 package is.hi.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -10,49 +11,61 @@ import java.util.Date;
  *
  * Travelplanitem klasi sem inniheldur upplýsingar um travelplanitems
  */
-
+@Entity
+@Table (name = "travelplanitem")
 public class TravelPlanItem {
-    Date dateArrive;
-    Date dateDepart;
-    int totalPrice;
-    int totalNights;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
+    Date datearrive;
+    Date datedepart;
+    int totalprice;
+    int totalnights;
 
-    public TravelPlanItem(Date dateArrive, Date dateDepart, int totalPrice, int totalNights) {
-        this.dateArrive = dateArrive;
-        this.dateDepart = dateDepart;
-        this.totalPrice = totalPrice;
-        this.totalNights = totalNights;
+    public TravelPlanItem(int id, Date datearrive, Date datedepart, int totalprice, int totalnights) {
+        this.id = id;
+        this.datearrive = datearrive;
+        this.datedepart = datedepart;
+        this.totalprice = totalprice;
+        this.totalnights = totalnights;
+    }
+    public int getId() {
+        return id;
     }
 
-    public Date getDateArrive() {
-        return dateArrive;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setDateArrive(Date dateArrive) {
-        this.dateArrive = dateArrive;
+    public Date getDatearrive() {
+        return datearrive;
     }
 
-    public Date getDateDepart() {
-        return dateDepart;
+    public void setDatearrive(Date dateArrive) {
+        this.datearrive = dateArrive;
     }
 
-    public void setDateDepart(Date dateDepart) {
-        this.dateDepart = dateDepart;
+    public Date getDatedepart() {
+        return datedepart;
     }
 
-    public int getTotalPrice() {
-        return totalPrice;
+    public void setDatedepart(Date dateDepart) {
+        this.datedepart = dateDepart;
     }
 
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
+    public int getTotalprice() {
+        return totalprice;
     }
 
-    public int getTotalNights() {
-        return totalNights;
+    public void setTotalprice(int totalPrice) {
+        this.totalprice = totalPrice;
     }
 
-    public void setTotalNights(int totalNights) {
-        this.totalNights = totalNights;
+    public int getTotalnights() {
+        return totalnights;
+    }
+
+    public void setTotalnights(int totalNights) {
+        this.totalnights = totalNights;
     }
 }

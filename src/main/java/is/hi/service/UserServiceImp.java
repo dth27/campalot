@@ -1,24 +1,32 @@
 package is.hi.service;
 
-import is.hi.model.loginUser;
+import is.hi.model.Review;
+import is.hi.model.userAccess;
+import is.hi.repository.reviewRepository;
 import is.hi.repository.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserServiceImp implements UserService {
 
+    @Qualifier("userRepository")
     @Autowired
     userRepository travRep;
+    @Qualifier("reviewRepository")
+    @Autowired
+    reviewRepository revRep;
 
-    private ArrayList<loginUser> tList;
+    private ArrayList<userAccess> tList;
 
     @Override
     public boolean isPwCorr(String uname, String psw) {
-        tList = (ArrayList<loginUser>) travRep.getAll();
-        for (loginUser t : tList) {
+        tList = (ArrayList<userAccess>) travRep.getAll();
+        for (userAccess t : tList) {
             if (uname.equals(t.getUsername()) && psw.equals(t.getPassword())) {
                 return true;
             }
@@ -29,10 +37,10 @@ public class UserServiceImp implements UserService {
     @Override
     //Checks if user has admin authority
     public boolean hasAdminAuthority(String uname, String psw) {
-        tList = (ArrayList<loginUser>) travRep.getAll();
-        for (loginUser t : tList) {
+        tList = (ArrayList<userAccess>) travRep.getAll();
+        for (userAccess t : tList) {
             if (uname.equals(t.getUsername()) && psw.equals(t.getPassword())) {
-                if(t.getadminAuth()) {
+                if(t.isHasadminauthority()) {
                     return true;
                 }
             }
@@ -40,21 +48,20 @@ public class UserServiceImp implements UserService {
         return false;
     }
 
-
     @Override
     //Creates a new login user
     public void newLoginUser(String username, String email, String pw1) {
             //Every new user automatically has a non-admin access
             Boolean adminAuthority = true;
-            loginUser loginUser = new loginUser(username, email, pw1, adminAuthority);
-            tList.add(loginUser);
+        userAccess UserAccess = new userAccess(username, email, pw1, true, false);
+            tList.add(UserAccess);
     }
 
     @Override
     //Checks if certain username has a login access
     public boolean doesUserExist(String username, String email) {
-        tList = (ArrayList<loginUser>) travRep.getAll();
-        for (loginUser t : tList) {
+        tList = (ArrayList<userAccess>) travRep.getAll();
+        for (userAccess t : tList) {
             if (username.equals(t.getUsername()) || email.equals(t.getEmail())) {
                 return true;
             }
@@ -70,8 +77,37 @@ public class UserServiceImp implements UserService {
     }
     //TODO fall til að ná í reviews
     @Override
-    public String getReviews(String username){
-        return username;
+    public ArrayList getReviews(String name){
+        ArrayList<Review> reviews = new ArrayList<Review>();
+        try {
+            reviews = revRep.getAll();
+        } catch(Exception e){
+            System.out.println(e);
+        }
+        ArrayList<Review> selectedReviews = new ArrayList<Review>();
+        for (int i = 0; i < reviews.size(); i++){
+            if (reviews.get(i).getUsername().equals(name)|| reviews.get(i).getCampname().equals(name))
+                selectedReviews.add(reviews.get(i));
+        }
+        return selectedReviews;
     }
+    @Override
+    public double getRating(String name){
+        double rate = 0;
+        int count = 1;
+        ArrayList<Review> reviews = revRep.getAll();
+        for (int i = 0; i<reviews.size(); i++){
+            if(reviews.get(i).getCampname().equals(name) ||reviews.get(i).getUsername().equals(name)) {
+                rate += reviews.get(i).getRating();
+                count++;
+            }
 
+        }
+        if (count > 2){
+            count -= 1;
+        }
+        double avgrating = rate/count;
+        System.out.println(avgrating);
+        return avgrating;
+    }
 }

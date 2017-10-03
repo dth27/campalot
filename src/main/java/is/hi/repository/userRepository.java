@@ -1,6 +1,12 @@
 package is.hi.repository;
 
-import is.hi.model.loginUser;
+import is.hi.model.userAccess;
+
+import java.util.List;
+import is.hi.model.userAccess;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -10,19 +16,25 @@ import java.util.List;
  * Háskóli Íslands
  * @author Diljá, Ólöf, Sandra, Kristín
  *
- * repository for all login users
+<<<<<<< HEAD
+ * repository for all travellers
  */
-public interface userRepository {
+
+public interface userRepository extends JpaRepository<userAccess, String> {
     /**
-     * retrieves all login users
-     * @return list of login users
+     * retrieves all travellers
+     * @return list of travellers
      */
-    List <loginUser> getAll();
+    @Query(value ="SELECT a FROM userAccess a")
+    List<userAccess> getAll();
+
 
     /**
-     * adds loginUser
-     * @param loginUser
+     * adds userAccess
+     * @param userAccess
      */
-    void add(loginUser loginUser);
-    String getReviews(String username);
+    //void add(userAccess userAccess);
+    //String getReviews(String username);
+
+
 }

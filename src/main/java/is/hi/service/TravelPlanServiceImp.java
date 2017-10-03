@@ -2,16 +2,21 @@ package is.hi.service;
 
 import is.hi.model.TravelPlan;
 import is.hi.model.TravelPlanItem;
+import is.hi.repository.travelPlanItemRepository;
 import is.hi.repository.travelPlanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 @Service
 public class TravelPlanServiceImp implements TravelPlanService{
 
+    @Qualifier("travelPlanRepository")
     @Autowired
     travelPlanRepository planRep;
+    @Autowired
+    travelPlanItemRepository planItemRep;
 
     private ArrayList<TravelPlan> listofTravelPlans;
     private ArrayList<TravelPlanItem> listofTravelPlanitems;
@@ -29,7 +34,7 @@ public class TravelPlanServiceImp implements TravelPlanService{
      */
     @Override
     public ArrayList getTravelplanItems(){
-        listofTravelPlanitems = (ArrayList<TravelPlanItem>) planRep.getAllItems();
+        listofTravelPlanitems = (ArrayList<TravelPlanItem>) planItemRep.getAll();
         return listofTravelPlanitems;
     }
 
@@ -41,7 +46,7 @@ public class TravelPlanServiceImp implements TravelPlanService{
     @Override
     public void createTravelplan(String planName, String username){
         TravelPlan travelplan = new TravelPlan(planName, null,null,0,0,0, username);
-        planRep.add(travelplan);
+       // planRep.add(travelplan);
     }
 
     /**

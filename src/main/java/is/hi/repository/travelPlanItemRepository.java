@@ -1,6 +1,10 @@
 package is.hi.repository;
 
 import is.hi.model.TravelPlanItem;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -11,17 +15,19 @@ import java.util.List;
  *
  * Repository for travelplanitems
  */
+//TODO ætti þetta að vera Long??
 
-public interface travelPlanItemRepository {
+public interface travelPlanItemRepository extends JpaRepository<TravelPlanItem, Long>{
     /**
      * gets all travelplanitems
      * @return a list of travelplanitems
      */
+    @Query(value ="SELECT a FROM TravelPlanItem a")
     List<TravelPlanItem> getAll();
 
     /**
      * Adss travelplanitems
      * @param travelplanItem
      */
-    void add(TravelPlanItem travelplanItem);
+    //void add(TravelPlanItem travelplanItem);
 }
