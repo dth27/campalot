@@ -50,9 +50,9 @@ public class Camp {
 
     public Camp() {
     }
-    @OneToMany(orphanRemoval = true, cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+   /* @OneToMany(orphanRemoval = true, cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<Review> review = new ArrayList<Review>();
-
+*/
 
     public String getCampname() {
         return campname;

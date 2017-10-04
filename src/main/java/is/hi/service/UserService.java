@@ -15,4 +15,5 @@ public interface UserService {
     //campname eða notendanafn og skilar reviewinu
     ArrayList getReviews(String name);
     double getRating(String name);
+    void setRating(int rate, String campname);
 }

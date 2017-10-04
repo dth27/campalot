@@ -20,4 +20,16 @@ public class campSiteServiceImp implements campSiteService {
         cList = (ArrayList<Camp>) campRep.getAll();
         return cList;
     }
+    @Override
+    public Camp getOneCamp(String campname){
+        cList = (ArrayList<Camp>) campRep.getAll();
+        Camp camp1 = null;
+        for (Camp camp : cList){
+            if (camp.getCampname().equals(campname)){
+                camp1 = camp;
+                return camp1;
+            }
+        }
+        return camp1;
+    }
 }

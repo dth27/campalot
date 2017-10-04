@@ -38,9 +38,9 @@ public class userAccess implements Serializable {
     public userAccess() {
     }
 
-    @OneToMany(orphanRemoval = false, cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    /*@OneToMany(orphanRemoval = false, cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name = "username", nullable = true)
-    private Set<Review> review;
+    private Set<Review> review;*/
 
     public String getUsername() {
         return username;

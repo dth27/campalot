@@ -1,5 +1,6 @@
 package is.hi.service;
 
+import is.hi.model.Camp;
 import is.hi.model.Review;
 import is.hi.model.userAccess;
 import is.hi.repository.reviewRepository;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -79,29 +81,27 @@ public class UserServiceImp implements UserService {
     @Override
     public ArrayList getReviews(String name){
         ArrayList<Review> reviews = new ArrayList<Review>();
-        try {
-            reviews = revRep.getAll();
-        } catch(Exception e){
-            System.out.println(e);
-        }
         ArrayList<Review> selectedReviews = new ArrayList<Review>();
-        /*for (int i = 0; i < reviews.size(); i++){
-            if (reviews.get(i).getUsername().equals(name)|| reviews.get(i).getCampname().equals(name))
-                selectedReviews.add(reviews.get(i));
-        }*/
+        reviews = revRep.getAll();
+        for (Review rev : reviews){
+            if (rev.getCampname().equals(name) || rev.getUsername().equals(name)) {
+                selectedReviews.add(rev);
+            }
+        }
+
         return selectedReviews;
     }
+
     @Override
     public double getRating(String name){
         double rate = 0;
         int count = 1;
         ArrayList<Review> reviews = revRep.getAll();
         for (int i = 0; i<reviews.size(); i++){
-           // if(reviews.get(i).getCampname().equals(name) ||reviews.get(i).getUsername().equals(name)) {
-             //   rate += reviews.get(i).getRating();
+            if(reviews.get(i).getCampname().equals(name) ||reviews.get(i).getUsername().equals(name)) {
+               rate += reviews.get(i).getRating();
                 count++;
-          //  }
-
+            }
         }
         if (count > 2){
             count -= 1;
@@ -109,5 +109,8 @@ public class UserServiceImp implements UserService {
         double avgrating = rate/count;
         System.out.println(avgrating);
         return avgrating;
+    }
+    public void setRating(int rate, String name){
+
     }
 }

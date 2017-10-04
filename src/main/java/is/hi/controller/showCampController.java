@@ -215,7 +215,7 @@ public class showCampController {
      * @return
      */
     @RequestMapping(value = "/addTravelitem", method = RequestMethod.POST)
-    public String newTravel(@RequestParam(value="date") String date,
+    public String addTravelItem(@RequestParam(value="date") String date,
                             @RequestParam(value="nights") int nights,
                             @RequestParam(value="travel") String travel, Model model
     )
@@ -297,13 +297,15 @@ public class showCampController {
 
     @RequestMapping(value = "/getInfo", method = RequestMethod.POST)
     public String getInfo(@RequestParam(value = "campName") String campName, Model model) {
-
-        cList = CampsiteService.getCampsites();
+        //TODO thurfum ekki oll campsites
+        Camp camp = CampsiteService.getOneCamp(campName);
         ArrayList<Review> rList = userService.getReviews(campName);
-        //ArrayList<AverageRating> aList = new ArrayList<AverageRating>();
-        //double rate = userService.getRating(campName);
+
+        // ArrayList<AverageRating> aList = new ArrayList<AverageRating>();
+        double rate = userService.getRating(campName);
+        model.addAttribute("camp", camp);
         model.addAttribute("reviews", rList);
-        //model.addAttribute("rate", rate);
+        model.addAttribute("rate", rate);
 
 
 
@@ -347,7 +349,7 @@ public class showCampController {
      * @param model
      * @return skilar síðu með upplýsingu
      */
-    /*
+/*
     @RequestMapping(value = "/postReview", method = RequestMethod.POST)
     public String postReview(@RequestParam(value = "myReview") String myReview,
                              @RequestParam(value = "campName") String campName, Model model) {
@@ -370,8 +372,8 @@ public class showCampController {
     public String giveRating(@RequestParam(value = "rating") int rating,
                              @RequestParam(value = "campName2") String campName, Model model) {
 
-        ArrayList<AverageRating> aList = new ArrayList<AverageRating>();
-        AverageRating rating1 = new AverageRating(rating, user);
+        userService.setRating(rating, campName);
+        //ArrayList<Review> rev = userService.getReviews();
         double rate;
         for (Camp c : cList) {
             if (c.getCampname().equals(campName)) {

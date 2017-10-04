@@ -15,8 +15,9 @@ public interface reviewRepository extends JpaRepository<Review, Long> {
      * @return list of Reviews
      */
 
-        @Query(value = "SELECT id, review, review.rating FROM review", nativeQuery = true)
+        @Query(value = "SELECT n FROM Review n")
         ArrayList<Review> getAll();
+
 
 
 
