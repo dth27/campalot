@@ -46,6 +46,10 @@ public class showCampController {
     ArrayList<Camp> cList;
     String user;
 
+
+    // ===========================
+    // FRONTPAGE HANDLING
+    // ===========================
     /**
      * @return frontpage
      */
@@ -55,21 +59,10 @@ public class showCampController {
         return "forsida";
     }
 
-    /**
-     * @param model
-     * @return website with list of all campsites
-     */
-    @RequestMapping(value = "/listofcamps", method = RequestMethod.GET)
-    public String listCamps(Model model) {
-        ArrayList<Camp> cList;
-        ArrayList<Campinfo> cList2;
-        cList = CampsiteService.getCampsites();
-        cList2 = CampsiteService.getCampinfo();
-        model.addAttribute("camps", cList2);
-        return "allCampsites";
-    }
 
-
+    // ===========================
+    // ACCOUNT HANDLING
+    // ===========================
     /**
      *
      * @return vefsíðu sem gerir notenda kleift að stofa nýjan aðgang
@@ -83,7 +76,6 @@ public class showCampController {
      *
      * @return
      */
-
     @RequestMapping("/accountInfo")
     public String accountInfo(){
         return "accountInfo";
@@ -115,6 +107,10 @@ public class showCampController {
         return "newAccount";
     }
 
+
+    // ===========================
+    // LOGIN HANDLING
+    // ===========================
     /**
      *
      * Vefsíða sem byður notanda að logga sig inn og tjékkar hvort notandi sé til
@@ -141,6 +137,10 @@ public class showCampController {
         }
     }
 
+
+    // ===========================
+    // TRAVELPLAN HANDLING
+    // ===========================
     /**
      *
      * @return
@@ -230,6 +230,10 @@ public class showCampController {
         return "notendasida";
     }
 
+
+    // ===========================
+    // NAVIGATION MENU HANDLING
+    // ===========================
     /**
      *
      * @return
@@ -240,6 +244,23 @@ public class showCampController {
         return "UserReviews";
     }
 
+
+    // ===========================
+    // CAMP INFO HANDLING
+    // ===========================
+    /**
+     * @param model
+     * @return website with list of all campsites
+     */
+    @RequestMapping(value = "/listofcamps", method = RequestMethod.GET)
+    public String listCamps(Model model) {
+        ArrayList<Camp> cList;
+        ArrayList<Campinfo> cList2;
+        cList = CampsiteService.getCampsites();
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        return "allCampsites";
+    }
     /**
      * @return Vefsíða með upplýsingum um tjaldsvæði
      */
@@ -301,6 +322,10 @@ public class showCampController {
         return "campInfo";
     }
 
+
+    // ===========================
+    // REVIEW AND RATING HANDLING
+    // ===========================
     /**
      * @return skilar síðu þar sem hægt er að skrifa ummæli.
      */
