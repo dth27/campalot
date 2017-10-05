@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static com.sun.deploy.config.JREInfo.getAll;
+//import static com.sun.deploy.config.JREInfo.getAll;
 
 /**
  * @author Diljá, Ólöf, Sandra og Kristín
