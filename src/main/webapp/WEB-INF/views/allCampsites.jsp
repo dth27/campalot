@@ -44,7 +44,7 @@
             <c:forEach items="${camps}" var="camp" >
                 <tr>
                     <td> <button name = "campName" type ="submit" value="${camp.campname}">${camp.campname}</button> </td>
-                    <td> ${camp.camparea} </td>
+                    <td> ${camp.region} </td>
                 </tr>
             </c:forEach>
         </table>

@@ -12,7 +12,7 @@
 <body>
 <h1>Information</h1>
 <h3>Name</h3>
-${camp.campname}
+${campinfo.campname}
 <h3>Rating</h3>
 ${rate}
 <form action="giveRating" method="POST">
@@ -32,6 +32,7 @@ ${rate}
     <button name="campName2" value ="${camp.campname}" s>OK</button>
 
 </form>
+<%--
 <h3>Price per night</h3>
 ${camp.price} kr
 <h3>Service</h3>
@@ -44,7 +45,16 @@ ${camp.shops}
 ${camp.entertainment}
 <h3>Area</h3>
 ${camp.camparea}
-
+--%>
+<h2>Description</h2>
+${campinfo.description}
+<h3 id="adress">Adress</h3>
+${campinfo.campaddress}
+${campinfo.campzip}
+<h3 id="contactinfo">Contact info</h3>
+${campinfo.campemail}
+${campinfo.campphone}
+${campinfo.campwebsite}
 
 <h2>Reviews</h2>
 <form action="review" method="POST" >

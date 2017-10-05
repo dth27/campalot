@@ -16,7 +16,6 @@ import java.util.Date;
 import static com.sun.deploy.config.JREInfo.getAll;
 
 /**
- * TODO-Dilja einn eða fleiri controller? Think about it
  * @author Diljá, Ólöf, Sandra og Kristín
  * @date september 2017
  * HBV501G Hugbúnaðarverkefni 1
@@ -27,7 +26,9 @@ import static com.sun.deploy.config.JREInfo.getAll;
  */
 @Controller
 public class showCampController {
-
+    /**
+     * Connections to our services
+     */
     @Autowired
     campSiteService CampsiteService;
     @Autowired
@@ -37,38 +38,34 @@ public class showCampController {
     @Autowired
     AlternativeService alternativeService;
 
-    // @Autowired
-    //campsiteRepository campRep;
-    // @Autowired
-    // travelPlanRepository travelPlanRep;
-    // @Autowired
-    // userRepository travellerRep;
-    // @Autowired
-    // travelPlanItemRepository travelPlanItemRep;
-
+    /**
+     * Global lists for some models
+     */
     ArrayList<TravelPlanItem> tpiList;
     ArrayList<TravelPlan> tpList;
     ArrayList<Camp> cList;
     String user;
 
     /**
-     * @return skilar forsíðu
+     * @return frontpage
      */
+    //TODO breyta yfir i "frontpage" (hafa allt a ensku)
     @RequestMapping("/forsida")
     public String forsida(){
         return "forsida";
     }
 
     /**
-     * TODO setja í service
      * @param model
-     * @return vefsíðu sem sýnir lista af öllum tjaldsvæðum
+     * @return website with list of all campsites
      */
     @RequestMapping(value = "/listofcamps", method = RequestMethod.GET)
     public String listCamps(Model model) {
         ArrayList<Camp> cList;
+        ArrayList<Campinfo> cList2;
         cList = CampsiteService.getCampsites();
-        model.addAttribute("camps", cList);
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
         return "allCampsites";
     }
 
@@ -117,37 +114,27 @@ public class showCampController {
         }
         return "newAccount";
     }
-    /*
-        /**
-         *
-         * Vefsíða sem byður notanda að logga sig inn og tjékkar hvort notandi sé til
-         * @param uname
-         * @param psw
-         * @param model
-         * @return annaðhvort forsíðu eða notendasíðu eftir því hvort aðgangurinn er til
-         */
+
+    /**
+     *
+     * Vefsíða sem byður notanda að logga sig inn og tjékkar hvort notandi sé til
+     * @param name
+     * @param psw
+     * @param model
+     * @return annaðhvort forsíðu eða notendasíðu eftir því hvort aðgangurinn er til
+     */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String synaNotanda(@RequestParam(value = "uname") String nafn, @RequestParam(value = "psw") String lykilorð, Model model ) {
-        if (userService.isPwCorr(nafn, lykilorð)) {
-            //TODO tengja við service til að birta Camp og TravelPlan
+    public String synaNotanda(@RequestParam(value = "uname") String name, @RequestParam(value = "psw") String psw, Model model ) {
+        if (userService.isPwCorr(name, psw)) {
             ArrayList<Camp> cList;
-
-
             cList = CampsiteService.getCampsites();
-
-
             model.addAttribute("camps", cList);
-
             ArrayList<TravelPlan> tpList;
-
             tpList = travelplanService.getTravelplans();
-
-
             model.addAttribute("travelplans", tpList);
-            if(userService.hasAdminAuthority(nafn, lykilorð)){
+            if(userService.hasAdminAuthority(name, psw)){
                 return "adminLoginSite";
             }
-
             return "notendasida";
         } else {
             return "forsida";
@@ -164,7 +151,6 @@ public class showCampController {
     }
 
     /**
-     * TODO setja lógík í service
      * @param model
      * @return
      */
@@ -217,8 +203,7 @@ public class showCampController {
     @RequestMapping(value = "/addTravelitem", method = RequestMethod.POST)
     public String addTravelItem(@RequestParam(value="date") String date,
                             @RequestParam(value="nights") int nights,
-                            @RequestParam(value="travel") String travel, Model model
-    )
+                            @RequestParam(value="travel") String travel, Model model)
     {
         //TODO vantar planname til að tengja við
         Date realDate;
@@ -254,6 +239,7 @@ public class showCampController {
 
         return "UserReviews";
     }
+
     /**
      * @return Vefsíða með upplýsingum um tjaldsvæði
      */
@@ -261,6 +247,7 @@ public class showCampController {
     public String campInfo() {
         return "campInfo";
     }
+
     /**
      * Sækir öll tjalddsvæði og flokkar eftir landshluta.
      *
@@ -273,8 +260,9 @@ public class showCampController {
                             @RequestParam(value = "area") String area) {
 
         cList = CampsiteService.getCampsites();
-        ArrayList<Camp> cList2 = new ArrayList<Camp>();
-
+        ArrayList<Campinfo> cList2 = new ArrayList<Campinfo>();
+        cList2 = CampsiteService.getCampinfo();
+        /*
         for (Camp c : cList) {
             if (c.getCamparea().equals(area)) {
                 cList2.add(c);
@@ -282,7 +270,8 @@ public class showCampController {
             model.addAttribute("camps", cList2);
         }
         if (area.equals("All"))
-            model.addAttribute("camps", cList);
+            model.addAttribute("camps", cList);*/
+        model.addAttribute("camps", cList2);
 
         return "allCampsites";
     }
@@ -294,18 +283,18 @@ public class showCampController {
      * @param model
      * @return skilar síðu þar sem hægt er að skoða upplýsingar um tjaldsvæði
      */
-
     @RequestMapping(value = "/getInfo", method = RequestMethod.POST)
     public String getInfo(@RequestParam(value = "campName") String campName, Model model) {
         //TODO thurfum ekki oll campsites
         Camp camp = CampsiteService.getOneCamp(campName);
         ArrayList<Review> rList = userService.getReviews(campName);
-
+        Campinfo campinfo = CampsiteService.getOneCampinfo(campName);
         // ArrayList<AverageRating> aList = new ArrayList<AverageRating>();
         double rate = userService.getRating(campName);
         model.addAttribute("camp", camp);
         model.addAttribute("reviews", rList);
         model.addAttribute("rate", rate);
+        model.addAttribute("campinfo", campinfo);
 
 
 
@@ -315,7 +304,6 @@ public class showCampController {
     /**
      * @return skilar síðu þar sem hægt er að skrifa ummæli.
      */
-
     @RequestMapping(value = "giveReview")
     public String giveReview() {
         return "giveReview";
@@ -328,14 +316,15 @@ public class showCampController {
      * @param model
      * @return skilar síðu þar sem hægt er að skrifa ummæli
      */
-
     @RequestMapping(value = "/review", method = RequestMethod.POST)
     public String review(@RequestParam(value = "campName") String campName, Model model) {
 
-
+        try{
         for (Camp c : cList) {
             if (c.getCampname().equals(campName))
                 model.addAttribute("camp", c);
+        }}catch(Exception e){
+            System.out.println("inní /review: "+e);
         }
 
         return "giveReview";
@@ -349,11 +338,11 @@ public class showCampController {
      * @param model
      * @return skilar síðu með upplýsingu
      */
-/*
     @RequestMapping(value = "/postReview", method = RequestMethod.POST)
     public String postReview(@RequestParam(value = "myReview") String myReview,
                              @RequestParam(value = "campName") String campName, Model model) {
         ArrayList<Review> rList = new ArrayList<Review>();
+        /*
         Review review = new Review(myReview, user);
         for (Camp c : cList) {
             if (c.getCampmame().equals(campName))
@@ -363,15 +352,22 @@ public class showCampController {
             rList = c.getReviews();
             model.addAttribute("camp", c);
             model.addAttribute("reviews", rList);
-        }
+        }*/
 
         return "campInfo";
     }
 
+    /**
+     * //TODO tengja og laga
+     * @param rating
+     * @param campName
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "giveRating", method = RequestMethod.POST)
     public String giveRating(@RequestParam(value = "rating") int rating,
                              @RequestParam(value = "campName2") String campName, Model model) {
-
+        /*
         userService.setRating(rating, campName);
         //ArrayList<Review> rev = userService.getReviews();
         double rate;
@@ -390,8 +386,8 @@ public class showCampController {
                 model.addAttribute("rate", rate);
                 model.addAttribute("reviews", c.getReviews());
             }
-        }
+        }*/
         return "campInfo";
-    }*/
+    }
 
 }
