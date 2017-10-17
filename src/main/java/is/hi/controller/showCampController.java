@@ -56,7 +56,7 @@ public class showCampController {
     //TODO breyta yfir i "frontpage" (hafa allt a ensku)
     @RequestMapping("/forsida")
     public String forsida(){
-        return "forsida";
+        return "/frontpage";
     }
 
 
