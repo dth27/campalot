@@ -45,9 +45,13 @@ public class showCampController {
     ArrayList<TravelPlanItem> tpiList;
     ArrayList<TravelPlan> tpList;
     ArrayList<Camp> cList;
+    ArrayList<Campinfo> cList2;
     String user;
+
     ArrayList<userAccess> mylist;
 //    userAccess userobj;
+
+    ArrayList<Review> rList;
 
 
     // ===========================
@@ -125,6 +129,7 @@ public class showCampController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String synaNotanda(@RequestParam(value = "uname") String name, @RequestParam(value = "psw") String psw, Model model ) {
         if (userService.isPwCorr(name, psw)) {
+            user = name;
             ArrayList<Camp> cList;
             user = name;
             cList = CampsiteService.getCampsites();
@@ -291,22 +296,23 @@ public class showCampController {
     public String showCamps(Model model,
                             @RequestParam(value = "area") String area) {
 
-        cList = CampsiteService.getCampsites();
-        ArrayList<Campinfo> cList2 = new ArrayList<Campinfo>();
         cList2 = CampsiteService.getCampinfo();
-        /*
-        for (Camp c : cList) {
-            if (c.getCamparea().equals(area)) {
-                cList2.add(c);
+        ArrayList<Campinfo> cList3 = new ArrayList<Campinfo>();
+
+        for (Campinfo c : cList2) {
+            if (c.getRegion().equals(area)) {
+                cList3.add(c);
+
             }
-            model.addAttribute("camps", cList2);
+            model.addAttribute("camps", cList3);
         }
         if (area.equals("All"))
-            model.addAttribute("camps", cList);*/
-        model.addAttribute("camps", cList2);
+            model.addAttribute("camps", cList2);
+
 
         return "allCampsites";
     }
+
 
     /**
      * Sækir upplýsingar um tjaldsvæði
@@ -318,17 +324,14 @@ public class showCampController {
     @RequestMapping(value = "/getInfo", method = RequestMethod.POST)
     public String getInfo(@RequestParam(value = "campName") String campName, Model model) {
         //TODO thurfum ekki oll campsites
-        Camp camp = CampsiteService.getOneCamp(campName);
-        ArrayList<Review> rList = userService.getReviews(campName);
+
+        rList = userService.getReviews(campName);
         Campinfo campinfo = CampsiteService.getOneCampinfo(campName);
         // ArrayList<AverageRating> aList = new ArrayList<AverageRating>();
-        double rate = userService.getRating(campName);
-        model.addAttribute("camp", camp);
+        //double rate = userService.getRating(campName);
         model.addAttribute("reviews", rList);
-        model.addAttribute("rate", rate);
+        //model.addAttribute("rate", rate);
         model.addAttribute("campinfo", campinfo);
-
-
 
         return "campInfo";
     }
@@ -354,15 +357,15 @@ public class showCampController {
      */
     @RequestMapping(value = "/review", method = RequestMethod.POST)
     public String review(@RequestParam(value = "campName") String campName, Model model) {
-
+        System.out.println(campName);
+        cList2 = CampsiteService.getCampinfo();
         try{
-        for (Camp c : cList) {
+            for (Campinfo c : cList2) {
             if (c.getCampname().equals(campName))
                 model.addAttribute("camp", c);
         }}catch(Exception e){
             System.out.println("inní /review: "+e);
         }
-
         return "giveReview";
     }
 
@@ -377,20 +380,16 @@ public class showCampController {
     @RequestMapping(value = "/postReview", method = RequestMethod.POST)
     public String postReview(@RequestParam(value = "myReview") String myReview,
                              @RequestParam(value = "campName") String campName, Model model) {
-        ArrayList<Review> rList = new ArrayList<Review>();
-        /*
-        Review review = new Review(myReview, user);
-        for (Camp c : cList) {
-            if (c.getCampmame().equals(campName))
-                rList = c.getReviews();
-            rList.add(review);
-            c.setReviews(rList);
-            rList = c.getReviews();
-            model.addAttribute("camp", c);
-            model.addAttribute("reviews", rList);
-        }*/
 
+
+        Review review = new Review(myReview, user, campName);
+        userService.addReview(review);
+        Campinfo campinfo = CampsiteService.getOneCampinfo(campName);
+        model.addAttribute("campinfo", campinfo);
+        ArrayList<Review> rList = userService.getReviews(campName);
+        model.addAttribute("reviews", rList);
         return "campInfo";
+
     }
 
     /**

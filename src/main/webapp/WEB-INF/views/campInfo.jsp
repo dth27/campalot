@@ -14,7 +14,7 @@
 <h3>Name</h3>
 ${campinfo.campname}
 <h3>Rating</h3>
-${rate}
+
 <form action="giveRating" method="POST">
     <select name="rating">
         <option value="0">0</option>
@@ -29,7 +29,7 @@ ${rate}
         <option value="9" >9</option>
         <option value="10" >10</option>
     </select>
-    <button name="campName2" value ="${camp.campname}" s>OK</button>
+    <button name="campName2" value="${campinfo.campname}" s>OK</button>
 
 </form>
 <%--
@@ -74,7 +74,7 @@ ${campinfo.campwebsite}
 </table>
 
 
-<button name = "campName" value="${camp.campname}" type="submit">Give a review</button>
+    <button name="campName" value="${campinfo.campname}" type="submit">Give a review</button>
 
 
 </form>

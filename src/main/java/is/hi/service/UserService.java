@@ -1,10 +1,12 @@
 package is.hi.service;
 
-import is.hi.model.userAccess;
-import org.springframework.stereotype.Service;
 
+import is.hi.model.userAccess;
+import is.hi.model.Review;
+import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 public interface UserService {
@@ -19,4 +21,8 @@ public interface UserService {
     double getRating(String name);
     void setRating(int rate, String campname);
     ArrayList getUser(String name);
+    void addReview(Review review);
+    /*double getRating(String name);
+    void setRating(int rate, String campname);*/
+
 }

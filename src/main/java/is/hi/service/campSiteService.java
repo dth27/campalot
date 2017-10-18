@@ -3,6 +3,7 @@ package is.hi.service;
 
 import is.hi.model.Camp;
 import is.hi.model.Campinfo;
+import is.hi.model.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

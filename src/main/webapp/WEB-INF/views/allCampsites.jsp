@@ -20,14 +20,14 @@
     <form action="showCamps" method="POST">
         <select name="area">
             <option value="All">All</option>
-            <option value="Suðurland">Suðurland</option>
-            <option value="Vestfirðir">Vestfirðir</option>
-            <option value="Höfuðborgarsvæðið" >Höfuðborgarsvæðið</option>
+            <option value="Sudurland">Sudurland</option>
+            <option value="Vestfirdir">Vestfirdir</option>
+            <option value="Hofudborgarsvaedi">Höfuðborgarsvæðið</option>
             <option value="Austurland" >Austurland</option>
-            <option value="Norðurland" >Norðurland</option>
-            <option value="SuðAusturland" >Suð austurland</option>
+            <option value="Nordurland">Norðurland</option>
+            <option value="Reykjanes">Reykjanes</option>
             <option value="Vesturland" >Vesturland</option>
-            <option value="Hálendi" >Hálendi</option>
+            <option value="Halendid">Hálendið</option>
         </select>
         <button>OK</button>
 </form>
