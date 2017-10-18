@@ -1,8 +1,10 @@
 package is.hi.service;
 
+import is.hi.model.Review;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+
 
 
 public interface UserService {
@@ -14,6 +16,8 @@ public interface UserService {
     //Sem sagt tekur inn eitthvað nafn, annaðhvort
     //campname eða notendanafn og skilar reviewinu
     ArrayList getReviews(String name);
-    double getRating(String name);
-    void setRating(int rate, String campname);
+
+    void addReview(Review review);
+    /*double getRating(String name);
+    void setRating(int rate, String campname);*/
 }

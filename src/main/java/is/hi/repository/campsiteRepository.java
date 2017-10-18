@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+
 import java.util.List;
 
 /**
@@ -21,6 +22,7 @@ public interface campsiteRepository extends JpaRepository<Camp, Long> {
      * retrieves all campsites
      * @return list of campsites
      */
+
     @Query(value = "SELECT m FROM Camp m")
     //@Query(nativeQuery = true, value =  "SELECT * FROM campsite")
     List<Camp> getAll();

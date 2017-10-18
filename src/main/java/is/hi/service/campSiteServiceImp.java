@@ -2,8 +2,10 @@ package is.hi.service;
 import is.hi.model.Camp;
 //import is.hi.model.loginUser;
 import is.hi.model.Campinfo;
+import is.hi.model.Review;
 import is.hi.repository.campinfoRepository;
 import is.hi.repository.campsiteRepository;
+import is.hi.repository.reviewRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,9 +21,12 @@ public class campSiteServiceImp implements campSiteService {
     campsiteRepository campRep;
     @Autowired
     campinfoRepository campInfoRep;
+    @Autowired
+    reviewRepository revRep;
 
     private ArrayList<Camp> cList;
     private ArrayList<Campinfo> BList;
+    private ArrayList<Review> rList;
     @Override
     public ArrayList getCampsites(){
         cList = (ArrayList<Camp>) campRep.getAll();

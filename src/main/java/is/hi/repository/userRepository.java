@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -37,9 +38,15 @@ public interface userRepository extends JpaRepository<userAccess, String> {
 
     /**
      * adds userAccess
-     * @param userAccess
+     *
      */
-    //void add(userAccess userAccess);
+    @Transactional
+    @Modifying
+    @Query(value = "insert into useraccess(username,email,password,hasaccess,hasadminauthority) VALUES (?1, ?2, ?3, ?4, ?5)"
+            , nativeQuery = true)
+    void add(String username, String email, String password, Boolean hasaccess, Boolean hasadminauthority);
+
+
     //String getReviews(String username);
 
 
