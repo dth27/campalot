@@ -29,6 +29,10 @@ public class TravelPlanItem {
         this.totalprice = totalprice;
         this.totalnights = totalnights;
     }
+
+    public TravelPlanItem() {
+    }
+
     public int getId() {
         return id;
     }

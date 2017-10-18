@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 //import static com.sun.deploy.config.JREInfo.getAll;
 
@@ -45,6 +46,8 @@ public class showCampController {
     ArrayList<TravelPlan> tpList;
     ArrayList<Camp> cList;
     String user;
+    ArrayList<userAccess> mylist;
+//    userAccess userobj;
 
 
     // ===========================
@@ -123,6 +126,7 @@ public class showCampController {
     public String synaNotanda(@RequestParam(value = "uname") String name, @RequestParam(value = "psw") String psw, Model model ) {
         if (userService.isPwCorr(name, psw)) {
             ArrayList<Camp> cList;
+            user = name;
             cList = CampsiteService.getCampsites();
             model.addAttribute("camps", cList);
             ArrayList<TravelPlan> tpList;
@@ -146,7 +150,11 @@ public class showCampController {
      * @return
      */
     @RequestMapping(value="newTravelPlan", method = RequestMethod.GET)
-    public String newTravelPlan(){
+    public String newTravelPlan(Model model){
+        System.out.println(user);
+        mylist = userService.getUser(user);
+        model.addAttribute("users", mylist.get(0));
+
         return "newTravelPlan";
     }
 
@@ -158,6 +166,7 @@ public class showCampController {
     public String addTravel(Model model){
         try{
             tpList = travelplanService.getTravelplans();
+
         }catch (Exception e){
             System.out.println(e + " getTravelplans in /addTravel");
         }
@@ -170,17 +179,19 @@ public class showCampController {
     /**
      *
      * vefsíða sem gerir notenda kleift að búa til nýtt travelplan
-     * @param username
      * @param planName
      * @param model
      * @return fer aftur á notendasíðu
      */
     @RequestMapping(value = "/newTravel", method = RequestMethod.POST)
-    public String newTravel(@RequestParam(value="username")
-                                    String username, @RequestParam(value="planName") String planName, Model model)
+    public String newTravel(@RequestParam(value="planName") String planName, Model model)
     {   try {
-        travelplanService.createTravelplan(planName, username);
+       // userService.
+
+        travelplanService.createTravelplan(planName, user);
         tpList = travelplanService.getTravelplans();
+
+
         model.addAttribute("travelplans", tpList);
     } catch (Exception e){
         System.out.println("newTravel error");

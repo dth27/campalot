@@ -11,7 +11,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+
+
 <head>
     <title>New Travel Plan</title>
 </head>
@@ -20,10 +21,10 @@
 <h1>Create a new travel plan</h1>
 
 
+<c:out value="${users.username}"/>
 <form action="/newTravel" method="post">
     <div class="container">
-        <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required>
+
         <label><b>Plan name</b></label>
         <input type="text" placeholder="Enter Name" name="planName" required>
     </div>

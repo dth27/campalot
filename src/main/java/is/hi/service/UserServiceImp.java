@@ -8,6 +8,7 @@ import is.hi.repository.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -112,5 +113,11 @@ public class UserServiceImp implements UserService {
     }
     public void setRating(int rate, String name){
 
+    }
+
+    @Override
+    public ArrayList getUser(String username){
+    tList = (ArrayList<userAccess>) travRep.getUserfromname(username);
+        return tList;
     }
 }
