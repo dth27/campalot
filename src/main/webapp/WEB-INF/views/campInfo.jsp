@@ -52,21 +52,6 @@ ${campinfo.averagerating}
     </c:forEach>
 </table>
 
-
-    <%--
-    <h3>Price per night</h3>
-    ${camp.price} kr
-    <h3>Service</h3>
-    ${camp.service}
-    <h3>Opening hours</h3>
-    ${camp.openinghours}
-    <h3>Shops nearby</h3>
-    ${camp.shops}
-    <h3>Entertainment nearby</h3>
-    ${camp.entertainment}
-    <h3>Area</h3>
-    ${camp.camparea}
-    --%>
 <h2>Description</h2>
 ${campinfo.description}
 <h3 id="adress">Adress</h3>

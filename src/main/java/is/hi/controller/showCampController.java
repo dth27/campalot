@@ -48,6 +48,7 @@ public class showCampController {
     ArrayList<Camp> cList;
     ArrayList<Campinfo> cList2;
     String user;
+    boolean isLoggedIn = false;
 
     ArrayList<userAccess> mylist;
 //    userAccess userobj;
@@ -74,7 +75,7 @@ public class showCampController {
     // ===========================
     /**
      *
-     * @return vefsíðu sem gerir notenda kleift að stofa nýjan aðgang
+     * @return page that the user can sign up for a new account
      */
     @RequestMapping("/newAccountSite")
     public String newAccountSite(){
@@ -83,7 +84,7 @@ public class showCampController {
 
     /**
      *
-     * @return
+     * @return info on the user's account
      */
     @RequestMapping("/accountInfo")
     public String accountInfo(){
@@ -139,6 +140,7 @@ public class showCampController {
             ArrayList<TravelPlan> tpList;
             tpList = travelplanService.getTravelplans();
             model.addAttribute("travelplans", tpList);
+            isLoggedIn = true;
             if(userService.hasAdminAuthority(name, psw)){
                 return "adminLoginSite";
             }
@@ -362,7 +364,9 @@ public class showCampController {
      */
     @RequestMapping(value = "/review", method = RequestMethod.POST)
     public String review(@RequestParam(value = "campName") String campName, Model model) {
-        System.out.println(campName);
+        if(!isLoggedIn) {
+            return "campInfoError";
+        }
         cList2 = CampsiteService.getCampinfo();
         try{
             for (Campinfo c : cList2) {
@@ -405,6 +409,9 @@ public class showCampController {
     @RequestMapping(value = "giveRating", method = RequestMethod.POST)
     public String giveRating(@RequestParam(value = "rating") int myRating,
                              @RequestParam(value = "campName2") String campName2, Model model) {
+        if(!isLoggedIn) {
+            return "campInfoError";
+        }
         AverageRating rat = new AverageRating(myRating, user, campName2);
         userService.setRating(rat);
         double avrat = userService.getRating(campName2);
