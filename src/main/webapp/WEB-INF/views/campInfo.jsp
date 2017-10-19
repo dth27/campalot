@@ -14,7 +14,7 @@
 <h3>Name</h3>
 ${campinfo.campname}
 <h3>Rating</h3>
-${rate}
+
 <form action="giveRating" method="POST">
     <select name="rating">
         <option value="0">0</option>
@@ -29,7 +29,7 @@ ${rate}
         <option value="9" >9</option>
         <option value="10" >10</option>
     </select>
-    <button name="campName2" value ="${camp.campname}" s>OK</button>
+    <button name="campName2" value="${campinfo.campname}" s>OK</button>
 
 </form>
 <%--
@@ -58,23 +58,23 @@ ${campinfo.campwebsite}
 
 <h2>Reviews</h2>
 <form action="review" method="POST" >
-<table border="1">
-    <thead>
-    <tr>
-        <th>Review</th>
-        <th>Author</th>
-    </tr>
-    </thead>
-    <c:forEach items="${reviews}" var="r" >
+    <table border="1">
+        <thead>
         <tr>
-            <td>  ${r.review} </td>
-            <td> ${r.username} </td>
+            <th>Review</th>
+            <th>Author</th>
         </tr>
-    </c:forEach>
-</table>
+        </thead>
+        <c:forEach items="${reviews}" var="r" >
+            <tr>
+                <td>  ${r.review} </td>
+                <td> ${r.username} </td>
+            </tr>
+        </c:forEach>
+    </table>
 
 
-<button name = "campName" value="${camp.campname}" type="submit">Give a review</button>
+    <button name="campName" value="${campinfo.campname}" type="submit">Give a review</button>
 
 
 </form>

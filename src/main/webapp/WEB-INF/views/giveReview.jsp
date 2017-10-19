@@ -11,9 +11,9 @@
 
 <body>
 <form method = "POST" action = "postReview">
-    <label><b>Your review for ${camp.campName}</b></label>
+    <label><b>Your review for ${camp.campname} </b></label>
     <textarea cols = "50" rows = "10" placeholder="Type your review" name="myReview" required></textarea>
-    <button type = "submit" name = "campName" value="${camp.campName}">Submit</button>
+    <button type="submit" name="campName" value="${camp.campname}">Submit</button>
 </form>
 
 </body>

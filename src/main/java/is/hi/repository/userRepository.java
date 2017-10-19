@@ -5,7 +5,6 @@ import is.hi.model.userAccess;
 import java.util.List;
 import is.hi.model.userAccess;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -28,11 +27,6 @@ public interface userRepository extends JpaRepository<userAccess, String> {
      */
     @Query(value ="SELECT a FROM userAccess a")
     List<userAccess> getAll();
-    /*@Modifying
-    @Query(value="UPDATE Review SET rating ")
-    setRating();*/
-    //userAccess acc = em.find();
-
 
 
     /**

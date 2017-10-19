@@ -1,10 +1,12 @@
 package is.hi.service;
 
+import is.hi.model.AverageRating;
 import is.hi.model.Camp;
 import is.hi.model.Review;
 import is.hi.model.userAccess;
 import is.hi.repository.reviewRepository;
 import is.hi.repository.userRepository;
+import is.hi.repository.ratingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,8 @@ public class UserServiceImp implements UserService {
     @Qualifier("reviewRepository")
     @Autowired
     reviewRepository revRep;
+    @Autowired
+    ratingRepository ratRep;
 
     private ArrayList<userAccess> tList;
 
@@ -96,12 +100,14 @@ public class UserServiceImp implements UserService {
     public double getRating(String name){
         double rate = 0;
         int count = 1;
-        ArrayList<Review> reviews = revRep.getAll();
-        for (int i = 0; i<reviews.size(); i++){
-            if(reviews.get(i).getCampname().equals(name) ||reviews.get(i).getUsername().equals(name)) {
-               rate += reviews.get(i).getRating();
+        ArrayList<AverageRating> rating = ratRep.getAll();
+        for (int i = 0; i<rating.size(); i++){
+            if(rating.get(i).getCampname().equals(name) ||rating.get(i).getUsername().equals(name)) {
+               rate += rating.get(i).getRating();
                 count++;
+
             }
+
         }
         if (count > 2){
             count -= 1;
@@ -109,8 +115,5 @@ public class UserServiceImp implements UserService {
         double avgrating = rate/count;
         System.out.println(avgrating);
         return avgrating;
-    }
-    public void setRating(int rate, String name){
-
     }
 }

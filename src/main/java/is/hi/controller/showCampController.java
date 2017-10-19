@@ -56,7 +56,7 @@ public class showCampController {
     //TODO breyta yfir i "frontpage" (hafa allt a ensku)
     @RequestMapping("/forsida")
     public String forsida(){
-        return "forsida";
+        return "/frontpage";
     }
 
 
@@ -202,8 +202,8 @@ public class showCampController {
      */
     @RequestMapping(value = "/addTravelitem", method = RequestMethod.POST)
     public String addTravelItem(@RequestParam(value="date") String date,
-                            @RequestParam(value="nights") int nights,
-                            @RequestParam(value="travel") String travel, Model model)
+                                @RequestParam(value="nights") int nights,
+                                @RequestParam(value="travel") String travel, Model model)
     {
         //TODO vantar planname til að tengja við
         Date realDate;
@@ -345,10 +345,10 @@ public class showCampController {
     public String review(@RequestParam(value = "campName") String campName, Model model) {
 
         try{
-        for (Camp c : cList) {
-            if (c.getCampname().equals(campName))
-                model.addAttribute("camp", c);
-        }}catch(Exception e){
+            for (Camp c : cList) {
+                if (c.getCampname().equals(campName))
+                    model.addAttribute("camp", c);
+            }}catch(Exception e){
             System.out.println("inní /review: "+e);
         }
 
@@ -405,7 +405,6 @@ public class showCampController {
                 for (AverageRating a : aList) {
                     i = i + a.getVoted();
                 }
-
                 rate = i / aList.size();
                 model.addAttribute("camp", c);
                 model.addAttribute("rate", rate);

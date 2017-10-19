@@ -1,10 +1,6 @@
 package is.hi.model;
 
-
-
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 /**
  * @author Diljá, Ólöf, Sandra og Kristín
@@ -22,7 +18,6 @@ public class Review {
     @Column(name="username")
     String username;
     String review;
-    int rating;
     String campname;
    /* @OneToMany
     @JoinColumn(name= "username")
@@ -70,15 +65,6 @@ public class Review {
 
     public void setReview(String review) {
         this.review = review;
-    }
-
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
     }
 
     public int getId() {
