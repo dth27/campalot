@@ -79,6 +79,11 @@ ${campinfo.campwebsite}
 
 </form>
 
-
+<h2>Add this camp to your TravelPlan!</h2>
+<form action="/" method="get">
+    <button>
+        Add to TravelPlan
+    </button>
+</form>
 </body>
 </html>

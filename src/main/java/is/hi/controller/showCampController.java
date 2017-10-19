@@ -158,6 +158,8 @@ public class showCampController {
     public String newTravelPlan(Model model){
         System.out.println(user);
         mylist = userService.getUser(user);
+        if (mylist.isEmpty()){}
+        else
         model.addAttribute("users", mylist.get(0));
 
         return "newTravelPlan";
@@ -191,8 +193,9 @@ public class showCampController {
     @RequestMapping(value = "/newTravel", method = RequestMethod.POST)
     public String newTravel(@RequestParam(value="planName") String planName, Model model)
     {   try {
-       // userService.
-
+        ArrayList<Camp> cList;
+        cList = CampsiteService.getCampsites();
+        model.addAttribute("camps", cList);
         travelplanService.createTravelplan(planName, user);
         tpList = travelplanService.getTravelplans();
 

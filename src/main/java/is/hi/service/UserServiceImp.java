@@ -89,7 +89,7 @@ public class UserServiceImp implements UserService {
         return selectedReviews;
     }
 
-    @Query
+    @Override
     public void addReview(Review review) {
         revRep.addReview(review.getReview(), review.getCampname(), review.getUsername());
 

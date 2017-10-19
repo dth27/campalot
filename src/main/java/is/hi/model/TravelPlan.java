@@ -17,20 +17,18 @@ public class TravelPlan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     String travelplanname;
-    Date datearrive;
-    Date datedepart;
-    int totalprice;
-    int totalsum;
-    int totalnights;
+    String username;
 
-    String username; //TODO skoða
-    public TravelPlan(String travelplanname, Date datearrive, Date datedepart, int totalprice, int totalsum, int totalnights, String username){
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public TravelPlan(String travelplanname, String username){
         this.travelplanname = travelplanname;
-        this.datearrive = datearrive;
-        this.datedepart = datedepart;
-        this.totalprice = totalprice;
-        this.totalsum = totalsum;
-        this.totalnights = totalnights;
         this.username = username;
     }
 
@@ -45,43 +43,4 @@ public class TravelPlan {
         this.travelplanname = travelPlanName;
     }
 
-    public Date getDatearrive() {
-        return datearrive;
-    }
-
-    public void setDatearrive(Date dateArrive) {
-        this.datearrive = dateArrive;
-    }
-
-    public Date getDatedepart() {
-        return datedepart;
-    }
-
-    public void setDatedepart(Date dateDepart) {
-        this.datedepart = dateDepart;
-    }
-
-    public int getTotalprice() {
-        return totalprice;
-    }
-
-    public void setTotalprice(int totalPrice) {
-        this.totalprice = totalPrice;
-    }
-
-    public int getTotalsum() {
-        return totalsum;
-    }
-
-    public void setTotalsum(int totalSum) {
-        this.totalsum = totalSum;
-    }
-
-    public int getTotalnights() {
-        return totalnights;
-    }
-
-    public void setTotalnights(int totalNights) {
-        this.totalnights = totalNights;
-    }
 }

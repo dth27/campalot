@@ -45,8 +45,8 @@ public class TravelPlanServiceImp implements TravelPlanService{
      */
     @Override
     public void createTravelplan(String planName, String username){
-        TravelPlan travelplan = new TravelPlan(planName, null,null,0,0,0, username);
-       // planRep.add(travelplan);
+        TravelPlan travelplan = new TravelPlan(planName, username);
+        add(travelplan);
     }
 
     /**
@@ -64,7 +64,7 @@ public class TravelPlanServiceImp implements TravelPlanService{
      */
     @Override
     public void add(TravelPlan travelplan){
-        listofTravelPlans.add(travelplan);
+        planRep.addTravelPlan(travelplan.getTravelplanname(), travelplan.getUsername());
     }
 
     /**

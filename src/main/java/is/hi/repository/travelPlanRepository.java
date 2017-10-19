@@ -3,9 +3,11 @@ package is.hi.repository;
 import is.hi.model.TravelPlan;
 import is.hi.model.TravelPlanItem;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -25,6 +27,10 @@ public interface travelPlanRepository extends JpaRepository<TravelPlan, String> 
     @Query(value ="SELECT a FROM TravelPlan a")
     List <TravelPlan> getAll();
 
+    @Transactional
+    @Modifying
+    @Query(value="insert into travelplan(travelplanname, username) VALUES (?1, ?2)", nativeQuery = true)
+    void addTravelPlan(String planname, String user);
     /**
      * adds travelplan
      * @param travelplan

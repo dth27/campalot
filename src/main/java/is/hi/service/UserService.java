@@ -25,4 +25,5 @@ public interface UserService {
     /*double getRating(String name);
     void setRating(int rate, String campname);*/
 
+
 }
