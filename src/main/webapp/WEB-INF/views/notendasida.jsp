@@ -7,7 +7,8 @@
 <html lang="en">
 <head>
     <title>UserSite</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <spring:url value="/css/style.css" var="crunchifyCSS" />
+    <link href="${crunchifyCSS}" rel="stylesheet" />
 </head>
 <body>
 <h1>Welcome! Here you can see your TravelPlan and make a TravelPlan! </h1>

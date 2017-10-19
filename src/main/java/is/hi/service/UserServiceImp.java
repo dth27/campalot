@@ -9,7 +9,9 @@ import is.hi.repository.userRepository;
 import is.hi.repository.ratingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,6 +28,7 @@ public class UserServiceImp implements UserService {
     reviewRepository revRep;
     @Autowired
     ratingRepository ratRep;
+
 
     private ArrayList<userAccess> tList;
 
@@ -57,10 +60,7 @@ public class UserServiceImp implements UserService {
     @Override
     //Creates a new login user
     public void newLoginUser(String username, String email, String pw1) {
-            //Every new user automatically has a non-admin access
-            Boolean adminAuthority = true;
-        userAccess UserAccess = new userAccess(username, email, pw1, true, false);
-            tList.add(UserAccess);
+        travRep.add(username, email, pw1, Boolean.FALSE, Boolean.FALSE);
     }
 
     @Override
@@ -76,10 +76,7 @@ public class UserServiceImp implements UserService {
     }
     @Override
     public boolean arePWidentical(String pw1, String pw2){
-        if (pw1.equals(pw2)){
-            return true;
-        }
-        return false;
+        return pw1.equals(pw2);
     }
     //TODO fall til að ná í reviews
     @Override
@@ -88,12 +85,18 @@ public class UserServiceImp implements UserService {
         ArrayList<Review> selectedReviews = new ArrayList<Review>();
         reviews = revRep.getAll();
         for (Review rev : reviews){
-            if (rev.getCampname().equals(name) || rev.getUsername().equals(name)) {
+            if (rev.getCampname().equals(name)) {
                 selectedReviews.add(rev);
             }
         }
 
         return selectedReviews;
+    }
+
+    @Query
+    public void addReview(Review review) {
+        revRep.addReview(review.getReview(), review.getCampname(), review.getUsername());
+
     }
 
     @Override
@@ -105,9 +108,7 @@ public class UserServiceImp implements UserService {
             if(rating.get(i).getCampname().equals(name) ||rating.get(i).getUsername().equals(name)) {
                rate += rating.get(i).getRating();
                 count++;
-
             }
-
         }
         if (count > 2){
             count -= 1;
@@ -116,4 +117,15 @@ public class UserServiceImp implements UserService {
         System.out.println(avgrating);
         return avgrating;
     }
-}
+    public void setRating(int rate, String name){
+
+    }
+
+    @Override
+    public ArrayList getUser(String username){
+    tList = (ArrayList<userAccess>) travRep.getUserfromname(username);
+        return tList;
+    }
+
+    }
+

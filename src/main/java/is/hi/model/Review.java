@@ -31,14 +31,11 @@ public class Review {
     int rating;*/
 
 
-    /*public Review(int id, String review,userAccess useraccess, Camp camp, int rating) {
-        this.id = id;
+    public Review(String review, String username, String campname) {
         this.review = review;
-       // this.username = username;
-        //this.camp = (List<Camp>) camp;
-        //this.campname = campname;
-        //this.rating = rating;
-    }*/
+        this.username = username;
+        this.campname = campname;
+    }
 
     public Review() {
     }

@@ -19,7 +19,7 @@ import java.util.Set;
  */
 @Entity
 @Table (name="useraccess")
-public class userAccess implements Serializable {
+public class userAccess {
     @Id
     String username;
     String email;

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//TODO-Dilja move price from description into an int variable
+
 @Entity
 @Table (name = "campsitebigdata")
 public class Campinfo {
