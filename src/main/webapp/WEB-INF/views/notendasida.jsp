@@ -75,17 +75,13 @@
     <c:forEach items="${travelplans}" var="travelplan">
         <tr>
             <td> ${travelplan.travelplanname} </td>
-            <td> ${travelplan.datearrive}</td>
-            <td> ${travelplan.datedepart}</td>
-            <td> ${travelplan.totalprice}</td>
-            <td> ${travelplan.totalnights}</td>
         </tr>
     </c:forEach>
 </table>
-
-<button type="button" onclick="showPopupWindow()">New TravelPlan</button>
 </form>
-
+<form action="/newTravelPlan" method="get">
+<button type="submit">New TravelPlan</button>
+</form>
 <script>
     function showPopupWindow() {
         window.open(action = "/newTravelPlan", "", "width=600,height=300");}
