@@ -30,22 +30,43 @@ ${campinfo.campname}
         <option value="10" >10</option>
     </select>
     <button name="campName2" value="${campinfo.campname}" s>OK</button>
-
 </form>
-<%--
-<h3>Price per night</h3>
-${camp.price} kr
-<h3>Service</h3>
-${camp.service}
-<h3>Opening hours</h3>
-${camp.openinghours}
-<h3>Shops nearby</h3>
-${camp.shops}
-<h3>Entertainment nearby</h3>
-${camp.entertainment}
-<h3>Area</h3>
-${camp.camparea}
---%>
+
+<h3>Average Rating</h3>
+${campinfo.averagerating}
+
+
+<h3>All Ratings</h3>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Ratings</th>
+        <th>Author</th>
+    </tr>
+    </thead>
+    <c:forEach items="${ratings}" var="r" >
+        <tr>
+            <td>  ${r.rating} </td>
+            <td> ${r.username} </td>
+        </tr>
+    </c:forEach>
+</table>
+
+
+    <%--
+    <h3>Price per night</h3>
+    ${camp.price} kr
+    <h3>Service</h3>
+    ${camp.service}
+    <h3>Opening hours</h3>
+    ${camp.openinghours}
+    <h3>Shops nearby</h3>
+    ${camp.shops}
+    <h3>Entertainment nearby</h3>
+    ${camp.entertainment}
+    <h3>Area</h3>
+    ${camp.camparea}
+    --%>
 <h2>Description</h2>
 ${campinfo.description}
 <h3 id="adress">Adress</h3>

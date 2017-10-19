@@ -21,7 +21,14 @@ public class AverageRating {
     int rating;
     String campname;
 
-    public AverageRating() {}
+    public AverageRating(int rating, String username, String campname) {
+        this.rating = rating;
+        this.username = username;
+        this.campname = campname;
+    }
+
+    public AverageRating() {
+    }
 
         public int getRating () {
             return rating;

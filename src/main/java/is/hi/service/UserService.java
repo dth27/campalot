@@ -1,6 +1,7 @@
 package is.hi.service;
 
 
+import is.hi.model.AverageRating;
 import is.hi.model.userAccess;
 import is.hi.model.Review;
 import org.springframework.stereotype.Service;
@@ -19,10 +20,9 @@ public interface UserService {
     //campname eða notendanafn og skilar reviewinu
     ArrayList getReviews(String name);
     double getRating(String name);
-    void setRating(int rate, String campname);
+    void setRating(AverageRating rating);
     ArrayList getUser(String name);
     void addReview(Review review);
-    /*double getRating(String name);
-    void setRating(int rate, String campname);*/
-
+    void setAvRating(double r, String name);
+    ArrayList getRatings(String name);
 }
