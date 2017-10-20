@@ -12,13 +12,16 @@
     <link href="${crunchifyCSS}" rel="stylesheet" />
 </head>
 <body>
+<div class="banner">
 <h1>Welcome to Camp'a'Lot!</h1>
-
-<h2>Check out the Campsites</h2>
-<form method = "get" action="listofcamps" class="frontpageForm">
-    <input type="submit" value="Allir"/>
-</form>
+</div>
 <div class="maincontainer">
+<div class="campsitebtn">
+<form method = "get" action="listofcamps" class="frontpageForm">
+    <input type="submit" value="Campsites"/>
+</form></div>
+
+<div class="login">
 <h2>Log in!</h2>
 <form action="login" method="post">
 
@@ -40,6 +43,10 @@
         <button onclick="showPopupWindow()" type="button" >New Account</button>
     </div>
 </form>
+</div>
+</div>
+<div class="bottomNav">
+    Created By Diljá, Kristín, Ólöf og Sandra
 </div>
 <script>
     function showPopupWindow() {
