@@ -208,6 +208,12 @@ public class showCampController {
         return "notendasida";
     }
 
+    @RequestMapping(value="/addToPlan", method = RequestMethod.GET)
+    public String addToPlan(@RequestParam(value="Campname") String campname, Model model){
+        Campinfo camp = CampsiteService.getOneCampinfo(campname);
+        model.addAttribute("camp", camp);
+        return "newTravelPlanItem";
+    }
     /**
      *
      * TODO laga svo virki
@@ -215,19 +221,20 @@ public class showCampController {
      * //@param campname
      *
      * //@param date
-     * @param nights
      * @param model
      * @return
      */
     @RequestMapping(value = "/addTravelitem", method = RequestMethod.POST)
-    public String addTravelItem(@RequestParam(value="date") String date,
-                            @RequestParam(value="nights") int nights,
+    public String addTravelItem(@RequestParam(value="datearrive") String datearr,
+                            @RequestParam(value="datedepart") String datedep,
                             @RequestParam(value="travel") String travel, Model model)
     {
         //TODO vantar planname til að tengja við
-        Date realDate;
-        realDate = alternativeService.dateMaker(date);
-        TravelPlanItem travelplanItem = new TravelPlanItem(5, realDate, realDate, 1000, nights);
+        Date realDatearr, realDatedep;
+
+        realDatearr = alternativeService.dateMaker(datearr);
+        realDatedep = alternativeService.dateMaker(datedep);
+        TravelPlanItem travelplanItem = new TravelPlanItem(5, realDatearr, realDatedep, 1000);
         travelplanService.addItemtoPlan(travel, travelplanItem);
         tpiList = new ArrayList<TravelPlanItem>();
         try{

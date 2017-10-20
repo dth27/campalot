@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
 @Service
 public class TravelPlanServiceImp implements TravelPlanService{
 
@@ -74,7 +76,15 @@ public class TravelPlanServiceImp implements TravelPlanService{
      */
     @Override
     public void addItemtoPlan(String travelplan, TravelPlanItem travelplanitem){
-        //planRep.addItem(travelplan, travelplanitem);
+
+        long diff = travelplanitem.getDatedepart().getTime() - travelplanitem.getDatearrive().getTime();
+        float days = (diff / (1000*60*60*24));
+        int totaldays = Math.round(days);
+        int price = travelplanitem.getTotalprice()*totaldays;
+        System.out.println(days);
+        //long totalprice = travelplanitem.getTotalprice()*diff;
+       // planRep.addItem(travelplan, travelplanitem.getDatearrive(), travelplanitem.getDatedepart(),price, );
     }
+
 
 }

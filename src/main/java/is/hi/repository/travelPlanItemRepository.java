@@ -2,9 +2,11 @@ package is.hi.repository;
 
 import is.hi.model.TravelPlanItem;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -25,6 +27,10 @@ public interface travelPlanItemRepository extends JpaRepository<TravelPlanItem, 
     @Query(value ="SELECT a FROM TravelPlanItem a")
     List<TravelPlanItem> getAll();
 
+    @Transactional
+    @Modifying
+    @Query(value="insert into travelplanitem(travelplanname, campname, datearrive, datedepart, totalprice, username) VALUES (?1, ?2)", nativeQuery = true)
+    void addItem(String planname, String user);
     /**
      * Adss travelplanitems
      * @param travelplanItem
