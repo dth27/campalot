@@ -1,5 +1,7 @@
 package is.hi.model;
 
+import javax.persistence.*;
+
 /**
  * @author Diljá, Ólöf, Sandra og Kristín
  * @date september 2017
@@ -7,26 +9,57 @@ package is.hi.model;
  * Háskóli Íslands
  *
  * AverageRating klasi sem inniheldur upplýsingar um hve margir hafa gefið rating
- * og hver einkunnin sé
+ * og hver einkunnin sé hjá hverjum og einum user
  */
-
+@Entity
+@Table(name="rating")
 public class AverageRating {
-    int totalPeopleVoted;
-    int totalScoreGiven;
+    @Id
+    int id;
+    @Column(name = "username")
+    String username;
+    int rating;
+    String campname;
 
-    public int getTotalPeopleVoted() {
-        return totalPeopleVoted;
+    public AverageRating(int rating, String username, String campname) {
+        this.rating = rating;
+        this.username = username;
+        this.campname = campname;
     }
 
-    public void setTotalPeopleVoted(int totalPeopleVoted) {
-        this.totalPeopleVoted = totalPeopleVoted;
+    public AverageRating() {
     }
 
-    public int getTotalScoreGiven() {
-        return totalScoreGiven;
+        public int getRating () {
+            return rating;
+        }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
-    public void setTotalScoreGiven(int totalScoreGiven) {
-        this.totalScoreGiven = totalScoreGiven;
+    public int getId() {
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getCampname() {
+        return campname;
+    }
+
+    public void setCampname(String campname) {
+        this.campname = campname;
+    }
+
 }

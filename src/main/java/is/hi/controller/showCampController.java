@@ -2,6 +2,7 @@ package is.hi.controller;
 
 import is.hi.model.*;
 import is.hi.service.*;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,11 +48,13 @@ public class showCampController {
     ArrayList<Camp> cList;
     ArrayList<Campinfo> cList2;
     String user;
+    boolean isLoggedIn = false;
 
     ArrayList<userAccess> mylist;
 //    userAccess userobj;
 
     ArrayList<Review> rList;
+    ArrayList<AverageRating> ratList;
 
 
     // ===========================
@@ -72,7 +75,7 @@ public class showCampController {
     // ===========================
     /**
      *
-     * @return vefsíðu sem gerir notenda kleift að stofa nýjan aðgang
+     * @return page that the user can sign up for a new account
      */
     @RequestMapping("/newAccountSite")
     public String newAccountSite(){
@@ -81,7 +84,7 @@ public class showCampController {
 
     /**
      *
-     * @return
+     * @return info on the user's account
      */
     @RequestMapping("/accountInfo")
     public String accountInfo(){
@@ -137,12 +140,13 @@ public class showCampController {
             ArrayList<TravelPlan> tpList;
             tpList = travelplanService.getTravelplans();
             model.addAttribute("travelplans", tpList);
+            isLoggedIn = true;
             if(userService.hasAdminAuthority(name, psw)){
                 return "adminLoginSite";
             }
             return "notendasida";
         } else {
-            return "forsida";
+            return "frontpage";
         }
     }
 
@@ -367,7 +371,9 @@ public class showCampController {
      */
     @RequestMapping(value = "/review", method = RequestMethod.POST)
     public String review(@RequestParam(value = "campName") String campName, Model model) {
-        System.out.println(campName);
+        if(!isLoggedIn) {
+            return "campInfoError";
+        }
         cList2 = CampsiteService.getCampinfo();
         try{
             for (Campinfo c : cList2) {
@@ -391,7 +397,6 @@ public class showCampController {
     public String postReview(@RequestParam(value = "myReview") String myReview,
                              @RequestParam(value = "campName") String campName, Model model) {
 
-
         Review review = new Review(myReview, user, campName);
         userService.addReview(review);
         Campinfo campinfo = CampsiteService.getOneCampinfo(campName);
@@ -399,39 +404,30 @@ public class showCampController {
         ArrayList<Review> rList = userService.getReviews(campName);
         model.addAttribute("reviews", rList);
         return "campInfo";
-
     }
 
     /**
      * //TODO tengja og laga
-     * @param rating
-     * @param campName
+     * @param myRating
+     * @param campName2
      * @param model
      * @return
      */
     @RequestMapping(value = "giveRating", method = RequestMethod.POST)
-    public String giveRating(@RequestParam(value = "rating") int rating,
-                             @RequestParam(value = "campName2") String campName, Model model) {
-        /*
-        userService.setRating(rating, campName);
-        //ArrayList<Review> rev = userService.getReviews();
-        double rate;
-        for (Camp c : cList) {
-            if (c.getCampname().equals(campName)) {
-                aList = c.getRatings();
-                aList.add(rating1);
-                c.setRatings(aList);
-                int i = 0;
-                for (AverageRating a : aList) {
-                    i = i + a.getVoted();
-                }
-
-                rate = i / aList.size();
-                model.addAttribute("camp", c);
-                model.addAttribute("rate", rate);
-                model.addAttribute("reviews", c.getReviews());
-            }
-        }*/
+    public String giveRating(@RequestParam(value = "rating") int myRating,
+                             @RequestParam(value = "campName2") String campName2, Model model) {
+        if(!isLoggedIn) {
+            return "campInfoError";
+        }
+        AverageRating rat = new AverageRating(myRating, user, campName2);
+        userService.setRating(rat);
+        double avrat = userService.getRating(campName2);
+        userService.setAvRating(avrat, campName2);
+        Campinfo campinfo = CampsiteService.getOneCampinfo(campName2);
+        ratList = userService.getRatings(campName2);
+        model.addAttribute("campinfo", campinfo);
+        model.addAttribute("reviews", rList);
+        model.addAttribute("ratings", ratList);
         return "campInfo";
     }
 

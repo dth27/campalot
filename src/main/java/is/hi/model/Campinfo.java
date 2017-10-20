@@ -23,6 +23,7 @@ public class Campinfo {
     String description;
     int xval;
     int yval;
+    double averagerating;
 
     public Campinfo(){
 
@@ -130,5 +131,13 @@ public class Campinfo {
 
     public void setYval(int yval) {
         this.yval = yval;
+    }
+
+    public double getAveragerating() {
+        return averagerating;
+    }
+
+    public void setAveragerating(double averagerating) {
+        this.averagerating = averagerating;
     }
 }

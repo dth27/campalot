@@ -28,13 +28,11 @@ public class Camp {
     String camparea;
     double camplong;
     double camplat;
-    int totalpeoplevoted;
-    double totalscoregiven;
 
 
 
 
-    public Camp(String campname, int price, String service, String openinghours, String shops, String entertainment, String camparea, double camplong, double camplat, int totalpeoplevoted, double totalscoregiven) {
+    public Camp(String campname, int price, String service, String openinghours, String shops, String entertainment, String camparea, double camplong, double camplat) {
         this.campname = campname;
         this.price = price;
         this.service = service;
@@ -44,8 +42,6 @@ public class Camp {
         this.camparea = camparea;
         this.camplong = camplong;
         this.camplat = camplat;
-        this.totalpeoplevoted = totalpeoplevoted;
-        this.totalscoregiven = totalscoregiven;
     }
 
     public Camp() {
@@ -126,19 +122,4 @@ public class Camp {
         this.camplat = campLat;
     }
 
-    public int getTotalpeoplevoted() {
-        return totalpeoplevoted;
-    }
-
-    public void setTotalpeoplevoted(int totalpeoplevoted) {
-        this.totalpeoplevoted = totalpeoplevoted;
-    }
-
-    public double getTotalscoregiven() {
-        return totalscoregiven;
-    }
-
-    public void setTotalscoregiven(double totalscoregiven) {
-        this.totalscoregiven = totalscoregiven;
-    }
 }

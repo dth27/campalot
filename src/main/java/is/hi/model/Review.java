@@ -1,10 +1,6 @@
 package is.hi.model;
 
-
-
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 /**
  * @author Diljá, Ólöf, Sandra og Kristín
