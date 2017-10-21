@@ -13,26 +13,34 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
-    <title>All CampSites</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>All Campsites</title>
+    <link rel="stylesheet" type="text/css" href="/css/campinf.css">
 </head>
 <body>
+<h1>All campsites</h1>
+<ul>
+    <li><a href="listofcamps">All campsites</a></li>
+    <li><a href="">My travelplans</a></li>
+    <li><a href="UserReviews">User reviews</a></li>
+    <li><a href="accountInfo">My account</a></li>
+</ul>
+<br><br>
+<h3>Find campsites located in a specific part of the country:</h3>
     <form action="showCamps" method="POST">
         <select name="area">
             <option value="All">All</option>
             <option value="Sudurland">Sudurland</option>
             <option value="Vestfirdir">Vestfirdir</option>
-            <option value="Hofudborgarsvaedi">Höfuðborgarsvæðið</option>
+            <option value="Hofudborgarsvaedi">Hofuðborgarsvaedid</option>
             <option value="Austurland" >Austurland</option>
             <option value="Nordurland">Norðurland</option>
             <option value="Reykjanes">Reykjanes</option>
             <option value="Vesturland" >Vesturland</option>
-            <option value="Halendid">Hálendið</option>
+            <option value="Halendid">Halendid</option>
         </select>
-        <button>OK</button>
+        <button>Sort</button>
 </form>
-
-    <h1>All Campsites </h1>
+<br><br>
     <form action="getInfo" method="POST" >
         <table border="1">
             <thead>

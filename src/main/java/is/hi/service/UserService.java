@@ -25,4 +25,5 @@ public interface UserService {
     void addReview(Review review);
     void setAvRating(double r, String name);
     ArrayList getRatings(String name);
+    ArrayList getAllReviews();
 }

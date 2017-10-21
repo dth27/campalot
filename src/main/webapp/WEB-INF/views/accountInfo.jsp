@@ -13,10 +13,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
-    <title>Account</title>
+    <title>My account</title>
+    <spring:url value="/css/campinf.css" var="crunchifyCSS" />
+    <link href="${crunchifyCSS}" rel="stylesheet" />
 </head>
 <body>
-    <h1>Your account is ready </h1>
+<h1>My account</h1>
+<ul>
+    <li><a href="listofcamps">All campsites</a></li>
+    <li><a href="">My travelplans</a></li>
+    <li><a href="UserReviews">User reviews</a></li>
+    <li><a href="accountInfo">My account</a></li>
+</ul>
+<br><br>
+<h2>This is your account information!</h2>
+<br>
     <button onclick=window.close(); type="button" id="myPopup">Close</button>
 
 </body>

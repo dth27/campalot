@@ -25,5 +25,4 @@ public interface reviewRepository extends JpaRepository<Review, Long> {
     @Query(value = "insert into review(review,campname,username) VALUES (?1, ?2, ?3)"
             , nativeQuery = true)
     void addReview(String myReview, String name, String user);
-
 }

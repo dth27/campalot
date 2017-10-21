@@ -7,19 +7,19 @@
 <html lang="en">
 <head>
     <title>UserSite</title>
-    <spring:url value="/css/style.css" var="crunchifyCSS" />
+    <spring:url value="/css/campinf.css" var="crunchifyCSS" />
     <link href="${crunchifyCSS}" rel="stylesheet" />
 </head>
 <body>
 <h1>Welcome! Here you can see your TravelPlan and make a TravelPlan! </h1>
-
-<ul>
-    <li><a href="UserReviews">Reviews</a></li>
-    <li><a href="">Travelplans</a></li>
-    <li><a href="accountInfo">Account</a></li>
-    <li><a href="listofcamps">All campsites</a></li>
-</ul>
-
+<nav id="navbar">
+    <ul>
+        <li><a href="listofcamps">All campsites</a></li>
+        <li><a href="">My travelplans</a></li>
+        <li><a href="UserReviews">User reviews</a></li>
+        <li><a href="accountInfo">My account</a></li>
+    </ul>
+</nav>
 <h2>List of camps</h2>
 <form action="addTravelitem" method="POST" >
 <table border="1">

@@ -15,6 +15,7 @@ li {
 }
 
 li a {
+    font-family: Helvetica, Arial, sans-serif;
     display: block;
     color: white;
     text-align: center;
@@ -29,5 +30,31 @@ li a:hover {
 
 div {
     color: black;
+}
 
+fieldset {
+    height: 50%;
+    width: 60%;
+    background: #ffffff;
+    margin: auto;
+    text-align: center;
+}
+
+fieldset input {
+    text-align: center;
+}
+
+h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+h2 {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+h3 {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
 }

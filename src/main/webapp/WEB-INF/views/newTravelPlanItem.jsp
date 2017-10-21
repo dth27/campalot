@@ -11,6 +11,13 @@
     <title>Add Camp to TravelPlan</title>
 </head>
 <body>
+<h1>Add ${campinfo.campname} to my travelplan</h1>
+<ul>
+    <li><a href="listofcamps">All campsites</a></li>
+    <li><a href="">My travelplans</a></li>
+    <li><a href="UserReviews">User reviews</a></li>
+    <li><a href="accountInfo">My account</a></li>
+</ul>
 <form action="addTravelitem" method="POST" >
     <table border="1">
 
