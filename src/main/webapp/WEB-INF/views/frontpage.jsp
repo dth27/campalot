@@ -12,8 +12,9 @@
     <link href="${crunchifyCSS}" rel="stylesheet" />
 </head>
 <body>
-<h1>Welcome to Camp'A'Lot!</h1>
-
+<div class="banner">
+<h1>Welcome to Camp'a'Lot!</h1>
+</div>
 <h2>Check out the Campsites</h2>
 <form method = "get" action="listofcamps" class="frontpageForm">
     <div style="text-align:center">
@@ -55,6 +56,9 @@
     </div>
     --%>
 </form>
+</div>
+<div class="bottomNav">
+    Created By Diljá, Kristín, Ólöf og Sandra
 </div>
 <script>
     function showPopupWindow() {

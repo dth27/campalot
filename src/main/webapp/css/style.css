@@ -39,7 +39,29 @@ fieldset {
     margin: auto;
     text-align: center;
 }
+/*
+.maincontainer{
+    display: flex;
 
+fieldset {
+    height: 50%;
+    width: 60%;
+    background: #ffffff;
+    margin: auto;
+    text-align: center;
+}
+.campsitebtn{
+    max-width: 200pt;
+}
+.banner{
+    background-image: url('tent.jpg');
+    color: snow;
+    font-size: 2rem;
+}
+.login{
+    max-width: 200pt;
+
+}*/
 fieldset input {
     text-align: center;
 }

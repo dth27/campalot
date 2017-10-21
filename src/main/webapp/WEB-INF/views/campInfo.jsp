@@ -83,11 +83,11 @@
 
     </form>
 
-    <h2>Add this camp to your TravelPlan!</h2>
-    <form action="/" method="get">
-        <button>
-            Add to TravelPlan
-        </button>
-    </form>
+<h2>Add this camp to your TravelPlan!</h2>
+<form action="/addToPlan" method="get">
+    <button name="Campname" value="${campinfo.campname}" type="submit">
+        Add to TravelPlan
+    </button>
+</form>
 </body>
 </html>

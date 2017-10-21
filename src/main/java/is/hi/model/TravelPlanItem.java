@@ -22,12 +22,12 @@ public class TravelPlanItem {
     int totalprice;
     int totalnights;
 
-    public TravelPlanItem(int id, Date datearrive, Date datedepart, int totalprice, int totalnights) {
+    public TravelPlanItem(int id, Date datearrive, Date datedepart, int totalprice) {
         this.id = id;
         this.datearrive = datearrive;
         this.datedepart = datedepart;
         this.totalprice = totalprice;
-        this.totalnights = totalnights;
+
     }
 
     public TravelPlanItem() {
@@ -65,11 +65,4 @@ public class TravelPlanItem {
         this.totalprice = totalPrice;
     }
 
-    public int getTotalnights() {
-        return totalnights;
     }
-
-    public void setTotalnights(int totalNights) {
-        this.totalnights = totalNights;
-    }
-}

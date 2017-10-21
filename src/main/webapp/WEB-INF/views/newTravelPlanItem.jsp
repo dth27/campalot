@@ -31,8 +31,8 @@
         </thead>
             <tr>
                 <td name="campS"> ${camp.campname} </td>
-                <td name="date"> <input type="date" name="date"/> </td>
-                <td name="date"> <input type="date" name="date"/> </td>
+                <td name="datearrive"> <input type="date" name="datearrive"/> </td>
+                <td name="datedepart"> <input type="date" name="datedepart"/> </td>
                 <td>
                     <select name = "travel">
                         <c:forEach items="${travelplans}" var="travel">

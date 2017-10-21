@@ -12,12 +12,13 @@ public class AlternativeServiceImp implements AlternativeService {
     @Override
     public Date dateMaker(String strdate){
 
-        DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
         //String dateAsString = "25/12/2010";
         Date date = new Date();
         try{
             date = sourceFormat.parse(strdate);
-            return date;}
+            return date;
+        }
         catch(Exception e) {
             System.out.println("date went wrong" + " " + date + " " + strdate);
         }
@@ -28,3 +29,4 @@ public class AlternativeServiceImp implements AlternativeService {
 
     }
 }
+
