@@ -22,12 +22,26 @@ public class TravelPlanServiceImp implements TravelPlanService{
 
     private ArrayList<TravelPlan> listofTravelPlans;
     private ArrayList<TravelPlanItem> listofTravelPlanitems;
+    private ArrayList<TravelPlan> userList;
 
     @Override
     public ArrayList getTravelplans(){
 
         listofTravelPlans = (ArrayList<TravelPlan>) planRep.getAll();
         return listofTravelPlans;
+    }
+
+    @Override
+    public ArrayList getUserTravelplan(String user) {
+        ArrayList<TravelPlan> travelplans = new ArrayList<TravelPlan>();
+        ArrayList<TravelPlan> selectedTravelPlans = new ArrayList<TravelPlan>();
+        travelplans = (ArrayList<TravelPlan>) planRep.getAll();
+        for (TravelPlan t : travelplans) {
+            if (t.getUsername().equals(user)) {
+                selectedTravelPlans.add(t);
+            }
+        }
+        return selectedTravelPlans;
     }
 
     /**

@@ -17,7 +17,7 @@
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
     <ul class="nav navbar-nav">
         <li><a href="listofcamps">All campsites</a></li>
-        <li><a href="">My travelplans</a></li>
+        <li><a href="myTravelplans">My travelplans</a></li>
         <li><a href="UserReviews">User Reviews</a></li>
         <li><a href="accountInfo">My account</a></li>
     </ul>

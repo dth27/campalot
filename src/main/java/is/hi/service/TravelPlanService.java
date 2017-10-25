@@ -17,4 +17,5 @@ public interface TravelPlanService {
     void addTravelplanItem(TravelPlanItem travelplanitem);
     void addItemtoPlan(String travelplan, TravelPlanItem travelplanitem);
 
+    ArrayList getUserTravelplan(String user);
 }

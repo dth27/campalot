@@ -136,7 +136,7 @@ public class showCampController {
             cList = CampsiteService.getCampsites();
             model.addAttribute("camps", cList);
             ArrayList<TravelPlan> tpList;
-            tpList = travelplanService.getTravelplans();
+            tpList = travelplanService.getUserTravelplan(user);
             model.addAttribute("travelplans", tpList);
             isLoggedIn = true;
             if(userService.hasAdminAuthority(name, psw)){
@@ -197,7 +197,7 @@ public class showCampController {
         cList = CampsiteService.getCampsites();
         model.addAttribute("camps", cList);
         travelplanService.createTravelplan(planName, user);
-        tpList = travelplanService.getTravelplans();
+        tpList = travelplanService.getUserTravelplan(user);
 
 
         model.addAttribute("travelplans", tpList);
@@ -269,6 +269,13 @@ public class showCampController {
         allRevList = userService.getAllReviews();
         model.addAttribute("reviews", allRevList);
         return "UserReviews";
+    }
+
+    @RequestMapping(value = "/myTravelplans", method = RequestMethod.GET)
+    public String seeTravelPlans(Model model) {
+        ArrayList<TravelPlan> userList = travelplanService.getUserTravelplan(user);
+        model.addAttribute("travelplans", userList);
+        return "myTravelPlans";
     }
 
 
