@@ -14,6 +14,7 @@
 <html>
 <head>
     <title>Velkominn</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
     <h1>Hello ${Traveller.getUsername()}</h1>

@@ -100,6 +100,7 @@ public class UserServiceImp implements UserService {
         return allreviews;
     }
 
+
     @Query
     //Adds a review, campname and username into table review
     public void addReview(Review review) {

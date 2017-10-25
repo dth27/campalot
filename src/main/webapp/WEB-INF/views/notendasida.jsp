@@ -15,7 +15,7 @@
 <nav id="navbar">
     <ul>
         <li><a href="listofcamps">All campsites</a></li>
-        <li><a href="">My travelplans</a></li>
+        <li><a href="myTravelplans">My travelplans</a></li>
         <li><a href="UserReviews">User reviews</a></li>
         <li><a href="accountInfo">My account</a></li>
     </ul>
