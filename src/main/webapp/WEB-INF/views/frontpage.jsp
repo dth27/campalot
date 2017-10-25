@@ -8,8 +8,7 @@
 <html lang="en">
 <head>
     <title>Welcome</title>
-    <spring:url value="/css/style.css" var="crunchifyCSS" />
-    <link href="${crunchifyCSS}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/css/campinf.css">
 </head>
 <body>
 <div class="banner">

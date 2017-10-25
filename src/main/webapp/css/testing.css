@@ -3,6 +3,25 @@ body{
     text-align: center;
 }
 
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
+fieldset {
+    height: 50%;
+    width: 60%;
+    background: #ffffff;
+    margin: auto;
+    text-align: center;
+}
+
+
+fieldset input {
+    text-align: center;
+}
+
 #navbar {
     overflow: hidden;
     background-color: #FFFFFF; opacity: 0.9; filter: alpha(opacity=90);

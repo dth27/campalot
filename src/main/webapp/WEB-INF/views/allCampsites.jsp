@@ -14,16 +14,21 @@
 <html lang="en">
 <head>
     <title>All Campsites</title>
-    <link rel="stylesheet" type="text/css" href="/css/campinf.css">
+    <link rel="stylesheet" type="text/css" href="/css/testing.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <h1>All campsites</h1>
-<ul>
-    <li><a href="listofcamps">All campsites</a></li>
-    <li><a href="">My travelplans</a></li>
-    <li><a href="UserReviews">User reviews</a></li>
-    <li><a href="accountInfo">My account</a></li>
-</ul>
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+    <ul class="nav navbar-nav">
+        <li><a href="listofcamps">All campsites</a></li>
+        <li><a href="">My travelplans</a></li>
+        <li><a href="UserReviews">User Reviews</a></li>
+        <li><a href="accountInfo">My account</a></li>
+    </ul>
+</nav>
 <br><br>
 <h3>Find campsites located in a specific part of the country:</h3>
     <form action="showCamps" method="POST">

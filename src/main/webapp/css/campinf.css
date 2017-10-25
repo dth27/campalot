@@ -3,6 +3,12 @@ body{
     text-align: center;
 }
 
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
 ul {
     list-style-type: none;
     margin: 0;

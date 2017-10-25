@@ -9,16 +9,19 @@
 <head>
     <title>Information</title>
     <link rel="stylesheet" type="text/css" href="/css/testing.css">
-    <%--<spring:url value="/css/testing.css" var="crunchifyCSS" />
-    <link href="${crunchifyCSS}" rel="stylesheet" />--%>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <h1>Information about ${campinfo.campname}</h1>
-<nav id="navbar">
-    <a href="listofcamps">All campsites</a>
-    <a href="">My travelplans</a>
-    <a href="UserReviews">User reviews</a>
-    <a href="accountInfo">My account</a>
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+    <ul class="nav navbar-nav">
+        <li><a href="listofcamps">All campsites</a></li>
+        <li><a href="">My travelplans</a></li>
+        <li><a href="UserReviews">User Reviews</a></li>
+        <li><a href="accountInfo">My account</a></li>
+    </ul>
 </nav>
 <br>
     <h3>Name</h3>
