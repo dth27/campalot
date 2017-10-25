@@ -1,19 +1,7 @@
-
-<nav id="navbar">
-                <a href="listofcamps">All campsites</a>
-                                                     <a href="">My travelplans</a>
-                                                                                <a href="UserReviews">User reviews</a>
-                                                                                                                    <a href="accountInfo">My account</a>
-                                                                                                                                                      </nav>
-
 body{
-    background-color: #D7F4D7;
+    background-color: #99ffcc;
     text-align: center;
 }
-/* Main content
-main {
-    margin-top: 30px;  Add a top margin to avoid content overlay
-}*/
 
 #navbar {
     overflow: hidden;

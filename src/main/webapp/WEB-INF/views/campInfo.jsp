@@ -5,21 +5,22 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
+<br>
 <head>
     <title>Information</title>
-    <spring:url value="/css/campinf.css" var="crunchifyCSS" />
-    <link href="${crunchifyCSS}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/css/testing.css">
+    <%--<spring:url value="/css/testing.css" var="crunchifyCSS" />
+    <link href="${crunchifyCSS}" rel="stylesheet" />--%>
 </head>
-
 <body>
 <h1>Information about ${campinfo.campname}</h1>
-<ul>
-    <li><a href="listofcamps">All campsites</a></li>
-    <li><a href="">My travelplans</a></li>
-    <li><a href="UserReviews">User reviews</a></li>
-    <li><a href="accountInfo">My account</a></li>
-</ul>
-    <br>
+<nav id="navbar">
+    <a href="listofcamps">All campsites</a>
+    <a href="">My travelplans</a>
+    <a href="UserReviews">User reviews</a>
+    <a href="accountInfo">My account</a>
+</nav>
+<br>
     <h3>Name</h3>
     ${campinfo.campname}
     <h3>Rating</h3>
