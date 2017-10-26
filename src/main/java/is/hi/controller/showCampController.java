@@ -2,18 +2,15 @@ package is.hi.controller;
 
 import is.hi.model.*;
 import is.hi.service.*;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 //import static com.sun.deploy.config.JREInfo.getAll;
 
@@ -45,7 +42,7 @@ public class showCampController {
      */
     ArrayList<TravelPlanItem> tpiList;
     ArrayList<TravelPlan> tpList;
-    ArrayList<Camp> cList;
+    //ArrayList<Camp> cList;
     ArrayList<Campinfo> cList2;
     String user;
     String campValue;
@@ -56,6 +53,7 @@ public class showCampController {
 
     ArrayList<Review> rList;
     ArrayList<AverageRating> ratList;
+    ArrayList<Review> allRevList;
 
 
     // ===========================
@@ -139,7 +137,7 @@ public class showCampController {
             cList = CampsiteService.getCampsites();
             model.addAttribute("camps", cList);
             ArrayList<TravelPlan> tpList;
-            tpList = travelplanService.getTravelplans();
+            tpList = travelplanService.getUserTravelplan(user);
             model.addAttribute("travelplans", tpList);
             isLoggedIn = true;
             if(userService.hasAdminAuthority(name, psw)){
@@ -182,8 +180,6 @@ public class showCampController {
         }catch (Exception e){
             System.out.println(e + " getTravelplans in /addTravel");
         }
-
-
         model.addAttribute("travelplans", tpList);
         return "notendasida";
     }
@@ -202,7 +198,7 @@ public class showCampController {
         cList = CampsiteService.getCampsites();
         model.addAttribute("camps", cList);
         travelplanService.createTravelplan(planName, user);
-        tpList = travelplanService.getTravelplans();
+        tpList = travelplanService.getUserTravelplan(user);
 
 
         model.addAttribute("travelplans", tpList);
@@ -280,9 +276,17 @@ public class showCampController {
      * @return
      */
     @RequestMapping(value="/UserReviews", method = RequestMethod.GET)
-    public String checkNavi(){
-
+    public String seeUserReviews(Model model){
+        allRevList = userService.getAllReviews();
+        model.addAttribute("reviews", allRevList);
         return "UserReviews";
+    }
+
+    @RequestMapping(value = "/myTravelplans", method = RequestMethod.GET)
+    public String seeTravelPlans(Model model) {
+        ArrayList<TravelPlan> userList = travelplanService.getUserTravelplan(user);
+        model.addAttribute("travelplans", userList);
+        return "myTravelPlans";
     }
 
 
@@ -352,12 +356,8 @@ public class showCampController {
 
         rList = userService.getReviews(campName);
         Campinfo campinfo = CampsiteService.getOneCampinfo(campName);
-        // ArrayList<AverageRating> aList = new ArrayList<AverageRating>();
-        //double rate = userService.getRating(campName);
         model.addAttribute("reviews", rList);
-        //model.addAttribute("rate", rate);
         model.addAttribute("campinfo", campinfo);
-
         return "campInfo";
     }
 
@@ -435,11 +435,18 @@ public class showCampController {
         double avrat = userService.getRating(campName2);
         userService.setAvRating(avrat, campName2);
         Campinfo campinfo = CampsiteService.getOneCampinfo(campName2);
-        ratList = userService.getRatings(campName2);
         model.addAttribute("campinfo", campinfo);
         model.addAttribute("reviews", rList);
-        model.addAttribute("ratings", ratList);
         return "campInfo";
     }
 
+
+    @RequestMapping(value = "/allratings", method = RequestMethod.POST)
+    public String seeAllRatings(@RequestParam(value = "allrat") String campName2, Model model){
+        Campinfo campinfo = CampsiteService.getOneCampinfo(campName2);
+        model.addAttribute("campinfo", campinfo);
+        ratList = userService.getRatings(campName2);
+        model.addAttribute("ratings", ratList);
+        return "seeAllRatings";
+    }
 }

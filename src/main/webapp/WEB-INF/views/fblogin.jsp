@@ -3,6 +3,7 @@
 <head>
     <title>Facebook Login JavaScript Example</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 <script>

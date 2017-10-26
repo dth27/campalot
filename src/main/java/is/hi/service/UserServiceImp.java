@@ -92,6 +92,15 @@ public class UserServiceImp implements UserService {
         return selectedReviews;
     }
 
+    @Override
+    //Gets all reviews
+    public ArrayList getAllReviews() {
+        ArrayList<Review> allreviews = new ArrayList<Review>();
+        allreviews = revRep.getAll();
+        return allreviews;
+    }
+
+
     @Query
     //Adds a review, campname and username into table review
     public void addReview(Review review) {

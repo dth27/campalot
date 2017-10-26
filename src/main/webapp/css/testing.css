@@ -1,0 +1,99 @@
+body{
+    background-color: #99ffcc;
+    text-align: center;
+}
+
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
+fieldset {
+    height: 50%;
+    width: 60%;
+    background: #ffffff;
+    margin: auto;
+    text-align: center;
+}
+
+
+fieldset input {
+    text-align: center;
+}
+
+#navbar {
+    overflow: hidden;
+    background-color: #FFFFFF; opacity: 0.9; filter: alpha(opacity=90);
+    top: 0;
+    font-family: Arial, sans-serif;
+    font-size: medium;
+    text-align: center;
+    /*z-index: 100;*/
+    position: fixed;
+    width: 100%;
+    height: 10%;
+}
+
+#navbar a {
+    float: left;
+    display: block;
+    color: #262626;
+    text-align: center;
+    padding: 14px; /*16px*/
+    text-decoration: none;
+}
+#navbar a:hover {
+    background-color: #666666;
+}
+
+div {
+    color: black;
+}
+
+h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+h2 {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+h3 {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+table {
+    color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+    width: auto;
+    max-width:60%;  /*or whatever width you want. */
+    margin: auto;
+    /*border-collapse: collapse;*/
+    /*border-spacing: 0;*/
+}
+
+td, th {
+    border: 1px;  /*No more visible border*/
+    height: 30px;
+    transition: all 0.3s;   /*Simple transition for hover effect*/
+}
+
+th {
+    background: #DFDFDF;   /*Darken header a bit*/
+    font-weight: bold;
+}
+
+td {
+    background: #FAFAFA;
+    text-align: left;
+}
+
+/*Cells in even rows (2,4,6...) are one color*/
+tr:nth-child(even) td { background: #F1F1F1; }
+
+/*Cells in odd rows (1,3,5...) are another (excludes header cells)*/
+tr:nth-child(odd) td { background: #FEFEFE; }

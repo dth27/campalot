@@ -2,6 +2,12 @@ body{
     background-color: #fff;
 }
 
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -15,6 +21,7 @@ li {
 }
 
 li a {
+    font-family: Helvetica, Arial, sans-serif;
     display: block;
     color: white;
     text-align: center;
@@ -31,9 +38,24 @@ div {
     color: black;
 }
 
+fieldset {
+    height: 50%;
+    width: 60%;
+    background: #ffffff;
+    margin: auto;
+    text-align: center;
+}
+/*
+
 .maincontainer{
     display: flex;
 
+fieldset {
+    height: 50%;
+    width: 60%;
+    background: #ffffff;
+    margin: auto;
+    text-align: center;
 }
 .campsitebtn{
     max-width: 200pt;
@@ -45,5 +67,25 @@ div {
 }
 .login{
     max-width: 200pt;
+
+}
+*/
+fieldset input {
+    text-align: center;
+}
+
+h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+h2 {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+h3 {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
 
 }
