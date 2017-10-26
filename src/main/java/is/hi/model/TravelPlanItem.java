@@ -20,14 +20,18 @@ public class TravelPlanItem {
     Date datearrive;
     Date datedepart;
     int totalprice;
-    int totalnights;
+    String campname;
+    String user;
+    String travelplanname;
 
-    public TravelPlanItem(int id, Date datearrive, Date datedepart, int totalprice) {
-        this.id = id;
+    public TravelPlanItem(Date datearrive, Date datedepart, int totalprice, String campname, String user, String travelplanname) {
+
         this.datearrive = datearrive;
         this.datedepart = datedepart;
         this.totalprice = totalprice;
-
+        this.campname = campname;
+        this.user = user;
+        this.travelplanname = travelplanname;
     }
 
     public TravelPlanItem() {
@@ -65,4 +69,27 @@ public class TravelPlanItem {
         this.totalprice = totalPrice;
     }
 
+    public String getCampname() {
+        return campname;
     }
+
+    public void setCampname(String campname) {
+        this.campname = campname;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getTravelplanname() {
+        return travelplanname;
+    }
+
+    public void setTravelplanname(String travelplanname) {
+        this.travelplanname = travelplanname;
+    }
+}

@@ -21,48 +21,7 @@
 </ul>
 
 <h2>List of camps</h2>
-<form action="addTravelitem" method="POST" >
-<table border="1">
 
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Date of Arrival</th>
-        <th>How many Nights</th>
-        <th>Choose Travelplan</th>
-    </tr>
-    </thead>
-
-    <c:forEach items="${camps}" var="camp">
-        <tr>
-
-                <td name="campS"> ${camp.campname} </td>
-                <td name="date"> <input type="date" name="date"/> </td>
-                <td>
-                    <select name="nights">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-                <td>
-                    <select name = "travel">
-                        <c:forEach items="${travelplans}" var="travel">
-                        <option value="travel">${travel.travelplanname}</option>
-                        </c:forEach>
-                    </select>
-                </td>
-                <td>
-                    <button type="submit" name="buttonid">Add to TravelPlan</button>
-                </td>
-
-        </tr>
-    </c:forEach>
-
-
-</table>
-</form>
 <h2>List of TravelPlans</h2>
 <form action="/newTravelPlan" method = "get">
 <table border="1">

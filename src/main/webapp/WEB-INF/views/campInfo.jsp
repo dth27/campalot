@@ -86,7 +86,7 @@ ${campinfo.campwebsite}
 </form>
 
 <h2>Add this camp to your TravelPlan!</h2>
-<form action="/addToPlan" method="get">
+<form action="/addToPlan" method="post">
     <button name="Campname" value="${campinfo.campname}" type="submit">
         Add to TravelPlan
     </button>

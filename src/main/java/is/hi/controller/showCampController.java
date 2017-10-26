@@ -48,6 +48,7 @@ public class showCampController {
     ArrayList<Camp> cList;
     ArrayList<Campinfo> cList2;
     String user;
+    String campValue;
     boolean isLoggedIn = false;
 
     ArrayList<userAccess> mylist;
@@ -212,11 +213,18 @@ public class showCampController {
         return "notendasida";
     }
 
-    @RequestMapping(value="/addToPlan", method = RequestMethod.GET)
+    @RequestMapping(value="/addToPlan", method = RequestMethod.POST)
     public String addToPlan(@RequestParam(value="Campname") String campname, Model model){
         Campinfo camp = CampsiteService.getOneCampinfo(campname);
         model.addAttribute("camp", camp);
+        tpList = travelplanService.getTravelplans();
+        ArrayList Greta;
+        Greta = travelplanService.getTravelplans();
+        campValue = campname;
+
+        model.addAttribute("travelplans", Greta);
         return "newTravelPlanItem";
+
     }
     /**
      *
@@ -229,18 +237,21 @@ public class showCampController {
      * @return
      */
     @RequestMapping(value = "/addTravelitem", method = RequestMethod.POST)
-    public String addTravelItem(@RequestParam(value="datearrive") String datearr,
+    public String addTravelItem(
+                            @RequestParam(value="datearrive") String datearr,
                             @RequestParam(value="datedepart") String datedep,
-                            @RequestParam(value="travel") String travel, Model model)
+                            @RequestParam(value="travel") String travel,
+                             Model model)
     {
         //TODO vantar planname til að tengja við
         Date realDatearr, realDatedep;
 
         realDatearr = alternativeService.dateMaker(datearr);
         realDatedep = alternativeService.dateMaker(datedep);
-        TravelPlanItem travelplanItem = new TravelPlanItem(5, realDatearr, realDatedep, 1000);
+        TravelPlanItem travelplanItem = new TravelPlanItem(realDatearr, realDatedep, 1000, campValue, user, travel);
         travelplanService.addItemtoPlan(travel, travelplanItem);
         tpiList = new ArrayList<TravelPlanItem>();
+        System.out.println(travel);
         try{
 
             tpiList.add(travelplanItem);
@@ -254,8 +265,8 @@ public class showCampController {
 
         //model.addAttribute("travelplanItems", tpiList);
         tpList = travelplanService.getTravelplans();
-
-        model.addAttribute("travelplans", tpList);
+        System.out.println(tpList.get(1).getTravelplanname());
+        model.addAttribute("travel", tpList);
 
         return "notendasida";
     }

@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -29,8 +30,8 @@ public interface travelPlanItemRepository extends JpaRepository<TravelPlanItem, 
 
     @Transactional
     @Modifying
-    @Query(value="insert into travelplanitem(travelplanname, campname, datearrive, datedepart, totalprice, username) VALUES (?1, ?2)", nativeQuery = true)
-    void addItem(String planname, String user);
+    @Query(value="insert into travelplanitem(travelplanname, campname, datearrive, datedepart, totalprice, username) VALUES (?1, ?2, ?3, ?4, ?5, ?6)", nativeQuery = true)
+    void addItem(String planname, String camp, java.util.Date datearr, java.util.Date datedep, int price, String user);
     /**
      * Adss travelplanitems
      * @param travelplanItem
