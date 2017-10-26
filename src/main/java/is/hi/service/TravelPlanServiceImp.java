@@ -101,7 +101,7 @@ public class TravelPlanServiceImp implements TravelPlanService{
         int price = travelplanitem.getTotalprice()*totaldays;
         System.out.println(days);
         //long totalprice = travelplanitem.getTotalprice()*diff;
-       // planItemRep.addItem(travelplan, travelplanitem.getCampname(), travelplanitem.getDatearrive(), travelplanitem.getDatedepart(),price, user );
+        planItemRep.addItem(travelplan, travelplanitem.getCampname(), travelplanitem.getDatearrive(), travelplanitem.getDatedepart(),price, user );
     }
 
 

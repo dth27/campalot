@@ -236,7 +236,7 @@ public class showCampController {
     public String addTravelItem(
                             @RequestParam(value="datearrive") String datearr,
                             @RequestParam(value="datedepart") String datedep,
-                            @RequestParam(value="travel") String travel,
+                            @RequestParam(value="travels") String travel,
                              Model model)
     {
         //TODO vantar planname til að tengja við
