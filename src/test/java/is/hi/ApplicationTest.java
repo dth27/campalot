@@ -1,5 +1,6 @@
 package is.hi;
 
+import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.hamcrest.Matchers.comparesEqualTo;
 import static org.hamcrest.Matchers.contains;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.hamcrest.Matchers.containsString;
@@ -43,9 +46,10 @@ public class ApplicationTest {
      */
     @Test
     public void forsidaisOk() throws Exception{
-        this.mockobj.perform(get("/forsida"))
-                .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("Log in")));
+        this.mockobj.perform(get("/listofcamps"))
+                .andDo(print()).andExpect(status().isOk());
+                //TODO - skilja hvernig thetta a ad virka:
+                //.andExpect(model().attribute("camps", Matchers.is("cList2")));
     }
 
     @Test
