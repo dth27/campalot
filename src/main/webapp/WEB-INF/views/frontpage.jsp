@@ -20,6 +20,9 @@
     <input type="submit" value="All campsites"/><br><br>
     </div>
 </form>
+<div class="error" style="color: red;">
+    ${error}
+</div>
 <div class="maincontainer">
 <form action="login" method="post">
     <fieldset>

@@ -166,6 +166,7 @@ public class showCampController {
             }
             return "notendasida";
         } else {
+            model.addAttribute("error", "Username or password is incorrect");
             return "frontpage";
         }
     }
