@@ -178,5 +178,15 @@ public class UserServiceImp implements UserService {
         return tList;
     }
 
+    @Override
+    public userAccess getUserInfo(String username) {
+        userAccess user1 = new userAccess();
+        tList = (ArrayList<userAccess>) travRep.getAll();
+        for (userAccess u : tList) {
+            if (u.getUsername().equals(username))
+                user1 = u;
+        }
+        return user1;
+    }
 }
 

@@ -30,4 +30,6 @@ public interface UserService {
     void setAvRating(double r, String name);
     ArrayList getRatings(String name);
     ArrayList getAllReviews();
+
+    userAccess getUserInfo(String name);
 }
