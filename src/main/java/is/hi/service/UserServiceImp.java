@@ -41,6 +41,24 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    public boolean isPwLegal(String password) {
+        if (password.length() > 0 && password.length() < 15) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean isUsernameLegal(String username) {
+        if (username.length() > 0 && username.length() < 20) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     //Checks if user has admin authority
     public boolean hasAdminAuthority(String uname, String psw) {
         tList = (ArrayList<userAccess>) travRep.getAll();

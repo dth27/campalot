@@ -13,6 +13,10 @@ import java.util.List;
 public interface UserService {
     boolean isPwCorr(String nafn, String password);
     boolean hasAdminAuthority(String uname, String psw);
+
+    boolean isPwLegal(String password);
+
+    boolean isUsernameLegal(String username);
     void newLoginUser(String username, String email, String pw1);
     boolean doesUserExist(String username, String password);
     boolean arePWidentical(String pw1, String pw2);

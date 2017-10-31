@@ -103,19 +103,36 @@ public class showCampController {
     public String newAccount(@RequestParam(value="username")
                                      String username, @RequestParam(value="email") String email,
                              @RequestParam(value="pw1") String pw1,
-                             @RequestParam(value="pw2") String pw2)
+                             @RequestParam(value = "pw2") String pw2,
+                             Model model)
     {   boolean doesExist = userService.doesUserExist(username, email);
         boolean PWidentical = userService.arePWidentical(pw1, pw2);
-        if (doesExist)
+        boolean PwLegal = userService.isPwLegal(pw1);
+        boolean usernameLegal = userService.isUsernameLegal(username);
+        //username 50
+        // PASSWORD 15
+        if (doesExist) {
+            model.addAttribute("userError", "This username or email already exists");
             return "newAccountSite";
-        if (PWidentical){
-            userService.newLoginUser(username, email, pw1);
-            return "/accountInfo";
-
         }
-        return "newAccount";
-    }
+        if (!usernameLegal) {
+            model.addAttribute("usernameNotLegal", "The username must be 1-20 characters long");
+            return "newAccountSite";
+        }
+        if (PWidentical){
+            if (PwLegal) {
+                userService.newLoginUser(username, email, pw1);
+                return "/accountInfo";
+            } else {
+                model.addAttribute("PwNotLegal", "The password must be 1-15 characters long");
+                return "newAccountSite";
+            }
+        } else {
+            model.addAttribute("PwError", "Passwords do not match");
+            return "newAccountSite";
+        }
 
+    }
 
     // ===========================
     // LOGIN HANDLING
@@ -132,10 +149,8 @@ public class showCampController {
     public String synaNotanda(@RequestParam(value = "uname") String name, @RequestParam(value = "psw") String psw, Model model ) {
         if (userService.isPwCorr(name, psw)) {
             user = name;
-            ArrayList<Camp> cList;
-            user = name;
-            cList = CampsiteService.getCampsites();
-            model.addAttribute("camps", cList);
+            cList2 = CampsiteService.getCampinfo();
+            model.addAttribute("camps", cList2);
             ArrayList<TravelPlan> tpList;
             tpList = travelplanService.getUserTravelplan(user);
             model.addAttribute("travelplans", tpList);
@@ -194,9 +209,9 @@ public class showCampController {
     @RequestMapping(value = "/newTravel", method = RequestMethod.POST)
     public String newTravel(@RequestParam(value="planName") String planName, Model model)
     {   try {
-        ArrayList<Camp> cList;
-        cList = CampsiteService.getCampsites();
-        model.addAttribute("camps", cList);
+
+        cList2 = CampsiteService.getCampsites();
+        model.addAttribute("camps", cList2);
         travelplanService.createTravelplan(planName, user);
         tpList = travelplanService.getUserTravelplan(user);
 
@@ -255,9 +270,9 @@ public class showCampController {
         }catch (Exception e){
             System.out.println("addTravelItem error" +" "+e);
         }
-        ArrayList<Camp> cList;
-        cList = CampsiteService.getCampsites();
-        model.addAttribute("camps", cList);
+
+        cList2 = CampsiteService.getCampsites();
+        model.addAttribute("camps", cList2);
 
         //model.addAttribute("travelplanItems", tpiList);
         tpList = travelplanService.getTravelplans();
