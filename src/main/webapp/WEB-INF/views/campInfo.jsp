@@ -40,7 +40,7 @@
             <div id="navbar1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="listofcamps">List of camps</a></li>
-                    <li><a href="myTravelPlans">My Travelplans</a></li>
+                    <li><a href="myTravelplans">My Travelplans</a></li>
                     <li><a href="UserReviews">User Reviews</a></li>
                     <li><a href="accountInfo">My account</a></li>
                     <li class="dropdown">
