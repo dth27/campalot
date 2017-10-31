@@ -2,10 +2,38 @@ body{
     background-color: #99ffcc;
     text-align: center;
 }
+.navbar {
+    width: 100%;
+}
+.navbar-brand>img {
+    height: 100%;
+    width: auto;
+}
+
+.container-fluid .navbar-brand {
+    height: 80px;
+    width: auto;
+}
+
+.container-fluid .nav >li >a {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.container-fluid .navbar-toggle {
+    padding: 10px;
+    margin: 0px 15px 25px 0;
+}
+
+/*
+.navbar-brand>img {
+    height: 100%;
+}*/
 
 .affix {
     top: 0;
     width: 100%;
+    margin-left: 0;
     z-index: 9999 !important;
 }
 
@@ -17,35 +45,34 @@ fieldset {
     text-align: center;
 }
 
-
 fieldset input {
     text-align: center;
 }
-
-#navbar {
+/*
+#nav {
     overflow: hidden;
     background-color: #FFFFFF; opacity: 0.9; filter: alpha(opacity=90);
     top: 0;
     font-family: Arial, sans-serif;
     font-size: medium;
     text-align: center;
-    /*z-index: 100;*/
+    /*z-index: 100;
     position: fixed;
     width: 100%;
     height: 10%;
 }
 
-#navbar a {
+#nav a{
     float: left;
     display: block;
     color: #262626;
     text-align: center;
-    padding: 14px; /*16px*/
+    padding: 14px; /*16px
     text-decoration: none;
 }
-#navbar a:hover {
+#nav a:hover {
     background-color: #666666;
-}
+}*/
 
 div {
     color: black;

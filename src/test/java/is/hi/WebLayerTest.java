@@ -13,6 +13,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.hamcrest.Matchers.containsString;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
@@ -48,8 +50,15 @@ public class WebLayerTest {
     @Test
     public void forsidaisOk () throws Exception {
         this.mockobj.perform(get("/listofcamps"))
-                .andDo(print()).andExpect(status().isOk());
-                //.andExpect(content().string(containsString("camps")));
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(view().name("allCampsites"));
+    }
+
+    @Test
+    public void accountInfoisOk () throws Exception {
+        this.mockobj.perform(get("/accountInfo"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(view().name("accountInfo"));
     }
 
 }

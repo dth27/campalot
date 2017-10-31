@@ -31,7 +31,6 @@ public class SmokeTest {
      */
     @Test
     public void contextLoads() {
-
         assertThat(campcontroller).isNotNull();
     }
 
