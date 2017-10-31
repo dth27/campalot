@@ -56,10 +56,14 @@ public class campSiteServiceImp implements campSiteService {
         }
         return camp1;
     }
+
     @Override
     public  ArrayList getCampinfo(){
-
         BList = (ArrayList<Campinfo>) campInfoRep.getAll();
         return BList;
     }
+
+    //Dæmi fyrir test á mockup hvort að þjónustan sé "á lífi"
+    @Override
+    public boolean erALifi() {return true;}
 }

@@ -20,7 +20,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
- * @author Dilja
+ * @author Diljá, Kristín, Sandra og Ólöf
  * (based on code from:)
  * @author Ebba Þóra Hvannberg
  *

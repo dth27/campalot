@@ -15,4 +15,5 @@ public interface campSiteService {
     Camp getOneCamp(String name);
     Campinfo getOneCampinfo(String name);
     ArrayList getCampinfo();
+    boolean erALifi();
 }

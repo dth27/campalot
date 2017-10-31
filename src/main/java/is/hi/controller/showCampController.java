@@ -139,7 +139,7 @@ public class showCampController {
     // ===========================
     /**
      *
-     * Vefsíða sem byður notanda að logga sig inn og tjékkar hvort notandi sé til
+     * Vefsíða sem biður notanda að logga sig inn og tjékkar hvort notandi sé til
      * @param name
      * @param psw
      * @param model
@@ -464,4 +464,17 @@ public class showCampController {
         model.addAttribute("ratings", ratList);
         return "seeAllRatings";
     }
+
+    /**
+     * Dæmi til að sýna prófanir með kalli á service klasa
+     * @return skilar frontpage ef þjónustan "er á lífi" annars allCampsites
+     */
+    @RequestMapping (value = "/lifir", method=RequestMethod.GET)
+    public String lifir() {
+        if(CampsiteService.erALifi())
+            return "frontpage";
+        else
+            return "allCampsites";
+    }
+
 }

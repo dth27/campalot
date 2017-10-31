@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 
 /**
- * @author Dilja
+ * @author Diljá, Kristín, Sandra og Ólöf
  * (based on code from:)
  * @author Ebba Þóra Hvannberg
  *
