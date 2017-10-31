@@ -27,7 +27,7 @@
         Username:<br>
         <input type="text" placeholder="Enter username" name="uname" required><br>
         Password:<br>
-        <input type="text" placeholder="Enter password" name="psw" required><br><br>
+        <input type="password" placeholder="Enter password" name="psw" required><br><br>
         <button type="submit" method="POST" action="login">Login</button>
         <input type="checkbox" checked="checked"> Remember me <br><br>
         <span class="psw">Forgot <a href="#">password?</a></span>

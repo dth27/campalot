@@ -77,7 +77,9 @@ public class showCampController {
      * @return page that the user can sign up for a new account
      */
     @RequestMapping("/newAccountSite")
-    public String newAccountSite(){
+    public String newAccountSite(Model model) {
+        userAccess newUser = new userAccess();
+        model.addAttribute(newUser);
         return "newAccountSite";
     }
 
@@ -86,22 +88,26 @@ public class showCampController {
      * @return info on the user's account
      */
     @RequestMapping("/accountInfo")
-    public String accountInfo(){
+    public String accountInfo(Model model) {
+
+        userAccess accountinfo = userService.getUserInfo(user);
+        model.addAttribute("user", accountinfo);
         return "accountInfo";
     }
 
     /**
-     *
-     * vefsíða þar sem notandi getur stofnað nýjan aðgang
-     * @param username
-     * @param email
-     * @param pw1
-     * @param pw2
-     * @return býr til nýjan aðgang
+     * Stofna nýjan aðgang
+     * @param username notendanafn
+     * @param email    netfang
+     * @param pw1      lykilorð1
+     * @param pw2      lykilorð2
+     * @param model    Model
+     * @return Stofnar aðgang og skilar heimasíðu sem lætur vita að aðgangur hefur verið stofnaður.
      */
     @RequestMapping(value = "/newAccount", method = RequestMethod.POST)
     public String newAccount(@RequestParam(value="username")
-                                     String username, @RequestParam(value="email") String email,
+                                     String username,
+                             @RequestParam(value = "email") String email,
                              @RequestParam(value="pw1") String pw1,
                              @RequestParam(value = "pw2") String pw2,
                              Model model)

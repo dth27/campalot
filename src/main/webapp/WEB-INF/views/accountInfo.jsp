@@ -31,6 +31,9 @@
 </nav>
 <br><br>
 <h2>This is your account information!</h2>
+<p><b>Username: </b>${user.username}</p>
+<p><b>Email: </b>${user.email}</p>
+
 <br>
     <button onclick=window.close(); type="button" id="myPopup">Close</button>
 
