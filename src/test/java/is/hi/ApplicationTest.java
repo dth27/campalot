@@ -15,11 +15,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.hamcrest.Matchers.comparesEqualTo;
 import static org.hamcrest.Matchers.contains;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.hamcrest.Matchers.containsString;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * @author Dilja
@@ -41,16 +39,16 @@ public class ApplicationTest {
     private MockMvc mockobj;
 
     /**
-     * Aðferð til að athuga hvort virkar að senda HttpRequest á /nyrKennari
+     * Aðferð til að athuga hvort virkar að senda HttpRequest á /listofcamps
      * og fá til baka nyrKennari.html síðuna sem inniheldur strenginn Karl
      */
     @Test
     public void forsidaisOk() throws Exception{
         this.mockobj.perform(get("/listofcamps"))
-                .andDo(print()).andExpect(status().isOk());
-                //TODO - skilja hvernig thetta a ad virka:
-                //.andExpect(model().attribute("camps", Matchers.is("cList2")));
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(view().name("allCampsites"));
     }
+
 
     @Test
     public void getInfoReturnsCamp() throws Exception{
