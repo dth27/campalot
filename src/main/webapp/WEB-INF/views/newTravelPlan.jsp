@@ -66,11 +66,10 @@
 <c:out value="${users.username}"/>
 <form action="/newTravel" method="post">
     <div class="container">
-
         <label><b>Plan name</b></label>
         <input type="text" placeholder="Enter Name" name="planName" required>
     </div>
-
+    <br>
     <button type="submit">submit</button>
 </form>
 <script>

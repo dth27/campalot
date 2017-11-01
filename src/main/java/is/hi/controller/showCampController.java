@@ -566,5 +566,4 @@ public class showCampController {
         else
             return "allCampsites";
     }
-
 }

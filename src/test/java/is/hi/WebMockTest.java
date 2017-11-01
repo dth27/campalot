@@ -61,32 +61,29 @@ public class WebMockTest {
      */
     @Test
     public void testaLifirTrue() throws Exception {
-        // Látum erNafnRett() skila true
+        // Látum erALifi() skila true
         // Notum Mockito í prófanirnar - Mockito er Framework fyrir unit testing í Java
         // http://site.mockito.org/
-
         // Prófið ætti að takast - prófum sönnu leiðina í if-setningunni
         when(CampsiteService.erALifi()).thenReturn(true);
         this.mockobj.perform(get("/lifir"))
                 .andDo(print())
-                .andExpect(status()
-                        .isOk())
+                .andExpect(status().isOk())
                 .andExpect(view().name("frontpage"));
     }
+
     /**
      * Aðferð sem prófar /lifir á showCampController en með
      * erALifi() false. Ættum að fá til baka allCampsites síðuna
      */
     @Test
     public void testaLifirFalse() throws Exception {
-
         // Prófið ætti að takast - prófum ósönnu leiðina í if-setningunni
         when(CampsiteService.erALifi()).thenReturn(false);
         this.mockobj.perform(get("/lifir")).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("allCampsites"));
     }
-
 
      /** Prófið ætti að mistakast - prófum ósönnu leiðina erALifi() en berum
      * saman við rangan streng
@@ -99,7 +96,6 @@ public class WebMockTest {
         this.mockobj.perform(get("/lifir")).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("frontpage"));
-
     }
 
 
