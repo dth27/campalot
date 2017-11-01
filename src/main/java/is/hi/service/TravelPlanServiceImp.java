@@ -12,6 +12,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ * Tekur við skipunum frá controller til að notandi geti
+ * búið til nýtt travel plan, nýtt travelplanitem og bætt því í travel plan sitt
+ */
 @Service
 public class TravelPlanServiceImp implements TravelPlanService{
 
@@ -21,17 +30,36 @@ public class TravelPlanServiceImp implements TravelPlanService{
     @Autowired
     travelPlanItemRepository planItemRep;
 
+    /**
+     * An ArrayList of all the TravelPlans that have been created
+     */
     private ArrayList<TravelPlan> listofTravelPlans;
-    private ArrayList<TravelPlanItem> listofTravelPlanitems;
-    private ArrayList<TravelPlan> userList;
 
+    /**
+     * An ArrayList of all the TravelPlanItems created
+     */
+    private ArrayList<TravelPlanItem> listofTravelPlanitems;
+
+
+    //TODO: Held að þessi sé ónotaður (prófa að commentera hann út
+    //private ArrayList<TravelPlan> userList;
+
+
+    /**
+     * Finds all the TravelPlans that have been created (and are in the database)
+     * @return      an ArrayList of all the TravelPlans
+     */
     @Override
     public ArrayList getTravelplans(){
-
         listofTravelPlans = (ArrayList<TravelPlan>) planRep.getAll();
         return listofTravelPlans;
     }
 
+    /**
+     * Finds all the TravelPlans that a certain user has created
+     * @param user  the user that is logged in
+     * @return      an ArrayList of the user's TravelPlans
+     */
     @Override
     public ArrayList getUserTravelplan(String user) {
         ArrayList<TravelPlan> travelplans = new ArrayList<TravelPlan>();
@@ -46,8 +74,8 @@ public class TravelPlanServiceImp implements TravelPlanService{
     }
 
     /**
-     *
-     * @return a list of all travelplan items
+     * Finds all the TravelPlanItems created
+     * @return a list of all travelplanItems created
      */
     @Override
     public ArrayList getTravelplanItems(){
@@ -56,9 +84,9 @@ public class TravelPlanServiceImp implements TravelPlanService{
     }
 
     /**
-     * Creates a new Travel plan
-     * @param planName
-     * @param username
+     * Creates a new Travel Plan
+     * @param planName  new Travel Plan name
+     * @param username  name of user who created/owns the Travel Plan
      */
     @Override
     public void createTravelplan(String planName, String username){
@@ -67,8 +95,8 @@ public class TravelPlanServiceImp implements TravelPlanService{
     }
 
     /**
-     * adds Travelplanitem to the list
-     * @param travelplanitem
+     * Adds a Travelplanitem to the Arraylist listofTravelPlanitems
+     * @param travelplanitem    A single Travel Plan Item Object
      */
     @Override
     public void addTravelplanItem(TravelPlanItem travelplanitem){
@@ -76,8 +104,8 @@ public class TravelPlanServiceImp implements TravelPlanService{
     }
 
     /**
-     * adds travelplan to a list
-     * @param travelplan
+     * Adds a TravelPlan to the database
+     * @param travelplan        A single Travel Plan Object
      */
     @Override
     public void add(TravelPlan travelplan){
@@ -85,9 +113,9 @@ public class TravelPlanServiceImp implements TravelPlanService{
     }
 
     /**
-     * Adds an item to a travelplan
-     * @param travelplan
-     * @param travelplanitem
+     * Adds a TravelPlanItem to a TravelPlan
+     * @param travelplan        A single Travel Plan Object
+     * @param travelplanitem    A single Travel Plan Item Object
      */
     @Override
     public void addItemtoPlan(String travelplan, TravelPlanItem travelplanitem){
