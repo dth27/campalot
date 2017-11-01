@@ -74,8 +74,8 @@ public class UserServiceImp implements UserService {
 
     @Override
     //Creates a new login user
-    public void newLoginUser(String username, String email, String pw1) {
-        travRep.add(username, email, pw1, Boolean.FALSE, Boolean.FALSE);
+    public void newLoginUser(userAccess user) {
+        travRep.add(user.getUsername(), user.getEmail(), user.getPassword(), Boolean.FALSE, Boolean.FALSE);
     }
 
     @Override
