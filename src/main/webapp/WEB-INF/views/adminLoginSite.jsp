@@ -32,6 +32,5 @@
     <button type="submit" name="campname" value="${camp.campname}">Add Camp</button>
 </form>
 
-
 </body>
 </html>

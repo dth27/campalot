@@ -40,19 +40,12 @@ public class ApplicationTest {
 
     /**
      * Aðferð til að athuga hvort virkar að senda HttpRequest á /listofcamps
-     * og fá til baka nyrKennari.html síðuna sem inniheldur strenginn Karl
+     * og fá til baka allCampsites síðuna
      */
     @Test
     public void forsidaisOk() throws Exception{
         this.mockobj.perform(get("/listofcamps"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(view().name("allCampsites"));
-    }
-
-
-    @Test
-    public void getInfoReturnsCamp() throws Exception{
-        this.mockobj.perform(get("/newTravelPlan"))
-                .andDo(print()).andExpect(status().isOk());
     }
 }

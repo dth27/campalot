@@ -7,8 +7,11 @@
 --%>
 <!DOCTYPE html>
 
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
@@ -27,32 +30,29 @@
 
 </div>
 
-<form action="/newAccount" method="post">
 
-    <div class="error" style="color: red">
-        ${userError}
-        ${PwError}
-        ${PwNotLegal}
-        ${usernameNotLegal}
-    </div>
+<%--@elvariable id="newUserForm" type="is.hi.model.userAccess"--%>
+<form:form action="/newAccount" method="post" modelAttribute="newUserForm">
 
     <div class="maincontainer">
 
-
-        <label for="email"><b>Email</b></label><br>
-        <input type="email" placeholder="Enter Email" name="email" required id="email"><br>
-
-        <label for="username"><b>Username</b></label><br>
-        <input type="text" placeholder="Enter Username" name="username" required id="username"><br>
-        <label for="pw1"><b>Password</b></label><br>
-        <input type="password" placeholder="Enter Password" name="pw1" required id="pw1"><br>
-        <label for="pw2"><b>Re-enter password</b></label><br>
-        <input type="password" placeholder="Enter Password" name="pw2" required id="pw2"><br><br>
+        <form:label path="email" for="email"><b>Email</b></form:label><br>
+        <form:input path="email" placeholder="Enter Email"></form:input><br>
+        <form:errors path="email" style="color: RED"></form:errors><br>
+        <form:label path="username" for="username"><b>Username</b></form:label><br>
+        <form:input path="username" placeholder="Enter Username"></form:input><br>
+        <form:errors path="username" style="color: RED"></form:errors><br>
+        <form:label path="password" for="pw1"><b>Password</b></form:label><br>
+        <form:input path="password" type="password" placeholder="Enter Password"></form:input><br>
+        <form:errors path="password" style="color: RED"></form:errors><br>
+        <label for="pw"><b>Re-enter password</b></label><br>
+        <input type="password" placeholder="Enter Password" name="pw" id="pw"><br><br>
+        <p style="color: RED">${passwordError}</p>
 
         <button type="submit" method="POST" action="campsites/newAccount">submit</button>
 
 
     </div>
-</form>
+</form:form>
 </body>
 </html>

@@ -46,7 +46,10 @@ public class WebLayerTest {
     @MockBean
     AlternativeService alternativeService;
 
-
+    /**
+     * Tests if url /listofcamps opens the jsp file allCampsites
+     * @throws Exception
+     */
     @Test
     public void forsidaisOk () throws Exception {
         this.mockobj.perform(get("/listofcamps"))
@@ -54,6 +57,10 @@ public class WebLayerTest {
                 .andExpect(view().name("allCampsites"));
     }
 
+    /**
+     * Tests if url /accountInfo opens the jsp file accountInfo
+     * @throws Exception
+     */
     @Test
     public void accountInfoisOk () throws Exception {
         this.mockobj.perform(get("/accountInfo"))
