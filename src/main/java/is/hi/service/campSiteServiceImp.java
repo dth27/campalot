@@ -6,6 +6,7 @@ import is.hi.model.Review;
 import is.hi.repository.campinfoRepository;
 import is.hi.repository.campsiteRepository;
 import is.hi.repository.reviewRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -63,7 +64,33 @@ public class campSiteServiceImp implements campSiteService {
         return BList;
     }
 
+    @Override
+    //Checks if certain campname exists
+    public boolean doesCampExist(String campname) {
+        BList = (ArrayList<Campinfo>) campInfoRep.getAll();
+        for (Campinfo t : BList) {
+            if (campname.equals(t.getCampname())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Query
+    //Adds a new camp into table campsitebigdata
+    public void addNewCamp(Campinfo camp) {
+        campInfoRep.addCamp(camp.getCampname(), camp.getCampaddress(), camp.getCampzip(), camp.getCampemail(), camp.getCampphone(), camp.getCampwebsite(), camp.getCampseason(), camp.getMaincategory(), camp.getCategory(), camp.getRegion(), camp.getDescription(), camp.getXval(), camp.getYval());
+    }
+
+    @Query
+    //Deletes camp in the table campsitebigdata
+    public void delCamp(String campname) {
+        campInfoRep.deleteCamp(campname);
+    }
+
+
     //Dæmi fyrir test á mockup hvort að þjónustan sé "á lífi"
     @Override
     public boolean erALifi() {return true;}
+
 }
