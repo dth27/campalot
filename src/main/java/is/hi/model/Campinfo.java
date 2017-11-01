@@ -25,6 +25,27 @@ public class Campinfo {
     int yval;
     double averagerating;
 
+
+    public Campinfo(String campname, String campaddress, String campzip, String campemail, String campphone,
+                    String campwebsite, String campseason, String maincategory, String category, String region,
+                    String description, int xval, int yval, double averagerating) {
+        this.campname = campname;
+        this.campaddress = campaddress;
+        this.campzip = campzip;
+        this.campemail = campemail;
+        this.campphone = campphone;
+        this.campwebsite = campwebsite;
+        this.campseason = campseason;
+        this.maincategory = maincategory;
+        this.category = category;
+        this.region = region;
+        this. description = description;
+        this.xval = xval;
+        this.yval = yval;
+        this.averagerating = averagerating;
+    }
+
+
     public Campinfo(){
 
     }
@@ -41,7 +62,7 @@ public class Campinfo {
         return campaddress;
     }
 
-    public void setCampaddress(String campaddres) {
+    public void setCampaddress(String campaddress) {
         this.campaddress = campaddress;
     }
 
