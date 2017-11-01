@@ -385,6 +385,88 @@ public class showCampController {
 
 
     // ===========================
+    // ADMIN LOGIN SITE HANDLING
+    // ===========================
+
+
+
+    // --------------------------------
+    // BÆTA VIÐ NÝJU TJALDSVÆÐI -ADMIN
+    // --------------------------------
+
+    /**
+     * Tekur inn nafn á nýju tjaldsvæði (camp) frá admin
+     * @param myNewCamp
+     * @param model
+     * @return  skilar síðunni adminAddNewCamp (sem tekur inn allar upplýsingar fyrir nýja tjaldsvæðið og býr það til)
+     */
+    @RequestMapping(value = "/addNewCampRequest", method = RequestMethod.POST)
+    public String postReview(@RequestParam(value = "newCampName") String myNewCamp, Model model) {
+
+        model.addAttribute("campname", myNewCamp);
+        System.out.println("The new campname is: " + myNewCamp);
+        return "adminAddNewCamp";
+    }
+
+    /**
+     * site where admin can add a new camp into the database
+     * @param campname      name of the camp
+     * @param campaddress   address of the camp
+     * @param campzip       zip code of the camp
+     * @param campemail     email of the camp
+     * @param campphone     phone number of the camp
+     * @param campwebsite   website of the camp
+     * @param campseason    opening season of the camp
+     * @param maincategory  main category of the camp (e.g. gisting/veitingar/upplýsingar...)
+     * @param category      category of the camp (e.g. tjaldsvæði/bændagisting/hostel/farfuglaheimili...)
+     * @param region        region of the camp (e.g. Suðurland/Norðurland/Austurland/Vesturland/Vestfirðir/Höfuðborgarsvæðið...)
+     * @param description   desccription of the camp
+     * @param xval          coordinates for latitude of the camp
+     * @param yval          ooordinates for longitude of the camp
+     * @param model
+     * @return              the adminLoginSite with the updated camp list
+     */
+    @RequestMapping(value = "/addNewCamp", method = RequestMethod.POST)
+    public String newCamp(@RequestParam(value="campname") String campname,
+                          @RequestParam(value="campaddress") String campaddress,
+                          @RequestParam(value="campzip") String campzip,
+                          @RequestParam(value="campemail") String campemail,
+                          @RequestParam(value="campphone") String campphone,
+                          @RequestParam(value="campwebsite") String campwebsite,
+                          @RequestParam(value="campseason") String campseason,
+                          @RequestParam(value="maincategory") String maincategory,
+                          @RequestParam(value="category") String category,
+                          @RequestParam(value="region") String region,
+                          @RequestParam(value="description") String description,
+                          @RequestParam(value="xval") int xval,
+                          @RequestParam(value="yval") int yval, Model model) {
+
+        boolean doesExist = CampsiteService.doesCampExist(campname);
+        System.out.println("Nýja nafnið yfir campname sem er tekið í reqParam í addnewCamp er: " + campname);
+        System.out.println("Campsite does exist: " + doesExist);
+        Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
+                campseason, maincategory, category, region, description, xval, yval, 0.0);
+        if (doesExist) {
+            System.out.println("The campname does already exists");
+            model.addAttribute("AdminMessage", "This campname does already exist");
+            return "adminLoginSite";
+        } else {
+            System.out.println("The campname does not exists so it will be added to Campinfo");
+            CampsiteService.addNewCamp(newcampinfo);
+            model.addAttribute("newcampinfo", newcampinfo);
+            //TODO: Bæta við í skilaboðunum nafninu, þ.e. newcampinfo.campname
+            model.addAttribute("AdminMessage", "The new camp has been added to the list");
+            cList2 = CampsiteService.getCampinfo();
+            model.addAttribute("camp", cList2);
+            return "adminLoginSite";
+        }
+    }
+
+
+
+
+
+    // ===========================
     // REVIEW AND RATING HANDLING
     // ===========================
     /**

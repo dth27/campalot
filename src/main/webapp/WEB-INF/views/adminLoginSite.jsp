@@ -16,5 +16,22 @@
 <h1>Welcome admin! Here you can add new Campsites, update or delete them! </h1>
 
 
+<br><br>
+
+<div>
+    ${AdminMessage}
+</div>
+
+<br><br>
+<form method = "POST" action = "addNewCampRequest">
+    <h3>Add a new camp to the database:</h3>
+    <div class="container">
+        <label><b>Camp's name</b></label>
+        <input type="text" placeholder="Type the camp's name" name="newCampName"></input><br><br>
+    </div>
+    <button type="submit" name="campname" value="${camp.campname}">Add Camp</button>
+</form>
+
+
 </body>
 </html>

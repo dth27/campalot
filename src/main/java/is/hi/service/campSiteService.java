@@ -17,6 +17,6 @@ public interface campSiteService {
     ArrayList getCampinfo();
     boolean doesCampExist(String campname);
     void addNewCamp(Campinfo camp);
-    void delCamp(String campname)
+    void delCamp(String campname);
     boolean erALifi();
 }
