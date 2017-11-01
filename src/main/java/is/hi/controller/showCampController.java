@@ -5,12 +5,16 @@ import is.hi.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 
 //import static com.sun.deploy.config.JREInfo.getAll;
 
@@ -77,9 +81,8 @@ public class showCampController {
      * @return page that the user can sign up for a new account
      */
     @RequestMapping("/newAccountSite")
-    public String newAccountSite(Model model) {
-        userAccess newUser = new userAccess();
-        model.addAttribute(newUser);
+    public String newAccountSite(Map<String, Object> model) {
+        model.put("newUserForm", new userAccess());
         return "newAccountSite";
     }
 
@@ -96,46 +99,27 @@ public class showCampController {
     }
 
     /**
-     * Stofna nýjan aðgang
-     * @param username notendanafn
-     * @param email    netfang
-     * @param pw1      lykilorð1
-     * @param pw2      lykilorð2
-     * @param model    Model
-     * @return Stofnar aðgang og skilar heimasíðu sem lætur vita að aðgangur hefur verið stofnaður.
+     *
+     * @param villur
+     * @param model
+     * @return
      */
     @RequestMapping(value = "/newAccount", method = RequestMethod.POST)
-    public String newAccount(@RequestParam(value="username")
-                                     String username,
-                             @RequestParam(value = "email") String email,
-                             @RequestParam(value="pw1") String pw1,
-                             @RequestParam(value = "pw2") String pw2,
-                             Model model)
-    {   boolean doesExist = userService.doesUserExist(username, email);
-        boolean PWidentical = userService.arePWidentical(pw1, pw2);
-        boolean PwLegal = userService.isPwLegal(pw1);
-        boolean usernameLegal = userService.isUsernameLegal(username);
-        //username 50
-        // PASSWORD 15
-        if (doesExist) {
-            model.addAttribute("userError", "This username or email already exists");
+    public String newAccount(@Valid @ModelAttribute("newUserForm")
+                                     userAccess newUser, BindingResult villur,
+                             Model model, @RequestParam(value = "pw") String pw) {
+        if (villur.hasErrors()) {
             return "newAccountSite";
-        }
-        if (!usernameLegal) {
-            model.addAttribute("usernameNotLegal", "The username must be 1-20 characters long");
-            return "newAccountSite";
-        }
-        if (PWidentical){
-            if (PwLegal) {
-                userService.newLoginUser(username, email, pw1);
-                return "/accountInfo";
+        } else {
+            if (userService.arePWidentical(pw, newUser.getPassword())) {
+                userService.newLoginUser(newUser);
+                model.addAttribute("user", newUser);
+
+                return "accountInfo";
             } else {
-                model.addAttribute("PwNotLegal", "The password must be 1-15 characters long");
+                model.addAttribute("passwordError", "The passwords do not match");
                 return "newAccountSite";
             }
-        } else {
-            model.addAttribute("PwError", "Passwords do not match");
-            return "newAccountSite";
         }
 
     }

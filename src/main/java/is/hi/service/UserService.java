@@ -17,7 +17,8 @@ public interface UserService {
     boolean isPwLegal(String password);
 
     boolean isUsernameLegal(String username);
-    void newLoginUser(String username, String email, String pw1);
+
+    void newLoginUser(userAccess user);
     boolean doesUserExist(String username, String password);
     boolean arePWidentical(String pw1, String pw2);
     //Sem sagt tekur inn eitthvað nafn, annaðhvort
