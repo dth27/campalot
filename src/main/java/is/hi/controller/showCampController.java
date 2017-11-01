@@ -46,7 +46,8 @@ public class showCampController {
 
     /**-------------------------------
      * Global lists for some models
-     */-------------------------------
+     * -------------------------------
+     */
 
     /**
      * An Arraylist of Travel Plan Items
