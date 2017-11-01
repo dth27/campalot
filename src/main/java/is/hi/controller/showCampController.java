@@ -368,6 +368,7 @@ public class showCampController {
     }
 
 
+
     // ===========================
     // ADMIN LOGIN SITE HANDLING
     // ===========================
@@ -387,9 +388,19 @@ public class showCampController {
     @RequestMapping(value = "/addNewCampRequest", method = RequestMethod.POST)
     public String postReview(@RequestParam(value = "newCampName") String myNewCamp, Model model) {
 
-        model.addAttribute("campname", myNewCamp);
         System.out.println("The new campname is: " + myNewCamp);
-        return "adminAddNewCamp";
+        boolean doesExist = CampsiteService.doesCampExist(myNewCamp);
+        System.out.println("Nýja nafnið yfir campname sem er tekið í reqParam í addnewCamp er: " + myNewCamp);
+        System.out.println("Campsite does exist: " + doesExist);
+
+        if (doesExist) {
+            System.out.println("The campname does already exists");
+            model.addAttribute("AdminMessage", "This campname does already exist");
+            return "adminLoginSite";
+        } else {
+            model.addAttribute("campname", myNewCamp);
+            return "adminAddNewCamp";
+        }
     }
 
     /**
@@ -425,28 +436,18 @@ public class showCampController {
                           @RequestParam(value="xval") int xval,
                           @RequestParam(value="yval") int yval, Model model) {
 
-        boolean doesExist = CampsiteService.doesCampExist(campname);
-        System.out.println("Nýja nafnið yfir campname sem er tekið í reqParam í addnewCamp er: " + campname);
-        System.out.println("Campsite does exist: " + doesExist);
         Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
                 campseason, maincategory, category, region, description, xval, yval, 0.0);
-        if (doesExist) {
-            System.out.println("The campname does already exists");
-            model.addAttribute("AdminMessage", "This campname does already exist");
-            return "adminLoginSite";
-        } else {
-            System.out.println("The campname does not exists so it will be added to Campinfo");
+
             CampsiteService.addNewCamp(newcampinfo);
-            model.addAttribute("newcampinfo", newcampinfo);
-            //TODO: Bæta við í skilaboðunum nafninu, þ.e. newcampinfo.campname
+            //model.addAttribute("newcampinfo", newcampinfo);
+            //TODO: Bæta við í skilaboðunum nafninu, þ.e. (newcampinfo.campname)
             model.addAttribute("AdminMessage", "The new camp has been added to the list");
-            cList2 = CampsiteService.getCampinfo();
-            model.addAttribute("camp", cList2);
+            //TODO: Búa til uppfærðan camplista til að sýna í adminLoginSite
+            //cList2 = CampsiteService.getCampinfo();
+            //model.addAttribute("camp", cList2);
             return "adminLoginSite";
-        }
     }
-
-
 
 
 
@@ -549,5 +550,4 @@ public class showCampController {
         else
             return "allCampsites";
     }
-
 }
