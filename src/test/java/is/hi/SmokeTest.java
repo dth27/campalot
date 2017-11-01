@@ -24,7 +24,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SmokeTest {
     @Autowired
-    showCampController campcontroller;
+    ShowCampController campcontroller;
 
     /**
      *Asserts that an object of campcontroller is made
