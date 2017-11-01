@@ -31,7 +31,7 @@ import java.util.Map;
  * bætt við nýju tjaldsvæði, breytt því eða eytt (einungis admin)
  */
 @Controller
-public class showCampController {
+public class ShowCampController {
     /**
      * Connections to our services
      */
