@@ -17,7 +17,7 @@
 <h2>Check out the Campsites</h2>
 <form method = "get" action="listofcamps" class="frontpageForm">
     <div style="text-align:center">
-    <input type="submit" value="All campsites"/><br><br>
+    <input class = "all-campsites-button" type="submit" value="All campsites"/><br><br>
     </div>
 </form>
 <div class="main-container" id="main-container">
