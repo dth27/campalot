@@ -91,6 +91,11 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    public void changePassword(String newPassword, String user) {
+        travRep.changePassword(newPassword, user);
+    }
+
+    @Override
     //Checks if passwords are identical
     public boolean arePWidentical(String pw1, String pw2){
         return pw1.equals(pw2);

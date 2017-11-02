@@ -131,6 +131,22 @@ public class ShowCampController {
         return "accountInfo";
     }
 
+    @RequestMapping("/changePassword")
+    public String changePassword() {
+        return "changePassword";
+    }
+
+    @RequestMapping(value = "/saveNewPassword", method = RequestMethod.POST)
+    public String savePassword(@RequestParam(value = "oldPw") String oldPw, Model model,
+                               @RequestParam(value = "newPw1") String newPw1,
+                               @RequestParam(value = "newPw2") String newPw2) {
+        if (oldPw.equals(userService.getUserInfo(user).getPassword()) && newPw1.equals(newPw2))
+            userService.changePassword(newPw1, user);
+        model.addAttribute("user", userService.getUserInfo(user));
+        model.addAttribute("passwordChange", "your password has been changed");
+        return "accountInfo";
+    }
+
     /**
      * Site to create a new login account
      * @param villur    villur (String)
@@ -414,7 +430,6 @@ public class ShowCampController {
         model.addAttribute("campinfo", campinfo);
         return "campInfo";
     }
-
 
 
     // ===========================

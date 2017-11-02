@@ -64,7 +64,8 @@
 </div>
 <script>
     function showPopupWindow() {
-        var myWindow = window.open(action = "newAccountSite", "", "width=600,height=300");}
+        var myWindow = window.open(action = "newAccountSite", "", "width=600,height=400");
+    }
 </script>
 
 </body>

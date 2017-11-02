@@ -7,7 +7,7 @@
 --%>
 <!DOCTYPE html>
 
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -40,7 +40,8 @@
                     <li class="active"><a href="listofcamps">Campsites</a></li>
                     <li><a href="myTravelplans">My Travelplans</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My account <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My
+                            account <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="accountInfo">My information</a></li>
                             <li><a href="UserReviews">My reviews</a></li>
@@ -57,16 +58,20 @@
     </nav>
 </div>
 <br><br>
-<h2>This is your account information!</h2>
-<p style="color: red">${passwordChange}</p>
-<p><b>Username: </b>${user.username}</p>
-<p><b>Email: </b>${user.email}</p>
-<form action="/changePassword">
+<h2>Here you can change your password</h2>
+
+<form action="/saveNewPassword" METHOD="post">
+    Enter your old password:
+    <input type="password" placeholder="Enter your old password" name="oldPw" required><br>
+    Enter a new password:
+    <input type="password" placeholder="Enter a new password" name="newPw1" required><br>
+    Re-enter the new password:
+    <input type="password" placeholder="Re-enter a new password" name="newPw2" required><br>
     <button type="submit">Change password</button>
 </form>
 
+<button onclick=window.history.back(); type="button" id="myPopup">Cancel</button>
 <br>
-
 
 </body>
 </html>

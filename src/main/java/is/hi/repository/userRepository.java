@@ -51,6 +51,14 @@ public interface userRepository extends JpaRepository<userAccess, Long> {
     void add(String username, String email, String password, Boolean hasaccess, Boolean hasadminauthority);
 
 
+    /**
+     * Changes password
+     */
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE useraccess SET password = ?1 WHERE username = ?2", nativeQuery = true)
+    void changePassword(String newPassword, String user);
+
     //String getReviews(String username);
 
 
