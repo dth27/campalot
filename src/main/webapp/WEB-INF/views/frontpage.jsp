@@ -20,46 +20,33 @@
     <input type="submit" value="All campsites"/><br><br>
     </div>
 </form>
-<div class="error" style="color: red;">
-    ${error}
-</div>
-<div class="maincontainer">
-<form action="login" method="post">
-    <fieldset>
-        <legend>Log in:</legend>
-        Username:<br>
-        <input type="text" placeholder="Enter username" name="uname" required><br>
-        Password:<br>
-        <input type="password" placeholder="Enter password" name="psw" required><br><br>
-        <button type="submit" method="POST" action="login">Login</button>
-        <input type="checkbox" checked="checked"> Remember me <br><br>
-        <span class="psw">Forgot <a href="#">password?</a></span>
-        <button onclick="showPopupWindow()" type="button" >Sign up!</button>
-    </fieldset>
-
-    <%--<div class="container">
-        <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-
-        <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-
-        <button type="submit" method="POST" action="login">Login</button>
-
-        <input type="checkbox" checked="checked"> Remember me
+<div class="main-container" id="main-container">
+    <div class="information-container">
+        <h3>Welcome to the Camp'A'Lot homepage</h3>
+        <p>Here you can sign in. This site helps you to plan your travels around Iceland.
+            We have X campsites with information on our site</p>
     </div>
-
-
-    <div class="container">
-        <br>
-        <button type="button" class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
-        <button onclick="showPopupWindow()" type="button" >Sign up!</button>
+    <div class="login-container">
+        <form action="login" method="post">
+            <fieldset>
+                <legend>Log in:</legend>
+                Username:<br>
+                <input type="text" placeholder="Enter username" name="uname" required><br>
+                Password:<br>
+                <input type="password" placeholder="Enter password" name="psw" required><br><br>
+                <button type="submit" method="POST" action="login">Login</button>
+                <input type="checkbox" checked="checked"> Remember me <br><br>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+                <button onclick="showPopupWindow()" type="button">Sign up!</button>
+            </fieldset>
+            <div class="error" style="color: red;">
+                ${error}
+            </div>
+        </form>
     </div>
-    --%>
-</form>
 </div>
-<div class="bottomNav">
+
+<div class="bottom-nav">
     Created By Diljá, Kristín, Ólöf og Sandra
 </div>
 <script>

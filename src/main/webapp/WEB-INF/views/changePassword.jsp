@@ -32,7 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="forsida"><img src="/css/tent.jpg" alt="Dispute Bills">
+                <a class="navbar-brand" href="notendasida"><img src="/css/tent.jpg" alt="Dispute Bills">
                 </a>
             </div>
             <div id="navbar1" class="navbar-collapse collapse">
@@ -66,8 +66,9 @@
     Enter a new password:
     <input type="password" placeholder="Enter a new password" name="newPw1" required><br>
     Re-enter the new password:
-    <input type="password" placeholder="Re-enter a new password" name="newPw2" required><br>
+    <input type="password" placeholder="Re-enter a new password" name="newPw2" required><br><br>
     <button type="submit">Change password</button>
+    <br><br>
 </form>
 
 <button onclick=window.history.back(); type="button" id="myPopup">Cancel</button>

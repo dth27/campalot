@@ -9,6 +9,35 @@ body{
     z-index: 9999 !important;
 }
 
+.bottom-nav {
+    text-align: left;
+    color: ghostwhite;
+    font-size: 15px;
+    padding: 10px 0px 0px 0px;
+    background-color: #42453D;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    float: left
+}
+
+.main-container {
+    padding: 5px;
+    display: inline-flex;
+    margin: auto;
+}
+
+.information-container {
+    width: 400px;
+    padding: 1px 150px 1px 1px;
+}
+
+.login-container {
+    width: 300px
+}
+
 ul {
     list-style-type: none;
     margin: 0;
