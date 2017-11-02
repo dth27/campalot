@@ -280,13 +280,13 @@ public class ShowCampController {
         ArrayList Greta;
         Greta = travelplanService.getTravelplans();
         campValue = campname;
-
+        //TODO vantar msg sem lætur notenda vita þetta hafi gengið upp
         model.addAttribute("travelplans", Greta);
         return "newTravelPlanItem";
 
     }
     /**
-     * TODO laga svo virki
+     *
      * Page to handle adding the travel plan item to travel plan
      * //@param campname    name of the camp to be added
      * //@param date        date when travelplanitem/camp is to be used
@@ -300,7 +300,7 @@ public class ShowCampController {
                             @RequestParam(value="travels") String travel,
                              Model model)
     {
-        //TODO vantar planname til að tengja við
+        //TODO vantar msg að add hafi virkað
         Date realDatearr, realDatedep;
 
         realDatearr = alternativeService.dateMaker(datearr);
