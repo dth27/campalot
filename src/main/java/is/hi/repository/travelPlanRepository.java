@@ -5,6 +5,7 @@ import is.hi.model.TravelPlanItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
@@ -26,6 +27,12 @@ public interface travelPlanRepository extends JpaRepository<TravelPlan, String> 
      */
     @Query(value ="SELECT a FROM TravelPlan a")
     List <TravelPlan> getAll();
+
+   // @Query(value="SELECT a FROM travelplan a WHERE a.travelplanname = '?1' AND a.username = '?2'", nativeQuery = true)
+   // List <TravelPlan> getOnePlan(String trname, String user);
+
+    public List<TravelPlan> findTravelPlanByTravelplannameAndUsername(String travelplanname, String username);
+
 
     @Transactional
     @Modifying

@@ -1,7 +1,8 @@
 body {
-    background-color: #DEDEDE;
+    background-color:white;
     text-align: center;
 }
+
 
 h1 {
     font-family: Lobster, cursive !important;
@@ -48,6 +49,34 @@ h3 {
 .container-fluid .nav a:hover {
     background-color: #90918E;
 }
+
+.bottom-nav {
+    text-align: left;
+    color: ghostwhite;
+    font-size: 15px;
+    padding: 10px 0px 0px 0px;
+    background-color: #42453D;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    float: left
+}
+
+
+
+.main-container {
+
+    padding: 5px;
+    display: inline-flex;
+    margin: auto;
+}
+
+.information-container {
+    width: 400px;
+    padding: 1px 150px 1px 1px;
+}
 /*
 .navbar-brand>img {
     height: 100%;
@@ -68,8 +97,21 @@ fieldset {
     text-align: center;
 }
 
-fieldset input {
+input {
+    display: inline-block;
+    border: 1px solid #2d2d2d;
+    -webkit-border-radius: 18px;
+    border-radius: 18px;
+    color: rgba(0,0,0,1);
+    outline: none;
+    -webkit-box-shadow: 0 0 6px 2px rgba(0,0,0,0.5) ;
+    box-shadow: 0 0 6px 2px rgba(0,0,0,0.5) ;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
     text-align: center;
+}
+
+input:focus {
+    background: #e3e3e3;
 }
 /*
 #nav {

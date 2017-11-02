@@ -1,8 +1,12 @@
 package is.hi.model;
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 //TODO-Dilja move price from description into an int variable
 
@@ -10,18 +14,43 @@ import javax.persistence.Table;
 @Table (name = "campsitebigdata")
 public class Campinfo {
     @Id
+    @NotNull
+    @Size(min = 3, max = 50)
     String campname;
+    @NotNull
+    @Size(min = 3, max = 50)
     String campaddress;
+    @NotNull
+    @Size(min = 3, max = 50)
     String campzip;
+    @NotNull
+    @Email
+    @Size(min = 6, max = 50)
     String campemail;
+    @NotNull
+    @Size(min = 7, max = 7)
     String campphone;
+    @NotNull
+    @Size(min = 4, max = 50)
     String campwebsite;
+    @NotNull
+    @Size(max = 50)
     String campseason;
+    @NotNull
+    @Size(max = 100)
     String maincategory;
+    @NotNull
+    @Size(max = 100)
     String category;
+    @NotNull
+    @Size(max = 50)
     String region;
+    @NotNull
+    @Size(min = 3, max = 300)
     String description;
+    @NotNull
     int xval;
+    @NotNull
     int yval;
     double averagerating;
 

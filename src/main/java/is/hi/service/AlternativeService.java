@@ -1,11 +1,13 @@
 package is.hi.service;
 
-import org.springframework.stereotype.Service;
+import is.hi.model.TravelPlanItem;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 
 public interface AlternativeService {
 
-    public Date dateMaker(String date);
+    Date dateMaker(String date);
+    ArrayList dateChanger(ArrayList<TravelPlanItem> list);
 }

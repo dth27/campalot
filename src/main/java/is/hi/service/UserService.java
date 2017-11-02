@@ -32,5 +32,7 @@ public interface UserService {
     ArrayList getRatings(String name);
     ArrayList getAllReviews();
 
+    void changePassword(String newPassword, String user);
+
     userAccess getUserInfo(String name);
 }

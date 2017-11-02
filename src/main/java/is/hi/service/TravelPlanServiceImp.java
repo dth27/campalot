@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
  * búið til nýtt travel plan, nýtt travelplanitem og bætt því í travel plan sitt
  */
 @Service
-public class TravelPlanServiceImp implements TravelPlanService{
+public class TravelPlanServiceImp implements TravelPlanService {
 
     @Qualifier("travelPlanRepository")
     @Autowired
@@ -74,22 +74,24 @@ public class TravelPlanServiceImp implements TravelPlanService{
     }
 
     /**
+
      * Finds all the TravelPlanItems created
      * @return a list of all travelplanItems created
      */
     @Override
-    public ArrayList getTravelplanItems(){
+    public ArrayList getTravelplanItems() {
         listofTravelPlanitems = (ArrayList<TravelPlanItem>) planItemRep.getAll();
         return listofTravelPlanitems;
     }
 
     /**
+
      * Creates a new Travel Plan
      * @param planName  new Travel Plan name
      * @param username  name of user who created/owns the Travel Plan
      */
     @Override
-    public void createTravelplan(String planName, String username){
+    public void createTravelplan(String planName, String username) {
         TravelPlan travelplan = new TravelPlan(planName, username);
         add(travelplan);
     }
@@ -99,7 +101,7 @@ public class TravelPlanServiceImp implements TravelPlanService{
      * @param travelplanitem    A single Travel Plan Item Object
      */
     @Override
-    public void addTravelplanItem(TravelPlanItem travelplanitem){
+    public void addTravelplanItem(TravelPlanItem travelplanitem) {
         listofTravelPlanitems.add(travelplanitem);
     }
 
@@ -108,7 +110,7 @@ public class TravelPlanServiceImp implements TravelPlanService{
      * @param travelplan        A single Travel Plan Object
      */
     @Override
-    public void add(TravelPlan travelplan){
+    public void add(TravelPlan travelplan) {
         planRep.addTravelPlan(travelplan.getTravelplanname(), travelplan.getUsername());
     }
 
@@ -118,17 +120,65 @@ public class TravelPlanServiceImp implements TravelPlanService{
      * @param travelplanitem    A single Travel Plan Item Object
      */
     @Override
-    public void addItemtoPlan(String travelplan, TravelPlanItem travelplanitem){
+    public void addItemtoPlan(String travelplan, TravelPlanItem travelplanitem) {
         String planName = travelplan;
         Date campname = travelplanitem.getDatearrive();
         Date Datedepart = travelplanitem.getDatedepart();
-        String user = travelplanitem.getUser();
+        String user = travelplanitem.getUsername();
         long diff = travelplanitem.getDatedepart().getTime() - travelplanitem.getDatearrive().getTime();
-        float days = (diff / (1000*60*60*24));
+        float days = (diff / (1000 * 60 * 60 * 24));
         int totaldays = Math.round(days);
-        int price = travelplanitem.getTotalprice()*totaldays;
+        int price = travelplanitem.getTotalprice() * totaldays;
         System.out.println(days);
         //long totalprice = travelplanitem.getTotalprice()*diff;
-        planItemRep.addItem(travelplan, travelplanitem.getCampname(), travelplanitem.getDatearrive(), travelplanitem.getDatedepart(),price, user );
+        planItemRep.addItem(travelplan, travelplanitem.getCampname(), travelplanitem.getDatearrive(), travelplanitem.getDatedepart(), price, user);
+    }
+
+    @Override
+    public ArrayList getOneTravelPlan(String travelplanname, String user) {
+        TravelPlan travelplan = new TravelPlan();
+        try {
+            //listofTravelPlans = (ArrayList<TravelPlan>) planRep.getOnePlan(travelplanname,user);
+            listofTravelPlans = (ArrayList<TravelPlan>) planRep.findTravelPlanByTravelplannameAndUsername(travelplanname, user);
+            travelplan = listofTravelPlans.get(0);
+
+            System.out.println(travelplan.getTravelplanname());
+            listofTravelPlanitems = (ArrayList<TravelPlanItem>) planItemRep.findByTravelplannameAndUsername(travelplanname, user);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return listofTravelPlanitems;
+    }
+
+    @Override
+    public ArrayList getOneTravelPlanItems(String travelplanname, String user) {
+        return null;
+    }
+
+    @Override
+    public ArrayList getOneUserItems(TravelPlan travelplan) {
+        String travelplanname = travelplan.getTravelplanname();
+        String user = travelplan.getUsername();
+        try {
+            //listofTravelPlanitems = (ArrayList<TravelPlanItem>) planItemRep.getUserItems(travelplanname, user);
+            listofTravelPlanitems = (ArrayList<TravelPlanItem>) planItemRep.findByTravelplannameAndUsername(travelplanname, user);
+        }catch (Exception e){
+            System.out.println("GetOneUserItems " + e);
+        }
+        return listofTravelPlanitems;
+    }
+
+    @Override
+    public ArrayList getAllUserItems(ArrayList listofplans) {
+        return null;
+
+    }
+
+    @Override
+    public TravelPlan onePlan(String travelname, String user){
+        listofTravelPlans = (ArrayList<TravelPlan>) planRep.findTravelPlanByTravelplannameAndUsername(travelname, user);
+        TravelPlan travel = listofTravelPlans.get(0);
+        return travel;
     }
 }
+

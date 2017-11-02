@@ -1,6 +1,8 @@
 package is.hi.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -16,6 +18,8 @@ import java.util.Date;
 public class TravelPlan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
+    @Size(min = 3, max = 15)
     String travelplanname;
     String username;
 

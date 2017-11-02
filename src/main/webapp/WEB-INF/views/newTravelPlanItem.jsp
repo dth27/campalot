@@ -83,7 +83,6 @@
                         <c:forEach var="travel" items="${travelplans}">
                         <option name="travel" value="${travel.travelplanname}">${travel.travelplanname}</option>
                         </c:forEach>
-                         <option name="travel" value="Our plan">Our plan</option>
                     </select>
                 </td>
                 <td>

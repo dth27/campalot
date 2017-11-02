@@ -16,6 +16,10 @@ public interface TravelPlanService {
     void add(TravelPlan travelplan);
     void addTravelplanItem(TravelPlanItem travelplanitem);
     void addItemtoPlan(String travelplan, TravelPlanItem travelplanitem);
-
     ArrayList getUserTravelplan(String user);
+    ArrayList getOneTravelPlan(String travelplanname, String user);
+    ArrayList getOneTravelPlanItems(String travelplanname, String user);
+    ArrayList getOneUserItems(TravelPlan travelplan);
+    ArrayList getAllUserItems(ArrayList listofplans);
+    TravelPlan onePlan(String travelname, String user);
 }

@@ -131,6 +131,22 @@ public class ShowCampController {
         return "accountInfo";
     }
 
+    @RequestMapping("/changePassword")
+    public String changePassword() {
+        return "changePassword";
+    }
+
+    @RequestMapping(value = "/saveNewPassword", method = RequestMethod.POST)
+    public String savePassword(@RequestParam(value = "oldPw") String oldPw, Model model,
+                               @RequestParam(value = "newPw1") String newPw1,
+                               @RequestParam(value = "newPw2") String newPw2) {
+        if (oldPw.equals(userService.getUserInfo(user).getPassword()) && newPw1.equals(newPw2))
+            userService.changePassword(newPw1, user);
+        model.addAttribute("user", userService.getUserInfo(user));
+        model.addAttribute("passwordChange", "your password has been changed");
+        return "accountInfo";
+    }
+
     /**
      * Site to create a new login account
      * @param villur    villur (String)
@@ -415,8 +431,16 @@ public class ShowCampController {
         return "campInfo";
     }
 
+    @RequestMapping(value="/getTravelItems", method = RequestMethod.GET)
+    public String getTravelInfo(Model model){
+        //tpiList = travelplanService.getOneTravelPlanItems(travelplan,user);
+       // model.addAttribute("travelplanitems", tpiList);
+        tpList = travelplanService.getUserTravelplan(user);
 
+        model.addAttribute("travelplanitems", tpList);
 
+        return "TravelPlanInfo";
+    }
     // ===========================
     // ADMIN LOGIN SITE HANDLING
     // ===========================
@@ -513,6 +537,27 @@ public class ShowCampController {
         return "giveReview";
     }
 
+    @RequestMapping(value="onetravel", method = RequestMethod.GET)
+    public String onePlan(@RequestParam(value="travelname") String planname, Model model){
+        System.out.println("Travelname= " + planname);
+        try {
+            tpiList = travelplanService.getOneTravelPlan(planname, user);
+            tpList = travelplanService.getTravelplans();
+            TravelPlan travelplan = travelplanService.onePlan(planname,user);
+            tpiList = alternativeService.dateChanger(tpiList);
+            if (tpiList == null) {
+            } else {
+                model.addAttribute("tra", travelplan);
+                model.addAttribute("travelplans", tpiList);
+                model.addAttribute("travelplan", tpList);
+            }
+        } catch (Exception e){
+            System.out.println("Controller, onetravel "+e);
+
+        }
+        return "OneTravelPlan";
+
+    }
     /**
      * finnur út hvaða tjaldsvæði notandi vill gefa ummæli.
      * @param campName      name of the camp (String)
