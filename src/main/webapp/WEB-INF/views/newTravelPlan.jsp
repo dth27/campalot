@@ -16,7 +16,7 @@
 <head>
     <title>New Travel Plan</title>
     <link rel="stylesheet" type="text/css" href="/css/testing2.css">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -43,13 +43,13 @@
                     <li class="active"><a href="listofcamps">Campsites</a></li>
                     <li><a href="myTravelplans">My Travelplans</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My account <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Info<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="accountInfo">My information</a></li>
                             <li><a href="UserReviews">My reviews</a></li>
                             <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
+                            <li class="dropdown-header">About</li>
+                            <li><a href="#">About Camp'A'Lot</a></li>
                         </ul>
                     </li>
                 </ul>

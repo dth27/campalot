@@ -8,24 +8,17 @@
 <br>
 <head>
     <title>Information</title>
-    <link rel="stylesheet" type="text/css" href="/css/testing2.css">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/campInfoLook.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Cabin" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <h1>Information about ${campinfo.campname}</h1>
-<%--<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
-    <ul class="nav navbar-nav">
-        <li><a href="listofcamps">All campsites</a></li>
-        <li><a href="">My travelplans</a></li>
-        <li><a href="UserReviews">User Reviews</a></li>
-        <li><a href="accountInfo">My account</a></li>
-    </ul>
-</nav>--%>
+
 <div class="container-fluid">
-    <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
+    <nav class="navbar navbar-light" style="background-color: #445C80" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
@@ -42,13 +35,13 @@
                     <li class="active"><a href="listofcamps">Campsites</a></li>
                     <li><a href="myTravelplans">My Travelplans</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My account <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Info<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="accountInfo">My information</a></li>
                             <li><a href="UserReviews">My reviews</a></li>
                             <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
+                            <li class="dropdown-header">About</li>
+                            <li><a href="#">About Camp'A'Lot</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -58,12 +51,26 @@
         <!--/.container-fluid -->
     </nav>
 </div>
-
 <br>
-    <h3>Name</h3>
+<div id="texti">
+    <h2>Name</h2>
     ${campinfo.campname}
-    <h3>Rating</h3>
 
+    <div id="description">
+        <h2>Description</h2>
+        ${campinfo.description}
+        <h3 id="adress">Address</h3>
+        ${campinfo.campaddress}
+        ${campinfo.campzip}
+        <h3 id="contactinfo">Contact information</h3>
+        ${campinfo.campemail}
+        ${campinfo.campphone}
+        ${campinfo.campwebsite}
+    </div>
+    <h3>Average Rating</h3>
+    ${campinfo.averagerating}
+
+    <h3>Give a rating</h3>
     <form action="giveRating" method="POST">
         <select name="rating">
             <option value="0">0</option>
@@ -81,25 +88,12 @@
         <button name="campName2" value="${campinfo.campname}" s>OK</button>
     </form>
 
-    <h3>Average Rating</h3>
-    ${campinfo.averagerating}
-
     <h3>All Ratings</h3>
     <form action="/allratings" method="POST">
         <button name="allrat" value="${campinfo.campname}">
             See all ratings
         </button>
     </form>
-
-    <h2>Description</h2>
-    ${campinfo.description}
-    <h3 id="adress">Adress</h3>
-    ${campinfo.campaddress}
-    ${campinfo.campzip}
-    <h3 id="contactinfo">Contact info</h3>
-    ${campinfo.campemail}
-    ${campinfo.campphone}
-    ${campinfo.campwebsite}
 
     <h2>Reviews</h2>
     <form action="review" method="POST" >
@@ -119,15 +113,14 @@
         </table>
         <br>
         <button name="campName" value="${campinfo.campname}" type="submit">Give a review</button>
-
-
     </form>
-
-<h2>Add this camp to your TravelPlan!</h2>
-<form action="/addToPlan" method="post">
-    <button name="Campname" value="${campinfo.campname}" type="submit">
-        Add to TravelPlan
-    </button>
-</form>
+        <h2>Do you want to visit ${campinfo.campname}?</h2>
+        <h3>Add it to your travelplan!</h3>
+        <form action="/addToPlan" method="post">
+            <button name="Campname" value="${campinfo.campname}" type="submit">
+                Add to my plan
+            </button>
+        </form>
+</div>
 </body>
 </html>
