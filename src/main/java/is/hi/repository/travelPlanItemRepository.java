@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.transaction.Transactional;
 import java.sql.Date;
@@ -34,6 +35,19 @@ public interface travelPlanItemRepository extends JpaRepository<TravelPlanItem, 
 
     @Transactional
     @Modifying
+    @Query(value = "DELET FROM travelplanitem where campname = ?1 AND travelplanname = ?2", nativeQuery = true)
+    void deletItem(String campname, String planname);
+
+    /**
+     * @param planname
+     * @param camp
+     * @param datearr
+     * @param datedep
+     * @param price
+     * @param user
+     */
+    @Transactional
+    @Modifying
     @Query(value="insert into travelplanitem(travelplanname, campname, datearrive, datedepart, totalprice, username) VALUES (?1, ?2, ?3, ?4, ?5, ?6)", nativeQuery = true)
     void addItem(String planname, String camp, java.util.Date datearr, java.util.Date datedep, int price, String user);
     /**
@@ -41,4 +55,6 @@ public interface travelPlanItemRepository extends JpaRepository<TravelPlanItem, 
      * @param travelplanItem
      */
     //void add(TravelPlanItem travelplanItem);
+
+
 }

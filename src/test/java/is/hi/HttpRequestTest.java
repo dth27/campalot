@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 
 /**
- * @author Dilja
+ * @author Diljá, Kristín, Sandra og Ólöf
  * (based on code from:)
  * @author Ebba Þóra Hvannberg
  *
@@ -36,7 +36,7 @@ public class HttpRequestTest {
 
     /**
      * Function to see whether sending HttpRequest to a homepath works and
-     * if the site .... is retrieved.
+     * if the site / is retrieved.
 
      * @throws java.lang.Exception
      */
@@ -45,12 +45,15 @@ public class HttpRequestTest {
         assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/",
                 String.class)).isNotEmpty();
     }
+
+    /**
+     * Function to see whether sending HttpRequest to a homepath works and
+     * if the site /forsida is retrieved
+     * @throws Exception
+     */
     @Test
     public void forsidaReturnsLogin() throws Exception {
         assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/forsida",
                 String.class)).contains("login");
     }
-
-
-
 }

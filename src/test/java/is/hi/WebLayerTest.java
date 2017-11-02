@@ -1,6 +1,6 @@
 package is.hi;
 
-import is.hi.controller.showCampController;
+import is.hi.controller.ShowCampController;
 import is.hi.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,17 +9,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.hamcrest.Matchers.containsString;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Bean;
 
 
 /**
- * @author Dilja
+ * @author Diljá, Kristín, Sandra og Ólöf
  * (based on code from:)
  * @author Ebba Þóra Hvannberg
  *
@@ -30,7 +29,7 @@ import org.springframework.context.annotation.Bean;
  */
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(showCampController.class)
+@WebMvcTest(ShowCampController.class)
 public class WebLayerTest {
     @Autowired
     MockMvc mockobj;
@@ -44,12 +43,26 @@ public class WebLayerTest {
     @MockBean
     AlternativeService alternativeService;
 
-
+    /**
+     * Tests if url /listofcamps opens the jsp file allCampsites
+     * @throws Exception
+     */
     @Test
     public void forsidaisOk () throws Exception {
         this.mockobj.perform(get("/listofcamps"))
-                .andDo(print()).andExpect(status().isOk());
-                //.andExpect(content().string(containsString("camps")));
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(view().name("allCampsites"));
+    }
+
+    /**
+     * Tests if url /accountInfo opens the jsp file accountInfo
+     * @throws Exception
+     */
+    @Test
+    public void accountInfoisOk () throws Exception {
+        this.mockobj.perform(get("/accountInfo"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(view().name("accountInfo"));
     }
 
 }

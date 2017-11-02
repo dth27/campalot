@@ -13,7 +13,12 @@ import java.util.List;
 public interface UserService {
     boolean isPwCorr(String nafn, String password);
     boolean hasAdminAuthority(String uname, String psw);
-    void newLoginUser(String username, String email, String pw1);
+
+    boolean isPwLegal(String password);
+
+    boolean isUsernameLegal(String username);
+
+    void newLoginUser(userAccess user);
     boolean doesUserExist(String username, String password);
     boolean arePWidentical(String pw1, String pw2);
     //Sem sagt tekur inn eitthvað nafn, annaðhvort
@@ -26,4 +31,8 @@ public interface UserService {
     void setAvRating(double r, String name);
     ArrayList getRatings(String name);
     ArrayList getAllReviews();
+
+    void changePassword(String newPassword, String user);
+
+    userAccess getUserInfo(String name);
 }

@@ -9,22 +9,19 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.hamcrest.Matchers.containsString;
 
 import static org.mockito.Mockito.when;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultActions;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 
 /**
- * @author Dilja
+ * @author Diljá, Kristín, Sandra og Ólöf
  * (largely based on code from:)
  * @author Ebba Þóra Hvannberg
  *
@@ -37,7 +34,7 @@ import org.springframework.test.web.servlet.ResultActions;
  */
 @RunWith(SpringRunner.class)
 
-@WebMvcTest(showCampController.class)
+@WebMvcTest(ShowCampController.class)
 public class WebMockTest {
 
     @Autowired
@@ -53,56 +50,46 @@ public class WebMockTest {
     AlternativeService alternativeService;
 
     /**
-     * Aðferð sem prófar /lifir á KennariController en með
-     * erALifi() false. Ættum að fá til baka nyrKennari.html síðuna
+     * Aðferð sem prófar /lifir á showCampController en með
+     * erALifi() false. Ættum að fá til baka frontpage síðuna
      */
     @Test
     public void testaLifirTrue() throws Exception {
-        // Látum erNafnRett() skila true
+        // Látum erALifi() skila true
         // Notum Mockito í prófanirnar - Mockito er Framework fyrir unit testing í Java
         // http://site.mockito.org/
-/*
         // Prófið ætti að takast - prófum sönnu leiðina í if-setningunni
-        when(daginnService.erALifi()).thenReturn(true);
+        when(CampsiteService.erALifi()).thenReturn(true);
         this.mockobj.perform(get("/lifir"))
                 .andDo(print())
-                .andExpect(status()
-                        .isOk())
-                .andExpect(content()
-                        .string(containsString("Nýr kennari")));*/
-
+                .andExpect(status().isOk())
+                .andExpect(view().name("frontpage"));
     }
+
     /**
-     * Aðferð sem prófar /lifir á KennariController en með
-     * erALifi() false. Ættum að fá til baka listiKennara.html síðuna
+     * Aðferð sem prófar /lifir á showCampController en með
+     * erALifi() false. Ættum að fá til baka allCampsites síðuna
      */
     @Test
     public void testaLifirFalse() throws Exception {
-/*
         // Prófið ætti að takast - prófum ósönnu leiðina í if-setningunni
-        when(daginnService.erALifi()).thenReturn(false);
+        when(CampsiteService.erALifi()).thenReturn(false);
         this.mockobj.perform(get("/lifir")).andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content()
-                        .string(containsString("Listi yfir kennara")));*/
+                .andExpect(view().name("allCampsites"));
     }
 
-    /**
-     * Prófið ætti að mistakast - prófum ósönnu leiðina erALifi() en berum
+     /** Prófið ætti að mistakast - prófum ósönnu leiðina erALifi() en berum
      * saman við rangan streng
      * @throws Exception
      */
     @Test
     public void testaLifirFalseMedRongumStreng() throws Exception {
-/*
         // Prófið ætti að ekki takast - prófum ósönnu leiðina í if-setningunni
-        when(daginnService.erALifi()).thenReturn(false);
-
-
+        when(CampsiteService.erALifi()).thenReturn(false);
         this.mockobj.perform(get("/lifir")).andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Nýr kennari")));
-*/
+                .andExpect(view().name("frontpage"));
     }
 
 

@@ -41,6 +41,24 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    public boolean isPwLegal(String password) {
+        if (password.length() > 0 && password.length() < 15) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean isUsernameLegal(String username) {
+        if (username.length() > 0 && username.length() < 20) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     //Checks if user has admin authority
     public boolean hasAdminAuthority(String uname, String psw) {
         tList = (ArrayList<userAccess>) travRep.getAll();
@@ -56,8 +74,8 @@ public class UserServiceImp implements UserService {
 
     @Override
     //Creates a new login user
-    public void newLoginUser(String username, String email, String pw1) {
-        travRep.add(username, email, pw1, Boolean.FALSE, Boolean.FALSE);
+    public void newLoginUser(userAccess user) {
+        travRep.add(user.getUsername(), user.getEmail(), user.getPassword(), Boolean.FALSE, Boolean.FALSE);
     }
 
     @Override
@@ -70,6 +88,11 @@ public class UserServiceImp implements UserService {
             }
         }
         return false;
+    }
+
+    @Override
+    public void changePassword(String newPassword, String user) {
+        travRep.changePassword(newPassword, user);
     }
 
     @Override
@@ -160,5 +183,15 @@ public class UserServiceImp implements UserService {
         return tList;
     }
 
+    @Override
+    public userAccess getUserInfo(String username) {
+        userAccess user1 = new userAccess();
+        tList = (ArrayList<userAccess>) travRep.getAll();
+        for (userAccess u : tList) {
+            if (u.getUsername().equals(username))
+                user1 = u;
+        }
+        return user1;
+    }
 }
 

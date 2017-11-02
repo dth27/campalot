@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 
 /**
- * @author Dilja
+ * @author Diljá, Kristín, Sandra og Ólöf
  * (based on code from:)
  * @author Ebba Þóra Hvannberg
  *
@@ -24,14 +24,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SmokeTest {
     @Autowired
-    showCampController campcontroller;
+    ShowCampController campcontroller;
 
     /**
      *Asserts that an object of campcontroller is made
      */
     @Test
     public void contextLoads() {
-
         assertThat(campcontroller).isNotNull();
     }
 

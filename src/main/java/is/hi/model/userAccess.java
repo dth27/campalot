@@ -2,8 +2,12 @@ package is.hi.model;
 
 import jdk.nashorn.internal.objects.annotations.Getter;
 import jdk.nashorn.internal.objects.annotations.Setter;
+import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +25,21 @@ import java.util.Set;
 @Table (name="useraccess")
 public class userAccess {
     @Id
-    String username;
-    String email;
-    String password;
-    boolean hasaccess;
-    boolean hasadminauthority;
+    @NotNull
+    @Size(min = 4, max = 10)
+    private String username;
+
+    @NotNull
+    @Email
+    @Size(min = 6, max = 50)
+    private String email;
+
+    @NotNull
+    @Size(min = 1, max = 15)
+    private String password;
+
+    private boolean hasaccess;
+    private boolean hasadminauthority;
 
     public userAccess(String username, String email, String password, boolean hasaccess, boolean hasadminauthority) {
         this.username = username;
