@@ -18,7 +18,6 @@ import java.util.List;
  *
  * Repository for travelplanitems
  */
-//TODO ætti þetta að vera Long??
 
 public interface travelPlanItemRepository extends JpaRepository<TravelPlanItem, Long>{
     /**
@@ -27,6 +26,11 @@ public interface travelPlanItemRepository extends JpaRepository<TravelPlanItem, 
      */
     @Query(value ="SELECT a FROM TravelPlanItem a")
     List<TravelPlanItem> getAll();
+
+    @Query(value="SELECT a FROM travelplanitem a where a.travelplanname = ?1 AND a.username=?2", nativeQuery = true)
+    List<TravelPlanItem> getUserItems(String name, String user);
+
+    List<TravelPlanItem> findByTravelplannameAndUsername(String travelplanname, String username);
 
     @Transactional
     @Modifying

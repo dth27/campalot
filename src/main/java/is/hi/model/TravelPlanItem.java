@@ -21,7 +21,7 @@ public class TravelPlanItem {
     Date datedepart;
     int totalprice;
     String campname;
-    String user;
+    String username;
     String travelplanname;
 
     public TravelPlanItem(Date datearrive, Date datedepart, int totalprice, String campname, String user, String travelplanname) {
@@ -30,7 +30,7 @@ public class TravelPlanItem {
         this.datedepart = datedepart;
         this.totalprice = totalprice;
         this.campname = campname;
-        this.user = user;
+        this.username = user;
         this.travelplanname = travelplanname;
     }
 
@@ -77,12 +77,12 @@ public class TravelPlanItem {
         this.campname = campname;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String user) {
+        this.username = user;
     }
 
     public String getTravelplanname() {

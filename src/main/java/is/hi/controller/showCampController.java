@@ -361,7 +361,16 @@ public class showCampController {
         return "campInfo";
     }
 
+    @RequestMapping(value="/getTravelItems", method = RequestMethod.GET)
+    public String getTravelInfo(Model model){
+        //tpiList = travelplanService.getOneTravelPlanItems(travelplan,user);
+       // model.addAttribute("travelplanitems", tpiList);
+        tpList = travelplanService.getUserTravelplan(user);
 
+        model.addAttribute("travelplanitems", tpList);
+
+        return "TravelPlanInfo";
+    }
     // ===========================
     // REVIEW AND RATING HANDLING
     // ===========================
@@ -373,6 +382,27 @@ public class showCampController {
         return "giveReview";
     }
 
+    @RequestMapping(value="onetravel", method = RequestMethod.GET)
+    public String onePlan(@RequestParam(value="travelname") String planname, Model model){
+        System.out.println("Travelname= " + planname);
+        try {
+            tpiList = travelplanService.getOneTravelPlan(planname, user);
+            tpList = travelplanService.getTravelplans();
+            TravelPlan travelplan = travelplanService.onePlan(planname,user);
+            tpiList = alternativeService.dateChanger(tpiList);
+            if (tpiList == null) {
+            } else {
+                model.addAttribute("tra", travelplan);
+                model.addAttribute("travelplans", tpiList);
+                model.addAttribute("travelplan", tpList);
+            }
+        } catch (Exception e){
+            System.out.println("Controller, onetravel "+e);
+
+        }
+        return "OneTravelPlan";
+
+    }
     /**
      * finnur út hvaða tjaldsvæði notandi vill gefa ummæli.
      *
