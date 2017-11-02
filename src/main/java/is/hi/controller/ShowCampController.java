@@ -142,6 +142,14 @@ public class ShowCampController {
                                @RequestParam(value = "newPw2") String newPw2) {
         if (oldPw.equals(userService.getUserInfo(user).getPassword()) && newPw1.equals(newPw2))
             userService.changePassword(newPw1, user);
+        if(!oldPw.equals(userService.getUserInfo(user).getPassword())){
+            model.addAttribute("error","The old password is incorrect");
+            return "changePassword";
+        }
+        if(!newPw1.equals(newPw2)){
+            model.addAttribute("error","The new password does not match");
+            return "changePassword";
+        }
         model.addAttribute("user", userService.getUserInfo(user));
         model.addAttribute("passwordChange", "your password has been changed");
         return "accountInfo";

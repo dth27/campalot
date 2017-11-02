@@ -113,6 +113,10 @@ input {
 input:focus {
     background: #e3e3e3;
 }
+
+.front-logo{
+    width: 500px;
+}
 /*
 #nav {
     overflow: hidden;

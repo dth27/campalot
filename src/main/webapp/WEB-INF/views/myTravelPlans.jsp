@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="forsida"><img src="/css/Camp-A-Lot%20Logo2.jpg" alt="Dispute Bills">
+                <a class="navbar-brand" href="forsida"><img src="/css/logo3.png" alt="Dispute Bills">
                 </a>
             </div>
             <div id="navbar1" class="navbar-collapse collapse">

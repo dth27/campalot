@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="banner">
-<h1>Welcome to Camp'a'Lot!</h1>
+    <img class = "front-logo" src="/css/logo3.png" alt="Dispute Bills">
 </div>
 <h2>Check out the Campsites</h2>
 <form method = "get" action="listofcamps" class="frontpageForm">
@@ -39,9 +39,9 @@
                 <span class="psw">Forgot <a href="#">password?</a></span>
                 <button onclick="showPopupWindow()" type="button">Sign up!</button>
             </fieldset>
-            <div class="error" style="color: red;">
-                ${error}
-            </div>
+
+            <p class = "error" style="color:red;">${error}</p>
+
         </form>
     </div>
 </div>
