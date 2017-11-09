@@ -128,11 +128,13 @@ public class ShowCampController {
     public String accountInfo(Model model) {
         userAccess accountinfo = userService.getUserInfo(user);
         model.addAttribute("user", accountinfo);
+        model.addAttribute("username",user);
         return "accountInfo";
     }
 
     @RequestMapping("/changePassword")
-    public String changePassword() {
+    public String changePassword(Model model) {
+        model.addAttribute("username",user);
         return "changePassword";
     }
 
@@ -144,14 +146,17 @@ public class ShowCampController {
             userService.changePassword(newPw1, user);
         if(!oldPw.equals(userService.getUserInfo(user).getPassword())){
             model.addAttribute("error","The old password is incorrect");
+            model.addAttribute("username",user);
             return "changePassword";
         }
         if(!newPw1.equals(newPw2)){
             model.addAttribute("error","The new password does not match");
+            model.addAttribute("username",user);
             return "changePassword";
         }
         model.addAttribute("user", userService.getUserInfo(user));
         model.addAttribute("passwordChange", "your password has been changed");
+        model.addAttribute("username",user);
         return "accountInfo";
     }
 
@@ -175,6 +180,7 @@ public class ShowCampController {
                 }
                 userService.newLoginUser(newUser);
                 model.addAttribute("user", newUser);
+                model.addAttribute("username",user);
                 return "accountInfo";
             } else {
                 model.addAttribute("passwordError", "The passwords do not match");
@@ -231,6 +237,7 @@ public class ShowCampController {
         ArrayList<TravelPlan> tpList;
         tpList = travelplanService.getUserTravelplan(user);
         model.addAttribute("travelplans", tpList);
+        model.addAttribute("username",user);
         return "notendasida";
     }
 
@@ -251,6 +258,7 @@ public class ShowCampController {
         if (mylist.isEmpty()){}
         else
         model.addAttribute("users", mylist.get(0));
+        model.addAttribute("username",user);
 
         return "newTravelPlan";
     }
@@ -269,6 +277,7 @@ public class ShowCampController {
             System.out.println(e + " getTravelplans in /addTravel");
         }
         model.addAttribute("travelplans", tpList);
+        model.addAttribute("username",user);
         return "notendasida";
     }
 
@@ -292,7 +301,7 @@ public class ShowCampController {
     } catch (Exception e){
         System.out.println("newTravel error");
     }
-
+        model.addAttribute("username",user);
         return "notendasida";
     }
 
@@ -312,6 +321,7 @@ public class ShowCampController {
         campValue = campname;
         //TODO vantar msg sem lætur notenda vita þetta hafi gengið upp
         model.addAttribute("travelplans", Greta);
+        model.addAttribute("username",user);
         return "newTravelPlanItem";
 
     }
@@ -354,7 +364,7 @@ public class ShowCampController {
         tpList = travelplanService.getTravelplans();
         System.out.println(tpList.get(1).getTravelplanname());
         model.addAttribute("travel", tpList);
-
+        model.addAttribute("username",user);
         return "notendasida";
     }
 
@@ -372,6 +382,7 @@ public class ShowCampController {
     public String seeUserReviews(Model model){
         allRevList = userService.getAllReviews();
         model.addAttribute("reviews", allRevList);
+        model.addAttribute("username",user);
         return "UserReviews";
     }
 
@@ -384,6 +395,7 @@ public class ShowCampController {
     public String seeTravelPlans(Model model) {
         ArrayList<TravelPlan> userList = travelplanService.getUserTravelplan(user);
         model.addAttribute("travelplans", userList);
+        model.addAttribute("username",user);
         return "myTravelPlans";
     }
 
@@ -404,6 +416,7 @@ public class ShowCampController {
         cList = CampsiteService.getCampsites();
         cList2 = CampsiteService.getCampinfo();
         model.addAttribute("camps", cList2);
+        model.addAttribute("username",user);
         return "allCampsites";
     }
 
@@ -412,7 +425,8 @@ public class ShowCampController {
      * @return      page that shows the camp info
      */
     @RequestMapping("/campInfo")
-    public String campInfo() {
+    public String campInfo(Model model) {
+        model.addAttribute("username",user);
         return "campInfo";
     }
 
@@ -439,7 +453,7 @@ public class ShowCampController {
         }
         if (area.equals("All"))
             model.addAttribute("camps", cList2);
-
+        model.addAttribute("username",user);
         return "allCampsites";
     }
 
@@ -458,6 +472,7 @@ public class ShowCampController {
         Campinfo campinfo = CampsiteService.getOneCampinfo(campName);
         model.addAttribute("reviews", rList);
         model.addAttribute("campinfo", campinfo);
+        model.addAttribute("username",user);
         return "campInfo";
     }
 
@@ -468,7 +483,7 @@ public class ShowCampController {
         tpList = travelplanService.getUserTravelplan(user);
 
         model.addAttribute("travelplanitems", tpList);
-
+        model.addAttribute("username",user);
         return "TravelPlanInfo";
     }
     // ===========================
@@ -563,7 +578,8 @@ public class ShowCampController {
      * @return skilar síðu þar sem hægt er að skrifa ummæli.
      */
     @RequestMapping(value = "giveReview")
-    public String giveReview() {
+    public String giveReview(Model model) {
+        model.addAttribute("username",user);
         return "giveReview";
     }
 
@@ -585,6 +601,7 @@ public class ShowCampController {
             System.out.println("Controller, onetravel "+e);
 
         }
+        model.addAttribute("username",user);
         return "OneTravelPlan";
 
     }
@@ -607,6 +624,7 @@ public class ShowCampController {
         }}catch(Exception e){
             System.out.println("inní /review: "+e);
         }
+        model.addAttribute("username",user);
         return "giveReview";
     }
 
@@ -627,6 +645,8 @@ public class ShowCampController {
         model.addAttribute("campinfo", campinfo);
         ArrayList<Review> rList = userService.getReviews(campName);
         model.addAttribute("reviews", rList);
+        model.addAttribute("username",user);
+
         return "campInfo";
     }
 
@@ -651,6 +671,7 @@ public class ShowCampController {
         Campinfo campinfo = CampsiteService.getOneCampinfo(campName2);
         model.addAttribute("campinfo", campinfo);
         model.addAttribute("reviews", rList);
+        model.addAttribute("username",user);
         return "campInfo";
     }
 
@@ -666,6 +687,7 @@ public class ShowCampController {
         model.addAttribute("campinfo", campinfo);
         ratList = userService.getRatings(campName2);
         model.addAttribute("ratings", ratList);
+        model.addAttribute("username",user);
         return "seeAllRatings";
     }
 

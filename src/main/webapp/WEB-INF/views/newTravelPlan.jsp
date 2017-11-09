@@ -53,6 +53,7 @@
                         </ul>
                     </li>
                 </ul>
+                <a class = "right" href = "logOut">Log out</a>
             </div>
             <!--/.nav-collapse -->
         </div>
