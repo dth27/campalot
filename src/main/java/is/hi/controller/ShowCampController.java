@@ -210,7 +210,7 @@ public class ShowCampController {
             if(userService.hasAdminAuthority(name, psw)){
                 return "adminLoginSite";
             }
-            model.addAttribute("username",)
+            model.addAttribute("username",user);
             return "notendasida";
         } else {
             model.addAttribute("error", "Username or password is incorrect");
