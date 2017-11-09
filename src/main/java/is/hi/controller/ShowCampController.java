@@ -104,6 +104,9 @@ public class ShowCampController {
     }
 
 
+
+
+
     // ===========================
     // ACCOUNT HANDLING
     // ===========================
@@ -384,6 +387,12 @@ public class ShowCampController {
         model.addAttribute("reviews", allRevList);
         model.addAttribute("username",user);
         return "UserReviews";
+    }
+
+    @RequestMapping("help")
+    public String help(Model model){
+        model.addAttribute("username",user);
+        return "help";
     }
 
     /**

@@ -50,6 +50,7 @@
                             <li class="divider"></li>
                             <li class="dropdown-header">About</li>
                             <li><a href="#">About Camp'A'Lot</a></li>
+                            <li><a href="help">Help</a></li>
                         </ul>
                     </li>
                 </ul>
