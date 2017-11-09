@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
     <title>Welcome</title>
-    <link rel="stylesheet" type="text/css" href="/css/testing2.css">
+    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
 </head>
 <body>
 <div class="banner">

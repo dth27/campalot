@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <title>User Reviews</title>
-    <link rel="stylesheet" type="text/css" href="/css/testing2.css">
+    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
