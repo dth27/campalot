@@ -16,6 +16,7 @@
 
 <body>
 <h1>Give ${campinfo.campname} a review</h1>
+<p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
     <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
@@ -26,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="forsida"><img src="/css/logo3.png" alt="Dispute Bills">
+                <a class="navbar-brand" href="goToNotendasida"><img src="/css/logo3.png" alt="Dispute Bills">
                 </a>
             </div>
             <div id="navbar1" class="navbar-collapse collapse">
@@ -44,6 +45,7 @@
                         </ul>
                     </li>
                 </ul>
+                <a class = "right" href = "logOut">Log out</a>
             </div>
             <!--/.nav-collapse -->
         </div>
@@ -58,6 +60,8 @@
     <textarea cols = "50" rows = "10" placeholder="Type your review" name="myReview" required></textarea><br><br>
     <button type="submit" name="campName" value="${camp.campname}">Submit</button>
 </form>
-
+    <div class="bottom-nav">
+        Created By Diljá, Kristín, Ólöf og Sandra
+    </div>
 </body>
 </html>

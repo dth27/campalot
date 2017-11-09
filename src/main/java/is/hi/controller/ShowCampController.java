@@ -169,15 +169,20 @@ public class ShowCampController {
             return "newAccountSite";
         } else {
             if (userService.arePWidentical(pw, newUser.getPassword())) {
+                if (userService.doesUserExist(newUser.getUsername(), newUser.getEmail())){
+                    model.addAttribute("userExists", "This username or email is taken");
+                    return "newAccountSite";
+                }
                 userService.newLoginUser(newUser);
                 model.addAttribute("user", newUser);
-
                 return "accountInfo";
             } else {
                 model.addAttribute("passwordError", "The passwords do not match");
                 return "newAccountSite";
             }
         }
+
+
 
     }
 
@@ -205,11 +210,28 @@ public class ShowCampController {
             if(userService.hasAdminAuthority(name, psw)){
                 return "adminLoginSite";
             }
+            model.addAttribute("username",)
             return "notendasida";
         } else {
             model.addAttribute("error", "Username or password is incorrect");
             return "frontpage";
         }
+    }
+
+    @RequestMapping(value="logOut")
+    public String logOut(){
+        isLoggedIn = false;
+        return "frontpage";
+    }
+
+    @RequestMapping(value="goToNotendasida")
+    public String goToNotendasida(Model model){
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        ArrayList<TravelPlan> tpList;
+        tpList = travelplanService.getUserTravelplan(user);
+        model.addAttribute("travelplans", tpList);
+        return "notendasida";
     }
 
 

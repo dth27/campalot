@@ -14,6 +14,7 @@
 <html>
 <head>
     <title>Velkominn</title>
+    <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
     <link rel="stylesheet" type="text/css" href="/css/testing.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -28,5 +29,8 @@
     <form method="get" action="/askTraveller">
         <input type="submit" value="New campsite"/>
     </form>
+    <div class="bottom-nav">
+        Created By Diljá, Kristín, Ólöf og Sandra
+    </div>
 </body>
 </html>

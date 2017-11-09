@@ -50,11 +50,22 @@ h3 {
     background-color: #90918E;
 }
 
+.right {
+    float:right;
+    padding-top: 27px;
+}
+
+.loggedIn {
+    text-align:right;
+    padding: 0px 15px 0px 0px;
+    font-size: 12px;
+    font-family: Lobster, cursive !important;
+}
+
 .bottom-nav {
-    text-align: left;
+    text-align: center;
     color: ghostwhite;
     font-size: 15px;
-    padding: 10px 0px 0px 0px;
     background-color: #42453D;
     overflow: hidden;
     position: fixed;

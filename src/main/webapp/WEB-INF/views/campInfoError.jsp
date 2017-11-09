@@ -15,6 +15,7 @@
 </head>
 <body>
 <h1>Welcome to Camp'A'Lot</h1>
+<p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
     <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
@@ -43,7 +44,9 @@
                         </ul>
                     </li>
                 </ul>
+                <a class = "right" href = "logOut">Log out</a>
             </div>
+
             <!--/.nav-collapse -->
         </div>
         <!--/.container-fluid -->
@@ -58,5 +61,8 @@
         Log in
     </button>
 </form>
+<div class="bottom-nav">
+    Created By Diljá, Kristín, Ólöf og Sandra
+</div>
 </body>
 </html>

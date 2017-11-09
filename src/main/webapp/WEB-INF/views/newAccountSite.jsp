@@ -17,6 +17,7 @@
 <html lang="en">
 <head>
     <title>New Account</title>
+    <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
     <link rel="stylesheet" type="text/css" href="/css/testing2.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -48,6 +49,7 @@
         <label for="pw"><b>Re-enter password</b></label><br>
         <input type="password" placeholder="Enter Password" name="pw" id="pw"><br><br>
         <p style="color: RED">${passwordError}</p>
+        <p style="color: red">${userExists}</p>
 
         <button type="submit" method="POST" action="campsites/newAccount">submit</button>
 
