@@ -7,7 +7,7 @@
 <html>
 <head>
     <title>Error</title>
-    <link rel="stylesheet" type="text/css" href="/css/testing2.css">
+    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -15,6 +15,7 @@
 </head>
 <body>
 <h1>Welcome to Camp'A'Lot</h1>
+<p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
     <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
@@ -40,10 +41,13 @@
                             <li class="divider"></li>
                             <li class="dropdown-header">About</li>
                             <li><a href="#">About Camp'A'Lot</a></li>
+                            <li><a href="help">Help</a></li>
                         </ul>
                     </li>
                 </ul>
+                <a class = "right" href = "logOut">Log out</a>
             </div>
+
             <!--/.nav-collapse -->
         </div>
         <!--/.container-fluid -->
@@ -58,5 +62,8 @@
         Log in
     </button>
 </form>
+<div class="bottom-nav">
+    Created By Diljá, Kristín, Ólöf og Sandra
+</div>
 </body>
 </html>

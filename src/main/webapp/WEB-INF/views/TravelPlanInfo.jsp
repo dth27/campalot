@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1>Your travelplan</h1>
+<p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <form method="get" action="/onetravel">
     <table border="1">
        <thead>
@@ -25,5 +26,8 @@
     </c:forEach>
 </table>
 </form>
+<div class="bottom-nav">
+    Created By Diljá, Kristín, Ólöf og Sandra
+</div>
 </body>
 </html>

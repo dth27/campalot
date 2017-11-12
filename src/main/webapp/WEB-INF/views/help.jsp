@@ -8,17 +8,17 @@
 <br>
 <head>
     <title>Information</title>
-    <link rel="stylesheet" type="text/css" href="/css/campInfoLook.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Cabin" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Information about ${campinfo.campname}</h1>
+<h1>Help</h1>
 <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
-    <nav class="navbar navbar-light" style="background-color: #445C80" data-spy="affix" data-offset-top="197">
+    <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
@@ -33,7 +33,7 @@
             <div id="navbar1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="listofcamps">Campsites</a></li>
-                    <li><a href="myTravelplans">My Travelplans</a></li>
+                    <li><a href="getTravelItems">My Travelplans</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Info<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -48,69 +48,53 @@
                 </ul>
                 <a class = "right" href = "logOut">Log out</a>
             </div>
-
             <!--/.nav-collapse -->
         </div>
         <!--/.container-fluid -->
     </nav>
 </div>
 <br>
-<div id="texti">
-    <h2>Name</h2>
-    ${campinfo.campname}
+<h1>How to ...</h1>
 
-    <div id="description">
-        <h2>Description</h2>
-        ${campinfo.description}
-        <h3 id="adress">Address</h3>
-        ${campinfo.campaddress}
-        ${campinfo.campzip}
-        <h3 id="contactinfo">Contact information</h3>
-        ${campinfo.campemail}
-        ${campinfo.campphone}
-        ${campinfo.campwebsite}
-    </div>
-    <h3>Average Rating</h3>
-    ${campinfo.averagerating}
+<h2>How to make a new travelplan:</h2>
+<p>
+    1. Make sure that you are logged in.<br>
+    2. Click on our logo.<br>
+    3. You will see a button called "New Travelplan", click on it.<br>
+    4. Name your travelplan and press submit.<br>
+    <br>
+    after these steps, your travelplan should be ready.
+</p>
 
-    <h3>Give a rating</h3>
-    <form action="giveRating" method="POST">
-        <select name="rating">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4" >4</option>
-            <option value="5" >5</option>
-            <option value="6" >6</option>
-            <option value="7" >7</option>
-            <option value="8" >8</option>
-            <option value="9" >9</option>
-            <option value="10" >10</option>
-        </select>
-        <button name="campName2" value="${campinfo.campname}" s>OK</button>
-    </form>
+<h2>How to add camp to your travelplan:</h2>
+<p>
+    1. Make sure that you are logged in.<br>
+    1. click on campsites.<br>
+    2. Select a campsite.<br>
+    3. Press the button "Add to my plan".<br>
+    4. Fill in required information.<br>
+    5. Press "Add to Travelplan".<br>
+    <br>
+    After these steps, the camp should be in your travelplan.
+</p>
 
-    <h3>All Ratings</h3>
-    <form action="/allratings" method="POST">
-        <button name="allrat" value="${campinfo.campname}">
-            See all ratings
-        </button>
-    </form>
+<h2>How to change password:</h2>
+<p>
+    1. Make sure that you are logged in.<br>
+    2. Click on info.<br>
+    3. Select my information.<br>
+    4. Press "Change password".<br>
+    5. Fill in required information.<br>
+    6. Press "Change password".<br>
+    <br>
+    After these setps, your password should be changed.
+    <br>
+    <br>
+    <br>
+    <br>
+</p>
 
 
-    <h3>All Reviews</h3>
-    <form action="seeReviews" method="POST" >
-        <button name="campName" value="${campinfo.campname}" type="submit">See the reviews!</button>
-    </form>
-        <h2>Do you want to visit ${campinfo.campname}?</h2>
-        <h3>Add it to your travelplan!</h3>
-        <form action="/addToPlan" method="post">
-            <button name="Campname" value="${campinfo.campname}" type="submit">
-                Add to my plan
-            </button>
-        </form>
-</div>
 <div class="bottom-nav">
     Created By Diljá, Kristín, Ólöf og Sandra
 </div>
