@@ -645,10 +645,9 @@ public class ShowCampController {
             //model.addAttribute("newcampinfo", newcampinfo);
             //TODO: Bæta við í skilaboðunum nafninu, þ.e. (newcampinfo.campname)
             model.addAttribute("AdminMessage", "The new camp has been added to the list");
-            //TODO: Búa til uppfærðan camplista til að sýna í adminLoginSite
             //TODO: Hafa Cancel Button til að hætta við að búa til þetta nýja camp
-            //cList2 = CampsiteService.getCampinfo();
-            //model.addAttribute("camp", cList2);
+            cList2 = CampsiteService.getCampinfo();
+            model.addAttribute("camps", cList2);
             return "adminLoginSite";
     }
 

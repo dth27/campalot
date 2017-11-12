@@ -46,7 +46,17 @@
 
         <!-- TODO: breyta þessu yfir í dropdown lista þar sem maður velur þær "region" sem eru í boði, sjá campInfo.jsp (lína 27) -->
         <label><b>Camp's region</b></label>
-        <input type="text" placeholder="Type the camp's region" name="region"></input><br><br>
+        <select name="region">
+            <option value="Sudurland">Sudurland</option>
+            <option value="Vestfirdir">Vestfirdir</option>
+            <option value="Hofudborgarsvaedi">Hofuðborgarsvaedid</option>
+            <option value="Austurland" >Austurland</option>
+            <option value="Nordurland">Norðurland</option>
+            <option value="Reykjanes">Reykjanes</option>
+            <option value="Vesturland" >Vesturland</option>
+            <option value="Halendid">Halendid</option>
+        </select><br><br>
+        <!-- <input type="text" placeholder="Type the camp's region" name="region"></input><br><br>  -->
 
         <!-- TODO: breyta þessu yfir í textarea -->
         <label><b>Camp's description</b></label>
@@ -67,3 +77,4 @@
 
 </body>
 </html>
+
