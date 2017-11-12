@@ -454,6 +454,79 @@ public class ShowCampController {
     // ===========================
 
 
+    // -------------------------
+    // BIRTA TJALDSVÆÐI -ADMIN
+    // -------------------------
+
+//TODO: henda þessu út, það þarf ekki að nota þetta
+    /**
+     * Gets list of all camps
+     * @param model
+     * @return adminLoginSite with information about all camps
+     */
+/*
+    @RequestMapping(value = "/adminListofCamps", method = RequestMethod.GET)
+    public String adminlistCamps(Model model) {
+        //ArrayList<Camp> cList;
+        ArrayList<Campinfo> cList2;
+        //cList = CampsiteService.getCampsites();
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        return "adminLoginSite";
+    }
+ */
+
+
+    /**
+     * Sækir öll tjalddsvæði og flokkar eftir landshluta.
+     *
+     * @param model
+     * @param area
+     * @return skilar admin síðu þar sem hægt er að sjá tjaldsvæðin.
+     */
+    @RequestMapping(value = "/adminShowCamps", method = RequestMethod.POST)
+    public String adminShowCamps(Model model,
+                                 @RequestParam(value = "area") String area) {
+
+        cList2 = CampsiteService.getCampinfo();
+        ArrayList<Campinfo> cList3 = new ArrayList<Campinfo>();
+
+        for (Campinfo c : cList2) {
+            if (c.getRegion().equals(area)) {
+                cList3.add(c);
+            }
+            model.addAttribute("camps", cList3);
+        }
+        if (area.equals("All")) {
+            model.addAttribute("camps", cList2);
+        }
+        return "adminLoginSite";
+    }
+
+    /**
+     * @param model
+     * @return site for admin showing list of the campsites
+     */
+    @RequestMapping(value = "/adminGetInfo", method = RequestMethod.POST)
+    public String adminGetInfo(@RequestParam(value = "campName") String campName, Model model) {
+        Campinfo campinfo = CampsiteService.getOneCampinfo((campName));
+        model.addAttribute("campinfo", campinfo);
+        return "campInfo";
+    }
+
+    /**
+     * Returns from under-pages and goes back to the main admin page
+     * param    model
+     * @return site for admin showing list of the campsites
+     */
+    @RequestMapping(value = "/goBack", method = RequestMethod.GET)
+    public String goBack(Model model) {
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        return "adminLoginSite";
+    }
+
+
 
     // --------------------------------
     // BÆTA VIÐ NÝJU TJALDSVÆÐI -ADMIN
@@ -527,9 +600,50 @@ public class ShowCampController {
             //TODO: Bæta við í skilaboðunum nafninu, þ.e. (newcampinfo.campname)
             model.addAttribute("AdminMessage", "The new camp has been added to the list");
             //TODO: Búa til uppfærðan camplista til að sýna í adminLoginSite
+            //TODO: Hafa Cancel Button til að hætta við að búa til þetta nýja camp
             //cList2 = CampsiteService.getCampinfo();
             //model.addAttribute("camp", cList2);
             return "adminLoginSite";
+    }
+
+
+
+    // ------------------------
+    // EYÐA TJALDSVÆÐI -ADMIN
+    // ------------------------
+
+    //TODO: Eyða tjaldsvæði
+
+    /**
+     * Eyða umbeðnu tjaldsvæði
+     *
+     * @param campname
+     * @param model
+     * @return skilar adminLogin síðunni
+     */
+
+    @RequestMapping(value = "/delCampRequest", method = RequestMethod.POST)
+    public String deleteCampRequest(@RequestParam(value = "campname") String campname, Model model) {
+
+        //CampsiteService.delCamp(campName);  //TODO: Þetta hverfur burt og verður bara í deleteCamp hér að neðan
+        //cList2 = CampsiteService.getCampinfo();
+        //model.addAttribute("camps", cList2);
+        //return "adminLoginSite";
+        model.addAttribute("campname", campname);  //Ef þetta virkar ekki, þá prófa að setja campname í seinni setn
+        return "deleteCamp";   //Þegar við setum upp millistigið þá verður þetta return síðan fyrir millistigið
+    }
+
+
+  //TODO: Bæta við þessu, ásamt því að búa til síðu sem heitir deleteCamp.jsp og er svona millistig svo það sé ekki eins auðvelt að eyða (spyr "Ertu viss um að þú viljir eyða {camp} yes/no buttons
+  //TODO: Breyta þá lýsingunni á "deleteCampRequest" method-inni
+        @RequestMapping(value = "/delCamp", method = RequestMethod.POST)
+    public String deleteCamp(@RequestParam(value="campname") String campname, Model model) {
+        System.out.println("campName is :" + campname);
+        CampsiteService.delCamp(campname);
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        //model.addAttribute("campname", campname);
+        return "adminLoginSite";
     }
 
 
