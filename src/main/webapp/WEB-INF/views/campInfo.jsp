@@ -98,24 +98,10 @@
         </button>
     </form>
 
-    <h2>Reviews</h2>
-    <form action="review" method="POST" >
-        <table border="1">
-            <thead>
-            <tr>
-                <th>Review</th>
-                <th>Author</th>
-            </tr>
-            </thead>
-            <c:forEach items="${reviews}" var="r" >
-                <tr>
-                    <td>  ${r.review} </td>
-                    <td> ${r.username} </td>
-                </tr>
-            </c:forEach>
-        </table>
-        <br>
-        <button name="campName" value="${campinfo.campname}" type="submit">Give a review</button>
+
+    <h3>All Reviews</h3>
+    <form action="seeReviews" method="POST" >
+        <button name="campName" value="${campinfo.campname}" type="submit">See the reviews!</button>
     </form>
         <h2>Do you want to visit ${campinfo.campname}?</h2>
         <h3>Add it to your travelplan!</h3>

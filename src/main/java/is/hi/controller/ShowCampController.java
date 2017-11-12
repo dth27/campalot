@@ -656,7 +656,7 @@ public class ShowCampController {
         model.addAttribute("reviews", rList);
         model.addAttribute("username",user);
 
-        return "campInfo";
+        return "campReviews";
     }
 
     /**
@@ -682,6 +682,33 @@ public class ShowCampController {
         model.addAttribute("reviews", rList);
         model.addAttribute("username",user);
         return "campInfo";
+    }
+
+    /**
+     * Fer á síðu sem birtir öll reviews
+     * @param model
+     * @param campName nafnið á tjaldsvæðinu sem á við
+     * @return síða sem birtir reviews
+     */
+    @RequestMapping(value = "seeReviews", method = RequestMethod.POST)
+    public String seeReviews(Model model, @RequestParam(value = "campName") String campName){
+        Campinfo campinfo = CampsiteService.getOneCampinfo(campName);
+        model.addAttribute("campinfo", campinfo);
+        model.addAttribute("username",user);
+        ArrayList<Review> rList = userService.getReviews(campName);
+        model.addAttribute("reviews", rList);
+        return "campReviews";
+    }
+
+    /**
+     * síða sem birtir reviews
+     * @param model
+     * @return campReviews 
+     */
+    @RequestMapping("/campReviews")
+    public String campReviews(Model model) {
+        model.addAttribute("username",user);
+        return "campReviews";
     }
 
     /**
