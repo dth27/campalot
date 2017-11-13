@@ -44,7 +44,6 @@
         <label><b>Camp's category</b></label>
         <input type="text" placeholder="e.g. tjaldsvæði, bændagisting, farfuglaheimili, hostel etc." name="category"></input><br><br>
 
-        <!-- TODO: breyta þessu yfir í dropdown lista þar sem maður velur þær "region" sem eru í boði, sjá campInfo.jsp (lína 27) -->
         <label><b>Camp's region</b></label>
         <select name="region">
             <option value="Sudurland">Sudurland</option>
@@ -56,11 +55,9 @@
             <option value="Vesturland" >Vesturland</option>
             <option value="Halendid">Halendid</option>
         </select><br><br>
-        <!-- <input type="text" placeholder="Type the camp's region" name="region"></input><br><br>  -->
 
-        <!-- TODO: breyta þessu yfir í textarea -->
-        <label><b>Camp's description</b></label>
-        <input type="text" placeholder="Type the camp's description" name="description"></input><br><br>
+        <label><b>Camp's description</b></label><br>
+        <textarea cols = "50" rows = "10" placeholder="Type the camp's description" name="description"></textarea><br><br>
 
         <!-- TODO: breyta textanum xval í eitthvað meira lýsandi í label og placeholder -->
         <label><b>Camp's xval</b></label>
@@ -73,6 +70,10 @@
     </div>
 
     <button type="submit" name="campname" value="${campname}">Add Camp</button>
+</form>
+
+<form method = "GET" action = "goBack">
+    <button type = "submit">Cancel</button>
 </form>
 
 </body>
