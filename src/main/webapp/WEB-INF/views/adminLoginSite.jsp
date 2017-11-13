@@ -57,6 +57,7 @@
         <tr>
             <th>Name</th>
             <th>Area</th>
+            <th>Update info</th>
             <th>Delete Camp</th>
         </tr>
         </thead>
@@ -64,13 +65,12 @@
             <tr>
                 <td> <button name = "campName" type ="submit" value="${camp.campname}">${camp.campname}</button> </td>
                 <td> ${camp.region}</td>
-                <td> <button formaction="delCampRequest" method="POST" name = "campname" type = "submit" value="${camp.campname}">Delete</button> </td>
+                <td> <button name = "campName" type = "submit" value="${camp.campname}" onclick="form.action='updateCampRequest';">Update</button> </td>
+                <td> <button name = "campname" type = "submit" value="${camp.campname}" onclick="form.action='delCampRequest';">Delete</button> </td>
             </tr>
         </c:forEach>
     </table>
 </form>
-
-
 
 
 </body>

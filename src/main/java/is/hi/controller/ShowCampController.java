@@ -587,13 +587,9 @@ public class ShowCampController {
     @RequestMapping(value = "/addNewCampRequest", method = RequestMethod.POST)
     public String postReview(@RequestParam(value = "newCampName") String myNewCamp, Model model) {
 
-        System.out.println("The new campname is: " + myNewCamp);
         boolean doesExist = CampsiteService.doesCampExist(myNewCamp);
-        System.out.println("Nýja nafnið yfir campname sem er tekið í reqParam í addnewCamp er: " + myNewCamp);
-        System.out.println("Campsite does exist: " + doesExist);
 
         if (doesExist) {
-            System.out.println("The campname does already exists");
             model.addAttribute("AdminMessage", "This campname does already exist");
             return "adminLoginSite";
         } else {
@@ -645,7 +641,6 @@ public class ShowCampController {
             //model.addAttribute("newcampinfo", newcampinfo);
             //TODO: Bæta við í skilaboðunum nafninu, þ.e. (newcampinfo.campname)
             model.addAttribute("AdminMessage", "The new camp has been added to the list");
-            //TODO: Hafa Cancel Button til að hætta við að búa til þetta nýja camp
             cList2 = CampsiteService.getCampinfo();
             model.addAttribute("camps", cList2);
             return "adminLoginSite";
@@ -690,6 +685,80 @@ public class ShowCampController {
         //model.addAttribute("campname", campname);
         return "adminLoginSite";
     }
+
+
+
+
+    // ------------------------
+    // BREYTA UPPLÝSINGUM UM TJALDSVÆÐI -ADMIN
+    // ------------------------
+
+
+    /**
+     * @param model
+     * @return site for admin showing list of the campsites
+     */
+    @RequestMapping(value = "/updateCampRequest", method = RequestMethod.POST)
+    public String adminChangeInfo(@RequestParam(value = "campName") String campName, Model model) {
+        Campinfo camp = CampsiteService.getOneCampinfo((campName));
+        model.addAttribute("camp", camp);
+        return "updateCampInfo";
+    }
+
+
+    /**
+     * site where admin change information in a selected camp
+     * @param campname      name of the camp (String)
+     * @param campaddress   address of the camp (String)
+     * @param campzip       zip code of the camp (String)
+     * @param campemail     email of the camp (String)
+     * @param campphone     phone number of the camp (String)
+     * @param campwebsite   website of the camp (String)
+     * @param campseason    opening season of the camp (String)
+     * @param maincategory  main category of the camp (String)
+     *                      (e.g. gisting/veitingar/upplýsingar...)
+     * @param category      category of the camp (String)
+     *                      (e.g. tjaldsvæði/bændagisting/hostel/farfuglaheimili...)
+     * @param region        region of the camp (String)
+     *                      (e.g. Suðurland/Norðurland/Austurland/Vesturland/Vestfirðir/Höfuðborgarsvæðið...)
+     * @param description   description of the camp (String)
+     * @param xval          coordinates for latitude of the camp (int)
+     * @param yval          ooordinates for longitude of the camp (int)
+     * @param model         model object
+     * @return              the adminLoginSite with the updated camp list
+     */
+    @RequestMapping(value = "/updateCamp", method = RequestMethod.POST)
+    public String updateCamp(@RequestParam(value="campname") String campname,
+                          @RequestParam(value="campaddress") String campaddress,
+                          @RequestParam(value="campzip") String campzip,
+                          @RequestParam(value="campemail") String campemail,
+                          @RequestParam(value="campphone") String campphone,
+                          @RequestParam(value="campwebsite") String campwebsite,
+                          @RequestParam(value="campseason") String campseason,
+                          @RequestParam(value="maincategory") String maincategory,
+                          @RequestParam(value="category") String category,
+                          @RequestParam(value="region") String region,
+                          @RequestParam(value="description") String description,
+                          @RequestParam(value="xval") int xval,
+                          @RequestParam(value="yval") int yval, Model model) {
+
+        Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
+                campseason, maincategory, category, region, description, xval, yval, 0.0);
+
+        CampsiteService.updateCamp(newcampinfo);
+        //model.addAttribute("newcampinfo", newcampinfo);
+        //TODO: Bæta við í skilaboðunum nafninu, þ.e. (campname)
+        model.addAttribute("AdminMessage", "The camp " + campname + "has been updated");
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        return "adminLoginSite";
+    }
+
+
+
+
+
+
 
 
 
