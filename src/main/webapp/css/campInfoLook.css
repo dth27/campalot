@@ -45,9 +45,9 @@ body {
 }
 
 #description {
-    margin-right: 60%;
+    margin-right: 20%;
     text-align: justify;
-    color: #DEDEDE !important;
+    color: #000 !important;
     font-family: Cabin, sans-serif !important;
     display: inline-block;
 }
@@ -72,7 +72,7 @@ h3 {
 
 .navbar {
     width: 100%;
-    font-family: Lobster, cursive;
+    font-family: Avenir, cursive;
 }
 
 .navbar-brand>img {
@@ -99,6 +99,20 @@ h3 {
 
 .container-fluid .nav a:hover {
     background-color: #6A82A4;
+}
+.mainContainer {
+    display : flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+    opacity : 0.7;
+    margin: 4rem;
+    justify-content: space-around;
+
+}
+.container-info {
+    padding-right: 4rem;
+
 }
 /*
 .navbar-brand>img {
@@ -172,7 +186,7 @@ th {
     font-weight: bold;
     font-size: large;
     color: #DEDEDE;
-    font-family: 'Lobster', cursive;
+    font-family: 'Avenir', cursive;
 }
 
 td {

@@ -249,16 +249,6 @@ public class ShowCampController {
     // TRAVELPLAN HANDLING
     // ===========================
 
-    @RequestMapping(value="deleteTravelPlan", method = RequestMethod.POST)
-    public String deleteTravelplan(Model model, @RequestParam(value="planName") String planName){
-        System.out.println(planName);
-        travelplanService.deleteTraveplan(planName,user);
-        mylist = travelplanService.getUserTravelplan(user);
-        model.addAttribute("travelplans", mylist);
-        model.addAttribute("username",user);
-        return "notendasida";
-    }
-
     /**
      * Site to create a new travel plan
      * @param model     model object
@@ -289,7 +279,7 @@ public class ShowCampController {
         }catch (Exception e){
             System.out.println(e + " getTravelplans in /addTravel");
         }
-        model.addAttribute("travelplans", travelplanService.getUserTravelplan(user));
+        model.addAttribute("travelplans", tpList);
         model.addAttribute("username",user);
         return "notendasida";
     }
@@ -510,6 +500,79 @@ public class ShowCampController {
     // ===========================
 
 
+    // -------------------------
+    // BIRTA TJALDSVÆÐI -ADMIN
+    // -------------------------
+
+//TODO: henda þessu út, það þarf ekki að nota þetta
+    /**
+     * Gets list of all camps
+     * @param model
+     * @return adminLoginSite with information about all camps
+     */
+/*
+    @RequestMapping(value = "/adminListofCamps", method = RequestMethod.GET)
+    public String adminlistCamps(Model model) {
+        //ArrayList<Camp> cList;
+        ArrayList<Campinfo> cList2;
+        //cList = CampsiteService.getCampsites();
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        return "adminLoginSite";
+    }
+ */
+
+
+    /**
+     * Sækir öll tjalddsvæði og flokkar eftir landshluta.
+     *
+     * @param model
+     * @param area
+     * @return skilar admin síðu þar sem hægt er að sjá tjaldsvæðin.
+     */
+    @RequestMapping(value = "/adminShowCamps", method = RequestMethod.POST)
+    public String adminShowCamps(Model model,
+                                 @RequestParam(value = "area") String area) {
+
+        cList2 = CampsiteService.getCampinfo();
+        ArrayList<Campinfo> cList3 = new ArrayList<Campinfo>();
+
+        for (Campinfo c : cList2) {
+            if (c.getRegion().equals(area)) {
+                cList3.add(c);
+            }
+            model.addAttribute("camps", cList3);
+        }
+        if (area.equals("All")) {
+            model.addAttribute("camps", cList2);
+        }
+        return "adminLoginSite";
+    }
+
+    /**
+     * @param model
+     * @return site for admin showing list of the campsites
+     */
+    @RequestMapping(value = "/adminGetInfo", method = RequestMethod.POST)
+    public String adminGetInfo(@RequestParam(value = "campName") String campName, Model model) {
+        Campinfo campinfo = CampsiteService.getOneCampinfo((campName));
+        model.addAttribute("campinfo", campinfo);
+        return "campInfo";
+    }
+
+    /**
+     * Returns from under-pages and goes back to the main admin page
+     * param    model
+     * @return site for admin showing list of the campsites
+     */
+    @RequestMapping(value = "/goBack", method = RequestMethod.GET)
+    public String goBack(Model model) {
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        return "adminLoginSite";
+    }
+
+
 
     // --------------------------------
     // BÆTA VIÐ NÝJU TJALDSVÆÐI -ADMIN
@@ -524,13 +587,9 @@ public class ShowCampController {
     @RequestMapping(value = "/addNewCampRequest", method = RequestMethod.POST)
     public String postReview(@RequestParam(value = "newCampName") String myNewCamp, Model model) {
 
-        System.out.println("The new campname is: " + myNewCamp);
         boolean doesExist = CampsiteService.doesCampExist(myNewCamp);
-        System.out.println("Nýja nafnið yfir campname sem er tekið í reqParam í addnewCamp er: " + myNewCamp);
-        System.out.println("Campsite does exist: " + doesExist);
 
         if (doesExist) {
-            System.out.println("The campname does already exists");
             model.addAttribute("AdminMessage", "This campname does already exist");
             return "adminLoginSite";
         } else {
@@ -582,11 +641,124 @@ public class ShowCampController {
             //model.addAttribute("newcampinfo", newcampinfo);
             //TODO: Bæta við í skilaboðunum nafninu, þ.e. (newcampinfo.campname)
             model.addAttribute("AdminMessage", "The new camp has been added to the list");
-            //TODO: Búa til uppfærðan camplista til að sýna í adminLoginSite
-            //cList2 = CampsiteService.getCampinfo();
-            //model.addAttribute("camp", cList2);
+            cList2 = CampsiteService.getCampinfo();
+            model.addAttribute("camps", cList2);
             return "adminLoginSite";
     }
+
+
+
+    // ------------------------
+    // EYÐA TJALDSVÆÐI -ADMIN
+    // ------------------------
+
+    //TODO: Eyða tjaldsvæði
+
+    /**
+     * Eyða umbeðnu tjaldsvæði
+     *
+     * @param campname
+     * @param model
+     * @return skilar adminLogin síðunni
+     */
+
+    @RequestMapping(value = "/delCampRequest", method = RequestMethod.POST)
+    public String deleteCampRequest(@RequestParam(value = "campname") String campname, Model model) {
+
+        //CampsiteService.delCamp(campName);  //TODO: Þetta hverfur burt og verður bara í deleteCamp hér að neðan
+        //cList2 = CampsiteService.getCampinfo();
+        //model.addAttribute("camps", cList2);
+        //return "adminLoginSite";
+        model.addAttribute("campname", campname);  //Ef þetta virkar ekki, þá prófa að setja campname í seinni setn
+        return "deleteCamp";   //Þegar við setum upp millistigið þá verður þetta return síðan fyrir millistigið
+    }
+
+
+  //TODO: Bæta við þessu, ásamt því að búa til síðu sem heitir deleteCamp.jsp og er svona millistig svo það sé ekki eins auðvelt að eyða (spyr "Ertu viss um að þú viljir eyða {camp} yes/no buttons
+  //TODO: Breyta þá lýsingunni á "deleteCampRequest" method-inni
+        @RequestMapping(value = "/delCamp", method = RequestMethod.POST)
+    public String deleteCamp(@RequestParam(value="campname") String campname, Model model) {
+        System.out.println("campName is :" + campname);
+        CampsiteService.delCamp(campname);
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        //model.addAttribute("campname", campname);
+        return "adminLoginSite";
+    }
+
+
+
+
+    // ------------------------
+    // BREYTA UPPLÝSINGUM UM TJALDSVÆÐI -ADMIN
+    // ------------------------
+
+
+    /**
+     * @param model
+     * @return site for admin showing list of the campsites
+     */
+    @RequestMapping(value = "/updateCampRequest", method = RequestMethod.POST)
+    public String adminChangeInfo(@RequestParam(value = "campName") String campName, Model model) {
+        Campinfo camp = CampsiteService.getOneCampinfo((campName));
+        model.addAttribute("camp", camp);
+        return "updateCampInfo";
+    }
+
+
+    /**
+     * site where admin change information in a selected camp
+     * @param campname      name of the camp (String)
+     * @param campaddress   address of the camp (String)
+     * @param campzip       zip code of the camp (String)
+     * @param campemail     email of the camp (String)
+     * @param campphone     phone number of the camp (String)
+     * @param campwebsite   website of the camp (String)
+     * @param campseason    opening season of the camp (String)
+     * @param maincategory  main category of the camp (String)
+     *                      (e.g. gisting/veitingar/upplýsingar...)
+     * @param category      category of the camp (String)
+     *                      (e.g. tjaldsvæði/bændagisting/hostel/farfuglaheimili...)
+     * @param region        region of the camp (String)
+     *                      (e.g. Suðurland/Norðurland/Austurland/Vesturland/Vestfirðir/Höfuðborgarsvæðið...)
+     * @param description   description of the camp (String)
+     * @param xval          coordinates for latitude of the camp (int)
+     * @param yval          ooordinates for longitude of the camp (int)
+     * @param model         model object
+     * @return              the adminLoginSite with the updated camp list
+     */
+    @RequestMapping(value = "/updateCamp", method = RequestMethod.POST)
+    public String updateCamp(@RequestParam(value="campname") String campname,
+                          @RequestParam(value="campaddress") String campaddress,
+                          @RequestParam(value="campzip") String campzip,
+                          @RequestParam(value="campemail") String campemail,
+                          @RequestParam(value="campphone") String campphone,
+                          @RequestParam(value="campwebsite") String campwebsite,
+                          @RequestParam(value="campseason") String campseason,
+                          @RequestParam(value="maincategory") String maincategory,
+                          @RequestParam(value="category") String category,
+                          @RequestParam(value="region") String region,
+                          @RequestParam(value="description") String description,
+                          @RequestParam(value="xval") int xval,
+                          @RequestParam(value="yval") int yval, Model model) {
+
+        Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
+                campseason, maincategory, category, region, description, xval, yval, 0.0);
+
+        CampsiteService.updateCamp(newcampinfo);
+        //model.addAttribute("newcampinfo", newcampinfo);
+        //TODO: Bæta við í skilaboðunum nafninu, þ.e. (campname)
+        model.addAttribute("AdminMessage", "The camp " + campname + "has been updated");
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        return "adminLoginSite";
+    }
+
+
+
+
+
+
 
 
 

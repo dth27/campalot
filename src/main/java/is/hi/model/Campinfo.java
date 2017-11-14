@@ -53,11 +53,13 @@ public class Campinfo {
     @NotNull
     int yval;
     double averagerating;
+    @NotNull
+    int price;
 
 
     public Campinfo(String campname, String campaddress, String campzip, String campemail, String campphone,
                     String campwebsite, String campseason, String maincategory, String category, String region,
-                    String description, int xval, int yval, double averagerating) {
+                    String description, int xval, int yval, double averagerating, int price) {
         this.campname = campname;
         this.campaddress = campaddress;
         this.campzip = campzip;
@@ -72,6 +74,7 @@ public class Campinfo {
         this.xval = xval;
         this.yval = yval;
         this.averagerating = averagerating;
+        this.price = price;
     }
 
 
@@ -189,5 +192,13 @@ public class Campinfo {
 
     public void setAveragerating(double averagerating) {
         this.averagerating = averagerating;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

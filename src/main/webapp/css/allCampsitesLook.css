@@ -12,26 +12,27 @@ body {
 }
 
 h1 {
-    font-family: Lobster, cursive !important;
+    font-family: Avenir, cursive !important;
     color: #DEDEDE !important;
     text-align: center;
 }
 
 
 h2 {
-    font-family: Lobster, cursive !important;
+    font-family: Avenir, cursive !important;
     text-align: center;
 }
 
 h3 {
-    font-family: Lobster, cursive !important;
+    font-family: Avenir, cursive !important;
+    color: #DEDEDE !important;
     text-align: center;
     font-size: 15px !important;
 }
 
 .navbar {
     width: 100%;
-    font-family: Lobster, cursive;
+    font-family: Avenir, cursive;
 }
 
 .navbar-brand>img {
@@ -117,7 +118,7 @@ section{
 
 form{
     padding: 20px;
-    display:-webkit-inline-box;
+    display: -webkit-inline-box;
     width:250px;
     height:inherit;
 }
@@ -190,7 +191,7 @@ th {
     font-weight: bold;
     font-size: large;
     color: #DEDEDE;
-    font-family: 'Lobster', cursive;
+    font-family: 'Avenir', cursive;
 }
 
 td {
