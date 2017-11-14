@@ -89,6 +89,13 @@ public class campSiteServiceImp implements campSiteService {
     }
 
 
+    @Query
+    //Adds a new camp into table campsitebigdata
+    public void updateCamp(Campinfo camp) {
+        campInfoRep.updateCamp(camp.getCampname(), camp.getCampaddress(), camp.getCampzip(), camp.getCampemail(), camp.getCampphone(), camp.getCampwebsite(), camp.getCampseason(), camp.getMaincategory(), camp.getCategory(), camp.getRegion(), camp.getDescription(), camp.getXval(), camp.getYval());
+    }
+
+
     //Dæmi fyrir test á mockup hvort að þjónustan sé "á lífi"
     @Override
     public boolean erALifi() {return true;}
