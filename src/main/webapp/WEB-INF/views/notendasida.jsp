@@ -77,11 +77,14 @@
             <td><button class = "delete" name="planName" type = "submit" value = "${travelplan.travelplanname}"></button></td>
         </tr>
     </c:forEach>
-</table>
+</table><br><br>
 </form>
 <form action="/newTravelPlan" method="get">
 <button type="submit">New TravelPlan</button>
 </form>
+<br>
+<br>
+<br>
 
 <script>
     function showPopupWindow() {
