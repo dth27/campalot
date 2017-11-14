@@ -56,6 +56,9 @@ public class Campinfo {
     @NotNull
     int price;
 
+    public Campinfo(){
+
+    }
 
     public Campinfo(String campname, String campaddress, String campzip, String campemail, String campphone,
                     String campwebsite, String campseason, String maincategory, String category, String region,
@@ -78,9 +81,7 @@ public class Campinfo {
     }
 
 
-    public Campinfo(){
 
-    }
 
     public String getCampname() {
         return campname;
