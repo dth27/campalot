@@ -13,6 +13,7 @@ public interface TravelPlanService {
     ArrayList getTravelplans();
     ArrayList getTravelplanItems();
     void createTravelplan(String planName, String username);
+    void deleteTraveplan(String travelplan, String user);
     void add(TravelPlan travelplan);
     void addTravelplanItem(TravelPlanItem travelplanitem);
     void addItemtoPlan(String travelplan, TravelPlanItem travelplanitem);

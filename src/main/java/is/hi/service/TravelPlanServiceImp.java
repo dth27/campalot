@@ -55,6 +55,12 @@ public class TravelPlanServiceImp implements TravelPlanService {
         return listofTravelPlans;
     }
 
+    @Override
+    public void deleteTraveplan(String travelplan, String user){
+        planRep.deleteTravelPlan(travelplan, user);
+        planItemRep.deleteTravel(travelplan,user);
+    }
+
     /**
      * Finds all the TravelPlans that a certain user has created
      * @param user  the user that is logged in

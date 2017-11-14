@@ -29,6 +29,7 @@ body {
 }
 
 #texti {
+    background-color: rgba(0, 0, 0, 0.4);
     margin-left: 5%;
     text-align: left;
     color: #DEDEDE !important;
