@@ -35,8 +35,13 @@ public interface travelPlanItemRepository extends JpaRepository<TravelPlanItem, 
 
     @Transactional
     @Modifying
-    @Query(value = "DELET FROM travelplanitem where campname = ?1 AND travelplanname = ?2", nativeQuery = true)
+    @Query(value = "DELETE FROM travelplanitem where campname = ?1 AND travelplanname = ?2", nativeQuery = true)
     void deletItem(String campname, String planname);
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM travelplanitem where travelplanname = ?1 AND username = ?2", nativeQuery = true)
+    void deleteTravel(String planname, String user);
 
     /**
      * @param planname

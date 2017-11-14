@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <title>UserSite</title>
-    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1" />
+    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=2" />
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -63,17 +63,18 @@
 <h2>List of camps</h2>
 
 <h2>List of TravelPlans</h2>
-<form action="/newTravelPlan" method = "get">
+<form action="/deleteTravelPlan" method = "POST">
 <table border="1">
     <thead>
     <tr>
         <th>Name</th>
-
+        <th>Delete</th>
     </tr>
     </thead>
     <c:forEach items="${travelplans}" var="travelplan">
         <tr>
             <td> ${travelplan.travelplanname} </td>
+            <td><button class = "delete" name="planName" type = "submit" value = "${travelplan.travelplanname}"></button></td>
         </tr>
     </c:forEach>
 </table>
