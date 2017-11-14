@@ -54,6 +54,11 @@ public class TravelPlanServiceImp implements TravelPlanService {
         listofTravelPlans = (ArrayList<TravelPlan>) planRep.getAll();
         return listofTravelPlans;
     }
+    @Override
+    public ArrayList getUserTravelplans(String plan, String user){
+        listofTravelPlans = (ArrayList<TravelPlan>) planRep.findTravelPlanByTravelplannameAndUsername(plan, user);
+        return listofTravelPlans;
+    }
 
     @Override
     public void deleteTraveplan(String travelplan, String user){
@@ -140,7 +145,7 @@ public class TravelPlanServiceImp implements TravelPlanService {
         //long totalprice = travelplanitem.getTotalprice()*diff;
         planItemRep.addItem(travelplan, travelplanitem.getCampname(), travelplanitem.getDatearrive(), travelplanitem.getDatedepart(), price, user);
     }
-
+//TODO koma öll travelplan, ekki bara einn notenda
     @Override
     public ArrayList getOneTravelPlan(String travelplanname, String user) {
         TravelPlan travelplan = new TravelPlan();

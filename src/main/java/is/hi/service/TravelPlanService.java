@@ -11,6 +11,7 @@ import java.util.Date;
 public interface TravelPlanService {
 
     ArrayList getTravelplans();
+    ArrayList getUserTravelplans(String plan, String user);
     ArrayList getTravelplanItems();
     void createTravelplan(String planName, String username);
     void deleteTraveplan(String travelplan, String user);

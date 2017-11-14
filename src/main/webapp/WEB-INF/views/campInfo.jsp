@@ -99,7 +99,6 @@
             See all ratings
         </button>
     </form>
-<<<<<<< HEAD
     </div>
     </div>
 </div>

@@ -21,12 +21,9 @@ h3 {
 
 .navbar {
     width: 100%;
-    font-family: Avenir, cursive;
+    font-family: Lobster, cursive;
 }
-.navbar-header {
 
-
-}
 
 .navbar-brand>img {
     height: 150%;

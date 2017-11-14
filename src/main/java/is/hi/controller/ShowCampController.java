@@ -635,7 +635,7 @@ public class ShowCampController {
                           @RequestParam(value="yval") int yval, Model model) {
 
         Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
-                campseason, maincategory, category, region, description, xval, yval, 0.0);
+                campseason, maincategory, category, region, description, xval, yval, 0.0, 1000);
 
             CampsiteService.addNewCamp(newcampinfo);
             //model.addAttribute("newcampinfo", newcampinfo);
@@ -743,7 +743,7 @@ public class ShowCampController {
                           @RequestParam(value="yval") int yval, Model model) {
 
         Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
-                campseason, maincategory, category, region, description, xval, yval, 0.0);
+                campseason, maincategory, category, region, description, xval, yval, 0.0, 1000);
 
         CampsiteService.updateCamp(newcampinfo);
         //model.addAttribute("newcampinfo", newcampinfo);
@@ -779,7 +779,7 @@ public class ShowCampController {
         System.out.println("Travelname= " + planname);
         try {
             tpiList = travelplanService.getOneTravelPlan(planname, user);
-            tpList = travelplanService.getTravelplans();
+            tpList = travelplanService.getUserTravelplans(planname, user);
             TravelPlan travelplan = travelplanService.onePlan(planname,user);
             tpiList = alternativeService.dateChanger(tpiList);
             if (tpiList == null) {
