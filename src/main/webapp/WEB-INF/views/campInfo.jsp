@@ -27,24 +27,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="goToNotendasida"><img src="/css/logo3.png" alt="Dispute Bills">
+                <a class="navbar-brand" href="goToAdminsida"><img src="/css/logo3.png" alt="Dispute Bills">
                 </a>
             </div>
             <div id="navbar1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="listofcamps">Campsites</a></li>
-                    <li><a href="myTravelplans">My Travelplans</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Info<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="accountInfo">My information</a></li>
-                            <li><a href="UserReviews">My reviews</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">About</li>
-                            <li><a href="#">About Camp'A'Lot</a></li>
-                            <li><a href="help">Help</a></li>
-                        </ul>
-                    </li>
+                    <li class="active"><a href="adminLoginSite">Admin site</a></li>
+                    <li><a href="helpAdmin">Help</a></li>
                 </ul>
                 <a class = "right" href = "logOut">Log out</a>
             </div>
