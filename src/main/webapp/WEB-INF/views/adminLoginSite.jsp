@@ -27,10 +27,51 @@
     <h3>Add a new camp to the database:</h3>
     <div class="container">
         <label><b>Camp's name</b></label>
-        <input type="text" placeholder="Type the camp's name" name="newCampName"></input><br><br>
+        <input type="text" placeholder="Type the new camp's name" name="newCampName"></input><br><br>
     </div>
     <button type="submit" name="campname" value="${camp.campname}">Add Camp</button>
 </form>
+
+<br><br>
+<form action="adminShowCamps" method="POST">
+    <select name="area">
+        <option value="All">All</option>
+        <option value="Sudurland">Sudurland</option>
+        <option value="Vestfirdir">Vestfirdir</option>
+        <option value="Hofudborgarsvaedi">Hofuðborgarsvaedid</option>
+        <option value="Austurland" >Austurland</option>
+        <option value="Nordurland">Norðurland</option>
+        <option value="Reykjanes">Reykjanes</option>
+        <option value="Vesturland" >Vesturland</option>
+        <option value="Halendid">Halendid</option>
+    </select>
+    <!-- TODO: Gera drop down listann þannig að þegar maður velur eitthvað og ýtir á sort, þá geymist valið í glugganum og sést hvað er verið að sýna (þar til valið er eitthvað annað næst) -->
+    <button>Sort</button>
+</form>
+
+
+<br><br>
+<form action="adminGetInfo" method="POST" >
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Area</th>
+            <th>Update info</th>
+            <th>Delete Camp</th>
+        </tr>
+        </thead>
+        <c:forEach items="${camps}" var="camp" >
+            <tr>
+                <td> <button name = "campName" type ="submit" value="${camp.campname}">${camp.campname}</button> </td>
+                <td> ${camp.region}</td>
+                <td> <button name = "campName" type = "submit" value="${camp.campname}" onclick="form.action='updateCampRequest';">Update</button> </td>
+                <td> <button name = "campname" type = "submit" value="${camp.campname}" onclick="form.action='delCampRequest';">Delete</button> </td>
+            </tr>
+        </c:forEach>
+    </table>
+</form>
+
 
 </body>
 </html>

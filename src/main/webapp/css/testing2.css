@@ -50,11 +50,11 @@ h3 {
     background-color: #90918E;
 }
 
+
 .bottom-nav {
-    text-align: left;
+    text-align: center;
     color: ghostwhite;
     font-size: 15px;
-    padding: 10px 0px 0px 0px;
     background-color: #42453D;
     overflow: hidden;
     position: fixed;
@@ -117,8 +117,36 @@ input:focus {
 .front-logo{
     width: 500px;
 }
+<<<<<<< HEAD
 .container-description{
     display: flex;
+=======
+
+.right {
+    float:right;
+    padding-top: 27px;
+}
+
+.loggedIn {
+    text-align:right;
+    padding: 0px 15px 0px 0px;
+    font-size: 12px;
+    font-family: Lobster, cursive !important;
+}
+
+/*
+#nav {
+    overflow: hidden;
+    background-color: #FFFFFF; opacity: 0.9; filter: alpha(opacity=90);
+    top: 0;
+    font-family: Arial, sans-serif;
+    font-size: medium;
+    text-align: center;
+    /*z-index: 100;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+>>>>>>> bfba8c8a20a4e6675e7c587b84077f89d420f685
 }
 #mainContainer{
     display: flex;

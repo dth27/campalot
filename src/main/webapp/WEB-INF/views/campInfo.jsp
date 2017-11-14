@@ -8,7 +8,7 @@
 <br>
 <head>
     <title>Information</title>
-    <link rel="stylesheet" type="text/css" href="/css/campInfoLook.css">
+    <link rel="stylesheet" type="text/css" href="/css/campInfoLook.css?v=1">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Cabin" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -16,7 +16,7 @@
 </head>
 <body>
 <h1>Information about ${campinfo.campname}</h1>
-
+<p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
     <nav class="navbar navbar-light" style="background-color: #445C80" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="forsida"><img src="/css/logo3.png" alt="Dispute Bills">
+                <a class="navbar-brand" href="goToNotendasida"><img src="/css/logo3.png" alt="Dispute Bills">
                 </a>
             </div>
             <div id="navbar1" class="navbar-collapse collapse">
@@ -42,10 +42,13 @@
                             <li class="divider"></li>
                             <li class="dropdown-header">About</li>
                             <li><a href="#">About Camp'A'Lot</a></li>
+                            <li><a href="help">Help</a></li>
                         </ul>
                     </li>
                 </ul>
+                <a class = "right" href = "logOut">Log out</a>
             </div>
+
             <!--/.nav-collapse -->
         </div>
         <!--/.container-fluid -->
@@ -96,6 +99,7 @@
             See all ratings
         </button>
     </form>
+<<<<<<< HEAD
     </div>
     </div>
 </div>
@@ -118,6 +122,12 @@
         </table>
         <br>
         <button name="campName" value="${campinfo.campname}" type="submit">Give a review</button>
+
+
+
+    <h3>All Reviews</h3>
+    <form action="seeReviews" method="POST" >
+        <button name="campName" value="${campinfo.campname}" type="submit">See the reviews!</button>
     </form>
         <h2>Do you want to visit ${campinfo.campname}?</h2>
         <h3>Add it to your travelplan!</h3>
@@ -126,6 +136,9 @@
                 Add to my plan
             </button>
         </form>
+</div>
+<div class="bottom-nav">
+    Created By Diljá, Kristín, Ólöf og Sandra
 </div>
 </body>
 </html>

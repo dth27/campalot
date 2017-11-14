@@ -29,4 +29,11 @@ public interface campinfoRepository extends JpaRepository<Campinfo, Long>{
             , nativeQuery = true)
     void deleteCamp(String name);
 
+    @Transactional
+    @Modifying
+    @Query(value = "update campsitebigdata SET campname = ?1, campaddress = ?2, campzip = ?3, campemail = ?4, campphone = ?5, campwebsite = ?6, campseason = ?7, maincategory = ?8, category = ?9, region = ?10, description = ?11, xval = ?12, yval = ?13 WHERE campname = ?1"
+            , nativeQuery = true)
+    void updateCamp(String name, String address, String zip, String email, String phone, String website, String season, String mainCategory, String campCategory, String campRegion, String descript, int xVal, int yVal);
+
+
 }

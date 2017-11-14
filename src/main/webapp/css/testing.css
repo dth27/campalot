@@ -15,6 +15,18 @@ body{
     width: auto;
 }
 
+.right {
+    float:right;
+    padding-top: 27px;
+}
+
+.loggedIn {
+    text-align:right;
+    padding: 0px 15px 0px 0px;
+    font-size: 12px;
+    font-family: Lobster, cursive !important;
+}
+
 .container-fluid .nav >li >a {
     padding-top: 30px;
     padding-bottom: 30px;

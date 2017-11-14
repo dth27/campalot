@@ -19,7 +19,7 @@ public interface UserService {
     boolean isUsernameLegal(String username);
 
     void newLoginUser(userAccess user);
-    boolean doesUserExist(String username, String password);
+    boolean doesUserExist(String username, String email);
     boolean arePWidentical(String pw1, String pw2);
     //Sem sagt tekur inn eitthvað nafn, annaðhvort
     //campname eða notendanafn og skilar reviewinu

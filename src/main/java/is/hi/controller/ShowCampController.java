@@ -103,6 +103,9 @@ public class ShowCampController {
     }
 
 
+
+
+
     // ===========================
     // ACCOUNT HANDLING
     // ===========================
@@ -127,11 +130,13 @@ public class ShowCampController {
     public String accountInfo(Model model) {
         userAccess accountinfo = userService.getUserInfo(user);
         model.addAttribute("user", accountinfo);
+        model.addAttribute("username",user);
         return "accountInfo";
     }
 
     @RequestMapping("/changePassword")
-    public String changePassword() {
+    public String changePassword(Model model) {
+        model.addAttribute("username",user);
         return "changePassword";
     }
 
@@ -143,14 +148,17 @@ public class ShowCampController {
             userService.changePassword(newPw1, user);
         if(!oldPw.equals(userService.getUserInfo(user).getPassword())){
             model.addAttribute("error","The old password is incorrect");
+            model.addAttribute("username",user);
             return "changePassword";
         }
         if(!newPw1.equals(newPw2)){
             model.addAttribute("error","The new password does not match");
+            model.addAttribute("username",user);
             return "changePassword";
         }
         model.addAttribute("user", userService.getUserInfo(user));
         model.addAttribute("passwordChange", "your password has been changed");
+        model.addAttribute("username",user);
         return "accountInfo";
     }
 
@@ -168,15 +176,21 @@ public class ShowCampController {
             return "newAccountSite";
         } else {
             if (userService.arePWidentical(pw, newUser.getPassword())) {
+                if (userService.doesUserExist(newUser.getUsername(), newUser.getEmail())){
+                    model.addAttribute("userExists", "This username or email is taken");
+                    return "newAccountSite";
+                }
                 userService.newLoginUser(newUser);
                 model.addAttribute("user", newUser);
-
+                model.addAttribute("username",user);
                 return "accountInfo";
             } else {
                 model.addAttribute("passwordError", "The passwords do not match");
                 return "newAccountSite";
             }
         }
+
+
 
     }
 
@@ -204,11 +218,29 @@ public class ShowCampController {
             if(userService.hasAdminAuthority(name, psw)){
                 return "adminLoginSite";
             }
+            model.addAttribute("username",user);
             return "notendasida";
         } else {
             model.addAttribute("error", "Username or password is incorrect");
             return "frontpage";
         }
+    }
+
+    @RequestMapping(value="logOut")
+    public String logOut(){
+        isLoggedIn = false;
+        return "frontpage";
+    }
+
+    @RequestMapping(value="goToNotendasida")
+    public String goToNotendasida(Model model){
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        ArrayList<TravelPlan> tpList;
+        tpList = travelplanService.getUserTravelplan(user);
+        model.addAttribute("travelplans", tpList);
+        model.addAttribute("username",user);
+        return "notendasida";
     }
 
 
@@ -228,6 +260,7 @@ public class ShowCampController {
         if (mylist.isEmpty()){}
         else
         model.addAttribute("users", mylist.get(0));
+        model.addAttribute("username",user);
 
         return "newTravelPlan";
     }
@@ -246,6 +279,7 @@ public class ShowCampController {
             System.out.println(e + " getTravelplans in /addTravel");
         }
         model.addAttribute("travelplans", tpList);
+        model.addAttribute("username",user);
         return "notendasida";
     }
 
@@ -269,7 +303,7 @@ public class ShowCampController {
     } catch (Exception e){
         System.out.println("newTravel error");
     }
-
+        model.addAttribute("username",user);
         return "notendasida";
     }
 
@@ -289,6 +323,7 @@ public class ShowCampController {
         campValue = campname;
         //TODO vantar msg sem lætur notenda vita þetta hafi gengið upp
         model.addAttribute("travelplans", Greta);
+        model.addAttribute("username",user);
         return "newTravelPlanItem";
 
     }
@@ -331,9 +366,8 @@ public class ShowCampController {
         tpList = travelplanService.getTravelplans();
         System.out.println(tpList.get(1).getTravelplanname());
         model.addAttribute("travel", tpList);
-
         model.addAttribute("TravelPlanMessage", "Item has been succesfully added to your plan!");
-
+        model.addAttribute("username",user);
         return "notendasida";
     }
 
@@ -351,7 +385,14 @@ public class ShowCampController {
     public String seeUserReviews(Model model){
         allRevList = userService.getAllReviews();
         model.addAttribute("reviews", allRevList);
+        model.addAttribute("username",user);
         return "UserReviews";
+    }
+
+    @RequestMapping("help")
+    public String help2(Model model){
+        model.addAttribute("username",user);
+        return "help";
     }
 
     /**
@@ -363,8 +404,32 @@ public class ShowCampController {
     public String seeTravelPlans(Model model) {
         ArrayList<TravelPlan> userList = travelplanService.getUserTravelplan(user);
         model.addAttribute("travelplans", userList);
+        model.addAttribute("username",user);
         return "myTravelPlans";
     }
+
+
+    // =====================================
+    // NAVIGATION MENU HANDLING -ADMIN SITE
+    // =====================================
+
+
+    @RequestMapping(value="goToAdminsida")
+    public String goToAdminsida(Model model){
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        model.addAttribute("username",user);
+        return "adminLoginSite";
+    }
+
+
+    @RequestMapping("helpAdmin")
+    public String help(Model model){
+        model.addAttribute("username",user);
+        return "helpAdmin";
+    }
+
+
 
 
     // ===========================
@@ -383,6 +448,7 @@ public class ShowCampController {
         cList = CampsiteService.getCampsites();
         cList2 = CampsiteService.getCampinfo();
         model.addAttribute("camps", cList2);
+        model.addAttribute("username",user);
         return "allCampsites";
     }
 
@@ -391,7 +457,8 @@ public class ShowCampController {
      * @return      page that shows the camp info
      */
     @RequestMapping("/campInfo")
-    public String campInfo() {
+    public String campInfo(Model model) {
+        model.addAttribute("username",user);
         return "campInfo";
     }
 
@@ -418,7 +485,7 @@ public class ShowCampController {
         }
         if (area.equals("All"))
             model.addAttribute("camps", cList2);
-
+        model.addAttribute("username",user);
         return "allCampsites";
     }
 
@@ -436,6 +503,7 @@ public class ShowCampController {
         Campinfo campinfo = CampsiteService.getOneCampinfo(campName);
         model.addAttribute("reviews", rList);
         model.addAttribute("campinfo", campinfo);
+        model.addAttribute("username",user);
         return "campInfo";
     }
 
@@ -446,12 +514,85 @@ public class ShowCampController {
         tpList = travelplanService.getUserTravelplan(user);
 
         model.addAttribute("travelplanitems", tpList);
-
+        model.addAttribute("username",user);
         return "TravelPlanInfo";
     }
     // ===========================
     // ADMIN LOGIN SITE HANDLING
     // ===========================
+
+
+    // -------------------------
+    // BIRTA TJALDSVÆÐI -ADMIN
+    // -------------------------
+
+//TODO: henda þessu út, það þarf ekki að nota þetta
+    /**
+     * Gets list of all camps
+     * @param model
+     * @return adminLoginSite with information about all camps
+     */
+/*
+    @RequestMapping(value = "/adminListofCamps", method = RequestMethod.GET)
+    public String adminlistCamps(Model model) {
+        //ArrayList<Camp> cList;
+        ArrayList<Campinfo> cList2;
+        //cList = CampsiteService.getCampsites();
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        return "adminLoginSite";
+    }
+ */
+
+
+    /**
+     * Sækir öll tjalddsvæði og flokkar eftir landshluta.
+     *
+     * @param model
+     * @param area
+     * @return skilar admin síðu þar sem hægt er að sjá tjaldsvæðin.
+     */
+    @RequestMapping(value = "/adminShowCamps", method = RequestMethod.POST)
+    public String adminShowCamps(Model model,
+                                 @RequestParam(value = "area") String area) {
+
+        cList2 = CampsiteService.getCampinfo();
+        ArrayList<Campinfo> cList3 = new ArrayList<Campinfo>();
+
+        for (Campinfo c : cList2) {
+            if (c.getRegion().equals(area)) {
+                cList3.add(c);
+            }
+            model.addAttribute("camps", cList3);
+        }
+        if (area.equals("All")) {
+            model.addAttribute("camps", cList2);
+        }
+        return "adminLoginSite";
+    }
+
+    /**
+     * @param model
+     * @return site for admin showing list of the campsites
+     */
+    @RequestMapping(value = "/adminGetInfo", method = RequestMethod.POST)
+    public String adminGetInfo(@RequestParam(value = "campName") String campName, Model model) {
+        Campinfo campinfo = CampsiteService.getOneCampinfo((campName));
+        model.addAttribute("campinfo", campinfo);
+        return "campInfo";
+    }
+
+    /**
+     * Returns from under-pages and goes back to the main admin page
+     * param    model
+     * @return site for admin showing list of the campsites
+     */
+    @RequestMapping(value = "/goBack", method = RequestMethod.GET)
+    public String goBack(Model model) {
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        return "adminLoginSite";
+    }
 
 
 
@@ -468,13 +609,9 @@ public class ShowCampController {
     @RequestMapping(value = "/addNewCampRequest", method = RequestMethod.POST)
     public String postReview(@RequestParam(value = "newCampName") String myNewCamp, Model model) {
 
-        System.out.println("The new campname is: " + myNewCamp);
         boolean doesExist = CampsiteService.doesCampExist(myNewCamp);
-        System.out.println("Nýja nafnið yfir campname sem er tekið í reqParam í addnewCamp er: " + myNewCamp);
-        System.out.println("Campsite does exist: " + doesExist);
 
         if (doesExist) {
-            System.out.println("The campname does already exists");
             model.addAttribute("AdminMessage", "This campname does already exist");
             return "adminLoginSite";
         } else {
@@ -526,11 +663,124 @@ public class ShowCampController {
             //model.addAttribute("newcampinfo", newcampinfo);
             //TODO: Bæta við í skilaboðunum nafninu, þ.e. (newcampinfo.campname)
             model.addAttribute("AdminMessage", "The new camp has been added to the list");
-            //TODO: Búa til uppfærðan camplista til að sýna í adminLoginSite
-            //cList2 = CampsiteService.getCampinfo();
-            //model.addAttribute("camp", cList2);
+            cList2 = CampsiteService.getCampinfo();
+            model.addAttribute("camps", cList2);
             return "adminLoginSite";
     }
+
+
+
+    // ------------------------
+    // EYÐA TJALDSVÆÐI -ADMIN
+    // ------------------------
+
+    //TODO: Eyða tjaldsvæði
+
+    /**
+     * Eyða umbeðnu tjaldsvæði
+     *
+     * @param campname
+     * @param model
+     * @return skilar adminLogin síðunni
+     */
+
+    @RequestMapping(value = "/delCampRequest", method = RequestMethod.POST)
+    public String deleteCampRequest(@RequestParam(value = "campname") String campname, Model model) {
+
+        //CampsiteService.delCamp(campName);  //TODO: Þetta hverfur burt og verður bara í deleteCamp hér að neðan
+        //cList2 = CampsiteService.getCampinfo();
+        //model.addAttribute("camps", cList2);
+        //return "adminLoginSite";
+        model.addAttribute("campname", campname);  //Ef þetta virkar ekki, þá prófa að setja campname í seinni setn
+        return "deleteCamp";   //Þegar við setum upp millistigið þá verður þetta return síðan fyrir millistigið
+    }
+
+
+  //TODO: Bæta við þessu, ásamt því að búa til síðu sem heitir deleteCamp.jsp og er svona millistig svo það sé ekki eins auðvelt að eyða (spyr "Ertu viss um að þú viljir eyða {camp} yes/no buttons
+  //TODO: Breyta þá lýsingunni á "deleteCampRequest" method-inni
+        @RequestMapping(value = "/delCamp", method = RequestMethod.POST)
+    public String deleteCamp(@RequestParam(value="campname") String campname, Model model) {
+        System.out.println("campName is :" + campname);
+        CampsiteService.delCamp(campname);
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        //model.addAttribute("campname", campname);
+        return "adminLoginSite";
+    }
+
+
+
+
+    // ------------------------
+    // BREYTA UPPLÝSINGUM UM TJALDSVÆÐI -ADMIN
+    // ------------------------
+
+
+    /**
+     * @param model
+     * @return site for admin showing list of the campsites
+     */
+    @RequestMapping(value = "/updateCampRequest", method = RequestMethod.POST)
+    public String adminChangeInfo(@RequestParam(value = "campName") String campName, Model model) {
+        Campinfo camp = CampsiteService.getOneCampinfo((campName));
+        model.addAttribute("camp", camp);
+        return "updateCampInfo";
+    }
+
+
+    /**
+     * site where admin change information in a selected camp
+     * @param campname      name of the camp (String)
+     * @param campaddress   address of the camp (String)
+     * @param campzip       zip code of the camp (String)
+     * @param campemail     email of the camp (String)
+     * @param campphone     phone number of the camp (String)
+     * @param campwebsite   website of the camp (String)
+     * @param campseason    opening season of the camp (String)
+     * @param maincategory  main category of the camp (String)
+     *                      (e.g. gisting/veitingar/upplýsingar...)
+     * @param category      category of the camp (String)
+     *                      (e.g. tjaldsvæði/bændagisting/hostel/farfuglaheimili...)
+     * @param region        region of the camp (String)
+     *                      (e.g. Suðurland/Norðurland/Austurland/Vesturland/Vestfirðir/Höfuðborgarsvæðið...)
+     * @param description   description of the camp (String)
+     * @param xval          coordinates for latitude of the camp (int)
+     * @param yval          ooordinates for longitude of the camp (int)
+     * @param model         model object
+     * @return              the adminLoginSite with the updated camp list
+     */
+    @RequestMapping(value = "/updateCamp", method = RequestMethod.POST)
+    public String updateCamp(@RequestParam(value="campname") String campname,
+                          @RequestParam(value="campaddress") String campaddress,
+                          @RequestParam(value="campzip") String campzip,
+                          @RequestParam(value="campemail") String campemail,
+                          @RequestParam(value="campphone") String campphone,
+                          @RequestParam(value="campwebsite") String campwebsite,
+                          @RequestParam(value="campseason") String campseason,
+                          @RequestParam(value="maincategory") String maincategory,
+                          @RequestParam(value="category") String category,
+                          @RequestParam(value="region") String region,
+                          @RequestParam(value="description") String description,
+                          @RequestParam(value="xval") int xval,
+                          @RequestParam(value="yval") int yval, Model model) {
+
+        Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
+                campseason, maincategory, category, region, description, xval, yval, 0.0, 1000);
+
+        CampsiteService.updateCamp(newcampinfo);
+        //model.addAttribute("newcampinfo", newcampinfo);
+        //TODO: Bæta við í skilaboðunum nafninu, þ.e. (campname)
+        model.addAttribute("AdminMessage", "The camp " + campname + "has been updated");
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        return "adminLoginSite";
+    }
+
+
+
+
+
+
 
 
 
@@ -541,7 +791,8 @@ public class ShowCampController {
      * @return skilar síðu þar sem hægt er að skrifa ummæli.
      */
     @RequestMapping(value = "giveReview")
-    public String giveReview() {
+    public String giveReview(Model model) {
+        model.addAttribute("username",user);
         return "giveReview";
     }
 
@@ -563,6 +814,7 @@ public class ShowCampController {
             System.out.println("Controller, onetravel "+e);
 
         }
+        model.addAttribute("username",user);
         return "OneTravelPlan";
 
     }
@@ -585,6 +837,7 @@ public class ShowCampController {
         }}catch(Exception e){
             System.out.println("inní /review: "+e);
         }
+        model.addAttribute("username",user);
         return "giveReview";
     }
 
@@ -605,7 +858,9 @@ public class ShowCampController {
         model.addAttribute("campinfo", campinfo);
         ArrayList<Review> rList = userService.getReviews(campName);
         model.addAttribute("reviews", rList);
-        return "campInfo";
+        model.addAttribute("username",user);
+
+        return "campReviews";
     }
 
     /**
@@ -629,7 +884,35 @@ public class ShowCampController {
         Campinfo campinfo = CampsiteService.getOneCampinfo(campName2);
         model.addAttribute("campinfo", campinfo);
         model.addAttribute("reviews", rList);
+        model.addAttribute("username",user);
         return "campInfo";
+    }
+
+    /**
+     * Fer á síðu sem birtir öll reviews
+     * @param model
+     * @param campName nafnið á tjaldsvæðinu sem á við
+     * @return síða sem birtir reviews
+     */
+    @RequestMapping(value = "seeReviews", method = RequestMethod.POST)
+    public String seeReviews(Model model, @RequestParam(value = "campName") String campName){
+        Campinfo campinfo = CampsiteService.getOneCampinfo(campName);
+        model.addAttribute("campinfo", campinfo);
+        model.addAttribute("username",user);
+        ArrayList<Review> rList = userService.getReviews(campName);
+        model.addAttribute("reviews", rList);
+        return "campReviews";
+    }
+
+    /**
+     * síða sem birtir reviews
+     * @param model
+     * @return campReviews
+     */
+    @RequestMapping("/campReviews")
+    public String campReviews(Model model) {
+        model.addAttribute("username",user);
+        return "campReviews";
     }
 
     /**
@@ -644,6 +927,7 @@ public class ShowCampController {
         model.addAttribute("campinfo", campinfo);
         ratList = userService.getRatings(campName2);
         model.addAttribute("ratings", ratList);
+        model.addAttribute("username",user);
         return "seeAllRatings";
     }
 

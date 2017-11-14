@@ -1,5 +1,9 @@
+html {
+    box-sizing: border-box;
+}
+
 body {
-    background: url("iceland.jpg") no-repeat center center fixed;
+    background: url("camps.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -13,15 +17,21 @@ h1 {
     text-align: center;
 }
 
+
 h2 {
     font-family: Avenir, cursive !important;
     text-align: center;
 }
 
 h3 {
+<<<<<<< HEAD
     font-family: Avenir, cursive !important;
     color: #DEDEDE !important;
+=======
+    font-family: Lobster, cursive !important;
+>>>>>>> bfba8c8a20a4e6675e7c587b84077f89d420f685
     text-align: center;
+    font-size: 15px !important;
 }
 
 .navbar {
@@ -77,6 +87,56 @@ fieldset {
 fieldset input {
     text-align: center;
 }
+
+.right {
+    float:right;
+    padding-top: 27px;
+}
+
+.loggedIn {
+    text-align:right;
+    padding: 0px 15px 0px 0px;
+    font-size: 12px;
+    font-family: Lobster, cursive !important;
+}
+
+section{
+    widht:100px;
+
+
+}
+
+.card {
+    margin:auto;
+    max-width:200px;
+    min-width:200px;
+    height:200px;
+    box-shadow: 0 2px 3px rgba(0, 40, 0, 0.4);
+    object-fit:cover;
+    border-radius: 3px;
+    background: rgba(24, 118, 28, 0.87);
+    display:block;
+
+
+}
+
+form{
+    padding: 20px;
+    display:-webkit-inline-box;
+    width:250px;
+    height:inherit;
+}
+
+.card__content {
+    padding: 15px;
+    margin: auto;
+}
+
+.card__text {
+    margin-bottom: 30px;
+}
+
+
 /*
 #nav {
     overflow: hidden;
@@ -105,6 +165,13 @@ fieldset input {
 
 div {
     color: black;
+}
+
+p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 table {
