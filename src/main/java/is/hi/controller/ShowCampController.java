@@ -885,7 +885,7 @@ public class ShowCampController {
     /**
      * síða sem birtir reviews
      * @param model
-     * @return campReviews 
+     * @return campReviews
      */
     @RequestMapping("/campReviews")
     public String campReviews(Model model) {
