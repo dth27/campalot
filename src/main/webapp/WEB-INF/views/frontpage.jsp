@@ -26,6 +26,7 @@
         <p>Here you can sign in. This site helps you to plan your travels around Iceland.
             We have X campsites with information on our site</p>
     </div>
+    <div class="col-sm-12 col-md-10 col-md-offset-1">
     <div class="login-container">
         <form action="login" method="post">
             <fieldset>
@@ -43,6 +44,7 @@
             <p class = "error" style="color:red;">${error}</p>
 
         </form>
+    </div>
     </div>
 </div>
 

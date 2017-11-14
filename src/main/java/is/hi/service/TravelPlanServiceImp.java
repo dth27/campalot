@@ -128,6 +128,7 @@ public class TravelPlanServiceImp implements TravelPlanService {
         long diff = travelplanitem.getDatedepart().getTime() - travelplanitem.getDatearrive().getTime();
         float days = (diff / (1000 * 60 * 60 * 24));
         int totaldays = Math.round(days);
+        //TODO laga svo að verð komi frá Camp ekki travelplan (cause that doesn't make sense)
         int price = travelplanitem.getTotalprice() * totaldays;
         System.out.println(days);
         //long totalprice = travelplanitem.getTotalprice()*diff;

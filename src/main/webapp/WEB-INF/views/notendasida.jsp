@@ -49,7 +49,14 @@
         <!--/.container-fluid -->
     </nav>
 </div>
-
+<div class="welcomeTxt">
+    <p>Well logged in ${user}</p>
+    <p> On CampALot you can survey all the different
+    camping areas that Iceland has to offer. </p>
+</div>
+<div>
+    ${TravelPlanMessage}
+</div>
 <h2>List of camps</h2>
 
 <h2>List of TravelPlans</h2>

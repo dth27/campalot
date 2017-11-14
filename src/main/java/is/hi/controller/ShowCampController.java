@@ -97,7 +97,6 @@ public class ShowCampController {
     /**
      * @return frontpage
      */
-    //TODO breyta yfir i "frontpage" (hafa allt a ensku)
     @RequestMapping("/forsida")
     public String forsida(){
         return "/frontpage";
@@ -333,6 +332,8 @@ public class ShowCampController {
         System.out.println(tpList.get(1).getTravelplanname());
         model.addAttribute("travel", tpList);
 
+        model.addAttribute("TravelPlanMessage", "Item has been succesfully added to your plan!");
+
         return "notendasida";
     }
 
@@ -430,7 +431,6 @@ public class ShowCampController {
      */
     @RequestMapping(value = "/getInfo", method = RequestMethod.POST)
     public String getInfo(@RequestParam(value = "campName") String campName, Model model) {
-        //TODO thurfum ekki oll campsites
 
         rList = userService.getReviews(campName);
         Campinfo campinfo = CampsiteService.getOneCampinfo(campName);
@@ -520,7 +520,7 @@ public class ShowCampController {
                           @RequestParam(value="yval") int yval, Model model) {
 
         Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
-                campseason, maincategory, category, region, description, xval, yval, 0.0);
+                campseason, maincategory, category, region, description, xval, yval, 0.0, 1000);
 
             CampsiteService.addNewCamp(newcampinfo);
             //model.addAttribute("newcampinfo", newcampinfo);

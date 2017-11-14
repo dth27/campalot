@@ -31,7 +31,7 @@
             <div id="navbar1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="listofcamps">Campsites</a></li>
-                    <li><a href="myTravelplans">My Travelplans</a></li>
+                    <li><a href="getTravelItems">My Travelplans</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Info<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">

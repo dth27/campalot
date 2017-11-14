@@ -33,7 +33,7 @@
             <div id="navbar1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="listofcamps">Campsites</a></li>
-                    <li><a href="myTravelplans">My Travelplans</a></li>
+                    <li><a href="getTravelItems">My Travelplans</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Info<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -52,25 +52,27 @@
     </nav>
 </div>
 <br>
-<div id="texti">
-    <h2>Name</h2>
-    ${campinfo.campname}
-
+<div class="mainContainer">
     <div id="description">
-        <h2>Description</h2>
-        ${campinfo.description}
-        <h3 id="adress">Address</h3>
-        ${campinfo.campaddress}
-        ${campinfo.campzip}
-        <h3 id="contactinfo">Contact information</h3>
-        ${campinfo.campemail}
-        ${campinfo.campphone}
-        ${campinfo.campwebsite}
+            <h2>Name</h2>
+            ${campinfo.campname}
+            <h2>Description</h2>
+            ${campinfo.description}
     </div>
-    <h3>Average Rating</h3>
-    ${campinfo.averagerating}
-
-    <h3>Give a rating</h3>
+    <div class="container-info">
+        <div class="container-contact">
+                <h3 id="adress">Address</h3>
+                ${campinfo.campaddress}
+                ${campinfo.campzip}
+                <h3 id="contactinfo">Contact information</h3>
+                ${campinfo.campemail}
+                ${campinfo.campphone}
+                ${campinfo.campwebsite}
+            </div>
+        <div class="rating">
+        <h3>Average Rating</h3>
+        ${campinfo.averagerating}
+        <h3>Give a rating</h3>
     <form action="giveRating" method="POST">
         <select name="rating">
             <option value="0">0</option>
@@ -94,7 +96,10 @@
             See all ratings
         </button>
     </form>
-
+    </div>
+    </div>
+</div>
+<div class="ratingContainer">
     <h2>Reviews</h2>
     <form action="review" method="POST" >
         <table border="1">

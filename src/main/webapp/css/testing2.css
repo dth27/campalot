@@ -5,23 +5,23 @@ body {
 
 
 h1 {
-    font-family: Lobster, cursive !important;
+    font-family: Avenir, cursive !important;
     text-align: center;
 }
 
 h2 {
-    font-family: Lobster, cursive !important;
+    font-family: Avenir, cursive !important;
     text-align: center;
 }
 
 h3 {
-    font-family: Lobster, cursive !important;
+    font-family: Avenir, cursive !important;
     text-align: center;
 }
 
 .navbar {
     width: 100%;
-    font-family: Lobster, cursive;
+    font-family: Avenir, cursive;
 }
 
 .navbar-brand>img {
@@ -91,7 +91,7 @@ h3 {
 
 fieldset {
     height: 50%;
-    width: 60%;
+    width: 100%;
     background: #ffffff;
     margin: auto;
     text-align: center;
@@ -117,34 +117,20 @@ input:focus {
 .front-logo{
     width: 500px;
 }
-/*
-#nav {
-    overflow: hidden;
-    background-color: #FFFFFF; opacity: 0.9; filter: alpha(opacity=90);
-    top: 0;
-    font-family: Arial, sans-serif;
-    font-size: medium;
-    text-align: center;
-    /*z-index: 100;
-    position: fixed;
-    width: 100%;
-    height: 10%;
+.container-description{
+    display: flex;
 }
+#mainContainer{
+    display: flex;
 
-#nav a{
-    float: left;
-    display: block;
-    color: #262626;
-    text-align: center;
-    padding: 14px; /*16px
-    text-decoration: none;
 }
-#nav a:hover {
-    background-color: #666666;
-}*/
-
+.container-info{
+    display: flex;
+    flex-direction: column;
+}
 div {
     color: black;
+    padding: 1rem;
 }
 
 table {
@@ -168,7 +154,7 @@ th {
     font-weight: bold;
     font-size: large;
     color: #DEDEDE;
-    font-family: 'Lobster', cursive;
+    font-family: 'Avenir', sans-serif;
 }
 
 td {
