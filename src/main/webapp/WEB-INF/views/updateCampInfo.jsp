@@ -18,7 +18,7 @@
 <form method = "POST" action = "updateCamp">
     <div class="container">
 
-        <h2>Please change the information as wanted for the camp ${camp.campname} and press the OK button </h2>
+        <h2>Please change the information as wanted for the camp ${camp.campname} and press the "Update Camp Info" button </h2>
 
         <label><b>Camp's address</b></label>
         <input type="text" placeholder="Type the camp's address" name="campaddress" value="${camp.campaddress}"></input><br><br>

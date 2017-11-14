@@ -27,7 +27,7 @@
     <h3>Add a new camp to the database:</h3>
     <div class="container">
         <label><b>Camp's name</b></label>
-        <input type="text" placeholder="Type the camp's name" name="newCampName"></input><br><br>
+        <input type="text" placeholder="Type the new camp's name" name="newCampName"></input><br><br>
     </div>
     <button type="submit" name="campname" value="${camp.campname}">Add Camp</button>
 </form>
