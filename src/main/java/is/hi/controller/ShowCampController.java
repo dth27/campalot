@@ -409,6 +409,29 @@ public class ShowCampController {
     }
 
 
+    // =====================================
+    // NAVIGATION MENU HANDLING -ADMIN SITE
+    // =====================================
+
+
+    @RequestMapping(value="goToAdminsida")
+    public String goToAdminsida(Model model){
+        cList2 = CampsiteService.getCampinfo();
+        model.addAttribute("camps", cList2);
+        model.addAttribute("username",user);
+        return "adminLoginSite";
+    }
+
+
+    @RequestMapping("helpAdmin")
+    public String help(Model model){
+        model.addAttribute("username",user);
+        return "helpAdmin";
+    }
+
+
+
+
     // ===========================
     // CAMP INFO HANDLING
     // ===========================

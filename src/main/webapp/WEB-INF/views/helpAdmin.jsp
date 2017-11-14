@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="goToNotendasida"><img src="/css/logo3.png" alt="Dispute Bills">
+                <a class="navbar-brand" href="goToAdminsida"><img src="/css/logo3.png" alt="Dispute Bills">
                 </a>
             </div>
             <div id="navbar1" class="navbar-collapse collapse">
