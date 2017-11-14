@@ -117,10 +117,9 @@ input:focus {
 .front-logo{
     width: 500px;
 }
-<<<<<<< HEAD
-.container-description{
+.container-description {
     display: flex;
-=======
+}
 
 .right {
     float:right;
@@ -146,8 +145,7 @@ input:focus {
     position: fixed;
     width: 100%;
     height: 10%;
->>>>>>> bfba8c8a20a4e6675e7c587b84077f89d420f685
-}
+}*/
 #mainContainer{
     display: flex;
 
