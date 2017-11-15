@@ -116,7 +116,9 @@
                 Add to my plan
             </button>
         </form>
+    <br><br>
 </div>
+<br><br><br>
 <div class="bottom-nav">
     Created By Diljá, Kristín, Ólöf og Sandra
 </div>

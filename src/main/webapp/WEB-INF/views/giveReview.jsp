@@ -18,7 +18,7 @@
 <h1>Give ${campinfo.campname} a review</h1>
 <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
-    <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
+    <nav class="navbar navbar-light" style="background-color: #445C80" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
@@ -33,7 +33,7 @@
             <div id="navbar1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="listofcamps">Campsites</a></li>
-                    <li><a href="getTravelItems">My Travelplans</a></li>
+                    <li><a href="myTravelplans">My Travelplans</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Info<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -48,6 +48,7 @@
                 </ul>
                 <a class = "right" href = "logOut">Log out</a>
             </div>
+
             <!--/.nav-collapse -->
         </div>
         <!--/.container-fluid -->

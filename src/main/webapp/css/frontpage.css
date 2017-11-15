@@ -83,7 +83,7 @@ fieldset {
 
 .main-container {
     background-color: rgba(300, 300, 300, 0.6);
-    width:100%;
+    width:80%;
     padding: 5px;
     display: inline-flex;
     margin: auto;
@@ -92,6 +92,6 @@ fieldset {
 
 .information-container {
     background-color: rgba(300, 300, 300, 0.4);
-    width: 400px;
+
     padding: 1px 150px 1px 1px;
 }
