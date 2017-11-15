@@ -60,7 +60,7 @@
         <textarea cols = "50" rows = "10" placeholder="Type the camp's description" name="description"></textarea><br><br>
 
         <label><b>Camp's location value x</b></label>
-        <input type="text" placeholder="Type the camp's x value" name="xval"></input><br><br>
+        <input type="text" placeholder="Type the camp's x value" path="xval"></input><br>
 
         <label><b>Camp's location value y</b></label>
         <input type="text" placeholder="Type the camp's y value" name="yval"></input><br><br>
