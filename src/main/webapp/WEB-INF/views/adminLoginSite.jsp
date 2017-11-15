@@ -87,8 +87,8 @@
         <tr>
             <th>Name</th>
             <th>Area</th>
-            <th>Update info</th>
-            <th>Delete Camp</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <c:forEach items="${camps}" var="camp" >
