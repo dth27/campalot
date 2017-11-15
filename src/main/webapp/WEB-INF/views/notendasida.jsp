@@ -57,9 +57,12 @@
 
 <div class = "main">
     <div class="welcomeTxt">
-        <p>Well logged in ${user}</p>
+        <h2>Welcome dear ${user1}</h2>
         <p> On CampALot you can survey all the different
             camping areas that Iceland has to offer. </p>
+        <p> Check out the menu above and explore the possibilities!</p>
+
+
     </div>
     <div>
         ${TravelPlanMessage}

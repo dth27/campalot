@@ -241,6 +241,8 @@ public class ShowCampController {
                 return "adminLoginSite";
             }
             model.addAttribute("username",user);
+            model.addAttribute("user1", user);
+
             return "notendasida";
         } else {
             model.addAttribute("error", "Username or password is incorrect");
@@ -296,6 +298,7 @@ public class ShowCampController {
         tpList = travelplanService.getUserTravelplan(user);
         model.addAttribute("travelplans",tpList);
         model.addAttribute("user", user);
+        model.addAttribute("user1", user);
 
         return "notendasida";
     }
@@ -337,6 +340,8 @@ public class ShowCampController {
         }
         model.addAttribute("travelplans", tpList);
         model.addAttribute("username",user);
+        model.addAttribute("user1", user);
+
         return "notendasida";
     }
 
@@ -360,6 +365,8 @@ public class ShowCampController {
         System.out.println("newTravel error");
     }
         model.addAttribute("username",user);
+        model.addAttribute("user1", user);
+
         return "notendasida";
     }
 
@@ -381,6 +388,8 @@ public class ShowCampController {
         //TODO vantar msg sem lætur notenda vita þetta hafi gengið upp
         model.addAttribute("travelplans", tpList);
         model.addAttribute("username",user);
+        model.addAttribute("user1", user);
+
         return "newTravelPlanItem";
 
     }
@@ -425,6 +434,8 @@ public class ShowCampController {
         model.addAttribute("travel", tpList);
         model.addAttribute("username",user);
         model.addAttribute("travelplans", tpList);
+        model.addAttribute("user1", user);
+
         return "notendasida";
     }
 
