@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 
-//import static com.sun.deploy.config.JREInfo.getAll;
+
 
 /**
  * @author Diljá, Ólöf, Sandra og Kristín
@@ -85,7 +85,7 @@ public class ShowCampController {
     ArrayList<Review> allRevList;
 
 
-    //ArrayList<Camp> cList;
+
     String user;
     String campValue;
     boolean isLoggedIn = false;
@@ -94,7 +94,7 @@ public class ShowCampController {
     // ===========================
     // FRONTPAGE HANDLING
     // ===========================
-    /**
+    /** Returns frontpage
      * @return frontpage
      */
     //TODO breyta yfir i "frontpage" (hafa allt a ensku)
@@ -138,12 +138,25 @@ public class ShowCampController {
         return "accountInfo";
     }
 
+    /**
+     * Returns a site that allows user to change password
+     * @param model
+     * @return
+     */
     @RequestMapping("/changePassword")
     public String changePassword(Model model) {
         model.addAttribute("username",user);
         return "changePassword";
     }
 
+    /**
+     * Changes password and returns a site that tells the user that the password has been changed.
+     * @param oldPw - the old password
+     * @param model
+     * @param newPw1 - the new password
+     * @param newPw2 - the new password again
+     * @return
+     */
     @RequestMapping(value = "/saveNewPassword", method = RequestMethod.POST)
     public String savePassword(@RequestParam(value = "oldPw") String oldPw, Model model,
                                @RequestParam(value = "newPw1") String newPw1,
@@ -202,8 +215,7 @@ public class ShowCampController {
     // LOGIN HANDLING
     // ===========================
     /**
-     *
-     * Vefsíða sem biður notanda að logga sig inn og tjékkar hvort notandi sé til
+     * Site that asks user to log in and checks if user exists
      * @param name      name of the user (String)
      * @param psw       password of the user (String)
      * @param model     model Object
@@ -233,6 +245,11 @@ public class ShowCampController {
         }
     }
 
+    /**
+     * Logs out user and returns frontpage
+     * @param model
+     * @return
+     */
     @RequestMapping(value="logOut")
     public String logOut(Model model){
         int count = CampsiteService.countCampInfo();
@@ -241,6 +258,11 @@ public class ShowCampController {
         return "frontpage";
     }
 
+    /**
+     * Returns user to usersite.
+     * @param model
+     * @return
+     */
     @RequestMapping(value="goToNotendasida")
     public String goToNotendasida(Model model){
         cList2 = CampsiteService.getCampinfo();
@@ -257,6 +279,12 @@ public class ShowCampController {
     // TRAVELPLAN HANDLING
     // ===========================
 
+    /**
+     * Deletes travelplan that user owns
+     * @param model
+     * @param planName - the name of the travelplan
+     * @return
+     */
     @RequestMapping(value="deleteTravelPlan")
     public String deleteTravelPlan(Model model, @RequestParam(value="planName") String planName){
         travelplanService.deleteTraveplan(planName, user);
@@ -304,17 +332,16 @@ public class ShowCampController {
     }
 
     /**
-     * vefsíða sem gerir notenda kleift að búa til nýtt travelplan
+     * Site that allows user to make a new travelplan
      * @param planName      name of the new travel plan
      * @param model         model object
-     * @return fer aftur á notendasíðu
+     * @return goes back to usersite
      */
     @RequestMapping(value = "/newTravel", method = RequestMethod.POST)
     public String newTravel(@RequestParam(value="planName") String planName, Model model)
     {   try {
 
-        cList2 = CampsiteService.getCampsites();
-        model.addAttribute("camps", cList2);
+
         travelplanService.createTravelplan(planName, user);
         tpList = travelplanService.getUserTravelplan(user);
 
@@ -380,8 +407,7 @@ public class ShowCampController {
             System.out.println("addTravelItem error" +" "+e);
         }
 
-        cList2 = CampsiteService.getCampsites();
-        model.addAttribute("camps", cList2);
+
 
         //model.addAttribute("travelplanItems", tpiList);
         //tpList = travelplanService.getTravelplans();
@@ -465,9 +491,9 @@ public class ShowCampController {
      */
     @RequestMapping(value = "/listofcamps", method = RequestMethod.GET)
     public String listCamps(Model model) {
-        ArrayList<Camp> cList;
+
         ArrayList<Campinfo> cList2;
-        cList = CampsiteService.getCampsites();
+
         cList2 = CampsiteService.getCampinfo();
         model.addAttribute("camps", cList2);
         model.addAttribute("username",user);
@@ -478,6 +504,10 @@ public class ShowCampController {
 
     }
 
+    /**
+     * Returns a site with all campsites for those who are not logged in
+     * @return
+     */
     @RequestMapping("allCampsitesNotLoggedIn")
     public String allCampsitesNL(){
         return "allCampsitesNotLoggedIn";
@@ -494,11 +524,10 @@ public class ShowCampController {
     }
 
     /**
-     * Sækir öll tjalddsvæði og flokkar eftir landshluta
-     *
+     * Gets all campsites and categories them after area.
      * @param model     model object
-     * @param area      landshluti þar sem tjaldsvæðið er staðsett (String)
-     * @return          skilar síðu þar sem hægt er að sjá tjaldsvæðin
+     * @param area      area where the campsite is (String)
+     * @return          site with all the campsites
      */
     @RequestMapping(value = "/showCamps", method = RequestMethod.POST)
     public String showCamps(Model model,
@@ -522,7 +551,7 @@ public class ShowCampController {
 
 
     /**
-     * Sækir upplýsingar um tjaldsvæði
+     * fetches information of the camp
      * @param campName      name of the camp (String)
      * @param model         model object
      * @return skilar síðu þar sem hægt er að skoða upplýsingar um tjaldsvæði
@@ -539,6 +568,11 @@ public class ShowCampController {
         return "campInfo";
     }
 
+    /**
+     * returns a site with information about a travelplan
+     * @param model
+     * @return
+     */
     @RequestMapping(value="/getTravelItems", method = RequestMethod.GET)
     public String getTravelInfo(Model model){
         //tpiList = travelplanService.getOneTravelPlanItems(travelplan,user);
@@ -555,34 +589,16 @@ public class ShowCampController {
 
 
     // -------------------------
-    // BIRTA TJALDSVÆÐI -ADMIN
+    // Show campsites -ADMIN
     // -------------------------
 
-//TODO: henda þessu út, það þarf ekki að nota þetta
-    /**
-     * Gets list of all camps
-     * @param model
-     * @return adminLoginSite with information about all camps
-     */
-/*
-    @RequestMapping(value = "/adminListofCamps", method = RequestMethod.GET)
-    public String adminlistCamps(Model model) {
-        //ArrayList<Camp> cList;
-        ArrayList<Campinfo> cList2;
-        //cList = CampsiteService.getCampsites();
-        cList2 = CampsiteService.getCampinfo();
-        model.addAttribute("camps", cList2);
-        return "adminLoginSite";
-    }
- */
-
 
     /**
-     * Sækir öll tjalddsvæði og flokkar eftir landshluta.
+     * Fetches all campsites and categories them after area
      *
      * @param model
-     * @param area
-     * @return skilar admin síðu þar sem hægt er að sjá tjaldsvæðin.
+     * @param area area user wants to see
+     * @return Returns admin site where you can see the campsites.
      */
     @RequestMapping(value = "/adminShowCamps", method = RequestMethod.POST)
     public String adminShowCamps(Model model,
@@ -821,7 +837,8 @@ public class ShowCampController {
     // REVIEW AND RATING HANDLING
     // ===========================
     /**
-     * @return skilar síðu þar sem hægt er að skrifa ummæli.
+     * Returns a site where user can write a review
+     * @return giveReview site
      */
     @RequestMapping(value = "giveReview")
     public String giveReview(Model model) {
@@ -829,6 +846,13 @@ public class ShowCampController {
         return "giveReview";
     }
 
+
+    /**
+     *
+     * @param planname
+     * @param model
+     * @return
+     */
     @RequestMapping(value="onetravel", method = RequestMethod.GET)
     public String onePlan(@RequestParam(value="travelname") String planname, Model model){
         System.out.println("Travelname= " + planname);
@@ -852,10 +876,10 @@ public class ShowCampController {
 
     }
     /**
-     * finnur út hvaða tjaldsvæði notandi vill gefa ummæli.
+     * Finds what campsite the user wants to give a review
      * @param campName      name of the camp (String)
      * @param model         model object
-     * @return skilar síðu þar sem hægt er að skrifa ummæli
+     * @return returns a site where user can write a review
      */
     @RequestMapping(value = "/review", method = RequestMethod.POST)
     public String review(@RequestParam(value = "campName") String campName, Model model) {
@@ -922,10 +946,10 @@ public class ShowCampController {
     }
 
     /**
-     * Fer á síðu sem birtir öll reviews
+     * Goes to site where user can see reviews
      * @param model
-     * @param campName nafnið á tjaldsvæðinu sem á við
-     * @return síða sem birtir reviews
+     * @param campName the name of the campsite
+     * @return returns campReview site
      */
     @RequestMapping(value = "seeReviews", method = RequestMethod.POST)
     public String seeReviews(Model model, @RequestParam(value = "campName") String campName){
@@ -938,7 +962,7 @@ public class ShowCampController {
     }
 
     /**
-     * síða sem birtir reviews
+     * site that shows reviews
      * @param model
      * @return campReviews
      */

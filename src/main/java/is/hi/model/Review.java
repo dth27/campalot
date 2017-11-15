@@ -8,7 +8,7 @@ import javax.persistence.*;
  * HBV501G Hugbúnaðarverkefni 1
  * Háskóli Íslands
  *
- * Review klasi sem inniheldur review notenda
+ * Review class that holds reviews from users
  */
 @Entity
 @Table (name="review")

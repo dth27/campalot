@@ -1,18 +1,23 @@
 package is.hi.service;
 
 
-import is.hi.model.Camp;
+
 import is.hi.model.Campinfo;
-import is.hi.model.Review;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
+
+
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ */
 
 import java.util.ArrayList;
 
 
 public interface campSiteService {
-    ArrayList getCampsites();
-    Camp getOneCamp(String name);
     Campinfo getOneCampinfo(String name);
     ArrayList getCampinfo();
     boolean doesCampExist(String campname);

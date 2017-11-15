@@ -31,6 +31,11 @@ public interface userRepository extends JpaRepository<userAccess, Long> {
     @Query(value ="SELECT a FROM userAccess a")
     List<userAccess> getAll();
 
+    /**
+     * fetches all the users in database
+     * @param username
+     * @return
+     */
     @Query(value= "SELECT a FROM userAccess a WHERE a.username =?1")
     List<userAccess> getUserfromname(String username);
     /*@Modifying
@@ -39,10 +44,13 @@ public interface userRepository extends JpaRepository<userAccess, Long> {
     //userAccess acc = em.find();
 
 
-
     /**
-     * adds userAccess
-     *
+     * Adds a new user to database
+     * @param username - username
+     * @param email - email
+     * @param password - the password
+     * @param hasaccess - has access to the site
+     * @param hasadminauthority - has admin authority (access to the admin siste)
      */
     @Transactional
     @Modifying
@@ -52,7 +60,9 @@ public interface userRepository extends JpaRepository<userAccess, Long> {
 
 
     /**
-     * Changes password
+     * updates password for user
+     * @param newPassword - the new password
+     * @param user - user
      */
     @Transactional
     @Modifying

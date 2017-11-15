@@ -8,9 +8,23 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ * service class
+ */
+
 @Service
 public class AlternativeServiceImp implements AlternativeService {
 
+    /**
+     *
+     * @param strdate
+     * @return
+     */
     @Override
     public Date dateMaker(String strdate){
 
@@ -30,6 +44,12 @@ public class AlternativeServiceImp implements AlternativeService {
         }
 
     }
+
+    /**
+     *
+     * @param list
+     * @return
+     */
     @Override
     public ArrayList dateChanger(ArrayList<TravelPlanItem> list){
         //List dates;

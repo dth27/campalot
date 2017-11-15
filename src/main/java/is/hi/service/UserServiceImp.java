@@ -14,6 +14,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ * Service class for the campsites
+ */
+
 @Service
 public class UserServiceImp implements UserService {
 
@@ -28,8 +37,13 @@ public class UserServiceImp implements UserService {
 
     private ArrayList<userAccess> tList;
 
+    /**
+     * checks if the password is correct
+     * @param uname - username
+     * @param psw - password
+     * @return - true if password is correct, false otherwise
+     */
     @Override
-    //Checks if the password is correct
     public boolean isPwCorr(String uname, String psw) {
         tList = (ArrayList<userAccess>) travRep.getAll();
         for (userAccess t : tList) {
@@ -40,6 +54,11 @@ public class UserServiceImp implements UserService {
         return false;
     }
 
+    /**
+     * checks if the password is legal
+     * @param password - password
+     * @return true if legal, false otherwise
+     */
     @Override
     public boolean isPwLegal(String password) {
         if (password.length() > 0 && password.length() < 15) {
@@ -49,6 +68,11 @@ public class UserServiceImp implements UserService {
         }
     }
 
+    /**
+     * checks if username is legal
+     * @param username - username
+     * @return - true if legal , false otherwise
+     */
     @Override
     public boolean isUsernameLegal(String username) {
         if (username.length() > 0 && username.length() < 20) {
@@ -58,8 +82,13 @@ public class UserServiceImp implements UserService {
         }
     }
 
+    /**
+     * checks if user has admin authority
+     * @param uname - username
+     * @param psw - password
+     * @return - ture if user has authority , false otherwise
+     */
     @Override
-    //Checks if user has admin authority
     public boolean hasAdminAuthority(String uname, String psw) {
         tList = (ArrayList<userAccess>) travRep.getAll();
         for (userAccess t : tList) {
@@ -72,14 +101,22 @@ public class UserServiceImp implements UserService {
         return false;
     }
 
+    /**
+     * creates a new login user
+     * @param user - user
+     */
     @Override
-    //Creates a new login user
     public void newLoginUser(userAccess user) {
         travRep.add(user.getUsername(), user.getEmail(), user.getPassword(), Boolean.FALSE, Boolean.FALSE);
     }
 
+    /**
+     * checks if certain username has a login access
+     * @param username - username
+     * @param email - email
+     * @return true if user has access , false otherwise
+     */
     @Override
-    //Checks if certain username has a login access
     public boolean doesUserExist(String username, String email) {
         tList = (ArrayList<userAccess>) travRep.getAll();
         for (userAccess t : tList) {
@@ -90,19 +127,33 @@ public class UserServiceImp implements UserService {
         return false;
     }
 
+    /**
+     * Changes password for user
+     * @param newPassword - new password
+     * @param user - username
+     */
     @Override
     public void changePassword(String newPassword, String user) {
         travRep.changePassword(newPassword, user);
     }
 
+    /**
+     * checks if passwords are identical
+     * @param pw1 - password 1
+     * @param pw2 - password 2
+     * @return true if identical , false otherwise
+     */
     @Override
-    //Checks if passwords are identical
     public boolean arePWidentical(String pw1, String pw2){
         return pw1.equals(pw2);
     }
 
+    /**
+     * Gets all reviews for the campsite that the user is looking at
+     * @param name - name of campsite
+     * @return ArrayList of reviews
+     */
     @Override
-    //Gets all reviews for the campsite that the user is looking at
     public ArrayList getReviews(String name){
         ArrayList<Review> reviews = new ArrayList<Review>();
         ArrayList<Review> selectedReviews = new ArrayList<Review>();
@@ -115,24 +166,31 @@ public class UserServiceImp implements UserService {
         return selectedReviews;
     }
 
+    /**
+     * Fetches all the reviews
+     * @return Arraylist of reviews
+     */
     @Override
-    //Gets all reviews
     public ArrayList getAllReviews() {
         ArrayList<Review> allreviews = new ArrayList<Review>();
         allreviews = revRep.getAll();
         return allreviews;
     }
 
-
+    /**
+     * Adds a review, campname an username into table review
+     * @param review - the review
+     */
     @Query
-    //Adds a review, campname and username into table review
     public void addReview(Review review) {
         revRep.addReview(review.getReview(), review.getCampname(), review.getUsername());
     }
 
     @Override
-    //Calculates average rating for the campsite that the user is
-    //looking at
+    /**
+     *  //Calculates average rating for the campsite that the user is
+     //looking at
+     */
     public double getRating(String name){
         double rate = 0;
         int count = 0;
@@ -150,8 +208,12 @@ public class UserServiceImp implements UserService {
         return avgrating;
     }
 
+    /**
+     * gets all ratings and puts them in an ArrayList
+     * @param name - name of the camp
+     * @return
+     */
     @Override
-    //Gets all ratings and puts them in an ArrayList
     public ArrayList getRatings(String name){
         ArrayList<AverageRating> ratings = new ArrayList<AverageRating>();
         ArrayList<AverageRating> selectedRatings = new ArrayList<AverageRating>();
@@ -164,14 +226,21 @@ public class UserServiceImp implements UserService {
         return selectedRatings;
     }
 
+    /**
+     * Sets the rating, username and campsite name into table rating
+     * @param rating
+     */
     @Query
-    //Sets the rating, username and campsite name into table rating
     public void setRating(AverageRating rating){
         ratRep.addRating(rating.getUsername(), rating.getRating(), rating.getCampname());
     }
 
+    /**
+     * Sets the averagae rating into table campsitebigdata
+     * @param r rating
+     * @param name - name
+     */
     @Query
-    //Sets the average rating into table campsitebigdata
     public void setAvRating(double r, String name){
         ratRep.setAvRating(r, name);
     }
@@ -183,6 +252,11 @@ public class UserServiceImp implements UserService {
         return tList;
     }
 
+    /**
+     * gets information about user
+     * @param username - username
+     * @return - userAccess object
+     */
     @Override
     public userAccess getUserInfo(String username) {
         userAccess user1 = new userAccess();
