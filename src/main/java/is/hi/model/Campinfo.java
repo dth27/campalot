@@ -8,7 +8,14 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-//TODO-Dilja move price from description into an int variable
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ * Campinfo class that holds information of all the campsites
+ */
 
 @Entity
 @Table (name = "campsitebigdata")
@@ -17,43 +24,30 @@ public class Campinfo {
     @NotNull
     @Size(min = 3, max = 50)
     String campname;
-    @NotNull
     @Size(min = 3, max = 50)
     String campaddress;
-    @NotNull
     @Size(min = 3, max = 50)
     String campzip;
-    @NotNull
     @Email
     @Size(min = 6, max = 50)
     String campemail;
-    @NotNull
     @Size(min = 7, max = 7)
     String campphone;
-    @NotNull
     @Size(min = 4, max = 50)
     String campwebsite;
-    @NotNull
     @Size(max = 50)
     String campseason;
-    @NotNull
     @Size(max = 100)
     String maincategory;
-    @NotNull
     @Size(max = 100)
     String category;
-    @NotNull
     @Size(max = 50)
     String region;
-    @NotNull
     @Size(min = 3, max = 300)
     String description;
-    @NotNull
     int xval;
-    @NotNull
     int yval;
     double averagerating;
-    @NotNull
     int price;
 
     public Campinfo(){

@@ -9,6 +9,16 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ * Review Repository that holds all the reviews for all the campsites
+ */
+
 @Repository
 public interface reviewRepository extends JpaRepository<Review, Long> {
 
@@ -20,6 +30,12 @@ public interface reviewRepository extends JpaRepository<Review, Long> {
         @Query(value = "SELECT n FROM Review n")
         ArrayList<Review> getAll();
 
+    /**
+     * Inserts new review into database
+     * @param myReview - the review
+     * @param name - name of the campsite that the review belongs to
+     * @param user - username
+     */
     @Transactional
     @Modifying
     @Query(value = "insert into review(review,campname,username) VALUES (?1, ?2, ?3)"

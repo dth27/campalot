@@ -8,8 +8,8 @@ import javax.persistence.*;
  * HBV501G Hugbúnaðarverkefni 1
  * Háskóli Íslands
  *
- * AverageRating klasi sem inniheldur upplýsingar um hve margir hafa gefið rating
- * og hver einkunnin sé hjá hverjum og einum user
+ * AverageRating class that holds information of how many users have given a rating
+ * and what the rating is.
  */
 @Entity
 @Table(name="rating")

@@ -9,7 +9,7 @@ import java.util.Date;
  * HBV501G Hugbúnaðarverkefni 1
  * Háskóli Íslands
  *
- * Travelplanitem klasi sem inniheldur upplýsingar um travelplanitems
+ * Travelplanitem class that holds information about travelplan item
  */
 @Entity
 @Table (name = "travelplanitem")
