@@ -17,7 +17,7 @@ button:hover{
 }
 
 input {
-    font-family: Lobster, cursive !important;
+    font-family: Avenir, cursive !important;
     display: inline-block;
     border: 1px solid #2d2d2d;
     -webkit-border-radius: 18px;
@@ -76,4 +76,8 @@ fieldset {
     background-color: rgba(300, 300, 300, 0.4);
 
     padding: 1px 150px 1px 1px;
+}
+
+.login-container {
+    padding: 10px;
 }
