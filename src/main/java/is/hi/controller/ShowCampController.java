@@ -106,6 +106,14 @@ public class ShowCampController {
         return "/frontpage";
     }
 
+    @RequestMapping(value = "goToFrontpage")
+    public String goToFrontpage(Model model){
+        int count = CampsiteService.countCampInfo();
+        model.addAttribute("camps", count);
+        return "/frontpage";
+    }
+
+
 
 
 
@@ -117,6 +125,7 @@ public class ShowCampController {
     /**
      * Site to create a new user
      * @param model     model Object
+     * @return          page that the user can sign up for a new account
      * @return          page that the user can sign up for a new account
      */
     @RequestMapping("/newAccountSite")
@@ -513,6 +522,11 @@ public class ShowCampController {
         return "allCampsitesNotLoggedIn";
     }
 
+    @RequestMapping("campInfoNotLoggedIn")
+    public String campInfoNotLoggedIn(){
+        return "campInfoNotLoggedIn";
+    }
+
     /**
      * Site for the camp info
      * @return      page that shows the camp info
@@ -546,7 +560,10 @@ public class ShowCampController {
         if (area.equals("All"))
             model.addAttribute("camps", cList2);
         model.addAttribute("username",user);
-        return "allCampsites";
+        if(isLoggedIn)
+            return "allCampsites";
+        else
+            return"allCampsitesNotLoggedIn";
     }
 
 
@@ -565,7 +582,10 @@ public class ShowCampController {
         model.addAttribute("reviews", rList);
         model.addAttribute("campinfo", campinfo);
         model.addAttribute("username",user);
-        return "campInfo";
+        if(isLoggedIn)
+            return "campInfo";
+        else
+            return "campInfoNotLoggedIn";
     }
 
     /**

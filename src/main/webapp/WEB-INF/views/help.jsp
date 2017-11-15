@@ -55,8 +55,7 @@
     </nav>
 </div>
 <br>
-<div class = "howto
-">
+<div class = "howto">
     <h1>How to ...</h1>
 
     <h2>How to make a new travelplan:</h2>
