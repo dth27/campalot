@@ -30,7 +30,8 @@
     <p><b>Username: </b>${user.username}</p>
     <p><b>Email: </b>${user.email}</p>
     <br>
-    <button type="button" onclick="javascript:window.close()">Close</button>
+    <button type="button" onclick="javascript:window.close()">Close
+    </button>
     <br>
 </div>
 
