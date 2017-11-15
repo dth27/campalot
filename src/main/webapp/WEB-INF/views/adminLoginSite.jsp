@@ -8,7 +8,7 @@
 <head>
     <title>UserSite</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
-    <link rel="stylesheet" type="text/css" href="/css/allCampsitesLook.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/adminLoginSite.css?v=1">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light|Cabin" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -48,17 +48,15 @@
 
 <br><br>
 
-<div>
+<div class="adminMessage">
     ${AdminMessage}
 </div>
 
 <br><br>
 <form method = "POST" action = "addNewCampRequest">
-    <h3>Add a new camp to the database:</h3>
-    <div class="container">
-        <label><b>Camp's name</b></label>
-        <input type="text" placeholder="Type the new camp's name" name="newCampName"></input><br><br>
-    </div>
+    <div class="texti">Add a new camp to the database:</div><br>
+    <label><b>Camp's name:</b></label>
+    <input type="text" placeholder="Type the new camp's name" name="newCampName"></input><br>
     <button type="submit" name="campname" value="${camp.campname}">Add Camp</button>
 </form>
 
