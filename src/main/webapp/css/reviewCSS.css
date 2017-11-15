@@ -108,3 +108,46 @@ body {
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAE/UlEQVRIiZ2VT2xURRzHP2/evLdv3+52t6Xbf7YgFVcEREDEoEQSrHogRkg4QLxolOjFRE28cSUejYlgvJh4MMEDQWMTAv4JGEmJ8kf+lbqWFigtbbdst+1ut/u6O+NhdmkpHoyTTN7MvLzf9/v7zG/eWDzcBOADnhR4MZ+2uYA6YRGNhxExj+nbWW4XA2aBHDAHlP8lDgDWorEEEsKi6bXN7Hl+La+v6mBNRzNSSnBAjWcgN42bHiKfyZHu6aevd5g/por8CvQDs0vFagICaEjW0fXxbvbv3MyOplawo+A6oC2YV6BLoEpQKkBlFop5uDsOZ/vJdV/ip7MDfFFRXKhmBoBdfdZvSfHWofc41PUMj7Ush1gr2BEQPrg+2C5YPkgXwj6UBYQ9qPNhZRJve4o1qSTbLw0xVgjoBSo1AVkfZeXRA3z55ApisSbwkmA5YAtQCjRg26AVKBsUIG0oV0B6JktbQGOMxOokO87f5FohIA1oG/D27+TArufY7sQg3AKWWGBXE1GAI80Y26xbwqwLG2wJlTJEBaGmKF3Dk3yVnWVWxH0aujay13LAqQNr0bZblulSGsGKMm6FAFzjPuRXbYYgHDXjtW007l7POwDizVdIreskIULgegaH1g92y6oGrc6lbdzjGvduCLQA4UG8AWIRqGje3rcZKXquo7wQuBEUoNAL7u9nwSIk2sxldW4JU4KOMNWmFHguzJVxf7iML+5mGbiTQwkHoTQCY/QBEV1dkMIUdlmZjERtrxRY2ryfC2BuHppjcjofEIihDNnxaQbmgwcPx2JE90UsE0TYEMxXC6BoHFUqRkhoCAIoBuV87fTmr/Xx+wtrWRXyAGfBfY0/LPAXlvlIazh/EU4Pwh0LSgKabXi2CDqAzAx3gMB+dTVcHcbdkmJPS7IaxF5gz6K9AFABzGTh0Bk4UoSJFii3QLkeJqNwRcL0IOVGiw9P9TMoT/QB8N3xHnr9OGse76hWTWgBGRVgzjgrleDgaUjHIdYMoShY1f+BrkA5DOkNqPQvTGDOJQDlwVFOXknT6dqkOpvBlQagVQFKoHOG97E/4ZQH8Vbw6sDxBMsTm4iFm8mXR405iV3Ks8oJ801NgKkC2ZkiR7MzOB1Jtq1MGOelOciNQZCDcgkOD4JqA78BHA+E5bH1kTeQwmE4fxWUyURrHi3l+VYuAsHdewT1ET6byvOB1nilArz7KX11kssOvNjeyPiteta3+lWMuCS8dtpi64i6ScKynpuTF7lR7iGaRDghuh4QAPj6BKPtTZzb9RTbjl9gNCp56fNuRgC3fgWbNu2lR0hTli93fkRzJIUvE0ScejwZZTrIMFAtZSw2PiQAcORHDm5Ywfe9t+g+3M0E5rAqYZMu5Qm0xhXCZqxwg4nZYVLLtnIt8zNXM90oHaCVwWkJEvaiuBJzVbZP5omcvoRzc5TWzBQJoA1YVpzES3TwdLyN5TKkycz3kpntJ+Y2MjJzjanSMADzRciPw9B5jllLzEvABaKAVx0D5DG3VLlzG6mOzZxpXk3CX2Y22rIFFgqtIJiF6VEYOkeu7yTb7SUCCpgHCsAUkK32POauVZO3yYSi/KUq7LAlEYNDm8AjkL0FI5cZHbvOvom/6VmawX9pAnD9ZexoeoJP6lro9OL4NSxTI6QL93i/kOE3IPg/AmBQesAqYL2QtOsKUmvuAOeA28A0oP4Bz//sp6/edb0AAAAASUVORK5CYII=") no-repeat left center transparent;
     background-size: 100% 100%;
 }
+
+
+.navbar {
+    width: 100%;
+    font-family: Avenir, cursive;
+}
+
+.navbar-brand>img {
+    height: 100%;
+    width: auto;
+}
+
+.container-fluid .navbar-brand {
+    height: 80px;
+    width: auto;
+}
+
+.container-fluid .nav >li >a {
+    font-size: medium;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #DEDEDE;
+}
+
+.container-fluid .navbar-toggle {
+    padding: 10px;
+    margin: 0px 15px 25px 0;
+}
+
+.container-fluid .nav a:hover {
+    background-color: #90918E;
+}
+/*
+.navbar-brand>img {
+    height: 100%;
+}*/
+
+.affix {
+    top: 0;
+    width: 100%;
+    margin-left: 0;
+    z-index: 9999 !important;
+}
