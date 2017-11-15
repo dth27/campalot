@@ -709,13 +709,12 @@ public class ShowCampController {
                           @RequestParam(value="description") String description,
                           @RequestParam(value="xval") int xval,
                           @RequestParam(value="yval") int yval, Model model) {
-
         Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
                 campseason, maincategory, category, region, description, xval, yval);
 
-            CampsiteService.addNewCamp(newcampinfo);
-            //model.addAttribute("newcampinfo", newcampinfo);
-            //TODO: Bæta við í skilaboðunum nafninu, þ.e. (newcampinfo.campname)
+        CampsiteService.addNewCamp(newcampinfo);
+        //model.addAttribute("newcampinfo", newcampinfo);
+        //TODO: Bæta við í skilaboðunum nafninu, þ.e. (newcampinfo.campname)
             model.addAttribute("AdminMessage", "The new camp has been added to the list");
             cList2 = CampsiteService.getCampinfo();
             model.addAttribute("camps", cList2);
