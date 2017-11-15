@@ -14,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<h1>About Camp'A'Lot</h1>
 <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
     <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
