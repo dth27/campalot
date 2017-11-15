@@ -59,7 +59,7 @@
         <h2>Your Travelplans!</h2>
         <p>Wow you've got a lot! Check them out and edit them by pressing the name</p>
         <p>You can always add new items to your travelplan by clicking on the Campsite in the menu</p>
-        <p>more...</p>
+
     </div>
     <div class="formContainer">
 
