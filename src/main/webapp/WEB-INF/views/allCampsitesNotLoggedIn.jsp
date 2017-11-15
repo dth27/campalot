@@ -25,7 +25,9 @@
 <body>
 <h1>All campsites</h1>
 
-<button>Log in</button>
+<form action = "goToFrontpage">
+    <button type = "submit">Log in</button>
+</form>
 
 <br><br>
 <h3>Find campsites located in a specific part of the country:</h3>
