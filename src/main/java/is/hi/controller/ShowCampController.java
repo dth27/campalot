@@ -710,7 +710,7 @@ public class ShowCampController {
                           @RequestParam(value="xval") int xval,
                           @RequestParam(value="yval") int yval, Model model) {
         Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
-                campseason, maincategory, category, region, description, xval, yval);
+                campseason, maincategory, category, region, description, xval, yval, 0, 1000);
 
         CampsiteService.addNewCamp(newcampinfo);
         //model.addAttribute("newcampinfo", newcampinfo);
@@ -817,7 +817,7 @@ public class ShowCampController {
                           @RequestParam(value="yval") int yval, Model model) {
 
         Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
-                campseason, maincategory, category, region, description, xval, yval);
+                campseason, maincategory, category, region, description, xval, yval, 0, 1000);
 
         CampsiteService.updateCamp(newcampinfo);
         //model.addAttribute("newcampinfo", newcampinfo);

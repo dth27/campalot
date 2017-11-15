@@ -97,7 +97,7 @@ public class campSiteServiceImp implements campSiteService {
      */
     @Override
     public void addNewCamp(Campinfo camp) {
-        campInfoRep.addCamp(camp.getCampname(), camp.getCampaddress(), camp.getCampzip(), camp.getCampemail(), camp.getCampphone(), camp.getCampwebsite(), camp.getCampseason(), camp.getMaincategory(), camp.getCategory(), camp.getRegion(), camp.getDescription(), camp.getXval(), camp.getYval());
+        campInfoRep.addCamp(camp.getCampname(), camp.getCampaddress(), camp.getCampzip(), camp.getCampemail(), camp.getCampphone(), camp.getCampwebsite(), camp.getCampseason(), camp.getMaincategory(), camp.getCategory(), camp.getRegion(), camp.getDescription(), camp.getXval(), camp.getYval(), camp.getPrice());
     }
 
     /**
@@ -116,7 +116,7 @@ public class campSiteServiceImp implements campSiteService {
      */
     @Override
     public void updateCamp(Campinfo camp) {
-        campInfoRep.updateCamp(camp.getCampname(), camp.getCampaddress(), camp.getCampzip(), camp.getCampemail(), camp.getCampphone(), camp.getCampwebsite(), camp.getCampseason(), camp.getMaincategory(), camp.getCategory(), camp.getRegion(), camp.getDescription(), camp.getXval(), camp.getYval());
+        campInfoRep.updateCamp(camp.getCampname(), camp.getCampaddress(), camp.getCampzip(), camp.getCampemail(), camp.getCampphone(), camp.getCampwebsite(), camp.getCampseason(), camp.getMaincategory(), camp.getCategory(), camp.getRegion(), camp.getDescription(), camp.getXval(), camp.getYval(), camp.getPrice());
     }
 
 
