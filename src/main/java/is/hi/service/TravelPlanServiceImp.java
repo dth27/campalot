@@ -1,5 +1,6 @@
 package is.hi.service;
 
+import is.hi.model.Campinfo;
 import is.hi.model.TravelPlan;
 import is.hi.model.TravelPlanItem;
 import is.hi.repository.travelPlanItemRepository;
@@ -29,7 +30,8 @@ public class TravelPlanServiceImp implements TravelPlanService {
     travelPlanRepository planRep;
     @Autowired
     travelPlanItemRepository planItemRep;
-
+    @Autowired
+    campSiteService campservice;
     /**
      * An ArrayList of all the TravelPlans that have been created
      */
@@ -41,8 +43,6 @@ public class TravelPlanServiceImp implements TravelPlanService {
     private ArrayList<TravelPlanItem> listofTravelPlanitems;
 
 
-    //TODO: Held að þessi sé ónotaður (prófa að commentera hann út
-    //private ArrayList<TravelPlan> userList;
 
 
     /**
@@ -139,8 +139,9 @@ public class TravelPlanServiceImp implements TravelPlanService {
         long diff = travelplanitem.getDatedepart().getTime() - travelplanitem.getDatearrive().getTime();
         float days = (diff / (1000 * 60 * 60 * 24));
         int totaldays = Math.round(days);
-        //TODO laga svo að verð komi frá Camp ekki travelplan (cause that doesn't make sense)
-        int price = travelplanitem.getTotalprice() * totaldays;
+        Campinfo camp = campservice.getOneCampinfo(travelplanitem.getCampname());
+
+        int price = camp.getPrice() * totaldays;
         System.out.println(days);
         //long totalprice = travelplanitem.getTotalprice()*diff;
         planItemRep.addItem(travelplan, travelplanitem.getCampname(), travelplanitem.getDatearrive(), travelplanitem.getDatedepart(), price, user);

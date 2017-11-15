@@ -73,7 +73,7 @@
         <option value="Vesturland" >Vesturland</option>
         <option value="Halendid">Halendid</option>
     </select>
-    <!-- TODO: Gera drop down listann þannig að þegar maður velur eitthvað og ýtir á sort, þá geymist valið í glugganum og sést hvað er verið að sýna (þar til valið er eitthvað annað næst) -->
+
     <button>Sort</button>
 </form>
 

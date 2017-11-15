@@ -97,7 +97,7 @@ public class ShowCampController {
     /** Returns frontpage
      * @return frontpage
      */
-    //TODO breyta yfir i "frontpage" (hafa allt a ensku)
+
     @RequestMapping("/forsida")
     public String forsida(Model model)
     {
@@ -278,6 +278,8 @@ public class ShowCampController {
         tpList = travelplanService.getUserTravelplan(user);
         model.addAttribute("travelplans", tpList);
         model.addAttribute("username",user);
+        model.addAttribute("user1", user);
+
         return "notendasida";
     }
 
@@ -385,7 +387,7 @@ public class ShowCampController {
         //Greta = travelplanService.getTravelplans();
         tpList = travelplanService.getUserTravelplan(user);
         campValue = campname;
-        //TODO vantar msg sem lætur notenda vita þetta hafi gengið upp
+
         model.addAttribute("travelplans", tpList);
         model.addAttribute("username",user);
         model.addAttribute("user1", user);
@@ -408,7 +410,7 @@ public class ShowCampController {
                             @RequestParam(value="travels") String travel,
                              Model model)
     {
-        //TODO vantar msg að add hafi virkað
+
         Date realDatearr, realDatedep;
 
         realDatearr = alternativeService.dateMaker(datearr);
@@ -586,7 +588,6 @@ public class ShowCampController {
      */
     @RequestMapping(value = "/getInfo", method = RequestMethod.POST)
     public String getInfo(@RequestParam(value = "campName") String campName, Model model) {
-        //TODO thurfum ekki oll campsites
 
         rList = userService.getReviews(campName);
         Campinfo campinfo = CampsiteService.getOneCampinfo(campName);
@@ -677,7 +678,6 @@ public class ShowCampController {
     }
 
 
-//TODO: Bæta við price (integer) í öllum aðferðum í admin
 
     // --------------------------------
     // BÆTA VIÐ NÝJU TJALDSVÆÐI -ADMIN
@@ -723,6 +723,7 @@ public class ShowCampController {
      * @param description   description of the camp (String)
      * @param xval          coordinates for latitude of the camp (int)
      * @param yval          ooordinates for longitude of the camp (int)
+     *                      
      * @param model         model object
      * @return              the adminLoginSite with the updated camp list
      */
@@ -740,6 +741,7 @@ public class ShowCampController {
                           @RequestParam(value="description") String description,
                           @RequestParam(value="xval") int xval,
                           @RequestParam(value="yval") int yval, Model model) {
+
 
 
             Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
@@ -854,7 +856,7 @@ public class ShowCampController {
 
         CampsiteService.updateCamp(newcampinfo);
         //model.addAttribute("newcampinfo", newcampinfo);
-        //TODO: Bæta við í skilaboðunum nafninu, þ.e. (campname)
+
         model.addAttribute("AdminMessage", "The camp " + campname + "has been updated");
         cList2 = CampsiteService.getCampinfo();
         model.addAttribute("camps", cList2);
@@ -953,7 +955,7 @@ public class ShowCampController {
     }
 
     /**
-     * //TODO tengja og laga
+     *
      * Site for handling rating a camp
      * @param myRating      the user's rating for the camp (String)
      * @param campName2     the name of the camp (String)
