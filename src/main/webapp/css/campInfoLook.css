@@ -48,13 +48,23 @@
                     rgba(0, 0, 0, 0.5),
                     rgba(0, 0, 0, 0.5)
             ),
-            url(dark-tent.jpg);
+            url(montain.jpg);
 }
 
 body {
     background: url("montain.jpg") no-repeat center center fixed;
 
 }
+
+.ratingContainer {
+     padding-left: 5%;
+     padding-top: 2%;
+     background-color: white;
+     opacity : 0.7;
+     margin: 4rem;
+
+
+ }
 
 
 #texti {
@@ -103,4 +113,32 @@ body {
 table {
     max-width:60%;
 }
+.right {
+    float:right;
+    padding-top: 27px;
+}
+h1 {
+    font-family: Lobster, cursive !important;
+    color: #DEDEDE !important;
+    text-align: center;
+}
 
+h2 {
+    font-family: Lobster, cursive !important;
+    color: #000 !important;
+    text-align: center;
+}
+
+h3 {
+    font-family: Lobster, cursive !important;
+    color: #000 !important;
+    text-align: center;
+    font-size: 15px !important;
+}
+
+.loggedIn {
+    text-align:right;
+    padding: 0px 15px 0px 0px;
+    font-size: 12px;
+    font-family: Lobster, cursive !important;
+}
