@@ -6,6 +6,21 @@ body {
     background-size: cover;
     text-align: center;
 }
+.maincontainer {
+    display : flex;
+    background-color: #1ACD65;
+    opacity: 0.6;
+    margin: 4rem;
+}
+.textContainer {
+    padding: 4rem;
+
+
+}
+.formcontainer {
+    padding-top: 4rem;
+
+}
 
 h1 {
     font-family: Lobster, cursive !important;
@@ -125,6 +140,7 @@ table {
     width: auto;
     max-width:60%;  /*or whatever width you want. */
     margin: auto;
+
     /*border-collapse: collapse;*/
     /*border-spacing: 0;*/
 }
