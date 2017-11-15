@@ -1,52 +1,42 @@
 package is.hi.service;
-import is.hi.model.Camp;
-//import is.hi.model.loginUser;
+
+
 import is.hi.model.Campinfo;
-import is.hi.model.Review;
 import is.hi.repository.campinfoRepository;
-import is.hi.repository.campsiteRepository;
 import is.hi.repository.reviewRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.websocket.OnClose;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ * Service class for the campsites
+ */
 
 /**
  *
  */
 @Service
 public class campSiteServiceImp implements campSiteService {
-    @Autowired
-    campsiteRepository campRep;
+
     @Autowired
     campinfoRepository campInfoRep;
     @Autowired
     reviewRepository revRep;
 
-    private ArrayList<Camp> cList;
-    private ArrayList<Campinfo> BList;
-    private ArrayList<Review> rList;
-    @Override
-    public ArrayList getCampsites(){
-        cList = (ArrayList<Camp>) campRep.getAll();
-        return cList;
-    }
-    @Override
-    public Camp getOneCamp(String campname){
-        cList = (ArrayList<Camp>) campRep.getAll();
-        Camp camp1 = null;
-        for (Camp camp : cList){
-            if (camp.getCampname().equals(campname)){
-                camp1 = camp;
-                return camp1;
-            }
-        }
-        return camp1;
-    }
 
+    private ArrayList<Campinfo> BList;
+
+
+    /**
+     * Counts how many campsites we have in our database
+     * @return
+     */
     @Override
     public int countCampInfo(){
         int count = 0;
@@ -57,6 +47,11 @@ public class campSiteServiceImp implements campSiteService {
         return count;
     }
 
+    /**
+     * Gets one camp from database
+     * @param name name of the camp
+     * @return returns the camp
+     */
     @Override
     public Campinfo getOneCampinfo(String name){
         BList = (ArrayList<Campinfo>) campInfoRep.getAll();
@@ -70,14 +65,22 @@ public class campSiteServiceImp implements campSiteService {
         return camp1;
     }
 
+    /**
+     * Fetches all the campsites in the database
+     * @return Arraylist of all campsites
+     */
     @Override
     public  ArrayList getCampinfo(){
         BList = (ArrayList<Campinfo>) campInfoRep.getAll();
         return BList;
     }
 
+    /**
+     * Checks if certain campname exists
+     * @param campname - name of the camp
+     * @return true if exists, false otherwise
+     */
     @Override
-    //Checks if certain campname exists
     public boolean doesCampExist(String campname) {
         BList = (ArrayList<Campinfo>) campInfoRep.getAll();
         for (Campinfo t : BList) {
@@ -88,21 +91,30 @@ public class campSiteServiceImp implements campSiteService {
         return false;
     }
 
-    @Query
-    //Adds a new camp into table campsitebigdata
+    /**
+     * Adds a new camp into table campsitebigdata
+     * @param camp - the new camp
+     */
+    @Override
     public void addNewCamp(Campinfo camp) {
         campInfoRep.addCamp(camp.getCampname(), camp.getCampaddress(), camp.getCampzip(), camp.getCampemail(), camp.getCampphone(), camp.getCampwebsite(), camp.getCampseason(), camp.getMaincategory(), camp.getCategory(), camp.getRegion(), camp.getDescription(), camp.getXval(), camp.getYval());
     }
 
-    @Query
-    //Deletes camp in the table campsitebigdata
+    /**
+     * //Deletes camp in the table campsitebigdata
+     * @param campname - name of the campsite
+     */
+    @Override
     public void delCamp(String campname) {
         campInfoRep.deleteCamp(campname);
     }
 
 
-    @Query
-    //Adds a new camp into table campsitebigdata
+    /**
+     * Adds a new camp into table campsitebigdata
+     * @param camp
+     */
+    @Override
     public void updateCamp(Campinfo camp) {
         campInfoRep.updateCamp(camp.getCampname(), camp.getCampaddress(), camp.getCampzip(), camp.getCampemail(), camp.getCampphone(), camp.getCampwebsite(), camp.getCampseason(), camp.getMaincategory(), camp.getCategory(), camp.getRegion(), camp.getDescription(), camp.getXval(), camp.getYval());
     }

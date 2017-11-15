@@ -8,7 +8,14 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-//TODO-Dilja move price from description into an int variable
+/**
+ * @author Diljá, Ólöf, Sandra og Kristín
+ * @date september 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
+ *
+ * Campinfo class that holds information of all the campsites
+ */
 
 @Entity
 @Table (name = "campsitebigdata")

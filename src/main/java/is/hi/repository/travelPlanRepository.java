@@ -28,17 +28,28 @@ public interface travelPlanRepository extends JpaRepository<TravelPlan, String> 
     @Query(value ="SELECT a FROM TravelPlan a")
     List <TravelPlan> getAll();
 
+
    // @Query(value="SELECT a FROM travelplan a WHERE a.travelplanname = '?1' AND a.username = '?2'", nativeQuery = true)
    // List <TravelPlan> getOnePlan(String trname, String user);
 
     public List<TravelPlan> findTravelPlanByTravelplannameAndUsername(String travelplanname, String username);
 
+    /**
+     * Deletes travelplan from database
+     * @param planname - name of the plan
+     * @param user - username
+     */
     @Transactional
     @Modifying
     @Query(value="DELETE FROM travelplan WHERE  travelplanname = ?1 AND username = ?2", nativeQuery = true)
     void deleteTravelPlan(String planname, String user);
 
 
+    /**
+     * Inserts a new travelplan into database
+     * @param planname - name of the plan
+     * @param user - username
+     */
     @Transactional
     @Modifying
     @Query(value="insert into travelplan(travelplanname, username) VALUES (?1, ?2)", nativeQuery = true)

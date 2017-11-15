@@ -19,7 +19,7 @@ import java.util.Set;
  * HBV501G Hugbúnaðarverkefni 1
  * Háskóli Íslands
  *
- * userAccess klasi sem inniheldur notendaupplýsingar
+ * userAccess cass that holds informaion about user
  */
 @Entity
 @Table (name="useraccess")

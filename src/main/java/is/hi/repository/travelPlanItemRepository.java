@@ -28,28 +28,45 @@ public interface travelPlanItemRepository extends JpaRepository<TravelPlanItem, 
     @Query(value ="SELECT a FROM TravelPlanItem a")
     List<TravelPlanItem> getAll();
 
+    /**
+     * Gets one travelplan
+     * @param name - name of travelplan
+     * @param user - username
+     * @return
+     */
     @Query(value="SELECT a FROM travelplanitem a where a.travelplanname = ?1 AND a.username=?2", nativeQuery = true)
     List<TravelPlanItem> getUserItems(String name, String user);
 
     List<TravelPlanItem> findByTravelplannameAndUsername(String travelplanname, String username);
 
+    /**
+     * Deletes travelplanitem
+     * @param campname - name of camp
+     * @param planname - plan name
+     */
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM travelplanitem where campname = ?1 AND travelplanname = ?2", nativeQuery = true)
     void deletItem(String campname, String planname);
 
+    /**
+     * Deletes travelplan item
+     * @param planname - travelplan name
+     * @param user - usernam
+     */
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM travelplanitem where travelplanname = ?1 AND username = ?2", nativeQuery = true)
     void deleteTravel(String planname, String user);
 
     /**
-     * @param planname
-     * @param camp
-     * @param datearr
-     * @param datedep
-     * @param price
-     * @param user
+     * inserts into travelplanitem an item
+     * @param planname - travelplan name
+     * @param camp - camp name
+     * @param datearr - date arrive
+     * @param datedep - date depart
+     * @param price - price
+     * @param user - username
      */
     @Transactional
     @Modifying
