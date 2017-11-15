@@ -57,49 +57,49 @@
 <br>
 <div class="mainContainer">
     <div id="description">
-        <h2>Name</h2>
-        ${campinfo.campname}
-        <h2>Description</h2>
-        ${campinfo.description}
+            <h2>Name</h2>
+            ${campinfo.campname}
+            <h2>Description</h2>
+            ${campinfo.description}
     </div>
     <div class="container-info">
         <div class="container-contact">
-            <h3 id="adress">Address</h3>
-            ${campinfo.campaddress}
-            ${campinfo.campzip}
-            <h3 id="contactinfo">Contact information</h3>
-            ${campinfo.campemail}
-            ${campinfo.campphone}
-            ${campinfo.campwebsite}
-        </div>
+                <h3 id="adress">Address</h3>
+                ${campinfo.campaddress}
+                ${campinfo.campzip}
+                <h3 id="contactinfo">Contact information</h3>
+                ${campinfo.campemail}
+                ${campinfo.campphone}
+                ${campinfo.campwebsite}
+            </div>
         <div class="rating">
-            <h3>Average Rating</h3>
-            ${campinfo.averagerating}
-            <h3>Give a rating</h3>
-            <form action="giveRating" method="POST">
-                <select name="rating">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4" >4</option>
-                    <option value="5" >5</option>
-                    <option value="6" >6</option>
-                    <option value="7" >7</option>
-                    <option value="8" >8</option>
-                    <option value="9" >9</option>
-                    <option value="10" >10</option>
-                </select>
-                <button name="campName2" value="${campinfo.campname}" s>OK</button>
-            </form>
+        <h3>Average Rating</h3>
+        ${campinfo.averagerating}
+        <h3>Give a rating</h3>
+    <form action="giveRating" method="POST">
+        <select name="rating">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4" >4</option>
+            <option value="5" >5</option>
+            <option value="6" >6</option>
+            <option value="7" >7</option>
+            <option value="8" >8</option>
+            <option value="9" >9</option>
+            <option value="10" >10</option>
+        </select>
+        <button name="campName2" value="${campinfo.campname}" s>OK</button>
+    </form>
 
-            <h3>All Ratings</h3>
-            <form action="/allratings" method="POST">
-                <button name="allrat" value="${campinfo.campname}">
-                    See all ratings
-                </button>
-            </form>
-        </div>
+    <h3>All Ratings</h3>
+    <form action="/allratings" method="POST">
+        <button name="allrat" value="${campinfo.campname}">
+            See all ratings
+        </button>
+    </form>
+    </div>
     </div>
 </div>
 <div class="ratingContainer">
@@ -109,13 +109,13 @@
     <form action="seeReviews" method="POST" >
         <button name="campName" value="${campinfo.campname}" type="submit">See the reviews!</button>
     </form>
-    <h2>Do you want to visit ${campinfo.campname}?</h2>
-    <h3>Add it to your travelplan!</h3>
-    <form action="/addToPlan" method="post">
-        <button name="Campname" value="${campinfo.campname}" type="submit">
-            Add to my plan
-        </button>
-    </form>
+        <h2>Do you want to visit ${campinfo.campname}?</h2>
+        <h3>Add it to your travelplan!</h3>
+        <form action="/addToPlan" method="post">
+            <button name="Campname" value="${campinfo.campname}" type="submit">
+                Add to my plan
+            </button>
+        </form>
     <br><br>
 </div>
 <br><br><br>

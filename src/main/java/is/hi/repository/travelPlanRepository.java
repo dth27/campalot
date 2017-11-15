@@ -33,6 +33,11 @@ public interface travelPlanRepository extends JpaRepository<TravelPlan, String> 
 
     public List<TravelPlan> findTravelPlanByTravelplannameAndUsername(String travelplanname, String username);
 
+    @Transactional
+    @Modifying
+    @Query(value="DELETE FROM travelplan WHERE  travelplanname = ?1 AND username = ?2", nativeQuery = true)
+    void deleteTravelPlan(String planname, String user);
+
 
     @Transactional
     @Modifying

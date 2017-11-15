@@ -7,7 +7,8 @@
 <html lang="en">
 <head>
     <title>Review</title>
-    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/reviewCSS.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -18,7 +19,7 @@
 <h1>Give ${campinfo.campname} a review</h1>
 <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
-    <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
+    <nav class="navbar navbar-light" style="background-color: #445C80" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
@@ -33,7 +34,7 @@
             <div id="navbar1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="listofcamps">Campsites</a></li>
-                    <li><a href="getTravelItems">My Travelplans</a></li>
+                    <li><a href="myTravelplans">My Travelplans</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Info<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -48,6 +49,7 @@
                 </ul>
                 <a class = "right" href = "logOut">Log out</a>
             </div>
+
             <!--/.nav-collapse -->
         </div>
         <!--/.container-fluid -->
@@ -57,10 +59,12 @@
 
 
 <h2>Write a review for ${camp.campname} <h2></h2><br><br>
+
 <form method = "POST" action = "postReview">
     <textarea cols = "50" rows = "10" placeholder="Type your review" name="myReview" required></textarea><br><br>
     <button type="submit" name="campName" value="${camp.campname}">Submit</button>
-</form>
+</form><br>
+    <button onclick=window.history.back(); type="button" id="myPopup">Cancel</button><br><br><br>
     <div class="bottom-nav">
         Created By Diljá, Kristín, Ólöf og Sandra
     </div>

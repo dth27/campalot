@@ -7,7 +7,9 @@
 <html lang="en">
 <head>
     <title>TravelPlans</title>
-    <link rel="stylesheet" type="text/css" href="/css/myTravelplansLook.css?v=1">
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/myTravelplansLook.css?v=2">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Cabin" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

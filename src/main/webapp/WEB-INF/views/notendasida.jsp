@@ -7,7 +7,8 @@
 <html lang="en">
 <head>
     <title>UserSite</title>
-    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/notendasida.css" />
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -52,35 +53,38 @@
         <!--/.container-fluid -->
     </nav>
 </div>
-<div class="welcomeTxt">
-    <p>Well logged in ${user}</p>
-    <p> On CampALot you can survey all the different
-    camping areas that Iceland has to offer. </p>
-</div>
-<div>
-    ${TravelPlanMessage}
-</div>
-<h2>List of camps</h2>
+<div class = "main">
+    <div class="welcomeTxt">
+        <p>Well logged in ${user}</p>
+        <p> On CampALot you can survey all the different
+            camping areas that Iceland has to offer. </p>
+    </div>
+    <div>
+        ${TravelPlanMessage}
+    </div>
+    <h2>List of camps</h2>
 
-<h2>List of TravelPlans</h2>
-<form action="/newTravelPlan" method = "get">
-<table border="1">
-    <thead>
-    <tr>
-        <th>Name</th>
-
-    </tr>
-    </thead>
-    <c:forEach items="${travelplans}" var="travelplan">
-        <tr>
-            <td> ${travelplan.travelplanname} </td>
-        </tr>
-    </c:forEach>
-</table>
-</form>
-<form action="/newTravelPlan" method="get">
-<button type="submit">New TravelPlan</button>
-</form>
+    <h2>List of TravelPlans</h2>
+    <form action="/deleteTravelPlan" method = "POST">
+        <table border="1">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <c:forEach items="${travelplans}" var="travelplan">
+                <tr>
+                    <td> ${travelplan.travelplanname} </td>
+                    <td><button class = "delete" name="planName" type = "submit" value = "${travelplan.travelplanname}"></button></td>
+                </tr>
+            </c:forEach>
+        </table><br><br>
+    </form>
+    <form action="/newTravelPlan" method="get">
+        <button type="submit">New TravelPlan</button>
+    </form>
+</div>
 
 <script>
     function showPopupWindow() {

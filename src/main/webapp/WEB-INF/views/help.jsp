@@ -8,7 +8,8 @@
 <br>
 <head>
     <title>Information</title>
-    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/help.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Cabin" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -54,45 +55,49 @@
     </nav>
 </div>
 <br>
-<h1>How to ...</h1>
+<div class = "howto
+">
+    <h1>How to ...</h1>
 
-<h2>How to make a new travelplan:</h2>
-<p>
-    1. Make sure that you are logged in.<br>
-    2. Click on our logo.<br>
-    3. You will see a button called "New Travelplan", click on it.<br>
-    4. Name your travelplan and press submit.<br>
-    <br>
-    after these steps, your travelplan should be ready.
-</p>
+    <h2>How to make a new travelplan:</h2>
+    <p>
+        1. Make sure that you are logged in.<br>
+        2. Click on our logo.<br>
+        3. You will see a button called "New Travelplan", click on it.<br>
+        4. Name your travelplan and press submit.<br>
+        <br>
+        after these steps, your travelplan should be ready.
+    </p>
 
-<h2>How to add camp to your travelplan:</h2>
-<p>
-    1. Make sure that you are logged in.<br>
-    1. click on campsites.<br>
-    2. Select a campsite.<br>
-    3. Press the button "Add to my plan".<br>
-    4. Fill in required information.<br>
-    5. Press "Add to Travelplan".<br>
-    <br>
-    After these steps, the camp should be in your travelplan.
-</p>
+    <h2>How to add camp to your travelplan:</h2>
+    <p>
+        1. Make sure that you are logged in.<br>
+        1. click on campsites.<br>
+        2. Select a campsite.<br>
+        3. Press the button "Add to my plan".<br>
+        4. Fill in required information.<br>
+        5. Press "Add to Travelplan".<br>
+        <br>
+        After these steps, the camp should be in your travelplan.
+    </p>
 
-<h2>How to change password:</h2>
-<p>
-    1. Make sure that you are logged in.<br>
-    2. Click on info.<br>
-    3. Select my information.<br>
-    4. Press "Change password".<br>
-    5. Fill in required information.<br>
-    6. Press "Change password".<br>
-    <br>
-    After these setps, your password should be changed.
-    <br>
-    <br>
-    <br>
-    <br>
-</p>
+    <h2>How to change password:</h2>
+    <p>
+        1. Make sure that you are logged in.<br>
+        2. Click on info.<br>
+        3. Select my information.<br>
+        4. Press "Change password".<br>
+        5. Fill in required information.<br>
+        6. Press "Change password".<br>
+        <br>
+        After these setps, your password should be changed.
+        <br>
+        <br>
+        <br>
+        <br>
+    </p>
+
+</div>
 
 
 <div class="bottom-nav">

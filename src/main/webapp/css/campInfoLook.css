@@ -10,25 +10,12 @@
 
 body {
     background: url("montain.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+
 }
 
-.right {
-    float:right;
-    padding-top: 27px;
-}
-
-.loggedIn {
-    text-align:right;
-    padding: 0px 15px 0px 0px;
-    font-size: 12px;
-    font-family: Lobster, cursive !important;
-}
 
 #texti {
+    background-color: rgba(0, 0, 0, 0.4);
     margin-left: 5%;
     text-align: left;
     color: #DEDEDE !important;
@@ -51,54 +38,6 @@ body {
     display: inline-block;
 }
 
-h1 {
-    font-family: Lobster, cursive !important;
-    color: #DEDEDE !important;
-    text-align: center;
-}
-
-h2 {
-    font-family: Lobster, cursive !important;
-    color: #DEDEDE !important;
-    text-align: left;
-}
-
-h3 {
-    font-family: Lobster, cursive !important;
-    color: #DEDEDE !important;
-    text-align: left;
-}
-
-.navbar {
-    width: 100%;
-    font-family: Avenir, cursive;
-}
-
-.navbar-brand>img {
-    height: 100%;
-    width: auto;
-}
-
-.container-fluid .navbar-brand {
-    height: 80px;
-    width: auto;
-}
-
-.container-fluid .nav >li >a {
-    font-size: medium;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    color: #35313F;
-}
-
-.container-fluid .navbar-toggle {
-    padding: 10px;
-    margin: 0px 15px 25px 0;
-}
-
-.container-fluid .nav a:hover {
-    background-color: #6A82A4;
-}
 .mainContainer {
     display : flex;
     justify-content: center;
@@ -113,88 +52,13 @@ h3 {
     padding-right: 4rem;
 
 }
-/*
-.navbar-brand>img {
-    height: 100%;
-}*/
+
 
 .affix {
-    top: 0;
-    width: 100%;
     margin-left: 0;
-    z-index: 9999 !important;
-}
-
-fieldset {
-    height: 50%;
-    width: 60%;
-    background: #ffffff;
-    margin: auto;
-    text-align: center;
-}
-
-fieldset input {
-    text-align: center;
-}
-/*
-#nav {
-    overflow: hidden;
-    background-color: #FFFFFF; opacity: 0.9; filter: alpha(opacity=90);
-    top: 0;
-    font-family: Arial, sans-serif;
-    font-size: medium;
-    text-align: center;
-    /*z-index: 100;
-    position: fixed;
-    width: 100%;
-    height: 10%;
-}
-#nav a{
-    float: left;
-    display: block;
-    color: #262626;
-    text-align: center;
-    padding: 14px; /*16px
-    text-decoration: none;
-}
-#nav a:hover {
-    background-color: #666666;
-}*/
-
-div {
-    color: black;
 }
 
 table {
-    color: #333;
-    font-family: Helvetica, Arial, sans-serif;
-    width: auto;
-    max-width:60%;  /*or whatever width you want. */
-    /*border-collapse: collapse;*/
-    /*border-spacing: 0;*/
+    max-width:60%;
 }
 
-td, th {
-    border: 1px;  /*No more visible border*/
-    height: 30px;
-    transition: all 0.3s;   /*Simple transition for hover effect*/
-}
-
-th {
-    background: #42453D;   /*Darken header a bit*/
-    font-weight: bold;
-    font-size: large;
-    color: #DEDEDE;
-    font-family: 'Avenir', cursive;
-}
-
-td {
-    background: #FAFAFA;
-    text-align: left;
-}
-
-/*Cells in even rows (2,4,6...) are one color*/
-tr:nth-child(even) td { background: #F1f1f1; }
-
-/*Cells in odd rows (1,3,5...) are another (excludes header cells)*/
-tr:nth-child(odd) td { background: #DEDEDE; }

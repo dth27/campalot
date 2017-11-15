@@ -54,6 +54,17 @@ public class TravelPlanServiceImp implements TravelPlanService {
         listofTravelPlans = (ArrayList<TravelPlan>) planRep.getAll();
         return listofTravelPlans;
     }
+    @Override
+    public ArrayList getUserTravelplans(String plan, String user){
+        listofTravelPlans = (ArrayList<TravelPlan>) planRep.findTravelPlanByTravelplannameAndUsername(plan, user);
+        return listofTravelPlans;
+    }
+
+    @Override
+    public void deleteTraveplan(String travelplan, String user){
+        planRep.deleteTravelPlan(travelplan, user);
+        planItemRep.deleteTravel(travelplan,user);
+    }
 
     /**
      * Finds all the TravelPlans that a certain user has created

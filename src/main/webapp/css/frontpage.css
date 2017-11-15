@@ -1,0 +1,83 @@
+html{
+    font-family: Lobster, cursive !important;
+
+}
+button{
+    font-family: Lobster, cursive !important;
+}
+button:hover{
+
+}
+
+.campalot{
+    margin: auto;
+    text-align:center;
+    width: 400px;
+    background-color: rgba(300, 300, 300, 0.6);
+}
+
+input {
+    font-family: Avenir, cursive !important;
+    display: inline-block;
+    border: 1px solid #2d2d2d;
+    -webkit-border-radius: 18px;
+    border-radius: 18px;
+    color: rgba(0,0,0,1);
+    outline: none;
+    -webkit-box-shadow: 0 0 6px 2px rgba(0,0,0,0.5) ;
+    box-shadow: 0 0 6px 2px rgba(0,0,0,0.5) ;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+    text-align: center;
+}
+
+input:focus {
+    background: #e3e3e3;
+}
+
+.front-logo{
+    width: 500px;
+}
+
+.affix {
+    top: 0;
+    width: 100%;
+    margin-left: 0;
+    z-index: 9999 !important;
+}
+
+body {
+    background: url("front.jpg") no-repeat center center fixed;
+}
+
+h2{
+    font-size: xx-large
+
+}
+
+fieldset {
+    height: 50%;
+    width:90%;
+
+    margin: auto;
+    text-align: center;
+}
+
+
+.main-container {
+    background-color: rgba(300, 300, 300, 0.6);
+    width:80%;
+    padding: 5px;
+    display: inline-flex;
+    margin: auto;
+
+}
+
+.information-container {
+    background-color: rgba(300, 300, 300, 0.4);
+
+    padding: 1px 150px 1px 1px;
+}
+
+.login-container {
+    padding: 10px;
+}

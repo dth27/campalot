@@ -14,7 +14,8 @@
 <html lang="en">
 <head>
     <title>All Campsites</title>
-    <link rel="stylesheet" type="text/css" href="/css/allCampsitesLook.css?v=2">
+    <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/allCampsitesLook.css?v=1">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light|Cabin" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -64,7 +65,7 @@
 
 <br><br>
 <h3>Find campsites located in a specific part of the country:</h3>
-    <form action="showCamps" method="POST">
+    <form action="showCamps" method="POST" class = "sort">
         <select name="area">
             <option value="All">All</option>
             <option value="Sudurland">Sudurland</option>
@@ -79,23 +80,11 @@
         <button>Sort</button>
 </form>
 <br><br>
-<section class = "camps">
-        <c:forEach items="${camps}" var="camp" >
-            <form action = "getInfo" method="post">
-                <div class = "card">
-                    <div class = "card__content">
-                        <h3 class = "card__heading">${camp.campname}</h3>
-                        <h5 class = "card__region">${camp.region}</h5>
-                        <button name = "campName" type = "submit" value="${camp.campname}">See more</button>
-                    </div>
-                </div>
-            </form>
-        </c:forEach>
-</section>
 
 
 
-    <form action="getInfo" method="POST" >
+
+    <form action="getInfo" method="POST"  class = "tafla">
         <table border="1">
             <thead>
             <tr>

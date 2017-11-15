@@ -7,6 +7,7 @@
 <html lang="en">
 <head>
     <title>Admin - Change info in the selected Camp</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
     <spring:url value="/css/style.css" var="crunchifyCSS" />
     <link href="${crunchifyCSS}" rel="stylesheet" />
 </head>

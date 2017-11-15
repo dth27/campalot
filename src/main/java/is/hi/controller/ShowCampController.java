@@ -97,8 +97,12 @@ public class ShowCampController {
     /**
      * @return frontpage
      */
+    //TODO breyta yfir i "frontpage" (hafa allt a ensku)
     @RequestMapping("/forsida")
-    public String forsida(){
+    public String forsida(Model model)
+    {
+        int count = CampsiteService.countCampInfo();
+        model.addAttribute("camps", count);
         return "/frontpage";
     }
 
@@ -183,7 +187,7 @@ public class ShowCampController {
                 userService.newLoginUser(newUser);
                 model.addAttribute("user", newUser);
                 model.addAttribute("username",user);
-                return "accountInfo";
+                return "userAccount";
             } else {
                 model.addAttribute("passwordError", "The passwords do not match");
                 return "newAccountSite";
@@ -223,12 +227,16 @@ public class ShowCampController {
             return "notendasida";
         } else {
             model.addAttribute("error", "Username or password is incorrect");
+            int count = CampsiteService.countCampInfo();
+            model.addAttribute("camps", count);
             return "frontpage";
         }
     }
 
     @RequestMapping(value="logOut")
-    public String logOut(){
+    public String logOut(Model model){
+        int count = CampsiteService.countCampInfo();
+        model.addAttribute("camps", count);
         isLoggedIn = false;
         return "frontpage";
     }
@@ -248,6 +256,17 @@ public class ShowCampController {
     // ===========================
     // TRAVELPLAN HANDLING
     // ===========================
+
+    @RequestMapping(value="deleteTravelPlan")
+    public String deleteTravelPlan(Model model, @RequestParam(value="planName") String planName){
+        travelplanService.deleteTraveplan(planName, user);
+        tpList = travelplanService.getUserTravelplan(user);
+        model.addAttribute("travelplans",tpList);
+        model.addAttribute("user", user);
+
+        return "notendasida";
+    }
+
 
     /**
      * Site to create a new travel plan
@@ -318,12 +337,13 @@ public class ShowCampController {
     public String addToPlan(@RequestParam(value="Campname") String campname, Model model){
         Campinfo camp = CampsiteService.getOneCampinfo(campname);
         model.addAttribute("camp", camp);
-        tpList = travelplanService.getTravelplans();
-        ArrayList Greta;
-        Greta = travelplanService.getTravelplans();
+        //tpList = travelplanService.getTravelplans();
+        //ArrayList Greta;
+        //Greta = travelplanService.getTravelplans();
+        tpList = travelplanService.getUserTravelplan(user);
         campValue = campname;
         //TODO vantar msg sem lætur notenda vita þetta hafi gengið upp
-        model.addAttribute("travelplans", Greta);
+        model.addAttribute("travelplans", tpList);
         model.addAttribute("username",user);
         return "newTravelPlanItem";
 
@@ -364,11 +384,12 @@ public class ShowCampController {
         model.addAttribute("camps", cList2);
 
         //model.addAttribute("travelplanItems", tpiList);
-        tpList = travelplanService.getTravelplans();
-        System.out.println(tpList.get(1).getTravelplanname());
+        //tpList = travelplanService.getTravelplans();
+        tpList = travelplanService.getUserTravelplan(user);
+        //System.out.println(tpList.get(1).getTravelplanname());
         model.addAttribute("travel", tpList);
-        model.addAttribute("TravelPlanMessage", "Item has been succesfully added to your plan!");
         model.addAttribute("username",user);
+        model.addAttribute("travelplans", tpList);
         return "notendasida";
     }
 
@@ -391,7 +412,7 @@ public class ShowCampController {
     }
 
     @RequestMapping("help")
-    public String help2(Model model){
+    public String help(Model model){
         model.addAttribute("username",user);
         return "help";
     }
@@ -450,7 +471,16 @@ public class ShowCampController {
         cList2 = CampsiteService.getCampinfo();
         model.addAttribute("camps", cList2);
         model.addAttribute("username",user);
-        return "allCampsites";
+        if(isLoggedIn)
+            return "allCampsites";
+        else
+            return "allCampsitesNotLoggedIn";
+
+    }
+
+    @RequestMapping("allCampsitesNotLoggedIn")
+    public String allCampsitesNL(){
+        return "allCampsitesNotLoggedIn";
     }
 
     /**
@@ -499,6 +529,7 @@ public class ShowCampController {
      */
     @RequestMapping(value = "/getInfo", method = RequestMethod.POST)
     public String getInfo(@RequestParam(value = "campName") String campName, Model model) {
+        //TODO thurfum ekki oll campsites
 
         rList = userService.getReviews(campName);
         Campinfo campinfo = CampsiteService.getOneCampinfo(campName);
@@ -803,7 +834,7 @@ public class ShowCampController {
         System.out.println("Travelname= " + planname);
         try {
             tpiList = travelplanService.getOneTravelPlan(planname, user);
-            tpList = travelplanService.getTravelplans();
+            tpList = travelplanService.getUserTravelplans(planname, user);
             TravelPlan travelplan = travelplanService.onePlan(planname,user);
             tpiList = alternativeService.dateChanger(tpiList);
             if (tpiList == null) {
