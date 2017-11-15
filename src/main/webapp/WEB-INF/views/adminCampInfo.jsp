@@ -108,6 +108,10 @@
             </button>
         </form>
 </div>
+<br>
+<br>
+<br>
+
 <div class="bottom-nav">
     Created By Diljá, Kristín, Ólöf og Sandra
 </div>
