@@ -692,6 +692,7 @@ public class ShowCampController {
      * @param description   description of the camp (String)
      * @param xval          coordinates for latitude of the camp (int)
      * @param yval          ooordinates for longitude of the camp (int)
+     * @param price         price of the camp (int)
      * @param model         model object
      * @return              the adminLoginSite with the updated camp list
      */
@@ -708,15 +709,16 @@ public class ShowCampController {
                           @RequestParam(value="region") String region,
                           @RequestParam(value="description") String description,
                           @RequestParam(value="xval") int xval,
-                          @RequestParam(value="yval") int yval, Model model) {
+                          @RequestParam(value="yval") int yval,
+                          @RequestParam(value="price") int price, Model model) {
 
+        //The rating starts at cero and gets updated as soon as a user rates the camp
+        double averageRating = 0;
         Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
-                campseason, maincategory, category, region, description, xval, yval, 0, 1000);
+                campseason, maincategory, category, region, description, xval, yval, averageRating, price);
 
             CampsiteService.addNewCamp(newcampinfo);
-            //model.addAttribute("newcampinfo", newcampinfo);
-            //TODO: Bæta við í skilaboðunum nafninu, þ.e. (newcampinfo.campname)
-            model.addAttribute("AdminMessage", "The new camp has been added to the list");
+            model.addAttribute("AdminMessage", "The new camp " + campname + " has been added to the list");
             cList2 = CampsiteService.getCampinfo();
             model.addAttribute("camps", cList2);
         model.addAttribute("username",user);
@@ -799,6 +801,7 @@ public class ShowCampController {
      * @param description   description of the camp (String)
      * @param xval          coordinates for latitude of the camp (int)
      * @param yval          ooordinates for longitude of the camp (int)
+     * @param price         the price of the camp (int)
      * @param model         model object
      * @return              the adminLoginSite with the updated camp list
      */
@@ -815,15 +818,18 @@ public class ShowCampController {
                           @RequestParam(value="region") String region,
                           @RequestParam(value="description") String description,
                           @RequestParam(value="xval") int xval,
-                          @RequestParam(value="yval") int yval, Model model) {
+                          @RequestParam(value="yval") int yval,
+                          @RequestParam(value="price") int price,  Model model) {
+
+        Campinfo campinfo = new Campinfo();
+        campinfo = CampsiteService.getOneCampinfo(campname);
+        double averageRating = campinfo.getAveragerating();
 
         Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
-                campseason, maincategory, category, region, description, xval, yval, 0, 1000);
+                campseason, maincategory, category, region, description, xval, yval, averageRating, price);
 
         CampsiteService.updateCamp(newcampinfo);
-        //model.addAttribute("newcampinfo", newcampinfo);
-        //TODO: Bæta við í skilaboðunum nafninu, þ.e. (campname)
-        model.addAttribute("AdminMessage", "The camp " + campname + "has been updated");
+        model.addAttribute("AdminMessage", "The camp " + campname + " has been updated");
         cList2 = CampsiteService.getCampinfo();
         model.addAttribute("camps", cList2);
         model.addAttribute("username",user);
