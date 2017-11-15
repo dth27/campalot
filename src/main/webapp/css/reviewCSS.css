@@ -151,3 +151,86 @@ body {
     margin-left: 0;
     z-index: 9999 !important;
 }
+
+
+.navbar {
+    width: 100%;
+    font-family: Lobster, cursive;
+}
+
+.navbar-brand>img {
+    height: 100%;
+    width: auto;
+}
+
+.container-fluid .navbar-brand {
+    height: 80px;
+    width: auto;
+}
+
+.container-fluid .nav >li >a {
+    font-size: medium;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #DEDEDE;
+}
+
+.container-fluid .navbar-toggle {
+    padding: 10px;
+    margin: 0px 15px 25px 0;
+}
+
+html{
+    text-align: center;
+}
+.bottom-nav {
+    text-align: center;
+    color: ghostwhite;
+    font-size: 15px;
+    background-color: #42453D;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    float: left
+}
+
+.right {
+    float:right;
+    padding-top: 27px;
+}
+
+.loggedIn {
+    text-align:right;
+    padding: 0px 15px 0px 0px;
+    font-size: 12px;
+    font-family: Lobster, cursive !important;
+}
+
+.container-fluid .nav a:hover {
+    background-color: #90918E;
+}
+/*
+.navbar-brand>img {
+    height: 100%;
+}*/
+
+h1 {
+    font-family: Lobster, cursive !important;
+    color: #DEDEDE !important;
+    text-align: center;
+}
+
+
+h2 {
+    font-family: Lobster, cursive !important;
+    text-align: center;
+}
+
+h3 {
+    font-family: Lobster, cursive !important;
+    color: #DEDEDE !important;
+    text-align: center;
+    font-size: 15px !important;
+}

@@ -14,7 +14,7 @@
 <html lang="en">
 <head>
     <title>My account</title>
-    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=2">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -60,13 +60,15 @@
     </nav>
 </div>
 <br><br>
-<h2>This is your account information!</h2>
-<p style="color: red">${passwordChange}</p>
-<p><b>Username: </b>${user.username}</p>
-<p><b>Email: </b>${user.email}</p>
-<form action="/changePassword">
-    <button type="submit">Change password</button>
-</form>
+<div class = "info">
+    <h2>This is your account information!</h2>
+    <p style="color: red">${passwordChange}</p>
+    <p><b>Username: </b>${user.username}</p>
+    <p><b>Email: </b>${user.email}</p>
+    <form action="/changePassword">
+        <button type="submit">Change password</button>
+    </form>
+</div>
 
 <br>
 
