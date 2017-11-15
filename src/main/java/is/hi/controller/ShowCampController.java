@@ -582,7 +582,7 @@ public class ShowCampController {
         Campinfo campinfo = CampsiteService.getOneCampinfo((campName));
         model.addAttribute("campinfo", campinfo);
         model.addAttribute("username",user);
-        return "campInfo";
+        return "adminCampInfo";
     }
 
     /**
@@ -599,6 +599,7 @@ public class ShowCampController {
     }
 
 
+//TODO: Bæta við price (integer) í öllum aðferðum í admin
 
     // --------------------------------
     // BÆTA VIÐ NÝJU TJALDSVÆÐI -ADMIN
