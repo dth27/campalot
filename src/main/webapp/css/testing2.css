@@ -1,8 +1,23 @@
 body {
-    background-color:white;
-    text-align: center;
+    background: url("waterfall1.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
+.loggedIn{
+    background-color: white;
+    opacity: 0.4;
+}
+.welcomeTxt{
+    background-color: white;
+    opacity: 0.6;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
 
+}
 
 h1 {
     font-family: Avenir, cursive !important;

@@ -98,6 +98,18 @@ li a:hover {
 div {
     color: black;
 }
+.bottom-nav {
+    text-align: center;
+    color: ghostwhite;
+    font-size: 15px;
+    background-color: #42453D;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    float: left
+}
 
 fieldset {
     height: 50%;

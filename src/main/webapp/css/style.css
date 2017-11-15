@@ -1,5 +1,9 @@
 body{
-    background-color: #fff;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
 }
 
 .affix {
@@ -85,19 +89,63 @@ fieldset {
 fieldset input {
     text-align: center;
 }
-
 h1 {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Avenir, cursive !important;
     text-align: center;
 }
 
 h2 {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Avenir, cursive !important;
     text-align: center;
 }
 
 h3 {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Avenir, cursive !important;
     text-align: center;
+}
 
+.navbar {
+    width: 100%;
+    font-family: Lobster, cursive;
+}
+
+
+.navbar-brand>img {
+    height: 150%;
+    width: auto;
+}
+
+.container-fluid .navbar-brand {
+    height: 80px;
+    width: auto;
+}
+
+.container-fluid .nav >li >a {
+    font-size: medium;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #DEDEDE;
+}
+
+.container-fluid .navbar-toggle {
+    padding: 10px;
+    margin: 0px 15px 25px 0;
+}
+
+.container-fluid .nav a:hover {
+    background-color: #90918E;
+}
+
+
+.bottom-nav {
+    text-align: center;
+    color: ghostwhite;
+    font-size: 15px;
+    background-color: #42453D;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    float: left
 }

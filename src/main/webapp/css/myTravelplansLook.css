@@ -1,10 +1,6 @@
 body {
-    background: url("northernlights.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    text-align: center;
+    background: url("northernlights-aurora.jpg") no-repeat center center fixed;
+
 }
 .maincontainer {
     display : flex;
@@ -24,7 +20,7 @@ body {
 
 h1 {
     font-family: Lobster, cursive !important;
-    color: #DEDEDE !important;
+    color: #000 !important;
     text-align: center;
 }
 
@@ -163,7 +159,18 @@ td {
     background: #FAFAFA;
     text-align: left;
 }
-
+.bottom-nav {
+    text-align: center;
+    color: ghostwhite;
+    font-size: 15px;
+    background-color: #42453D;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    float: left
+}
 /*Cells in even rows (2,4,6...) are one color*/
 tr:nth-child(even) td { background: #F1f1f1; }
 

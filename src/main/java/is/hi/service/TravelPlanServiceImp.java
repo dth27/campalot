@@ -145,7 +145,7 @@ public class TravelPlanServiceImp implements TravelPlanService {
         //long totalprice = travelplanitem.getTotalprice()*diff;
         planItemRep.addItem(travelplan, travelplanitem.getCampname(), travelplanitem.getDatearrive(), travelplanitem.getDatedepart(), price, user);
     }
-//TODO koma öll travelplan, ekki bara einn notenda
+
     @Override
     public ArrayList getOneTravelPlan(String travelplanname, String user) {
         TravelPlan travelplan = new TravelPlan();
