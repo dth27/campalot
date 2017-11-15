@@ -1,6 +1,7 @@
 package is.hi.model;
 
 import org.hibernate.validator.constraints.Email;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -2,7 +2,7 @@
 
 .navbar {
     width: 100%;
-    font-family: Lobster, cursive;
+    font-family: Lobster, cursive !important;
 }
 
 .navbar-brand>img {

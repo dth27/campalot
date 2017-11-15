@@ -246,7 +246,7 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    //TODO hvað gerir þetta??
+
     public ArrayList getUser(String username){
     tList = (ArrayList<userAccess>) travRep.getUserfromname(username);
         return tList;
