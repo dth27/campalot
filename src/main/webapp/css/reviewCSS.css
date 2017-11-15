@@ -59,73 +59,6 @@
 
 body {
     background: url("review-background.jpg") no-repeat center center fixed;
-    text-align: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-
-h1 {
-    font-family: Lobster, cursive !important;
-    text-align: center;
-    color:#DEDEDE !important;
-}
-
-h2 {
-    font-family: Lobster, cursive !important;
-    text-align: center;
-}
-
-h3 {
-    font-family: Lobster, cursive !important;
-    text-align: center;
-}
-
-.navbar {
-    width: 100%;
-    font-family: Lobster, cursive;
-}
-
-.navbar-brand>img {
-    height: 100%;
-    width: auto;
-}
-
-.container-fluid .navbar-brand {
-    height: 80px;
-    width: auto;
-}
-
-.container-fluid .nav >li >a {
-    font-size: medium;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    color: #DEDEDE;
-}
-
-.container-fluid .navbar-toggle {
-    padding: 10px;
-    margin: 0px 15px 25px 0;
-}
-
-.container-fluid .nav a:hover {
-    background-color: #90918E;
-}
-
-
-.bottom-nav {
-    text-align: center;
-    color: ghostwhite;
-    font-size: 15px;
-    background-color: #42453D;
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 30px;
-    float: left
 }
 
 
@@ -141,42 +74,15 @@ h3 {
     width: 400px;
     padding: 1px 150px 1px 1px;
 }
-/*
-.navbar-brand>img {
-    height: 100%;
-}*/
 
 .affix {
-    top: 0;
-    width: 100%;
     margin-left: 0;
-    z-index: 9999 !important;
+
 }
 
-fieldset {
-    height: 50%;
-    width: 60%;
-    background: #ffffff;
-    margin: auto;
-    text-align: center;
-}
 
 .front-logo{
     width: 500px;
-}
-
-.right {
-    float:right;
-    padding-top: 27px;
-
-}
-
-.loggedIn {
-    text-align:right;
-    padding: 0px 15px 0px 0px;
-    font-size: 12px;
-    font-family: Lobster, cursive !important;
-    color: #DEDEDE !important;
 }
 
 .review-button {

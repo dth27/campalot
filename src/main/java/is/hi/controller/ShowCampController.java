@@ -363,12 +363,13 @@ public class ShowCampController {
     public String addToPlan(@RequestParam(value="Campname") String campname, Model model){
         Campinfo camp = CampsiteService.getOneCampinfo(campname);
         model.addAttribute("camp", camp);
-        tpList = travelplanService.getTravelplans();
-        ArrayList Greta;
-        Greta = travelplanService.getTravelplans();
+        //tpList = travelplanService.getTravelplans();
+        //ArrayList Greta;
+        //Greta = travelplanService.getTravelplans();
+        tpList = travelplanService.getUserTravelplan(user);
         campValue = campname;
         //TODO vantar msg sem lætur notenda vita þetta hafi gengið upp
-        model.addAttribute("travelplans", Greta);
+        model.addAttribute("travelplans", tpList);
         model.addAttribute("username",user);
         return "newTravelPlanItem";
 
@@ -408,10 +409,12 @@ public class ShowCampController {
 
 
         //model.addAttribute("travelplanItems", tpiList);
-        tpList = travelplanService.getTravelplans();
-        System.out.println(tpList.get(1).getTravelplanname());
+        //tpList = travelplanService.getTravelplans();
+        tpList = travelplanService.getUserTravelplan(user);
+        //System.out.println(tpList.get(1).getTravelplanname());
         model.addAttribute("travel", tpList);
         model.addAttribute("username",user);
+        model.addAttribute("travelplans", tpList);
         return "notendasida";
     }
 

@@ -17,6 +17,7 @@
 <html lang="en">
 <head>
     <title>New Account</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
     <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
     <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

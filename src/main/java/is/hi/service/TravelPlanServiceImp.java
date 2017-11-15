@@ -41,6 +41,10 @@ public class TravelPlanServiceImp implements TravelPlanService {
     private ArrayList<TravelPlanItem> listofTravelPlanitems;
 
 
+    //TODO: Held að þessi sé ónotaður (prófa að commentera hann út
+    //private ArrayList<TravelPlan> userList;
+
+
     /**
      * Finds all the TravelPlans that have been created (and are in the database)
      * @return      an ArrayList of all the TravelPlans
@@ -50,24 +54,12 @@ public class TravelPlanServiceImp implements TravelPlanService {
         listofTravelPlans = (ArrayList<TravelPlan>) planRep.getAll();
         return listofTravelPlans;
     }
-
-    /**
-     * Gets list of travelplans the user owns
-     * @param plan -
-     * @param user - username
-     * @return
-     */
     @Override
     public ArrayList getUserTravelplans(String plan, String user){
         listofTravelPlans = (ArrayList<TravelPlan>) planRep.findTravelPlanByTravelplannameAndUsername(plan, user);
         return listofTravelPlans;
     }
 
-    /**
-     * Deletes travelplan from database and all the travelplans items.
-     * @param travelplan - name of the travelplan
-     * @param user - username
-     */
     @Override
     public void deleteTraveplan(String travelplan, String user){
         planRep.deleteTravelPlan(travelplan, user);
@@ -147,21 +139,13 @@ public class TravelPlanServiceImp implements TravelPlanService {
         long diff = travelplanitem.getDatedepart().getTime() - travelplanitem.getDatearrive().getTime();
         float days = (diff / (1000 * 60 * 60 * 24));
         int totaldays = Math.round(days);
-        //TODO laga svo að verð komi frá campinfo ekki travelplan (cause that doesn't make sense)
+        //TODO laga svo að verð komi frá Camp ekki travelplan (cause that doesn't make sense)
         int price = travelplanitem.getTotalprice() * totaldays;
         System.out.println(days);
         //long totalprice = travelplanitem.getTotalprice()*diff;
         planItemRep.addItem(travelplan, travelplanitem.getCampname(), travelplanitem.getDatearrive(), travelplanitem.getDatedepart(), price, user);
     }
 
-    //TODO koma öll travelplan, ekki bara einn notenda
-
-    /**
-     * gets travelplan for user
-     * @param travelplanname - name of travelplan
-     * @param user - username
-     * @return
-     */
     @Override
     public ArrayList getOneTravelPlan(String travelplanname, String user) {
         TravelPlan travelplan = new TravelPlan();
@@ -178,22 +162,11 @@ public class TravelPlanServiceImp implements TravelPlanService {
         return listofTravelPlanitems;
     }
 
-    /**
-     * getes the items of the travelplan
-     * @param travelplanname - name of the travelplan
-     * @param user - username
-     * @return ArrayList containing items for travelplan
-     */
     @Override
     public ArrayList getOneTravelPlanItems(String travelplanname, String user) {
         return null;
     }
 
-    /**
-     *
-     * @param travelplan
-     * @return
-     */
     @Override
     public ArrayList getOneUserItems(TravelPlan travelplan) {
         String travelplanname = travelplan.getTravelplanname();
@@ -207,23 +180,12 @@ public class TravelPlanServiceImp implements TravelPlanService {
         return listofTravelPlanitems;
     }
 
-    /**
-     *
-     * @param listofplans
-     * @return
-     */
     @Override
     public ArrayList getAllUserItems(ArrayList listofplans) {
         return null;
 
     }
 
-    /**
-     * gets one plan
-     * @param travelname - travelplan name
-     * @param user - username
-     * @return Travelplan object
-     */
     @Override
     public TravelPlan onePlan(String travelname, String user){
         listofTravelPlans = (ArrayList<TravelPlan>) planRep.findTravelPlanByTravelplannameAndUsername(travelname, user);
