@@ -7,12 +7,14 @@
 <html lang="en">
 <head>
     <title>UserSite</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css?v=2">
-    <link rel="stylesheet" type="text/css" href="/css/notendasida.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/notendasida.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <h1>Welcome! </h1>
@@ -89,6 +91,11 @@
 <script>
     function showPopupWindow() {
         window.open(action = "/newTravelPlan", "", "width=600,height=300");}
+</script>
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
 </script>
 <div class="bottom-nav">
     Created By Diljá, Kristín, Ólöf og Sandra
