@@ -17,7 +17,7 @@
 <html lang="en">
 <head>
     <title>New Account</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=2">
     <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
     <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -32,30 +32,32 @@
 
 </div>
 
+<div class = "info">
+    <%--@elvariable id="newUserForm" type="is.hi.model.userAccess"--%>
+    <form:form action="/newAccount" method="post" modelAttribute="newUserForm">
 
-<%--@elvariable id="newUserForm" type="is.hi.model.userAccess"--%>
-<form:form action="/newAccount" method="post" modelAttribute="newUserForm">
+        <div class="maincontainer">
 
-    <div class="maincontainer">
+            <form:label path="email" for="email"><b>Email</b></form:label><br>
+            <form:input path="email" placeholder="Enter Email"></form:input><br>
+            <form:errors path="email" style="color: RED"></form:errors><br>
+            <form:label path="username" for="username"><b>Username</b></form:label><br>
+            <form:input path="username" placeholder="Enter Username"></form:input><br>
+            <form:errors path="username" style="color: RED"></form:errors><br>
+            <form:label path="password" for="pw1"><b>Password</b></form:label><br>
+            <form:input path="password" type="password" placeholder="Enter Password"></form:input><br>
+            <form:errors path="password" style="color: RED"></form:errors><br>
+            <label for="pw"><b>Re-enter password</b></label><br>
+            <input type="password" placeholder="Enter Password" name="pw" id="pw"><br><br>
+            <p style="color: RED">${passwordError}</p>
+            <p style="color: red">${userExists}</p>
 
-        <form:label path="email" for="email"><b>Email</b></form:label><br>
-        <form:input path="email" placeholder="Enter Email"></form:input><br>
-        <form:errors path="email" style="color: RED"></form:errors><br>
-        <form:label path="username" for="username"><b>Username</b></form:label><br>
-        <form:input path="username" placeholder="Enter Username"></form:input><br>
-        <form:errors path="username" style="color: RED"></form:errors><br>
-        <form:label path="password" for="pw1"><b>Password</b></form:label><br>
-        <form:input path="password" type="password" placeholder="Enter Password"></form:input><br>
-        <form:errors path="password" style="color: RED"></form:errors><br>
-        <label for="pw"><b>Re-enter password</b></label><br>
-        <input type="password" placeholder="Enter Password" name="pw" id="pw"><br><br>
-        <p style="color: RED">${passwordError}</p>
-        <p style="color: red">${userExists}</p>
-
-        <button type="submit" method="POST" action="campsites/newAccount">submit</button>
+            <button type="submit" method="POST" action="campsites/newAccount">submit</button>
 
 
-    </div>
-</form:form>
+        </div>
+    </form:form>
+</div>
+
 </body>
 </html>

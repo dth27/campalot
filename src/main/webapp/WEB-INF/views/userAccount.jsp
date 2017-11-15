@@ -23,11 +23,17 @@
 </head>
 <body>
 <h1>My account</h1>
-<br><br>
-<h2>Hello {user.username}, here is your information!</h2>
+<div class = info>
+    <br><br>
+    <h2>Hello {user.username}, here is your information!</h2>
 
-<p><b>Username: </b>${user.username}</p>
-<p><b>Email: </b>${user.email}</p>
+    <p><b>Username: </b>${user.username}</p>
+    <p><b>Email: </b>${user.email}</p>
+    <br>
+    <button type="button" onclick="javascript:window.close()">Close</button>
+    <br>
+</div>
+
 
 <br>
 
