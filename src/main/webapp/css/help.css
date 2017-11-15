@@ -1,0 +1,123 @@
+
+
+body {
+    background: url("help.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align:-webkit-center;
+}
+
+.right {
+    float:right;
+    padding-top: 27px;
+}
+
+.loggedIn {
+    text-align:right;
+    padding: 0px 15px 0px 0px;
+    font-size: 12px;
+    font-family: Lobster, cursive !important;
+}
+
+
+h1 {
+    font-family: Lobster, cursive !important;
+
+    text-align: center;
+}
+
+.howto{
+    color: #DEDEDE !important;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    font-family: Lobster, cursive !important;
+    color: #DEDEDE !important;
+    text-align: center;
+}
+
+
+p{
+    font-family: Lobster, cursive !important;
+
+}
+
+.navbar {
+    font-family: Lobster, cursive !important;
+    width: 100%;
+
+}
+
+.navbar-brand>img {
+    height: 100%;
+    width: auto;
+}
+
+.container-fluid .navbar-brand {
+
+    height: 80px;
+    width: auto;
+}
+
+.container-fluid .nav >li >a {
+    font-family: Lobster, cursive !important;
+    font-size: medium;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #DEDEDE;
+}
+
+.bottom-nav {
+
+    text-align: center;
+    color: ghostwhite;
+    font-size: 15px;
+    background-color: #42453D;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    float: left
+}
+
+.container-fluid .navbar-toggle {
+    font-family: Lobster, cursive !important;
+    padding: 10px;
+    margin: 0px 15px 25px 0;
+}
+
+.container-fluid .nav a:hover {
+    font-family: Lobster, cursive !important;
+    background-color: #6A82A4;
+}
+.mainContainer {
+    font-family: Lobster, cursive !important;
+    display : flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+    opacity : 0.7;
+    margin: 4rem;
+    justify-content: space-around;
+
+}
+.container-info {
+    padding-right: 4rem;
+
+}
+/*
+.navbar-brand>img {
+    height: 100%;
+}*/
+
+.affix {
+    top: 0;
+    width: 100%;
+    margin-left: 0;
+    z-index: 9999 !important;
+}
+

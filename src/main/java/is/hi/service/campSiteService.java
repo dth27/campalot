@@ -19,5 +19,6 @@ public interface campSiteService {
     void addNewCamp(Campinfo camp);
     void delCamp(String campname);
     void updateCamp(Campinfo camp);
+    int countCampInfo();
     boolean erALifi();
 }

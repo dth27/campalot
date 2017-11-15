@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <title>Review</title>
-    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/reviewCSS.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -57,10 +57,12 @@
 
 
 <h2>Write a review for ${camp.campname} <h2></h2><br><br>
+
 <form method = "POST" action = "postReview">
     <textarea cols = "50" rows = "10" placeholder="Type your review" name="myReview" required></textarea><br><br>
     <button type="submit" name="campName" value="${camp.campname}">Submit</button>
-</form>
+</form><br>
+    <button onclick=window.history.back(); type="button" id="myPopup">Cancel</button><br><br><br>
     <div class="bottom-nav">
         Created By Diljá, Kristín, Ólöf og Sandra
     </div>

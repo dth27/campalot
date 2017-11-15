@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.websocket.OnClose;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -45,6 +46,17 @@ public class campSiteServiceImp implements campSiteService {
         }
         return camp1;
     }
+
+    @Override
+    public int countCampInfo(){
+        int count = 0;
+        BList = (ArrayList<Campinfo>) campInfoRep.getAll();
+        for(Campinfo camp : BList){
+            count = count + 1 ;
+        }
+        return count;
+    }
+
     @Override
     public Campinfo getOneCampinfo(String name){
         BList = (ArrayList<Campinfo>) campInfoRep.getAll();

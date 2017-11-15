@@ -2,6 +2,19 @@ html {
     box-sizing: border-box;
 }
 
+.bottom-nav {
+    text-align: center;
+    color: ghostwhite;
+    font-size: 15px;
+    background-color: #42453D;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    float: left
+}
+
 body {
     background: url("camps.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -119,17 +132,7 @@ section{
 form{
     padding: 20px;
     display: -webkit-inline-box;
-    width:250px;
     height:inherit;
-}
-
-.card__content {
-    padding: 15px;
-    margin: auto;
-}
-
-.card__text {
-    margin-bottom: 30px;
 }
 
 
@@ -174,7 +177,7 @@ table {
     color: #333;
     font-family: Helvetica, Arial, sans-serif;
     width: auto;
-    max-width:60%;  /*or whatever width you want. */
+    max-width:100%;  /*or whatever width you want. */
     margin: auto;
     /*border-collapse: collapse;*/
     /*border-spacing: 0;*/
