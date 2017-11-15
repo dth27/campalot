@@ -135,7 +135,10 @@ h3 {
     text-align: center;
     font-size: 15px !important;
 }
-
+p {
+    font-size: 2rem;
+    text-align:-webkit-auto;
+}
 .loggedIn {
     text-align:right;
     padding: 0px 15px 0px 0px;

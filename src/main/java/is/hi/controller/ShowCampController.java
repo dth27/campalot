@@ -290,7 +290,7 @@ public class ShowCampController {
      * @param planName - the name of the travelplan
      * @return
      */
-    @RequestMapping(value="deleteTravelPlan", method = RequestMethod.GET)
+    @RequestMapping(value="deleteTravelPlan", method = RequestMethod.POST)
     public String deleteTravelPlan(Model model, @RequestParam(value="planName") String planName){
         travelplanService.deleteTraveplan(planName, user);
         tpList = travelplanService.getUserTravelplan(user);

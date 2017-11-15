@@ -173,6 +173,15 @@ input {
     text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
     text-align: center;
 }
+.aboutcontainer{
+    opacity: 0.8;
+    background-color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 5%;
+
+
+}
 
 input:focus {
     background: #e3e3e3;
