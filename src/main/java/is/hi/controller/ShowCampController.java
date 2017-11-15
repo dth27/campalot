@@ -123,6 +123,7 @@ public class ShowCampController {
     public String newAccountSite(Map<String, Object> model) {
         model.put("newUserForm", new userAccess());
         return "newAccountSite";
+
     }
 
     /**
