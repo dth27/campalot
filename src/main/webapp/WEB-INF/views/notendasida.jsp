@@ -10,11 +10,9 @@
 
     <link rel="stylesheet" type="text/css" href="/css/notendasida.css?v=3">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 </head>
 <body>
 <h1>Welcome! </h1>
@@ -43,7 +41,7 @@
                             <li><a href="UserReviews">My reviews</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-header">About</li>
-                            <li><a href="#">About Camp'A'Lot</a></li>
+                            <li><a href="aboutCampALot">About Camp'A'Lot</a></li>
                             <li><a href="help">Help</a></li>
                         </ul>
                     </li>

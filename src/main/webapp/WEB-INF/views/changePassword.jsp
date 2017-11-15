@@ -26,7 +26,7 @@
 <h1>My account</h1>
 <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
-    <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
+    <nav class="navbar navbar-light" style="background-color: #445C80" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
@@ -43,20 +43,20 @@
                     <li class="active"><a href="listofcamps">Campsites</a></li>
                     <li><a href="getTravelItems">My Travelplans</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My
-                            account <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Info<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="accountInfo">My information</a></li>
                             <li><a href="UserReviews">My reviews</a></li>
                             <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
+                            <li class="dropdown-header">About</li>
+                            <li><a href="aboutCampALot">About Camp'A'Lot</a></li>
                             <li><a href="help">Help</a></li>
                         </ul>
                     </li>
                 </ul>
                 <a class = "right" href = "logOut">Log out</a>
             </div>
+
             <!--/.nav-collapse -->
         </div>
         <!--/.container-fluid -->

@@ -24,12 +24,10 @@
 <body>
 <h1>My account</h1>
 <br><br>
-<h2>This is your account information!</h2>
+<h2>Hello {user.username}, here is your information!</h2>
 
 <p><b>Username: </b>${user.username}</p>
 <p><b>Email: </b>${user.email}</p>
-
-<button type="button" onclick="javascript:window.close()">close</button>
 
 <br>
 
