@@ -14,6 +14,7 @@
 <html lang="en">
 <head>
     <title>My account</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
     <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

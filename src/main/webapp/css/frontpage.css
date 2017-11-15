@@ -1,5 +1,4 @@
 html{
-    text-align:center;
     font-family: Lobster, cursive !important;
 
 }
@@ -48,11 +47,6 @@ input:focus {
 
 body {
     background: url("front.jpg") no-repeat center center fixed;
-    text-align: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
 
 h2{
@@ -68,18 +62,6 @@ fieldset {
     text-align: center;
 }
 
-.bottom-nav {
-    text-align: center;
-    color: ghostwhite;
-    font-size: 15px;
-    background-color: #42453D;
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 30px;
-    float: left
-}
 
 .main-container {
     background-color: rgba(300, 300, 300, 0.6);
