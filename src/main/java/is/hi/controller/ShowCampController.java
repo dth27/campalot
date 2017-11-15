@@ -99,7 +99,10 @@ public class ShowCampController {
      */
     //TODO breyta yfir i "frontpage" (hafa allt a ensku)
     @RequestMapping("/forsida")
-    public String forsida(){
+    public String forsida(Model model)
+    {
+        int count = CampsiteService.countCampInfo();
+        model.addAttribute("camps", count);
         return "/frontpage";
     }
 
@@ -223,12 +226,16 @@ public class ShowCampController {
             return "notendasida";
         } else {
             model.addAttribute("error", "Username or password is incorrect");
+            int count = CampsiteService.countCampInfo();
+            model.addAttribute("camps", count);
             return "frontpage";
         }
     }
 
     @RequestMapping(value="logOut")
-    public String logOut(){
+    public String logOut(Model model){
+        int count = CampsiteService.countCampInfo();
+        model.addAttribute("camps", count);
         isLoggedIn = false;
         return "frontpage";
     }

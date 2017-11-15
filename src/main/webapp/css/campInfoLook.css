@@ -92,6 +92,19 @@ h3 {
     color: #35313F;
 }
 
+.bottom-nav {
+    text-align: center;
+    color: ghostwhite;
+    font-size: 15px;
+    background-color: #42453D;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    float: left
+}
+
 .container-fluid .navbar-toggle {
     padding: 10px;
     margin: 0px 15px 25px 0;

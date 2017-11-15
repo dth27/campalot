@@ -14,7 +14,7 @@
 <html lang="en">
 <head>
     <title>All Campsites</title>
-    <link rel="stylesheet" type="text/css" href="/css/allCampsitesLook.css?v=3">
+    <link rel="stylesheet" type="text/css" href="/css/allCampsitesLook.css?v=5">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light|Cabin" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

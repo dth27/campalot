@@ -8,13 +8,16 @@
 <html lang="en">
 <head>
     <title>Welcome</title>
-    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/css/frontpage.css">
 </head>
 <body>
 <div class="banner">
     <img class = "front-logo" src="/css/logo3.png" alt="Dispute Bills">
 </div>
-<h2>Check out the Campsites</h2>
+<div class = "campalot">
+    <h2>Check out the Campsites</h2>
+</div>
+
 <form method = "get" action="listofcamps" class="frontpageForm">
     <div style="text-align:center">
     <input class = "all-campsites-button" type="submit" value="All campsites"/><br><br>
@@ -24,7 +27,7 @@
     <div class="information-container">
         <h3>Welcome to the Camp'A'Lot homepage</h3>
         <p>Here you can sign in. This site helps you to plan your travels around Iceland.
-            We have X campsites with information on our site</p>
+            We have ${camps} campsites with information on our site</p>
     </div>
     <div class="col-sm-12 col-md-10 col-md-offset-1">
     <div class="login-container">
