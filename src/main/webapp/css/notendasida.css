@@ -11,6 +11,12 @@
     background-color: rgba(300, 300, 300, 0.6);
 }
 
+.right {
+    float:right;
+    padding-top: 27px;
+}
+
+
 .review-container h1{
     font-size: 36px;
     color: #283035;
@@ -97,6 +103,28 @@ body {
     background: url("front.jpg") no-repeat center center fixed;
 }
 
+
+
+
+h1 {
+    font-family: Lobster, cursive !important;
+    color: #DEDEDE !important;
+    text-align: center;
+}
+
+h2 {
+    font-family: Lobster, cursive !important;
+    color: #000 !important;
+    text-align: center;
+}
+
+h3 {
+    font-family: Lobster, cursive !important;
+    color: #000 !important;
+    text-align: center;
+    font-size: 15px !important;
+}
+
 .main-container {
 
     padding: 5px;
@@ -111,6 +139,13 @@ body {
 
 .front-logo{
     width: 500px;
+}
+
+.loggedIn {
+    text-align:right;
+    padding: 0px 15px 0px 0px;
+    font-size: 12px;
+    font-family: Lobster, cursive !important;
 }
 
 table {
@@ -135,3 +170,77 @@ input {
 input:focus {
     background: #e3e3e3;
 }
+
+.navbar {
+    width: 100%;
+    font-family: Lobster, cursive;
+}
+
+.navbar-brand>img {
+    height: 100%;
+    width: auto;
+}
+
+.container-fluid .navbar-brand {
+    height: 80px;
+    width: auto;
+}
+
+.container-fluid .nav >li >a {
+    font-size: medium;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #DEDEDE;
+}
+
+.container-fluid .navbar-toggle {
+    padding: 10px;
+    margin: 0px 15px 25px 0;
+}
+
+.container-fluid .nav a:hover {
+    background-color: #90918E;
+}
+/*
+.navbar-brand>img {
+    height: 100%;
+}*/
+html{
+    text-align: center;
+}
+
+
+td, th {
+
+    border: 1px;
+    height: 30px;
+    transition: all 0.3s;
+}
+
+th {
+    background: #42453D;   /*Darken header a bit*/
+    font-weight: bold;
+    font-size: large;
+    color: #DEDEDE;
+    font-family: 'Avenir', sans-serif;
+}
+
+td {
+    background: #FAFAFA;
+    text-align: left;
+    font-weight:bolder;
+}
+
+table {
+    color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+    width: auto;
+    max-width:100%;
+    margin: auto;
+
+}
+/*Cells in even rows (2,4,6...) are one color*/
+tr:nth-child(even) td { background: #F1f1f1; }
+
+/*Cells in odd rows (1,3,5...) are another (excludes header cells)*/
+tr:nth-child(odd) td { background: #DEDEDE; }

@@ -114,10 +114,6 @@ public class ShowCampController {
     }
 
 
-
-
-
-
     // ===========================
     // ACCOUNT HANDLING
     // ===========================

@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%--
+  Created by IntelliJ IDEA.
+  User: Kristín María
+  Date: 15.11.2017
+  Time: 19:17
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<html>
 <head>
-    <title>UserSite</title>
-
-    <link rel="stylesheet" type="text/css" href="/css/notendasida.css?v=3">
+    <title>About Camp'A'Lot</title>
+    <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 </head>
 <body>
-<h1>Welcome! </h1>
+
 <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
     <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
@@ -50,57 +49,24 @@
                 </ul>
                 <a class = "right" href = "logOut">Log out</a>
             </div>
-
             <!--/.nav-collapse -->
         </div>
         <!--/.container-fluid -->
     </nav>
 </div>
+<br><br>
+<h2>About Camp'A'Lot</h2>
 
-<div class = "main">
-    <div class="welcomeTxt">
-        <p>Well logged in ${user}</p>
-        <p> On CampALot you can survey all the different
-            camping areas that Iceland has to offer. </p>
-    </div>
-    <div>
-        ${TravelPlanMessage}
-    </div>
-    <h2>List of camps</h2>
-
-    <h2>List of TravelPlans</h2>
-    <form action="/deleteTravelPlan" method = "POST">
-        <table border="1">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Delete</th>
-            </tr>
-            </thead>
-            <c:forEach items="${travelplans}" var="travelplan">
-                <tr>
-                    <td> ${travelplan.travelplanname} </td>
-                    <td><button class = "delete" name="planName" type = "submit" value = "${travelplan.travelplanname}"></button></td>
-                </tr>
-            </c:forEach>
-        </table><br><br>
-    </form>
-    <form action="/newTravelPlan" method="get">
-        <button type="submit">New TravelPlan</button>
-    </form>
-</div>
-
-<script>
-    function showPopupWindow() {
-        window.open(action = "/newTravelPlan", "", "width=600,height=300");}
-</script>
-<script>
-    $(document).ready(function () {
-        $('.dropdown-toggle').dropdown();
-    });
-</script>
-<div class="bottom-nav">
-    Created By Diljá, Kristín, Ólöf og Sandra
-</div>
+<b>Camp'A'Lot was created by four young women studying computer science, Diljá, Kristín, Ólöf and Sandra.
+    The idea came to them in the classroom as they were deciding on what their next project should be.
+    They thought that since the travel industry in Iceland had grown tremendously for the past few years
+    that a project within the travel industry would be a successful idea. Many people come to Iceland
+    to travel around the country and see it's beautiful nature. Unfortunately for them, the demand for
+    hotel rooms all over Iceland has increased significantly resulting in higher prices. Therefore more and more
+    people are choosing to travel around the country by camping! On the Camp'A'Lot site you can see
+    information for all campsites in Iceland in one place and plan your camping trip around Iceland.
+    We have included prices, activities, campsite service and nearby attractions to make the trip planning
+    easier for you. We hope that this helps you plan your trip to Iceland!
+</b>
 </body>
 </html>
