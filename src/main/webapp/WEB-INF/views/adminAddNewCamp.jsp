@@ -59,13 +59,14 @@
         <label><b>Camp's description</b></label><br>
         <textarea cols = "50" rows = "10" placeholder="Type the camp's description" name="description"></textarea><br><br>
 
-        <!-- TODO: breyta textanum xval í eitthvað meira lýsandi í label og placeholder -->
-        <label><b>Camp's xval</b></label>
-        <input type="text" placeholder="Type the camp's xval" name="xval"></input><br><br>
+        <label><b>Camp's location value x</b></label>
+        <input type="text" placeholder="Type the camp's x value" name="xval"></input><br><br>
 
-        <!-- TODO: breyta textanum yval í eitthvað meira lýsandi í label og placeholder -->
-        <label><b>Camp's yval</b></label>
-        <input type="text" placeholder="Type the camp's yval" name="yval"></input><br><br>
+        <label><b>Camp's location value y</b></label>
+        <input type="text" placeholder="Type the camp's y value" name="yval"></input><br><br>
+
+        <label><b>Camp's price</b></label>
+        <input type="text" placeholder="Type the camp's price" name="price"></input><br><br>
 
     </div>
 

@@ -7,8 +7,8 @@
 <html lang="en">
 <head>
     <title>UserSite</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/css/notendasida.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/notendasida.css?v=3">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -50,11 +50,13 @@
                 </ul>
                 <a class = "right" href = "logOut">Log out</a>
             </div>
+
             <!--/.nav-collapse -->
         </div>
         <!--/.container-fluid -->
     </nav>
 </div>
+
 <div class = "main">
     <div class="welcomeTxt">
         <p>Well logged in ${user}</p>

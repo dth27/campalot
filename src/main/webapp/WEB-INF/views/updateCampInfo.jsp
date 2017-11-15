@@ -66,6 +66,9 @@
         <label><b>Camp's location value y</b></label>
         <input type="text" placeholder="Type the camp's y value" name="yval" value="${camp.yval}"></input><br><br>
 
+        <label><b>Camp's price</b></label>
+        <input type="text" placeholder="Type the camp's price" name="price" value="${camp.price}"></input><br><br>
+
     </div>
 
     <button type="submit" name="campname" value="${camp.campname}">Update Camp info</button>

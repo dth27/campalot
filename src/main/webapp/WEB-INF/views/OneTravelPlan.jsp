@@ -6,8 +6,8 @@
 <html>
 <head>
     <title>My TravelPlans</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
     <link rel="stylesheet" type="text/css" href="/css/testing2.css">
+
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -28,7 +28,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="forsida"><img src="/css/logo3.png" alt="Dispute Bills">
+                    <a class="navbar-brand" href="goToNotendasida"><img src="/css/logo3.png" alt="Dispute Bills">
                     </a>
                 </div>
                 <div id="navbar1" class="navbar-collapse collapse">
