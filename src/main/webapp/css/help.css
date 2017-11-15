@@ -2,15 +2,39 @@
 
 body {
     background: url("help.jpg") no-repeat center center fixed;
-
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
 }
 
 
 .howto{
     color: #DEDEDE !important;
     background-color: rgba(0, 0, 0, 0.4);
+    margin: 10%;
+    justify-content: center;
 }
 
+h1 {
+    font-family: Lobster, cursive !important;
+    color: #DEDEDE !important;
+    text-align: center;
+}
+
+
+h2 {
+    font-family: Lobster, cursive !important;
+    text-align: center;
+}
+
+h3 {
+    font-family: Lobster, cursive !important;
+    color: #DEDEDE !important;
+    text-align: center;
+    font-size: 15px !important;
+}
 
 
 p{
@@ -38,15 +62,11 @@ p{
     height: 100%;
 }*/
 
-.affix {
-
-    margin-left: 0;
-}
 
 
 .navbar {
     width: 100%;
-    font-family: Avenir, cursive;
+    font-family: Lobster, cursive;
 }
 
 .navbar-brand>img {
@@ -74,10 +94,39 @@ p{
 .container-fluid .nav a:hover {
     background-color: #90918E;
 }
+.bottom-nav {
+    text-align: center;
+    color: ghostwhite;
+    font-size: 15px;
+    background-color: #42453D;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    float: left
+}
 /*
 .navbar-brand>img {
     height: 100%;
 }*/
+
+html{
+    text-align: center;
+}
+
+
+.right {
+    float:right;
+    padding-top: 27px;
+}
+
+.loggedIn {
+    text-align:right;
+    padding: 0px 15px 0px 0px;
+    font-size: 12px;
+    font-family: Lobster, cursive !important;
+}
 
 .affix {
     top: 0;

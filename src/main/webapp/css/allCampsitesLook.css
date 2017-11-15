@@ -25,19 +25,19 @@ body {
 }
 
 h1 {
-    font-family: Avenir, cursive !important;
+    font-family: Lobster, cursive !important;
     color: #DEDEDE !important;
     text-align: center;
 }
 
 
 h2 {
-    font-family: Avenir, cursive !important;
+    font-family: Lobster, cursive !important;
     text-align: center;
 }
 
 h3 {
-    font-family: Avenir, cursive !important;
+    font-family: Lobster, cursive !important;
     color: #DEDEDE !important;
     text-align: center;
     font-size: 15px !important;
@@ -45,7 +45,7 @@ h3 {
 
 .navbar {
     width: 100%;
-    font-family: Avenir, cursive;
+    font-family: Lobster, cursive;
 }
 
 .navbar-brand>img {
@@ -175,7 +175,7 @@ p {
 
 table {
     color: #333;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Lobster, Arial, sans-serif;
     width: auto;
     max-width:100%;  /*or whatever width you want. */
     margin: auto;
@@ -194,7 +194,7 @@ th {
     font-weight: bold;
     font-size: large;
     color: #DEDEDE;
-    font-family: 'Avenir', cursive;
+    font-family: 'Lobster', cursive;
 }
 
 td {

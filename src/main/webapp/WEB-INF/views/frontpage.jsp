@@ -8,8 +8,7 @@
 <html lang="en">
 <head>
     <title>Welcome</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
-    <link rel="stylesheet" type="text/css" href="/css/frontpage.css">
+    <link rel="stylesheet" type="text/css" href="/css/frontpage.css?v=2">
 </head>
 <body>
 <div class="banner">
