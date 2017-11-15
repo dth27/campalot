@@ -2,7 +2,7 @@
 
 .navbar {
     width: 100%;
-    font-family: Avenir, cursive;
+    font-family: Lobster, cursive;
 }
 
 .navbar-brand>img {
@@ -126,13 +126,11 @@ h1 {
 h2 {
     font-family: Lobster, cursive !important;
     color: #000 !important;
-    text-align: center;
 }
 
 h3 {
     font-family: Lobster, cursive !important;
     color: #000 !important;
-    text-align: center;
     font-size: 15px !important;
 }
 p {
