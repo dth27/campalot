@@ -13,6 +13,7 @@ html {
 .affix {
     top: 0;
     width: 100%;
+    margin-left: 0;
     z-index: 9999 !important;
 }
 
@@ -68,10 +69,11 @@ fieldset {
     text-align: center;
 }
 
-/*
 
-.maincontainer{
+
+.maincontainer {
     display: flex;
+}
 
 fieldset {
     height: 50%;
@@ -92,7 +94,7 @@ fieldset {
     max-width: 200pt;
 
 }
-*/
+
 
 fieldset input {
     text-align: center;
@@ -121,7 +123,6 @@ h3 {
     width: 100%;
     font-family: Lobster, cursive;
 }
-
 
 .navbar-brand>img {
     height: 100%;

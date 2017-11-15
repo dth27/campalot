@@ -64,6 +64,7 @@
 
 
 <br><br>
+<div class="maincontainer">
 <h3>Find campsites located in a specific part of the country:</h3>
     <form action="showCamps" method="POST" class = "sort">
         <select name="area">
@@ -79,6 +80,7 @@
         </select>
         <button>Sort</button>
 </form>
+
 <br><br>
 
 
@@ -100,6 +102,7 @@
             </c:forEach>
         </table>
     </form>
+</div>
 <div class="bottom-nav">
     Created By Diljá, Kristín, Ólöf og Sandra
 </div>
