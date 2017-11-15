@@ -14,7 +14,7 @@
 <html lang="en">
 <head>
     <title>All Campsites</title>
-    
+
     <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
     <link rel="stylesheet" type="text/css" href="/css/allCampsitesLook.css?v=1">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light|Cabin" rel="stylesheet">

@@ -25,8 +25,8 @@
 <body>
 
 <form action="addTravelitem" method="post" >
-<h1>Add ${campinfo.campname} to my travelplan</h1>
     <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
+<h1>Add ${campinfo.campname} to my travelplan</h1>
     <div class="container-fluid">
         <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
             <div class="container-fluid">
@@ -56,6 +56,8 @@
                             </ul>
                         </li>
                     </ul>
+
+                    <a class = "right" href = "logOut">Log out</a>
                 </div>
                 <!--/.nav-collapse -->
             </div>
