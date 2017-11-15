@@ -184,7 +184,7 @@ public class ShowCampController {
                 userService.newLoginUser(newUser);
                 model.addAttribute("user", newUser);
                 model.addAttribute("username",user);
-                return "accountInfo";
+                return "userAccount";
             } else {
                 model.addAttribute("passwordError", "The passwords do not match");
                 return "newAccountSite";
@@ -248,6 +248,17 @@ public class ShowCampController {
     // ===========================
     // TRAVELPLAN HANDLING
     // ===========================
+
+    @RequestMapping(value="deleteTravelPlan")
+    public String deleteTravelPlan(Model model, @RequestParam(value="planName") String planName){
+        travelplanService.deleteTraveplan(planName, user);
+        tpList = travelplanService.getUserTravelplan(user);
+        model.addAttribute("travelplans",tpList);
+        model.addAttribute("user", user);
+
+        return "notendasida";
+    }
+
 
     /**
      * Site to create a new travel plan
@@ -426,7 +437,16 @@ public class ShowCampController {
         cList2 = CampsiteService.getCampinfo();
         model.addAttribute("camps", cList2);
         model.addAttribute("username",user);
-        return "allCampsites";
+        if(isLoggedIn)
+            return "allCampsites";
+        else
+            return "allCampsitesNotLoggedIn";
+
+    }
+
+    @RequestMapping("allCampsitesNotLoggedIn")
+    public String allCampsitesNL(){
+        return "allCampsitesNotLoggedIn";
     }
 
     /**
