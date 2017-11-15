@@ -66,7 +66,6 @@
     <div>
         ${TravelPlanMessage}
     </div>
-    <h2>List of camps</h2>
 
     <h2>List of TravelPlans</h2>
     <form action="/deleteTravelPlan" method = "POST">

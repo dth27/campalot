@@ -61,12 +61,14 @@
         <p>more...</p>
     </div>
     <div class="formContainer">
+
     <form method="get" action="/onetravel">
         <table class="plan-table" border="1">
          <thead>
          <tr>
              <th>User</th>
              <th>Travelplan</th>
+             <th>Delete</th>
 
          </tr>
         </thead>
@@ -74,6 +76,7 @@
                 <tr>
                     <td>${travelitems.username}</td>
                     <td><button name="travelname" value="${travelitems.travelplanname}">${travelitems.travelplanname}</button></td>
+                    <td><button class = "delete" name="planName" type = "submit" value = "${travelplan.travelplanname}" onclick="form.action='deleteTravelPlan';"></button></td>
                 </tr>
             </c:forEach>
         </table>
