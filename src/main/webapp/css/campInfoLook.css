@@ -146,7 +146,8 @@ p {
     height: 30px;
     float: left
 }
-.campname {
+
+.campname, .description2 {
     font-family: Open Sans Condensed, sans-serif !important;
     font-size: 16pt;
 }
@@ -164,4 +165,9 @@ p {
 .giverating {
     font-family: Open Sans Condensed, sans-serif;
     font-size: 12px;
+}
+
+.takkar {
+    font-family: Open Sans Condensed, sans-serif;
+    text-align: center;
 }

@@ -8,7 +8,6 @@
 <br>
 <head>
     <title>Information</title>
-
     <link rel="stylesheet" type="text/css" href="/css/campInfoLook.css?v=1">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -77,7 +76,7 @@
                     ${campinfo.campphone}
                     ${campinfo.campwebsite}
                 </p>
-            </div>
+        </div>
         <h3>Price: </h3>
             <p class="price">${campinfo.price} ISK per night</p>
         <h3>Average Rating</h3>

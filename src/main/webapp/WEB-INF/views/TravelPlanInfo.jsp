@@ -67,7 +67,6 @@
          <tr>
              <th>Travelplan</th>
              <th>Delete</th>
-
          </tr>
         </thead>
             <c:forEach var="travelitems" items="${travelplanitems}">

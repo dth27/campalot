@@ -123,6 +123,7 @@
     </form>
     </div>
 </div>
+
 <div class="bottom-nav">
     Created By Diljá, Kristín, Ólöf og Sandra
 </div>

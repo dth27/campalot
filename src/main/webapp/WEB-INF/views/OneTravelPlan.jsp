@@ -5,19 +5,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>My TravelPlans</title>
+    <title>My Travelplan</title>
     <link rel="stylesheet" type="text/css" href="/css/testing2.css">
-
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 </head>
 <body>
-
     <p class="headerTitle">${tra.travelplanname}</p>
-
     <div class="container-fluid">
         <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
             <div class="container-fluid">

@@ -56,8 +56,8 @@
 <br>
 <br>
 <div class="info">
-<h2>Here you can see what others have to say about the campsites</h2>
-<h3>Whether they liked them or not</h3>
+<h2>Here you can see what you said about the campsites</h2>
+<h3>Whether you liked them or not</h3>
 <br>
     <div class="allratingstable">
         <table border="1">
