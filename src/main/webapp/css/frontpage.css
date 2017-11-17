@@ -1,21 +1,21 @@
-html{
-
-
+html {
 }
-button{
-    font-family: Helvetica, cursive !important;
+
+button {
+    font-family: Open Sans Condensed, sans-serif !important;
 }
+
 button:hover{
-
 }
 
-.campalot{
+.campalot {
     margin: auto;
     text-align:center;
     width: 400px;
     background-color: rgba(300, 300, 300, 0.6);
 }
-.fronttxt{
+
+.fronttxt {
     color: #000;
 }
 
@@ -36,13 +36,11 @@ body {
 
 h2{
     font-size: xx-large
-
 }
 
 fieldset {
     height: 50%;
     width:90%;
-
     margin: auto;
     text-align: center;
 }
@@ -54,12 +52,10 @@ fieldset {
     padding: 5px;
     display: inline-flex;
     margin: auto;
-
 }
 
 .information-container {
     background-color: rgba(300, 300, 300, 0.4);
-
     padding: 1px 10px 1px 10px;
     max-width: 150%;
     width: 150%;
@@ -67,6 +63,7 @@ fieldset {
 
 .bottom-nav {
     text-align: center;
+    font-family:Open Sans Condensed, sans-serif;
     color: ghostwhite;
     font-size: 15px;
     background-color: #42453D;
@@ -78,12 +75,13 @@ fieldset {
     float: left
 }
 
-html{
+html {
     text-align: center;
 }
 
 .login-container {
     padding: 10px;
+    font-family: Lobster, cursive !important;
 }
 
 h1 {
@@ -99,12 +97,13 @@ h2 {
 }
 
 h3 {
-    font-family: Helvetica, cursive !important;
+    font-family: Lobster, cursive !important;
     color: #000 !important;
     text-align: center;
     font-size: 15px !important;
 }
 
-p{
-    font-family: Helvetica, cursive !important;
+p {
+    font-family: Open Sans Condensed, sans-serif;
+    font-size: 18px;
 }

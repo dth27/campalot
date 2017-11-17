@@ -8,7 +8,7 @@
 <head>
     <title>Welcome</title>
     <link rel="stylesheet" type="text/css" href="/css/frontpage.css?v=2">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -27,7 +27,7 @@
             <h3>Check out the Campsites:</h3>
 
         <form method = "get" action="listofcamps" class="frontpageForm">
-            <div style="text-align:center">
+            <div style="text-align:center; font-family: Open Sans Condensed, sans-serif">
                 <input class ="btn btn-info" type="submit" value="All campsites"><br><br>
             </div>
         </form>
