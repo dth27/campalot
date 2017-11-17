@@ -9,13 +9,13 @@
 <head>
     <title>Information</title>
     <link rel="stylesheet" type="text/css" href="/css/help.css?v=2">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Cabin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Help</h1>
+<p class="headerTitle">Help</p>
 <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
     <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
@@ -62,15 +62,15 @@
         1. Make sure that you are logged in.<br>
         2. Click on our logo.<br>
         3. You will see a button called "New Travelplan", click on it.<br>
-        4. Name your travelplan and press submit.<br>
+        4. Name your travelplan and press Create!.<br>
         <br>
-        after these steps, your travelplan should be ready.
+        After these steps, your travelplan should be ready.
     </p>
 
     <h2>How to add camp to your travelplan:</h2>
     <p>
         1. Make sure that you are logged in.<br>
-        1. click on campsites.<br>
+        1. Click on campsites.<br>
         2. Select a campsite.<br>
         3. Press the button "Add to my plan".<br>
         4. Fill in required information.<br>
@@ -88,7 +88,7 @@
         5. Fill in required information.<br>
         6. Press "Change password".<br>
         <br>
-        After these setps, your password should be changed.
+        After these steps, your password should be changed.
         <br>
         <br>
         <br>

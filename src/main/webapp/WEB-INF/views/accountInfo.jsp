@@ -15,13 +15,13 @@
 <head>
     <title>My account</title>
     <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=2">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>My account</h1>
+<p class="headerTitle">My account</p>
 <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
     <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
@@ -62,16 +62,20 @@
 <br><br>
 <div class = "info">
     <h2>This is your account information!</h2>
-    <p style="color: red">${passwordChange}</p>
-    <p><b>Username: </b>${user.username}</p>
-    <p><b>Email: </b>${user.email}</p>
-    <form action="/changePassword">
-        <button type="submit">Change password</button>
-    </form>
+    <div class="information">
+        <p style="color: red">${passwordChange}</p>
+        <p><b>Username: </b>${user.username}</p>
+        <p><b>Email: </b>${user.email}</p>
+        <form action="/changePassword">
+            <button type="submit">Change password</button>
+        </form>
+    </div>
 </div>
-
 <br>
 
+<div class="bottom-nav">
+    Created By Diljá, Kristín, Ólöf og Sandra
+</div>
 
 </body>
 </html>

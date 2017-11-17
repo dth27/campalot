@@ -43,6 +43,7 @@ h3 {
 
 .formcontainer {
     padding-top: 4rem;
+    font-family: Open Sans Condensed, sans-serif;
 }
 
 
@@ -101,10 +102,6 @@ table {
 .container-fluid .nav a:hover {
     background-color: #90918E;
 }
-/*
-.navbar-brand>img {
-    height: 100%;
-}*/
 
 .affix {
     top: 0;
@@ -151,6 +148,7 @@ table {
 }
 .bottom-nav {
     text-align: center;
+    font-family: Open Sans Condensed, sans-serif;
     color: ghostwhite;
     font-size: 15px;
     background-color: #42453D;
@@ -177,4 +175,9 @@ h3 {
     font-family: Lobster, cursive !important;
     color: #000 !important;
     font-size: 15px !important;
+}
+
+.travelplantext {
+    font-family: Open Sans Condensed, sans-serif;
+    font-size: 18px;
 }

@@ -96,6 +96,7 @@ p{
 }
 .bottom-nav {
     text-align: center;
+    font-family: Open Sans Condensed, sans-serif;
     color: ghostwhite;
     font-size: 15px;
     background-color: #42453D;
@@ -106,12 +107,8 @@ p{
     height: 30px;
     float: left
 }
-/*
-.navbar-brand>img {
-    height: 100%;
-}*/
 
-html{
+html {
     text-align: center;
 }
 
@@ -133,4 +130,16 @@ html{
     width: 100%;
     margin-left: 0;
     z-index: 9999 !important;
+}
+
+.headerTitle{
+    font-size: 75px;
+    font-family: Lobster, cursive !important;
+    color: #DEDEDE !important;
+    text-align: center;
+    text-shadow:
+            -0.5px -0.5px 0 #000,
+            0.5px -0.5px 0 #000,
+            -0.5px 0.5px 0 #000,
+            0.5px 0.5px 0 #000;
 }

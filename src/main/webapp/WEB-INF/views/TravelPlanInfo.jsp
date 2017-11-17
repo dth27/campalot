@@ -7,7 +7,7 @@
     <title>TravelPlan info</title>
 
     <link rel="stylesheet" type="text/css" href="/css/myTravelplansLook.css">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -57,12 +57,10 @@
 <div class ="maincontainer">
     <div class="textContainer">
         <h2>Your Travelplans!</h2>
-        <p>Wow you've got a lot! Check them out and edit them by pressing the name</p>
-        <p>You can always add new items to your travelplan by clicking on the Campsite in the menu</p>
-
+        <p class="travelplantext">Wow you've got a lot! Check them out and edit them by pressing the name of the one you want to change.</p>
+        <p class="travelplantext">You can always add new campsites to your travelplan by selecting the campsite of your choice from the list of campsites.</p>
     </div>
     <div class="formContainer">
-
     <form method="get" action="/onetravel">
         <table class="table table-hover" border="1">
          <thead>

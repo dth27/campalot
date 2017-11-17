@@ -9,8 +9,7 @@
     <title>All Ratings</title>
 
     <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
-
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -57,21 +56,23 @@
 
 
 <br><br>
-<h2>Here you can see what others rated ${campinfo.campname}</h2>
-<table border="1">
-    <thead>
-    <tr>
-        <th>Ratings</th>
-        <th>Author</th>
-    </tr>
-    </thead>
-    <c:forEach items="${ratings}" var="r" >
+<p class="seeallratings">Here you can see what others rated ${campinfo.campname}</p>
+<div style="align-content: center" class="allratingstable">
+    <table border="1" class="table table-hover">
+        <thead>
         <tr>
-            <td>  ${r.rating} </td>
-            <td> ${r.username} </td>
+            <th>Ratings</th>
+            <th>Author</th>
         </tr>
-    </c:forEach>
-</table>
+        </thead>
+        <c:forEach items="${ratings}" var="r" >
+            <tr>
+                <td>  ${r.rating} </td>
+                <td> ${r.username} </td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 <div class="bottom-nav">
     Created By Diljá, Kristín, Ólöf og Sandra
 </div>

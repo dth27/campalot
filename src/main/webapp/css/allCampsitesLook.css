@@ -4,6 +4,7 @@ html {
 
 .bottom-nav {
     text-align: center;
+    font-family: Open Sans Condensed, sans-serif;
     color: ghostwhite;
     font-size: 15px;
     background-color: #42453D;
@@ -30,10 +31,8 @@ h1 {
     text-align: center;
 }
 
-
 h2 {
     font-family: Lobster, cursive !important;
-
 }
 
 h3 {
@@ -73,10 +72,6 @@ h3 {
 .container-fluid .nav a:hover {
     background-color: #90918E;
 }
-/*
-.navbar-brand>img {
-    height: 100%;
-}*/
 
 .affix {
     top: 0;
@@ -93,7 +88,6 @@ fieldset {
     text-align: center;
 }
 
-
 fieldset input {
     text-align: center;
 }
@@ -109,10 +103,8 @@ fieldset input {
     font-size: 12px;
     font-family: Lobster, cursive !important;
 }
-.table {
 
-}
-section{
+section {
     widht:100px;
 
 }
@@ -137,18 +129,13 @@ section{
     border-radius: 3px;
     background: rgba(24, 118, 28, 0.87);
     display:block;
-
-
 }
 
-form{
+form {
     padding: 20px;
     display: -webkit-inline-box;
     height:inherit;
 }
-
-
-
 
 div {
     color: black;
@@ -160,11 +147,22 @@ p {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
-.maincontainer{
+
+.maincontainer {
     background-color: #fff;
     opacity: 0.9;
     width: 70%;
     padding-top: 5%;
     justify-content: center;
     margin:auto;
+}
+
+.areas {
+    font-family: Open Sans Condensed, sans-serif;
+    font-size: 16px;
+}
+
+.tablecontainer {
+    font-family: Open Sans Condensed, sans-serif;
+    font-size: 16px;
 }

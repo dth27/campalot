@@ -15,7 +15,7 @@
 <head>
     <title>All Campsites</title>
     <link rel="stylesheet" type="text/css" href="/css/allCampsitesLook.css?v=3">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light|Cabin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -60,28 +60,27 @@
         <!--/.container-fluid -->
     </nav>
 </div>
-
-
 <br><br>
 <div class="maincontainer">
 <h3>Find campsites located in a specific part of the country:</h3>
-    <form action="showCamps" method="POST" class = "sort">
-        <select name="area">
-            <option value="All">All</option>
-            <option value="Sudurland">Sudurland</option>
-            <option value="Vestfirdir">Vestfirdir</option>
-            <option value="Hofudborgarsvaedi">Hofuðborgarsvaedid</option>
-            <option value="Austurland" >Austurland</option>
-            <option value="Nordurland">Norðurland</option>
-            <option value="Reykjanes">Reykjanes</option>
-            <option value="Vesturland" >Vesturland</option>
-            <option value="Halendid">Halendid</option>
-        </select>
-        <button>Sort</button>
-</form>
+    <div class="areas">
+        <form action="showCamps" method="POST" class = "sort">
+            <select name="area">
+                <option value="All">All</option>
+                <option value="Sudurland">Sudurland</option>
+                <option value="Vestfirdir">Vestfirdir</option>
+                <option value="Hofudborgarsvaedi">Hofuðborgarsvaedid</option>
+                <option value="Austurland" >Austurland</option>
+                <option value="Nordurland">Norðurland</option>
+                <option value="Reykjanes">Reykjanes</option>
+                <option value="Vesturland" >Vesturland</option>
+                <option value="Halendid">Halendid</option>
+            </select>
+            <button>Sort</button>
+        </form>
+    </div>
 
 <br><br>
-
 
     <div class="map" style="display: block; background: url(&quot;css/island.png&quot;); position: center; margin-left: 15%; padding: 0px; width: 471px; height: 321px;">
         <canvas style="width: 471px; height: 321px; position: absolute; left: 0px; top: 0px; padding: 0px; border: 0px; opacity: 1;" height="321" width="471"></canvas>
@@ -102,7 +101,6 @@
                   alt="Reykjanes" name="area" value="Reykjaknes" href="showReykjanes" onclick="form.action='showReykjanes';" >
             <area shape="poly" coords="104,239,102,232,104,232,109,234,111,237,112,244,111,246,107,251,98,251,95,248,98,248,96,238,99,238"
                   alt="Höfuðborgarsvæðið" name="area" value="Hofudborgarsvaedid" href="showHofud" onclick="form.action='showHofud';" >
-
         </map>
     </form>
 

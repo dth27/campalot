@@ -8,13 +8,13 @@
 <head>
     <title>About Camp'A'Lot</title>
     <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>About Camp'A'Lot</h1>
+<p class="headerTitle">About Camp'A'Lot</p>
 <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
     <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
@@ -53,10 +53,10 @@
     </nav>
 </div>
 <br><br>
-<div class="aboutcontainer">
+<div class="info">
 <h2>About Camp'A'Lot</h2>
 
-<p>Camp'A'Lot was created by four young women studying computer science, Diljá, Kristín, Ólöf and Sandra.<br>
+    <p class="aboutcamp">Camp'A'Lot was created by four young women studying computer science, Diljá, Kristín, Ólöf and Sandra.<br>
     The idea came to them in the classroom as they were deciding on what their next project should be.
     <br>They thought that since the travel industry in Iceland had grown tremendously for the past few years
     that a project within the travel industry would be a successful idea. <br>Many people come to Iceland
@@ -68,5 +68,13 @@
     easier for you. We hope that this helps you plan your trip to Iceland!
 </p>
 </div>
+
+<br>
+<br>
+
+<div class="bottom-nav">
+    Created By Diljá, Kristín, Ólöf og Sandra
+</div>
+
 </body>
 </html>

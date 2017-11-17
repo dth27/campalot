@@ -16,7 +16,7 @@
 <head>
     <title>New Travel Plan</title>
     <link rel="stylesheet" type="text/css" href="/css/testing2.css?v=1">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -65,11 +65,13 @@
 <c:out value="${users.username}"/>
 <form action="/newTravel" method="post">
     <div class="container">
-        <label><b>Plan name</b></label>
+        <label class="planname"><b>Travelplan name</b></label>
         <input type="text" placeholder="Enter Name" name="planName" required>
     </div>
     <br>
-    <button type="submit">submit</button>
+    <div style="text-align:center; font-family: Open Sans Condensed, sans-serif; font-weight: bold">
+        <button type="submit">Create!</button>
+    </div>
 </form>
 <script>
     function loka(){

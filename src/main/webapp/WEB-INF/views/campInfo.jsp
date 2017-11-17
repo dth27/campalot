@@ -10,7 +10,7 @@
     <title>Information</title>
 
     <link rel="stylesheet" type="text/css" href="/css/campInfoLook.css?v=1">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Cabin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -62,64 +62,69 @@
             <h2>Name</h2>
         <p class="campname"> ${campinfo.campname} </p>
             <h2>Description</h2>
-            ${campinfo.description}
+        <p class="description2"> ${campinfo.description} </p>
     </div>
     <div class="container-info">
         <div class="container-contact">
-                <h3 id="adress">Address</h3>
-                ${campinfo.campaddress}
-                ${campinfo.campzip}
-                <h3 id="contactinfo">Contact information</h3>
-                ${campinfo.campemail}
-                ${campinfo.campphone}
-                ${campinfo.campwebsite}
+                <h3>Address</h3>
+                <p class="address">
+                    ${campinfo.campaddress}
+                    ${campinfo.campzip}
+                </p>
+                <h3>Contact information</h3>
+                <p class="contactinfo">
+                    ${campinfo.campemail}
+                    ${campinfo.campphone}
+                    ${campinfo.campwebsite}
+                </p>
             </div>
-        <div class="price-container">
         <h3>Price: </h3>
-        ${campinfo.price} ISKR per night</div>
-        <div class="rating">
+            <p class="price">${campinfo.price} ISK per night</p>
         <h3>Average Rating</h3>
-        ${campinfo.averagerating}
+            <p class="avgrating">${campinfo.averagerating}</p>
         <h3>Give a rating</h3>
-    <form action="giveRating" method="POST">
-        <select name="rating">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4" >4</option>
-            <option value="5" >5</option>
-            <option value="6" >6</option>
-            <option value="7" >7</option>
-            <option value="8" >8</option>
-            <option value="9" >9</option>
-            <option value="10" >10</option>
-        </select>
-        <button name="campName2" value="${campinfo.campname}" s>OK</button>
-    </form>
+        <div style="font-family: Open Sans Condensed, sans-serif; font-size: 14px; font-weight: bold">
+            <form action="giveRating" method="POST">
+                <select name="rating">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4" >4</option>
+                    <option value="5" >5</option>
+                    <option value="6" >6</option>
+                    <option value="7" >7</option>
+                    <option value="8" >8</option>
+                    <option value="9" >9</option>
+                    <option value="10" >10</option>
+                </select>
+                    <button name="campName2" value="${campinfo.campname}" s>OK</button>
+            </form>
+        </div>
 
     <h3>All Ratings</h3>
     <form action="/allratings" method="POST">
-        <button name="allrat" value="${campinfo.campname}">
-            See all ratings
-        </button>
+        <div style="font-family: Open Sans Condensed, sans-serif; font-size: 14px; font-weight: bold">
+            <button name="allrat" value="${campinfo.campname}">See all ratings</button>
+        </div>
     </form>
     </div>
-    </div>
 </div>
-<div class="ratingContainer">
-
-
+<div class="reviewContainer">
     <h3>All Reviews</h3>
     <form action="seeReviews" method="POST" >
-        <button name="campName" value="${campinfo.campname}" type="submit">See the reviews!</button>
+        <div style="font-family: Open Sans Condensed, sans-serif; font-size: 14px; font-weight: bold">
+            <button name="campName" value="${campinfo.campname}" type="submit">See the reviews!</button>
+        </div>
     </form>
         <h2>Do you want to visit ${campinfo.campname}?</h2>
         <h3>Add it to your travelplan!</h3>
         <form action="/addToPlan" method="post">
-            <button name="Campname" value="${campinfo.campname}" type="submit">
-                Add to my plan
-            </button>
+            <div style="font-family: Open Sans Condensed, sans-serif; font-size: 14px; font-weight: bold">
+                <button name="Campname" value="${campinfo.campname}" type="submit">
+                    Add to my plan
+                </button>
+            </div>
         </form>
     <br><br>
 </div>

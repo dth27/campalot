@@ -9,7 +9,7 @@
     <title>UserSite</title>
 
     <link rel="stylesheet" type="text/css" href="/css/notendasida.css?v=3">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -85,16 +85,18 @@
             </thead>
             <c:forEach items="${travelplans}" var="travelplan">
                 <tr>
-                    <td> <button name="travelname" type ="submit" value="${travelplan.travelplanname}" onclick="form.action='onetravel'; method='get';"> ${travelplan.travelplanname}</button> </td>
+                    <td><button name="travelname" type ="submit" value="${travelplan.travelplanname}" onclick="form.action='onetravel'; method='get';"> ${travelplan.travelplanname}</button> </td>
                     <td><button class ="delete" name="planName" type = "submit" value = "${travelplan.travelplanname}"></button></td>
                 </tr>
             </c:forEach>
         </table><br>
     </form>
     <form action="/newTravelPlan" method="get">
-        <button class="btn btn-info" type="submit">New TravelPlan</button>
+        <div style="text-align:center; font-family: Open Sans Condensed, sans-serif">
+            <button class="btn btn-info" type="submit">New TravelPlan</button>
+        </div>
     </form>
-    </div>
+
 </div>
 
 <script>

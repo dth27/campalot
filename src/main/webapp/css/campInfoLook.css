@@ -1,5 +1,3 @@
-
-
 .navbar {
     width: 100%;
     font-family: Lobster, cursive !important;
@@ -30,10 +28,6 @@
 .container-fluid .nav a:hover {
     background-color: #90918E;
 }
-/*
-.navbar-brand>img {
-    height: 100%;
-}*/
 
 .affix {
     top: 0;
@@ -53,34 +47,14 @@
 
 body {
     background: url("montain.jpg") no-repeat center center fixed;
-
 }
 
-.ratingContainer {
+.reviewContainer {
      padding-left: 5%;
      padding-top: 2%;
      background-color: white;
      opacity : 0.7;
      margin: 4rem;
-
-
- }
-
-
-#texti {
-    background-color: rgba(0, 0, 0, 0.4);
-    margin-left: 5%;
-    text-align: left;
-    color: #DEDEDE !important;
-    font-family: Cabin, sans-serif !important;
-}
-
-#texti button {
-    color: #42453D;
-}
-
-#texti form {
-    color: #42453D;
 }
 
 #description {
@@ -99,11 +73,10 @@ body {
     opacity : 0.7;
     margin: 4rem;
     justify-content: space-around;
-
 }
+
 .container-info {
     padding-right: 4rem;
-
 }
 
 .affix {
@@ -113,10 +86,12 @@ body {
 table {
     max-width:60%;
 }
+
 .right {
     float:right;
     padding-top: 27px;
 }
+
 h1 {
     font-family: Lobster, cursive !important;
     color: #DEDEDE !important;
@@ -133,17 +108,20 @@ h3 {
     color: #000 !important;
     font-size: 15px !important;
 }
+
 p {
     font-size: 2rem;
     text-align: -webkit-auto;
 }
+
 .loggedIn {
     text-align:right;
     padding: 0px 15px 0px 0px;
     font-size: 12px;
     font-family: Lobster, cursive !important;
 }
-.headTitle{
+
+.headTitle {
     font-size: 75px;
     font-family: Lobster, cursive !important;
     color: #DEDEDE !important;
@@ -154,8 +132,10 @@ p {
             -0.5px 0.5px 0 #000,
             0.5px 0.5px 0 #000;
 }
+
 .bottom-nav {
     text-align: center;
+    font-family: Open Sans Condensed, sans-serif;
     color: ghostwhite;
     font-size: 15px;
     background-color: #42453D;
@@ -166,7 +146,22 @@ p {
     height: 30px;
     float: left
 }
+.campname {
+    font-family: Open Sans Condensed, sans-serif !important;
+    font-size: 16pt;
+}
 
-.campname{
-    font-size: 18pt;
+p {
+    font-family: Open Sans Condensed, sans-serif !important;
+    font-size: 16pt;
+}
+
+.contactinfo, .avgrating, .price, .address {
+    font-family: Open Sans Condensed, sans-serif !important;
+    font-size: 12pt;
+}
+
+.giverating {
+    font-family: Open Sans Condensed, sans-serif;
+    font-size: 12px;
 }
