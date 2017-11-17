@@ -117,6 +117,7 @@ public class TravelPlanServiceImp implements TravelPlanService {
      */
     @Override
     public void addTravelplanItem(TravelPlanItem travelplanitem) {
+
         listofTravelPlanitems.add(travelplanitem);
     }
 

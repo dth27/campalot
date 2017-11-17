@@ -412,6 +412,7 @@ public class ShowCampController {
     {
 
         Date realDatearr, realDatedep;
+        System.out.println(datearr + " " + datedep);
 
         realDatearr = alternativeService.dateMaker(datearr);
         realDatedep = alternativeService.dateMaker(datedep);
@@ -1061,7 +1062,7 @@ public class ShowCampController {
             tpiList = travelplanService.getOneTravelPlan(planname, user);
             tpList = travelplanService.getUserTravelplans(planname, user);
             TravelPlan travelplan = travelplanService.onePlan(planname,user);
-            tpiList = alternativeService.dateChanger(tpiList);
+            //tpiList = alternativeService.dateChanger(tpiList);
             if (tpiList == null) {
             } else {
                 model.addAttribute("tra", travelplan);
