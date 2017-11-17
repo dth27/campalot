@@ -906,6 +906,7 @@ public class ShowCampController {
                           @RequestParam(value="yval") int yval,
                           @RequestParam(value="price") int price, Model model) {
 
+            //Average rating sett sem núll í upphafi
             double averageRating = 0;
 
             Campinfo newcampinfo = new Campinfo(campname, campaddress, campzip, campemail, campphone, campwebsite,
@@ -1202,3 +1203,4 @@ public class ShowCampController {
             return "allCampsites";
     }
 }
+
