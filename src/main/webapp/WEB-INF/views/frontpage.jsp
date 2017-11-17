@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -9,6 +8,7 @@
 <head>
     <title>Welcome</title>
     <link rel="stylesheet" type="text/css" href="/css/frontpage.css?v=2">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -21,7 +21,7 @@
     <div class="information-container">
         <h1 class="fronttxt">Welcome to the Camp'A'Lot homepage</h1>
         <p>Here you can sign in. This site helps you to plan your travels around Iceland.
-            We have ${camps} campsites with information on our site</p>
+            We have ${camps} campsites with information on our site.</p>
         <br><br>
 
             <h3>Check out the Campsites:</h3>
