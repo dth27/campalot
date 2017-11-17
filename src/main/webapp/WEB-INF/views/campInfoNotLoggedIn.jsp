@@ -8,7 +8,7 @@
 <br>
 <head>
     <title>Information</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css?v=2">
+
     <link rel="stylesheet" type="text/css" href="/css/campInfoLook.css?v=2">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Cabin" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,7 +16,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Information about ${campinfo.campname}</h1>
+<p class="headTitle">Information about ${campinfo.campname}</p>
 
 <br>
 <div class="mainContainer">
@@ -36,6 +36,9 @@
                 ${campinfo.campphone}
                 ${campinfo.campwebsite}
             </div>
+        <div class="price-container">
+            <h3>Price: </h3>
+            ${campinfo.price} ISKR per night</div>
         <div class="rating">
         <h3>Average Rating</h3>
         ${campinfo.averagerating}

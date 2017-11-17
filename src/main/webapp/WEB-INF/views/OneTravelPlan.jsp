@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <h1>${tra.travelplanname}</h1>
+    <p class="headerTitle">${tra.travelplanname}</p>
 
     <div class="container-fluid">
         <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
@@ -53,8 +53,8 @@
             <!--/.container-fluid -->
         </nav>
     </div>
-
-    <table class="table">
+    <div class="tablecontainer">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th>Camp</th>
@@ -80,6 +80,6 @@
         </select>
         <button type="submit">Go</button>
     </form>
-
+    </div>
 </body>
 </html>

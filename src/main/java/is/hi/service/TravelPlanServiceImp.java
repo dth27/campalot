@@ -94,7 +94,11 @@ public class TravelPlanServiceImp implements TravelPlanService {
         listofTravelPlanitems = (ArrayList<TravelPlanItem>) planItemRep.getAll();
         return listofTravelPlanitems;
     }
-
+    @Override
+    public ArrayList getUserTravelplanItems(String user) {
+        listofTravelPlanitems = (ArrayList<TravelPlanItem>) planItemRep.findByUsername(user);
+        return listofTravelPlanitems;
+    }
     /**
 
      * Creates a new Travel Plan

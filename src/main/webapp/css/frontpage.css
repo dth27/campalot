@@ -1,9 +1,9 @@
 html{
-    font-family: Lobster, cursive !important;
+
 
 }
 button{
-    font-family: Lobster, cursive !important;
+    font-family: Helvetica, cursive !important;
 }
 button:hover{
 
@@ -15,23 +15,8 @@ button:hover{
     width: 400px;
     background-color: rgba(300, 300, 300, 0.6);
 }
-
-input {
-    font-family: Lobster, cursive !important;
-    display: inline-block;
-    border: 1px solid #2d2d2d;
-    -webkit-border-radius: 18px;
-    border-radius: 18px;
-    color: rgba(0,0,0,1);
-    outline: none;
-    -webkit-box-shadow: 0 0 6px 2px rgba(0,0,0,0.5) ;
-    box-shadow: 0 0 6px 2px rgba(0,0,0,0.5) ;
-    text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
-    text-align: center;
-}
-
-input:focus {
-    background: #e3e3e3;
+.fronttxt{
+    color: #000;
 }
 
 .front-logo{
@@ -75,7 +60,9 @@ fieldset {
 .information-container {
     background-color: rgba(300, 300, 300, 0.4);
 
-    padding: 1px 150px 1px 1px;
+    padding: 1px 10px 1px 10px;
+    max-width: 150%;
+    width: 150%;
 }
 
 .bottom-nav {
@@ -101,23 +88,23 @@ html{
 
 h1 {
     font-family: Lobster, cursive !important;
-    color: #DEDEDE !important;
+    color: #000 !important;
     text-align: center;
 }
 
 h2 {
-    font-family: Lobster, cursive !important;
+    font-family: Helvetica, cursive !important;
     color: #000 !important;
     text-align: center;
 }
 
 h3 {
-    font-family: Lobster, cursive !important;
+    font-family: Helvetica, cursive !important;
     color: #000 !important;
     text-align: center;
     font-size: 15px !important;
 }
 
 p{
-    font-family: Lobster, cursive !important;
+    font-family: Helvetica, cursive !important;
 }

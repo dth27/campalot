@@ -16,7 +16,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Information about ${campinfo.campname}</h1>
+<p class="headTitle">Information about ${campinfo.campname}</p>
+
 <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
     <nav class="navbar navbar-light" style="background-color: #445C80" data-spy="affix" data-offset-top="197">
@@ -59,7 +60,7 @@
 <div class="mainContainer">
     <div id="description">
             <h2>Name</h2>
-            ${campinfo.campname}
+        <p class="campname"> ${campinfo.campname} </p>
             <h2>Description</h2>
             ${campinfo.description}
     </div>
@@ -73,6 +74,9 @@
                 ${campinfo.campphone}
                 ${campinfo.campwebsite}
             </div>
+        <div class="price-container">
+        <h3>Price: </h3>
+        ${campinfo.price} ISKR per night</div>
         <div class="rating">
         <h3>Average Rating</h3>
         ${campinfo.averagerating}

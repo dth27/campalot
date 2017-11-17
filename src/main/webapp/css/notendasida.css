@@ -9,6 +9,8 @@
     margin:auto;
     width:80%;
     background-color: rgba(300, 300, 300, 0.6);
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .right {
@@ -103,13 +105,34 @@ body {
     background: url("front.jpg") no-repeat center center fixed;
 }
 
-
-
+table {
+    background-blend-mode: lighten;
+    background-color: #2d2d2d;
+}
 
 h1 {
     font-family: Lobster, cursive !important;
     color: #DEDEDE !important;
     text-align: center;
+    text-shadow:
+            -0.5px -0.5px 0 #000,
+            0.5px -0.5px 0 #000,
+            -0.5px 0.5px 0 #000,
+            0.5px 0.5px 0 #000;
+}
+.welcome {
+    font-size: 75px;
+    font-family: Lobster, cursive !important;
+    color: #DEDEDE !important;
+    text-align: center;
+    text-shadow:
+            -0.5px -0.5px 0 #000,
+            0.5px -0.5px 0 #000,
+            -0.5px 0.5px 0 #000,
+            0.5px 0.5px 0 #000;
+}
+a {
+    text-decoration: none;
 }
 
 h2 {
@@ -171,6 +194,14 @@ input:focus {
     background: #e3e3e3;
 }
 
+.darken {
+    background-image:
+            linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+            ),
+            url(front.jpg);
+}
 .navbar {
     width: 100%;
     font-family: Lobster, cursive;
@@ -209,41 +240,6 @@ html{
     text-align: center;
 }
 
-
-td, th {
-
-    border: 1px;
-    height: 30px;
-    transition: all 0.3s;
-}
-
-th {
-    background: #42453D;   /*Darken header a bit*/
-    font-weight: bold;
-    font-size: large;
-    color: #DEDEDE;
-    font-family: 'Avenir', sans-serif;
-}
-
-td {
-    background: #FAFAFA;
-    text-align: left;
-    font-weight:bolder;
-}
-
-table {
-    color: #333;
-    font-family: Helvetica, Arial, sans-serif;
-    width: auto;
-    max-width:100%;
-    margin: auto;
-
-}
-/*Cells in even rows (2,4,6...) are one color*/
-tr:nth-child(even) td { background: #F1f1f1; }
-
-/*Cells in odd rows (1,3,5...) are another (excludes header cells)*/
-tr:nth-child(odd) td { background: #DEDEDE; }
 
 .bottom-nav {
     text-align: center;

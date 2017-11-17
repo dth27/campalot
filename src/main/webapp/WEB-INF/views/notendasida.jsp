@@ -15,9 +15,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Welcome! </h1>
+<div class="Topheader">
+<p class="welcome">Welcome! </p>
 <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
-<div class="container-fluid">
+</div>
+    <div class="container-fluid">
     <nav class="navbar navbar-light" style="background-color:#42453D" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -57,20 +59,24 @@
 
 <div class = "main">
     <div class="welcomeTxt">
-        <h2>Welcome dear ${user1}</h2>
-        <p> On CampALot you can survey all the different
-            camping areas that Iceland has to offer. </p>
-        <p> Check out the menu above and explore the possibilities!</p>
-
+        <h2>Nature calls!</h2>
+        <p>Did you know that camping can reset your circadian clock?
+        Read more <a href="https://health.usnews.com/health-news/news/articles/2013/08/01/camping-sets-body-clock-in-tune-with-nature" target="_blank">here</a></p>
+        <p>Check out all the different camping sites Iceland has to offer and answer the call of nature!
+        </p>
+        <p>Don't forget to check the weather before your trip!</p>
+        <p>Click <a href="en.vedur.is" target="_blank">here</a> for a 5 day forecast</p>
+        <p>The weather in Iceland can be tricky so be prepared and plan ahead!</p>
+        <p></p>
 
     </div>
     <div>
         ${TravelPlanMessage}
     </div>
-
+    <div class="plans">
     <h2>List of TravelPlans</h2>
-    <form action="/deleteTravelPlan" method = "POST">
-        <table border="1">
+    <form action="/deleteTravelPlan" method = "post">
+        <table class="table table-hover" border="1">
             <thead>
             <tr>
                 <th>Name</th>
@@ -79,15 +85,16 @@
             </thead>
             <c:forEach items="${travelplans}" var="travelplan">
                 <tr>
-                    <td> ${travelplan.travelplanname} </td>
-                    <td><button class = "delete" name="planName" type = "submit" value = "${travelplan.travelplanname}"></button></td>
+                    <td> <button name="travelname" type ="submit" value="${travelplan.travelplanname}" onclick="form.action='onetravel'; method='get';"> ${travelplan.travelplanname}</button> </td>
+                    <td><button class ="delete" name="planName" type = "submit" value = "${travelplan.travelplanname}"></button></td>
                 </tr>
             </c:forEach>
-        </table><br><br>
+        </table><br>
     </form>
     <form action="/newTravelPlan" method="get">
-        <button type="submit">New TravelPlan</button>
+        <button class="btn btn-info" type="submit">New TravelPlan</button>
     </form>
+    </div>
 </div>
 
 <script>

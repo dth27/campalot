@@ -38,7 +38,7 @@ public interface travelPlanItemRepository extends JpaRepository<TravelPlanItem, 
     List<TravelPlanItem> getUserItems(String name, String user);
 
     List<TravelPlanItem> findByTravelplannameAndUsername(String travelplanname, String username);
-
+    List<TravelPlanItem> findByUsername(String user);
     /**
      * Deletes travelplanitem
      * @param campname - name of camp

@@ -14,7 +14,7 @@
 </head>
 </head>
 <body>
-<h1>Your travelplan</h1>
+<p class="headTitle">Your travelplan</p>
 <form method="get" action="/onetravel">
 <p class = "loggedIn">You are logged in as: <b class="username">${username}</b></p>
 <div class="container-fluid">
@@ -64,10 +64,9 @@
     <div class="formContainer">
 
     <form method="get" action="/onetravel">
-        <table class="plan-table" border="1">
+        <table class="table table-hover" border="1">
          <thead>
          <tr>
-             <th>User</th>
              <th>Travelplan</th>
              <th>Delete</th>
 
@@ -75,9 +74,8 @@
         </thead>
             <c:forEach var="travelitems" items="${travelplanitems}">
                 <tr>
-                    <td>${travelitems.username}</td>
                     <td><button name="travelname" value="${travelitems.travelplanname}">${travelitems.travelplanname}</button></td>
-                    <td><button class = "delete" name="planName" type = "submit" value = "${travelplan.travelplanname}" onclick="form.action='deleteTravelPlan';"></button></td>
+                    <td><button class = "delete" name="planName" type = "submit" value = "${travelitems.travelplanname}" onclick="form.action='deletePlan'; method='post';"></button></td>
                 </tr>
             </c:forEach>
         </table>

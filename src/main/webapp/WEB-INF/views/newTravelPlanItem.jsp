@@ -65,6 +65,7 @@
         </nav>
     </div>
 </form>
+<div class="tablecontainer1">
 <form action="addTravelitem" method="POST" >
     <table border="1">
 
@@ -89,13 +90,13 @@
                     </select>
                 </td>
                 <td>
-                    <button type="submit" name="buttonid">Add to TravelPlan</button>
+                    <button class="btn btn-info" type="submit" name="buttonid">Add to TravelPlan</button>
                 </td>
             </tr>
 
     </table>
 </form>
-
+</div>
 <div class="bottom-nav">
     Created By Diljá, Kristín, Ólöf og Sandra
 </div>

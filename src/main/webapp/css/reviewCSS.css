@@ -125,6 +125,17 @@ body {
     width: auto;
 }
 
+.headTxt{
+    font-size: 75px;
+    font-family: Lobster, cursive !important;
+    color: #DEDEDE !important;
+    text-align: center;
+    text-shadow:
+            -0.5px -0.5px 0 #000,
+            0.5px -0.5px 0 #000,
+            -0.5px 0.5px 0 #000,
+            0.5px 0.5px 0 #000;
+}
 .container-fluid .nav >li >a {
     font-size: medium;
     padding-top: 30px;

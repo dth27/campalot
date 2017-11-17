@@ -578,8 +578,158 @@ public class ShowCampController {
         else
             return"allCampsitesNotLoggedIn";
     }
+    @RequestMapping(value = "showHofud", method = RequestMethod.GET)
+    public String showHofud(Model model) {
 
+        cList2 = CampsiteService.getCampinfo();
+        ArrayList<Campinfo> cList3 = new ArrayList<Campinfo>();
+        String Hofudborgarsvaedid = "Hofudborgarsvaedi";
+        for (Campinfo c : cList2) {
+            if (c.getRegion().equals(Hofudborgarsvaedid)) {
+                cList3.add(c);
 
+            }
+            model.addAttribute("camps", cList3);
+        }
+        if (Hofudborgarsvaedid.equals("All"))
+            model.addAttribute("camps", cList2);
+        model.addAttribute("username",user);
+        if(isLoggedIn)
+            return "allCampsites";
+        else
+            return"allCampsitesNotLoggedIn";
+    }
+
+    @RequestMapping(value = "showReykjanes", method = RequestMethod.GET)
+    public String showReykjanes(Model model) {
+
+        cList2 = CampsiteService.getCampinfo();
+        ArrayList<Campinfo> cList3 = new ArrayList<Campinfo>();
+        String Hofudborgarsvaedid = "Reykjanes";
+        for (Campinfo c : cList2) {
+            if (c.getRegion().equals(Hofudborgarsvaedid)) {
+                cList3.add(c);
+
+            }
+            model.addAttribute("camps", cList3);
+        }
+        if (Hofudborgarsvaedid.equals("All"))
+            model.addAttribute("camps", cList2);
+        model.addAttribute("username",user);
+        if(isLoggedIn)
+            return "allCampsites";
+        else
+            return"allCampsitesNotLoggedIn";
+    }
+
+    @RequestMapping(value = "showSudurland", method = RequestMethod.GET)
+    public String showSudurland(Model model) {
+
+        cList2 = CampsiteService.getCampinfo();
+        ArrayList<Campinfo> cList3 = new ArrayList<Campinfo>();
+        String Hofudborgarsvaedid = "Sudurland";
+        for (Campinfo c : cList2) {
+            if (c.getRegion().equals(Hofudborgarsvaedid)) {
+                cList3.add(c);
+
+            }
+            model.addAttribute("camps", cList3);
+        }
+        if (Hofudborgarsvaedid.equals("All"))
+            model.addAttribute("camps", cList2);
+        model.addAttribute("username",user);
+        if(isLoggedIn)
+            return "allCampsites";
+        else
+            return"allCampsitesNotLoggedIn";
+    }
+
+    @RequestMapping(value = "showAusturland", method = RequestMethod.GET)
+    public String showAusturland(Model model) {
+
+        cList2 = CampsiteService.getCampinfo();
+        ArrayList<Campinfo> cList3 = new ArrayList<Campinfo>();
+        String Hofudborgarsvaedid = "Austurland";
+        for (Campinfo c : cList2) {
+            if (c.getRegion().equals(Hofudborgarsvaedid)) {
+                cList3.add(c);
+
+            }
+            model.addAttribute("camps", cList3);
+        }
+        if (Hofudborgarsvaedid.equals("All"))
+            model.addAttribute("camps", cList2);
+        model.addAttribute("username",user);
+        if(isLoggedIn)
+            return "allCampsites";
+        else
+            return"allCampsitesNotLoggedIn";
+    }
+
+    @RequestMapping(value = "showNordurland", method = RequestMethod.GET)
+    public String showNordurland(Model model) {
+
+        cList2 = CampsiteService.getCampinfo();
+        ArrayList<Campinfo> cList3 = new ArrayList<Campinfo>();
+        String Hofudborgarsvaedid = "Nordurland";
+        for (Campinfo c : cList2) {
+            if (c.getRegion().equals(Hofudborgarsvaedid)) {
+                cList3.add(c);
+
+            }
+            model.addAttribute("camps", cList3);
+        }
+        if (Hofudborgarsvaedid.equals("All"))
+            model.addAttribute("camps", cList2);
+        model.addAttribute("username",user);
+        if(isLoggedIn)
+            return "allCampsites";
+        else
+            return"allCampsitesNotLoggedIn";
+    }
+
+    @RequestMapping(value = "showVesturland", method = RequestMethod.GET)
+    public String showVesturland(Model model) {
+
+        cList2 = CampsiteService.getCampinfo();
+        ArrayList<Campinfo> cList3 = new ArrayList<Campinfo>();
+        String Hofudborgarsvaedid = "Vesturland";
+        for (Campinfo c : cList2) {
+            if (c.getRegion().equals(Hofudborgarsvaedid)) {
+                cList3.add(c);
+
+            }
+            model.addAttribute("camps", cList3);
+        }
+        if (Hofudborgarsvaedid.equals("All"))
+            model.addAttribute("camps", cList2);
+        model.addAttribute("username",user);
+        if(isLoggedIn)
+            return "allCampsites";
+        else
+            return"allCampsitesNotLoggedIn";
+    }
+    @RequestMapping(value = "showVestfirdir", method = RequestMethod.GET)
+    public String showVestfirdir(Model model) {
+
+        cList2 = CampsiteService.getCampinfo();
+        ArrayList<Campinfo> cList3 = new ArrayList<Campinfo>();
+        String Hofudborgarsvaedid = "Vestfirdir";
+        for (Campinfo c : cList2) {
+            if (c.getRegion().equals(Hofudborgarsvaedid)) {
+                cList3.add(c);
+
+            }
+            model.addAttribute("camps", cList3);
+        }
+        if (Hofudborgarsvaedid.equals("All"))
+            model.addAttribute("camps", cList2);
+        model.addAttribute("username",user);
+        if(isLoggedIn)
+            return "allCampsites";
+        else
+            return"allCampsitesNotLoggedIn";
+    }
     /**
      * fetches information of the camp
      * @param campName      name of the camp (String)
@@ -610,9 +760,21 @@ public class ShowCampController {
         //tpiList = travelplanService.getOneTravelPlanItems(travelplan,user);
        // model.addAttribute("travelplanitems", tpiList);
         tpList = travelplanService.getUserTravelplan(user);
+       // tpiList = travelplanService.getUserTravelplanItems(user);
 
         model.addAttribute("travelplanitems", tpList);
         model.addAttribute("username",user);
+        return "TravelPlanInfo";
+    }
+
+    @RequestMapping(value="deletePlan", method = RequestMethod.POST)
+    public String deletePlan(Model model, @RequestParam(value="planName") String planName){
+        travelplanService.deleteTraveplan(planName, user);
+        //tpiList = travelplanService.getUserTravelplanItems(user);
+        tpList = travelplanService.getUserTravelplan(user);
+        model.addAttribute("travelplanitems",tpList);
+        model.addAttribute("username", user);
+
         return "TravelPlanInfo";
     }
     // ===========================
