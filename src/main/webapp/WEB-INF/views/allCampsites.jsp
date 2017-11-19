@@ -82,7 +82,7 @@
 
 <br><br>
 
-    <div class="map" style="display: block; background: url(&quot;css/island.png&quot;); position: center; margin-left: 15%; padding: 0px; width: 471px; height: 321px;">
+    <div class="map" style="display: block; background: url(&quot;css/island.png&quot;); position: relative; margin-left: 15%; padding: 0px; width: 471px; height: 321px;">
         <canvas style="width: 471px; height: 321px; position: absolute; left: 0px; top: 0px; padding: 0px; border: 0px; opacity: 1;" height="321" width="471"></canvas>
         <img src="css/island.png" width="471" height="321" border="0" class="map maphilighted" usemap="#fMap" style="opacity: 0; position: absolute; left: 0px; top: 0px; padding: 0px; border: 0px;"></div>
     <form action="showCamps" method="get" class="sort" >
