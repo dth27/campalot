@@ -1,12 +1,16 @@
 package is.hi.service;
 
 
+import is.hi.model.CampAmenities;
 import is.hi.model.Campinfo;
+import is.hi.model.Campsites;
+import is.hi.repository.campamenitiesRepository;
 import is.hi.repository.campinfoRepository;
 import is.hi.repository.reviewRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -28,9 +32,10 @@ public class campSiteServiceImp implements campSiteService {
     campinfoRepository campInfoRep;
     @Autowired
     reviewRepository revRep;
+    @Autowired
+    campamenitiesRepository amenRep;
 
-
-    private ArrayList<Campinfo> BList;
+    private ArrayList<Campsites> BList;
 
 
     /**
@@ -40,8 +45,8 @@ public class campSiteServiceImp implements campSiteService {
     @Override
     public int countCampInfo(){
         int count = 0;
-        BList = (ArrayList<Campinfo>) campInfoRep.getAll();
-        for(Campinfo camp : BList){
+        BList = (ArrayList<Campsites>) campInfoRep.getAll();
+        for(Campsites camp : BList){
             count = count + 1 ;
         }
         return count;
@@ -53,10 +58,10 @@ public class campSiteServiceImp implements campSiteService {
      * @return returns the camp
      */
     @Override
-    public Campinfo getOneCampinfo(String name){
-        BList = (ArrayList<Campinfo>) campInfoRep.getAll();
-        Campinfo camp1 = null;
-        for (Campinfo camp : BList){
+    public Campsites getOneCampinfo(String name){
+        BList = (ArrayList<Campsites>) campInfoRep.getAll();
+        Campsites camp1 = null;
+        for (Campsites camp : BList){
             if (camp.getCampname().equals(name)){
                 camp1 = camp;
                 return camp1;
@@ -71,7 +76,7 @@ public class campSiteServiceImp implements campSiteService {
      */
     @Override
     public  ArrayList getCampinfo(){
-        BList = (ArrayList<Campinfo>) campInfoRep.getAll();
+        BList = (ArrayList<Campsites>) campInfoRep.getAll();
         return BList;
     }
 
@@ -82,8 +87,8 @@ public class campSiteServiceImp implements campSiteService {
      */
     @Override
     public boolean doesCampExist(String campname) {
-        BList = (ArrayList<Campinfo>) campInfoRep.getAll();
-        for (Campinfo t : BList) {
+        BList = (ArrayList<Campsites>) campInfoRep.getAll();
+        for (Campsites t : BList) {
             if (campname.equals(t.getCampname())){
                 return true;
             }
@@ -96,7 +101,7 @@ public class campSiteServiceImp implements campSiteService {
      * @param camp - the new camp
      */
     @Override
-    public void addNewCamp(Campinfo camp) {
+    public void addNewCamp(Campsites camp) {
         campInfoRep.addCamp(camp.getCampname(), camp.getCampaddress(), camp.getCampzip(), camp.getCampemail(), camp.getCampphone(), camp.getCampwebsite(), camp.getCampseason(), camp.getMaincategory(), camp.getCategory(), camp.getRegion(), camp.getDescription(), camp.getXval(), camp.getYval(), camp.getPrice());
     }
 
@@ -115,8 +120,72 @@ public class campSiteServiceImp implements campSiteService {
      * @param camp
      */
     @Override
-    public void updateCamp(Campinfo camp) {
+    public void updateCamp(Campsites camp) {
         campInfoRep.updateCamp(camp.getCampname(), camp.getCampaddress(), camp.getCampzip(), camp.getCampemail(), camp.getCampphone(), camp.getCampwebsite(), camp.getCampseason(), camp.getMaincategory(), camp.getCategory(), camp.getRegion(), camp.getDescription(), camp.getXval(), camp.getYval(), camp.getPrice());
+    }
+
+    @Override
+    public ArrayList getAmenities(String campname){
+        List<CampAmenities> amenities;
+        amenities = amenRep.findAllByCampname(campname);
+        /*List<String> truAm = null;
+        for (CampAmenities camp: amenities) {
+            if (camp.getCampingground()){
+                truAm.add("campingground.jpg");
+            }
+            if (camp.getCoffeeshop()){
+                truAm.add("coffeeshop.jpg");
+            }
+            if (camp.getConferenceroom()){
+                truAm.add("conferenceroom.jpg");
+            }
+            if (camp.getCookingarea()){
+                truAm.add("cookingarea.jpg");
+            }
+            if (camp.getCookingfacility()){
+                truAm.add("cookingfacility.jpg");
+            }
+            if (camp.getCottagerental()){
+                truAm.add("cottagerental.jpg");
+            }
+            if (camp.getElectricity()){
+                truAm.add("electricity.jpg");
+            }
+            if (camp.getFreewifi()){
+                truAm.add("freewifi.jpg");
+            }
+            if (camp.getHorseriding()){
+                truAm.add("horseriding.jpg");
+            }
+            if (camp.getHotpot()){
+                truAm.add("hotpot.jpg");
+            }
+            if (camp.getInternet()){
+                truAm.add("internet.jpg");
+            }
+            if (camp.getLaundry()){
+                truAm.add("laundry.jpg");
+            }
+            if (camp.getRestaurant()){
+                truAm.add("restaurant.jpg");
+            }
+            if (camp.getShower()){
+                truAm.add("shower.jpg");
+            }
+            if (camp.getSleepingbag()){
+                truAm.add("sleepingbag.jpg");
+            }
+            if (camp.getWalkingpath()){
+                truAm.add("walkingpath.jpg");
+            }
+            if (camp.getWastetank()){
+                truAm.add("wastetank.jpg");
+            }
+            if (camp.getWheelchair()){
+                truAm.add("wheelchair.jpg");
+            }
+        }*/
+        return (ArrayList) amenities;
     }
 
 

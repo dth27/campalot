@@ -1,0 +1,8 @@
+.login-container{
+    height:40rem;
+    width: 40rem;
+    margin-left: 40%;
+    margin-top: 10%;
+    box-shadow: 2px 2px 19px #004;
+    padding: 10%;
+}

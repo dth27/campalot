@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:replace="header">
+    <title id="pageTitle">Camp'a'Lot</title>
+    <div id="styleSheet">
+        <link th:href="@{/css/userpage.css}" href="../../css/userpage.css" rel="stylesheet"/>
+    </div>
+
+</head>
+<body>
+    <div class="maincontainer">
+        <div class="container-one">
+            <form th:action="@{accountinfo}" method="get">
+        <button class="btn">Account info</button>
+            </form>
+            <form th:action="@{browsecampsites}" method="get">
+        <button class="btn">Browse Campsites</button>
+            </form>
+        </div>
+        <div class="container-two">
+            <form th:action="@{travelplans}" method="get">
+        <button class="btn">Travelplans</button>
+            </form>
+            <form th:action="@{starttravel}" method="get">
+        <button class="btn">Start Travel</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

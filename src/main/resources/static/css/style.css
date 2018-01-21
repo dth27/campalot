@@ -1,0 +1,28 @@
+/* Main style sheet for whole app */
+/**
+    Colors:
+    Ghost white: #F7F7FF
+    Tuscanny: #C49991
+    Brilliant Azure: #279AF1
+    Black Coral: #60656F
+    Licorice: #131112
+
+    teal #36cdbf
+    dark teal #5ea9c1
+    light skin #F3DECD
+    camel #d6af7f
+    orange camel #b6714d
+ */
+body {
+    font-size: 70pt;
+    background-color: #F7F7FF
+}
+
+.main-container{
+
+    display: flex;
+    padding: 10%;
+}
+
+
+

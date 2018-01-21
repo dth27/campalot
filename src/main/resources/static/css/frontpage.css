@@ -1,0 +1,45 @@
+
+
+.jumbotron {
+    width: 25rem;
+    text-align: center;
+    height: 50rem;
+    font-family: avenir;
+    box-shadow: 5px 5px 18px  #004;
+    transition: opacity 2s;
+    opacity: 1;
+}
+.jumbotron:hover {
+    opacity: 0.5;
+
+}
+#campsites{
+
+    color: #fff;
+
+    font-size: 5rem;
+
+    text-align: center;
+    padding-top: 50%;
+}
+#login {
+
+    color: #fff;
+    font-size: 5rem;
+    text-align: center;
+    padding-top: 50%;
+
+}
+#campsites:hover {
+    background-color: #C49990;
+    color: #60656D;
+    opacity: 0.9;
+    text-decoration: none;
+
+}
+#login:hover {
+    background-color: #C49991;
+    color: #60656F;
+    opacity: 0.9;
+    text-decoration: none;
+}

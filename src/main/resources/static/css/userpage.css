@@ -1,0 +1,50 @@
+
+.container-one{
+    margin: 1%;
+    margin-left: 0%;
+
+}
+.container-two{
+    margin: 1%;
+    margin-left: 0%;
+
+}
+div{
+
+}
+
+.maincontainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+
+}
+
+a {
+    word-wrap: break-word;
+    text-decoration: none;
+
+
+}
+
+#heading {
+    text-decoration: none;
+}
+.btn {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    color: #f1f1f1;
+    border-radius: 0;
+    margin: 5%;
+    box-shadow: 5px 5px 1px  #F3DECD;
+    color: #5ea9c1;
+    font-size: 2rem;
+}
+/*
+     #36cdbf
+     #5ea9c1
+     #F3DECD
+     #d6af7f
+     #b6714d
+       */

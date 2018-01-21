@@ -1,6 +1,7 @@
 package is.hi.repository;
 
 import is.hi.model.Campinfo;
+import is.hi.model.Campsites;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -16,13 +17,13 @@ import java.util.List;
  * campinfoRepository class for campsites
  */
 
-public interface campinfoRepository extends JpaRepository<Campinfo, Long>{
+public interface campinfoRepository extends JpaRepository<Campsites, Long>{
 
     /**
      * Get all campinfo
      */
-    @Query(value = "SELECT n FROM Campinfo n")
-    List<Campinfo> getAll();
+    @Query(value = "SELECT n FROM Campsites n")
+    List<Campsites> getAll();
 
 
     /**

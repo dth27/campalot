@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:replace="header">
+    <title id="pageTitle">Camp'a'Lot</title>
+    <div id="styleSheet">
+        <link th:href="@{/css/login.css}" href="../../css/login.css" rel="stylesheet"/>
+    </div>
+
+</head>
+<body>
+<div class="col-sm-12 col-md-10 col-md-offset-1">
+    <div class="login-container">
+        <form th:action="@{userlogin}" method="post">
+            <fieldset>
+                <legend>Log in:</legend>
+                Username:
+                <input type="text" placeholder="Enter username" name="uname" th:required="required">Password</input>
+                <input type="password" placeholder="Enter password" name="psw" th:required="required"></input>
+                <button type="submit" method="POST" th:action="@{userlogin}">Login</button>
+                <input type="checkbox" checked="checked"> Remember me</input>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+                <button onclick="showPopupWindow()" type="button">Sign up!</button>
+            </fieldset>
+
+        </form>
+    </div>
+</div>
+<script>
+    function showPopupWindow() {
+        var myWindow = window.open(action = "newAccountSite", "", "width=600,height=400");
+    }
+</script>
+</body>
+</html>

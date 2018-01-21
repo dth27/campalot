@@ -1,6 +1,7 @@
 package is.hi.service;
 
 import is.hi.model.Campinfo;
+import is.hi.model.Campsites;
 import is.hi.model.TravelPlan;
 import is.hi.model.TravelPlanItem;
 import is.hi.repository.travelPlanItemRepository;
@@ -144,7 +145,7 @@ public class TravelPlanServiceImp implements TravelPlanService {
         long diff = travelplanitem.getDatedepart().getTime() - travelplanitem.getDatearrive().getTime();
         float days = (diff / (1000 * 60 * 60 * 24));
         int totaldays = Math.round(days);
-        Campinfo camp = campservice.getOneCampinfo(travelplanitem.getCampname());
+        Campsites camp = campservice.getOneCampinfo(travelplanitem.getCampname());
 
         int price = camp.getPrice() * totaldays;
         System.out.println(days);

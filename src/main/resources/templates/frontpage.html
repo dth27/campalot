@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      >
+<head th:replace="header">
+    <title id="pageTitle">Camp'a'Lot</title>
+    <div id="styleSheet">
+    <link th:href="@{/css/frontpage.css}" href="../../css/frontpage.css" rel="stylesheet"/>
+    </div>
+</head>
+
+<body>
+<div class="main-container" id="main-container">
+    <a th:href="listofcamps">
+    <div class="jumbotron" id="campsites">
+        Campsites
+    </div>
+    </a>
+    <a th:href="login">
+    <div class="jumbotron" id="login">
+        Login
+    </div>
+    </a>
+</div>
+
+<div class="bottom-nav">
+    Created By Diljá, Kristín, Ólöf og Sandra
+</div>
+
+</body>
+</html>

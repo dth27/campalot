@@ -2,7 +2,7 @@ package is.hi.service;
 
 
 
-import is.hi.model.Campinfo;
+import is.hi.model.Campsites;
 
 
 
@@ -18,12 +18,13 @@ import java.util.ArrayList;
 
 
 public interface campSiteService {
-    Campinfo getOneCampinfo(String name);
+    Campsites getOneCampinfo(String name);
     ArrayList getCampinfo();
     boolean doesCampExist(String campname);
-    void addNewCamp(Campinfo camp);
+    void addNewCamp(Campsites camp);
     void delCamp(String campname);
-    void updateCamp(Campinfo camp);
+    void updateCamp(Campsites camp);
     int countCampInfo();
     boolean erALifi();
+    ArrayList getAmenities(String campname);
 }

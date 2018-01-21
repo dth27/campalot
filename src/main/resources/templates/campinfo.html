@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:replace="header">
+    <title id="pageTitle">Camp'a'Lot</title>
+    <div id="styleSheet">
+        <link th:href="@{/css/campinfo.css}" href="../../css/campinfo.css" rel="stylesheet"/>
+    </div>
+</head>
+<body>
+    <h2>Campinfo</h2>
+    <div class="main-container">
+    <p th:text="${Campname}"><strong>Campsite</strong></p>
+        <div class="information-container">
+            <table class="table" th:each="camp: ${amenities}">
+
+                <tr th:if="${camp.wastetank}">Waste Disposal for mobile homes </tr>
+                <tr th:if="${camp.electricity}">Electricity </tr>
+                <tr th:if="${camp.walkingpath}">Walking paths </tr>
+                <tr th:if="${camp.cookingfacility}">Cooking facility </tr>
+                <tr th:if="${camp.cookingarea}">Cooking area </tr>
+                <tr th:if="${camp.internet}">Internet </tr>
+                <tr th:if="${camp.freewifi}">Wifi </tr>
+                <tr th:if="${camp.laundry}">Laundry machine </tr>
+                <tr th:if="${camp.hotpot}">Hot tub </tr>
+                <tr th:if="${camp.shower}">Shower </tr>
+                <tr th:if="${camp.horseriding}">Horse riding </tr>
+                <tr th:if="${camp.wheelchair}">Wheelchair access </tr>
+                <tr th:if="${camp.restaurant}">Restaurant </tr>
+                <tr th:if="${camp.coffeeshop}">Café </tr>
+                <tr th:if="${camp.cottagerental}">Cottage rental </tr>
+                <tr th:if="${camp.sleepingbag}">Sleeping bag accommodation </tr>
+
+            </table>
+
+
+        </div>
+        <div class="travelplan-form">
+            <form th:method="post" th:action="addToPlan">
+                <fieldset>
+                    From:
+                    <input type="date" placeholder="mm/dd/yyyy"/>
+                    To:
+                    <input type="date" placeholder="mm/dd/yyyy"/>
+                    <button type="submit" name="Campname" th:value="${Campname}">add to plan</button>
+                </fieldset>
+
+            </form>
+        </div>
+
+        <div class="container-one">
+            <form th:action="@{accountinfo}" method="get">
+                <button class="btn">Front page</button>
+            </form>
+            <form th:action="@{browsecampsites}" method="get">
+                <button class="btn">Back to Campsites</button>
+            </form>
+        </div>
+        <div class="container-two">
+            <form th:action="@{travelplans}" method="get">
+                <button class="btn">My Travelplans</button>
+            </form>
+            <form th:action="@{starttravel}" method="get">
+                <button class="btn">Start Travel</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
